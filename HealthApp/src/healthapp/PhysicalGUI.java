@@ -38,6 +38,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         dietBtn = new javax.swing.JButton();
         saveActivityIdBtn = new javax.swing.JButton();
         menuPhysicalBtn = new javax.swing.JButton();
+        workoutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,6 +92,14 @@ public class PhysicalGUI extends javax.swing.JFrame {
             }
         });
 
+        workoutBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        workoutBtn.setText("Workout Plan");
+        workoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                workoutBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,9 +108,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(263, 263, 263)
-                                .addComponent(physicalLbl))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(idPhysicalLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -120,28 +126,31 @@ public class PhysicalGUI extends javax.swing.JFrame {
                                 .addComponent(macroBtn)
                                 .addGap(31, 31, 31)
                                 .addComponent(cardioBtn)))
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(dietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(menuPhysicalBtn)))
+                        .addGap(18, 18, 18)
+                        .addComponent(dietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(workoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bmiBtn)
                             .addComponent(activityBtn))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(physicalLbl)
+                .addGap(259, 259, 259)
+                .addComponent(menuPhysicalBtn)
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(physicalLbl))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(menuPhysicalBtn)))
-                .addGap(14, 14, 14)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(physicalLbl)
+                    .addComponent(menuPhysicalBtn))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idPhysicalLbl)
                     .addComponent(idPhysicalTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -155,11 +164,12 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 .addComponent(bmiBtn)
                 .addGap(36, 36, 36)
                 .addComponent(activityBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(macroBtn)
                     .addComponent(cardioBtn)
-                    .addComponent(dietBtn))
+                    .addComponent(dietBtn)
+                    .addComponent(workoutBtn))
                 .addContainerGap())
         );
 
@@ -193,6 +203,13 @@ public class PhysicalGUI extends javax.swing.JFrame {
         pdg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_dietBtnActionPerformed
+
+    private void workoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workoutBtnActionPerformed
+        // TODO add your handling code here:
+        WorkoutGUI wg = new WorkoutGUI();
+        wg.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_workoutBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,5 +259,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.JButton menuPhysicalBtn;
     private javax.swing.JLabel physicalLbl;
     private javax.swing.JButton saveActivityIdBtn;
+    private javax.swing.JButton workoutBtn;
     // End of variables declaration//GEN-END:variables
 }

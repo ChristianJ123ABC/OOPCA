@@ -32,16 +32,16 @@
                       <Component id="pCaloriesTf" min="-2" pref="204" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                      <Component id="pCaloriesSubmitBtn" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                       <Component id="physicalMenuBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                       <Component id="pMacroLbl" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pCaloriesSaveBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="74" max="32767" attributes="0"/>
@@ -58,7 +58,7 @@
                   <Component id="pCaloriesTf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="pCaloriesSubmitBtn" min="-2" max="-2" attributes="0"/>
+              <Component id="pCaloriesSaveBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Component id="physicalMenuBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="97" max="32767" attributes="0"/>
@@ -84,13 +84,18 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="pCaloriesTf">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+      </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="pCaloriesSubmitBtn">
+    <Component class="javax.swing.JButton" name="pCaloriesSaveBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Submit"/>
+        <Property name="text" type="java.lang.String" value="Save"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="physicalMenuBtn">

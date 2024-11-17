@@ -38,13 +38,15 @@ public class PhysicalDietGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         savePDietBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        savePDietBtn.setText("Submit");
+        savePDietBtn.setText("Save");
 
         pDietMenuLbl.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         pDietMenuLbl.setText("Physical Wellbeing Diet");
 
         pDietLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         pDietLbl.setText("Diet Type:");
+
+        pDietTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         pDietTypeBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         pDietTypeBtn.setText("Types of Diet");
@@ -56,6 +58,8 @@ public class PhysicalDietGUI extends javax.swing.JFrame {
 
         pCaloriesLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         pCaloriesLbl.setText("Calories:");
+
+        pCaloriesTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         physicalMenuBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         physicalMenuBtn.setText("Back to Physical Menu");

@@ -34,7 +34,7 @@ public class WorkoutGUI extends javax.swing.JFrame {
         pFrequencyTf = new javax.swing.JTextField();
         pWorkoutDurationTf = new javax.swing.JTextField();
         pWorkoutDurationLbl = new javax.swing.JLabel();
-        pActivitySubmitBtn = new javax.swing.JButton();
+        pActivitySaveBtn = new javax.swing.JButton();
         physicalMenuBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,6 +44,8 @@ public class WorkoutGUI extends javax.swing.JFrame {
 
         pActivityLevelLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         pActivityLevelLbl.setText("Workout Type:");
+
+        mActivityLevelTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         pWorkoutTypeBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         pWorkoutTypeBtn.setText("Types of Workouts");
@@ -56,11 +58,15 @@ public class WorkoutGUI extends javax.swing.JFrame {
         pFrequencyLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         pFrequencyLbl.setText("Frequency (per week):");
 
+        pFrequencyTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        pWorkoutDurationTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
         pWorkoutDurationLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         pWorkoutDurationLbl.setText("Duration per session:");
 
-        pActivitySubmitBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        pActivitySubmitBtn.setText("Submit");
+        pActivitySaveBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        pActivitySaveBtn.setText("Save");
 
         physicalMenuBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         physicalMenuBtn.setText("Back to Physical Menu");
@@ -75,36 +81,33 @@ public class WorkoutGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(physicalMenuBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(pWorkoutTypeBtn)
-                .addGap(15, 15, 15))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(pActivityLevelLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(mActivityLevelTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(pFrequencyLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pFrequencyTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(pWorkoutDurationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pWorkoutDurationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(pActivitySubmitBtn)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pCardioLbl)
                 .addGap(81, 81, 81))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(physicalMenuBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addComponent(pWorkoutTypeBtn)
+                        .addGap(15, 15, 15))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(pActivityLevelLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mActivityLevelTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(pFrequencyLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pFrequencyTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(pWorkoutDurationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pWorkoutDurationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pActivitySaveBtn))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +127,7 @@ public class WorkoutGUI extends javax.swing.JFrame {
                     .addComponent(pWorkoutDurationLbl)
                     .addComponent(pWorkoutDurationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(pActivitySubmitBtn)
+                .addComponent(pActivitySaveBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pWorkoutTypeBtn)
@@ -184,7 +187,7 @@ public class WorkoutGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField mActivityLevelTf;
     private javax.swing.JLabel pActivityLevelLbl;
-    private javax.swing.JButton pActivitySubmitBtn;
+    private javax.swing.JButton pActivitySaveBtn;
     private javax.swing.JLabel pCardioLbl;
     private javax.swing.JLabel pFrequencyLbl;
     private javax.swing.JTextField pFrequencyTf;

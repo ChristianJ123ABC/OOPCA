@@ -29,7 +29,7 @@ public class MacroGUI extends javax.swing.JFrame {
         pMacroLbl = new javax.swing.JLabel();
         pCaloriesLbl = new javax.swing.JLabel();
         pCaloriesTf = new javax.swing.JTextField();
-        pCaloriesSubmitBtn = new javax.swing.JButton();
+        pCaloriesSaveBtn = new javax.swing.JButton();
         physicalMenuBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,8 +40,10 @@ public class MacroGUI extends javax.swing.JFrame {
         pCaloriesLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         pCaloriesLbl.setText("Calories:");
 
-        pCaloriesSubmitBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        pCaloriesSubmitBtn.setText("Submit");
+        pCaloriesTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        pCaloriesSaveBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        pCaloriesSaveBtn.setText("Save");
 
         physicalMenuBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         physicalMenuBtn.setText("Back to Physical Menu");
@@ -63,14 +65,14 @@ public class MacroGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pCaloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(pCaloriesSubmitBtn))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(physicalMenuBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
-                        .addComponent(pMacroLbl)))
+                        .addComponent(pMacroLbl))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pCaloriesSaveBtn)))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -82,7 +84,7 @@ public class MacroGUI extends javax.swing.JFrame {
                     .addComponent(pCaloriesLbl)
                     .addComponent(pCaloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(pCaloriesSubmitBtn)
+                .addComponent(pCaloriesSaveBtn)
                 .addGap(48, 48, 48)
                 .addComponent(physicalMenuBtn)
                 .addGap(0, 97, Short.MAX_VALUE))
@@ -135,7 +137,7 @@ public class MacroGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel pCaloriesLbl;
-    private javax.swing.JButton pCaloriesSubmitBtn;
+    private javax.swing.JButton pCaloriesSaveBtn;
     private javax.swing.JTextField pCaloriesTf;
     private javax.swing.JLabel pMacroLbl;
     private javax.swing.JButton physicalMenuBtn;

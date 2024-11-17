@@ -31,7 +31,7 @@ public class PhysicalCardioGUI extends javax.swing.JFrame {
         pCardioTypeTf = new javax.swing.JTextField();
         pCardioDurationLbl = new javax.swing.JLabel();
         pCardioDurationTf = new javax.swing.JTextField();
-        pActivitySubmitBtn = new javax.swing.JButton();
+        pActivitySaveBtn = new javax.swing.JButton();
         physicalMenuBtn = new javax.swing.JButton();
         pCardioTypeBtn = new javax.swing.JButton();
 
@@ -43,11 +43,15 @@ public class PhysicalCardioGUI extends javax.swing.JFrame {
         pCardioTypeLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         pCardioTypeLbl.setText("Type of Cardio:");
 
+        pCardioTypeTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
         pCardioDurationLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         pCardioDurationLbl.setText("Cardio Duration:");
 
-        pActivitySubmitBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        pActivitySubmitBtn.setText("Submit");
+        pCardioDurationTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        pActivitySaveBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        pActivitySaveBtn.setText("Save");
 
         physicalMenuBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         physicalMenuBtn.setText("Back to Physical Menu");
@@ -78,7 +82,7 @@ public class PhysicalCardioGUI extends javax.swing.JFrame {
                                 .addComponent(pCardioDurationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(pCardioDurationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(pActivitySubmitBtn)
+                            .addComponent(pActivitySaveBtn)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(pCardioTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -106,7 +110,7 @@ public class PhysicalCardioGUI extends javax.swing.JFrame {
                     .addComponent(pCardioDurationLbl)
                     .addComponent(pCardioDurationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(pActivitySubmitBtn)
+                .addComponent(pActivitySaveBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(physicalMenuBtn)
@@ -165,7 +169,7 @@ public class PhysicalCardioGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton pActivitySubmitBtn;
+    private javax.swing.JButton pActivitySaveBtn;
     private javax.swing.JLabel pCardioDurationLbl;
     private javax.swing.JTextField pCardioDurationTf;
     private javax.swing.JLabel pCardioLbl;

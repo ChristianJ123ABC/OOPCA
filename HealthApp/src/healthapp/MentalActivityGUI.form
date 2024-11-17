@@ -42,7 +42,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="mActivitySubmitBtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="mActivitySaveBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -81,7 +81,7 @@
                   <Component id="mActivityDurationTf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="mActivitySubmitBtn" min="-2" max="-2" attributes="0"/>
+              <Component id="mActivitySaveBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="46" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="mentalMenuBtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -110,6 +110,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="mActivityLevelTf">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="mActivityDurationLbl">
       <Properties>
@@ -120,13 +125,18 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="mActivityDurationTf">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+      </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="mActivitySubmitBtn">
+    <Component class="javax.swing.JButton" name="mActivitySaveBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Submit"/>
+        <Property name="text" type="java.lang.String" value="Save"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="mentalMenuBtn">

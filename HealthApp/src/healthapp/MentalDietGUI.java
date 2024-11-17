@@ -43,6 +43,8 @@ public class MentalDietGUI extends javax.swing.JFrame {
         mDietLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         mDietLbl.setText("Diet Type:");
 
+        mDietTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
         mDietTypeBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         mDietTypeBtn.setText("Types of Diet");
         mDietTypeBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -62,8 +64,10 @@ public class MentalDietGUI extends javax.swing.JFrame {
         mCaloriesLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         mCaloriesLbl.setText("Calories:");
 
+        mCaloriesTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
         saveMDietBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        saveMDietBtn.setText("Submit");
+        saveMDietBtn.setText("Save");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,11 +91,11 @@ public class MentalDietGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mCaloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(saveMDietBtn))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(177, 177, 177)
-                        .addComponent(mDietMenuLbl)))
+                        .addComponent(mDietMenuLbl))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(saveMDietBtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

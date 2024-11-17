@@ -42,6 +42,45 @@ public class PhysicalGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+ private void macroNutrientsBtnActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        // TODO add your handling code here:
+              PhysicalGUI pg = new PhysicalGUI();
+        pg.setVisible(true);
+        this.dispose();
+    }                                                 
+
+    private void workoutPlanBtnActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+           PhysicalGUI pg = new PhysicalGUI();
+        pg.setVisible(true);
+        this.dispose();
+    }                                              
+
+    private void activityMBtnActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+           PhysicalGUI pg = new PhysicalGUI();
+        pg.setVisible(true);
+        this.dispose();
+    }                                            
+
+    private void dietMBtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+           PhysicalGUI pg = new PhysicalGUI();
+        pg.setVisible(true);
+        this.dispose();
+    }                                        
+
+    private void menuBtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        // TODO add your handling code here:
+           PhysicalGUI pg = new PhysicalGUI();
+        pg.setVisible(true);
+        this.dispose();
+    }                                       
+
+
+
+
     /**
      * @param args the command line arguments
      */

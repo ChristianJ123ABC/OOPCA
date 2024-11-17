@@ -26,7 +26,7 @@ public class PhysicalDietGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        savePDietBtn = new javax.swing.JButton();
+        submitPDietBtn = new javax.swing.JButton();
         pDietMenuLbl = new javax.swing.JLabel();
         pDietLbl = new javax.swing.JLabel();
         pDietTf = new javax.swing.JTextField();
@@ -37,8 +37,8 @@ public class PhysicalDietGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        savePDietBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        savePDietBtn.setText("Save");
+        submitPDietBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        submitPDietBtn.setText("Submit");
 
         pDietMenuLbl.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         pDietMenuLbl.setText("Physical Wellbeing Diet");
@@ -93,7 +93,7 @@ public class PhysicalDietGUI extends javax.swing.JFrame {
                         .addComponent(pCaloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addComponent(savePDietBtn)))
+                        .addComponent(submitPDietBtn)))
                 .addContainerGap(213, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -114,7 +114,7 @@ public class PhysicalDietGUI extends javax.swing.JFrame {
                     .addComponent(pCaloriesLbl)
                     .addComponent(pCaloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(savePDietBtn)
+                .addComponent(submitPDietBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pDietTypeBtn)
@@ -179,6 +179,6 @@ public class PhysicalDietGUI extends javax.swing.JFrame {
     private javax.swing.JTextField pDietTf;
     private javax.swing.JButton pDietTypeBtn;
     private javax.swing.JButton physicalMenuBtn;
-    private javax.swing.JButton savePDietBtn;
+    private javax.swing.JButton submitPDietBtn;
     // End of variables declaration//GEN-END:variables
 }

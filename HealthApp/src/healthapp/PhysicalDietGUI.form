@@ -46,7 +46,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="savePDietBtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="submitPDietBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="213" max="32767" attributes="0"/>
@@ -74,7 +74,7 @@
                   <Component id="pCaloriesTf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="savePDietBtn" min="-2" max="-2" attributes="0"/>
+              <Component id="submitPDietBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="28" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="pDietTypeBtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -86,12 +86,12 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="savePDietBtn">
+    <Component class="javax.swing.JButton" name="submitPDietBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Save"/>
+        <Property name="text" type="java.lang.String" value="Submit"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="pDietMenuLbl">

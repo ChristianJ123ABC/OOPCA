@@ -54,7 +54,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="pWorkoutDurationTf" min="-2" pref="204" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="pActivitySaveBtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="pActivitySubmitBtn" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -83,7 +83,7 @@
                   <Component id="pWorkoutDurationTf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="pActivitySaveBtn" min="-2" max="-2" attributes="0"/>
+              <Component id="pActivitySubmitBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="41" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="pWorkoutTypeBtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -159,12 +159,12 @@
         <Property name="text" type="java.lang.String" value="Duration per session:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="pActivitySaveBtn">
+    <Component class="javax.swing.JButton" name="pActivitySubmitBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Save"/>
+        <Property name="text" type="java.lang.String" value="Submit"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="physicalMenuBtn">

@@ -34,7 +34,7 @@ public class WorkoutGUI extends javax.swing.JFrame {
         pFrequencyTf = new javax.swing.JTextField();
         pWorkoutDurationTf = new javax.swing.JTextField();
         pWorkoutDurationLbl = new javax.swing.JLabel();
-        pActivitySaveBtn = new javax.swing.JButton();
+        pActivitySubmitBtn = new javax.swing.JButton();
         physicalMenuBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,8 +65,8 @@ public class WorkoutGUI extends javax.swing.JFrame {
         pWorkoutDurationLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         pWorkoutDurationLbl.setText("Duration per session:");
 
-        pActivitySaveBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        pActivitySaveBtn.setText("Save");
+        pActivitySubmitBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        pActivitySubmitBtn.setText("Submit");
 
         physicalMenuBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         physicalMenuBtn.setText("Back to Physical Menu");
@@ -106,7 +106,7 @@ public class WorkoutGUI extends javax.swing.JFrame {
                                 .addComponent(pWorkoutDurationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(pWorkoutDurationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(pActivitySaveBtn))
+                            .addComponent(pActivitySubmitBtn))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -127,7 +127,7 @@ public class WorkoutGUI extends javax.swing.JFrame {
                     .addComponent(pWorkoutDurationLbl)
                     .addComponent(pWorkoutDurationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(pActivitySaveBtn)
+                .addComponent(pActivitySubmitBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pWorkoutTypeBtn)
@@ -187,7 +187,7 @@ public class WorkoutGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField mActivityLevelTf;
     private javax.swing.JLabel pActivityLevelLbl;
-    private javax.swing.JButton pActivitySaveBtn;
+    private javax.swing.JButton pActivitySubmitBtn;
     private javax.swing.JLabel pCardioLbl;
     private javax.swing.JLabel pFrequencyLbl;
     private javax.swing.JTextField pFrequencyTf;

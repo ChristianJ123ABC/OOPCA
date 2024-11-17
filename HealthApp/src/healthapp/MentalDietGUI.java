@@ -33,7 +33,7 @@ public class MentalDietGUI extends javax.swing.JFrame {
         mentalMenuBtn = new javax.swing.JButton();
         mCaloriesLbl = new javax.swing.JLabel();
         mCaloriesTf = new javax.swing.JTextField();
-        saveMDietBtn = new javax.swing.JButton();
+        submitMDietBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,8 +66,8 @@ public class MentalDietGUI extends javax.swing.JFrame {
 
         mCaloriesTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        saveMDietBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        saveMDietBtn.setText("Save");
+        submitMDietBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        submitMDietBtn.setText("Submit");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,7 +95,7 @@ public class MentalDietGUI extends javax.swing.JFrame {
                         .addComponent(mDietMenuLbl))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(saveMDietBtn)))
+                        .addComponent(submitMDietBtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -112,7 +112,7 @@ public class MentalDietGUI extends javax.swing.JFrame {
                     .addComponent(mCaloriesLbl)
                     .addComponent(mCaloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(saveMDietBtn)
+                .addComponent(submitMDietBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mDietTypeBtn)
@@ -177,6 +177,6 @@ public class MentalDietGUI extends javax.swing.JFrame {
     private javax.swing.JTextField mDietTf;
     private javax.swing.JButton mDietTypeBtn;
     private javax.swing.JButton mentalMenuBtn;
-    private javax.swing.JButton saveMDietBtn;
+    private javax.swing.JButton submitMDietBtn;
     // End of variables declaration//GEN-END:variables
 }

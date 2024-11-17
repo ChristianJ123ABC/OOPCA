@@ -42,6 +42,47 @@ public class MentalGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+ private void stressManagementBtnActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        // TODO add your handling code here:
+               MentalGUI mg = new MentalGUI();
+        mg.setVisible(true);
+        this.dispose();
+    }                    
+                                                    
+
+    private void sleepManagementBtnActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+            MentalGUI mg = new MentalGUI();
+        mg.setVisible(true);
+        this.dispose();
+    }                    
+                                         
+
+    private void activityMBtnActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+            MentalGUI mg = new MentalGUI();
+        mg.setVisible(true);
+        this.dispose();
+    }                    
+                                                
+
+    private void DietMBtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+             MentalGUI mg = new MentalGUI();
+        mg.setVisible(true);
+        this.dispose();
+    }                    
+                                            
+
+    private void menuBtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        // TODO add your handling code here:
+           MentalGUI mg = new MentalGUI();
+        mg.setVisible(true);
+        this.dispose();
+    }                                       
+
+
     /**
      * @param args the command line arguments
      */
@@ -77,6 +118,11 @@ public class MentalGUI extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton DietMBtn;
+    private javax.swing.JButton activityMBtn;
+    private javax.swing.JButton menuBtn;
+    private javax.swing.JButton sleepManagementBtn;
+    private javax.swing.JButton stressManagementBtn;
+    // End of variables declaration 
 }

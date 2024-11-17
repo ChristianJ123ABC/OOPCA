@@ -43,9 +43,9 @@ public class MentalGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
- private void stressManagementBtnActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+    private void stressManagementBtnActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
-               MentalGUI mg = new MentalGUI();
+        MentalGUI mg = new MentalGUI();
         mg.setVisible(true);
         this.dispose();
     }                    
@@ -53,7 +53,7 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void sleepManagementBtnActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
-            MentalGUI mg = new MentalGUI();
+        MentalGUI mg = new MentalGUI();
         mg.setVisible(true);
         this.dispose();
     }                    
@@ -61,7 +61,7 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void activityMBtnActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-            MentalGUI mg = new MentalGUI();
+        MentalGUI mg = new MentalGUI();
         mg.setVisible(true);
         this.dispose();
     }                    
@@ -69,7 +69,7 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void DietMBtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-             MentalGUI mg = new MentalGUI();
+        MentalGUI mg = new MentalGUI();
         mg.setVisible(true);
         this.dispose();
     }                    
@@ -77,7 +77,7 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void menuBtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
-           MentalGUI mg = new MentalGUI();
+        MentalGUI mg = new MentalGUI();
         mg.setVisible(true);
         this.dispose();
     }                                       

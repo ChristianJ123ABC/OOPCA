@@ -35,7 +35,7 @@ public class MentalActivityGUI extends javax.swing.JFrame {
         mentalMenuBtn = new javax.swing.JButton();
         mActivityTypeBtn = new javax.swing.JButton();
         mActivityTypeLbl = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        mActivityTypeTf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,7 +77,7 @@ public class MentalActivityGUI extends javax.swing.JFrame {
         mActivityTypeLbl.setMinimumSize(new java.awt.Dimension(120, 25));
         mActivityTypeLbl.setPreferredSize(new java.awt.Dimension(120, 25));
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        mActivityTypeTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,7 +115,7 @@ public class MentalActivityGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(mActivityTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mActivityTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -130,7 +130,7 @@ public class MentalActivityGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mActivityTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mActivityTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mActivityDurationLbl)
@@ -195,7 +195,6 @@ public class MentalActivityGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel mActivityDurationLbl;
     private javax.swing.JTextField mActivityDurationTf;
     private javax.swing.JLabel mActivityLevelLbl;
@@ -204,6 +203,7 @@ public class MentalActivityGUI extends javax.swing.JFrame {
     private javax.swing.JButton mActivitySubmitBtn;
     private javax.swing.JButton mActivityTypeBtn;
     private javax.swing.JLabel mActivityTypeLbl;
+    private javax.swing.JTextField mActivityTypeTf;
     private javax.swing.JButton mentalMenuBtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,14 +27,14 @@ public class WorkoutGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         pCardioLbl = new javax.swing.JLabel();
-        pActivityLevelLbl = new javax.swing.JLabel();
-        mActivityLevelTf = new javax.swing.JTextField();
+        pWorkoutTypeLbl = new javax.swing.JLabel();
+        pWorkoutTypeTf = new javax.swing.JTextField();
         pWorkoutTypeBtn = new javax.swing.JButton();
         pFrequencyLbl = new javax.swing.JLabel();
         pFrequencyTf = new javax.swing.JTextField();
         pWorkoutDurationTf = new javax.swing.JTextField();
         pWorkoutDurationLbl = new javax.swing.JLabel();
-        pActivitySubmitBtn = new javax.swing.JButton();
+        pWorkoutSubmitBtn = new javax.swing.JButton();
         physicalMenuBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,10 +42,10 @@ public class WorkoutGUI extends javax.swing.JFrame {
         pCardioLbl.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         pCardioLbl.setText("Physical Wellbeing Workout Plan");
 
-        pActivityLevelLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        pActivityLevelLbl.setText("Workout Type:");
+        pWorkoutTypeLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        pWorkoutTypeLbl.setText("Workout Type:");
 
-        mActivityLevelTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        pWorkoutTypeTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         pWorkoutTypeBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         pWorkoutTypeBtn.setText("Types of Workouts");
@@ -65,8 +65,8 @@ public class WorkoutGUI extends javax.swing.JFrame {
         pWorkoutDurationLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         pWorkoutDurationLbl.setText("Duration per session:");
 
-        pActivitySubmitBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        pActivitySubmitBtn.setText("Submit");
+        pWorkoutSubmitBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        pWorkoutSubmitBtn.setText("Submit");
 
         physicalMenuBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         physicalMenuBtn.setText("Back to Physical Menu");
@@ -95,9 +95,9 @@ public class WorkoutGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(pActivityLevelLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pWorkoutTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mActivityLevelTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(pWorkoutTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(pFrequencyLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -106,7 +106,7 @@ public class WorkoutGUI extends javax.swing.JFrame {
                                 .addComponent(pWorkoutDurationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(pWorkoutDurationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(pActivitySubmitBtn))
+                            .addComponent(pWorkoutSubmitBtn))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -116,8 +116,8 @@ public class WorkoutGUI extends javax.swing.JFrame {
                 .addComponent(pCardioLbl)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pActivityLevelLbl)
-                    .addComponent(mActivityLevelTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pWorkoutTypeLbl)
+                    .addComponent(pWorkoutTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pFrequencyLbl)
@@ -127,7 +127,7 @@ public class WorkoutGUI extends javax.swing.JFrame {
                     .addComponent(pWorkoutDurationLbl)
                     .addComponent(pWorkoutDurationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(pActivitySubmitBtn)
+                .addComponent(pWorkoutSubmitBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pWorkoutTypeBtn)
@@ -185,15 +185,15 @@ public class WorkoutGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField mActivityLevelTf;
-    private javax.swing.JLabel pActivityLevelLbl;
-    private javax.swing.JButton pActivitySubmitBtn;
     private javax.swing.JLabel pCardioLbl;
     private javax.swing.JLabel pFrequencyLbl;
     private javax.swing.JTextField pFrequencyTf;
     private javax.swing.JLabel pWorkoutDurationLbl;
     private javax.swing.JTextField pWorkoutDurationTf;
+    private javax.swing.JButton pWorkoutSubmitBtn;
     private javax.swing.JButton pWorkoutTypeBtn;
+    private javax.swing.JLabel pWorkoutTypeLbl;
+    private javax.swing.JTextField pWorkoutTypeTf;
     private javax.swing.JButton physicalMenuBtn;
     // End of variables declaration//GEN-END:variables
 }

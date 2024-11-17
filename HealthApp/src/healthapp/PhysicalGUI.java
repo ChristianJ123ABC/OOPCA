@@ -116,6 +116,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
-}
+    // Variables declaration - do not modify            
+    private javax.swing.JButton activityMBtn;
+    private javax.swing.JButton dietMBtn;
+    private javax.swing.JButton macroNutrientsBtn;
+    private javax.swing.JButton menuBtn;
+    private javax.swing.JButton workoutPlanBtn;
+    // End of variables declaration  
+   }

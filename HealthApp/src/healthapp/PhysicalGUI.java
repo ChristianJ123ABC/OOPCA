@@ -6,7 +6,7 @@ package healthapp;
 
 /**
  *
- * @author chris
+ * @author flips
  */
 public class PhysicalGUI extends javax.swing.JFrame {
 
@@ -26,60 +26,173 @@ public class PhysicalGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        physicalLbl = new javax.swing.JLabel();
+        idPhysicalLbl = new javax.swing.JLabel();
+        idPhysicalTf = new javax.swing.JTextField();
+        activityLbl = new javax.swing.JLabel();
+        activityBtn = new javax.swing.JButton();
+        activityTf = new javax.swing.JTextField();
+        bmiBtn = new javax.swing.JButton();
+        macroBtn = new javax.swing.JButton();
+        cardioBtn = new javax.swing.JButton();
+        dietBtn = new javax.swing.JButton();
+        saveActivityIdBtn = new javax.swing.JButton();
+        menuPhysicalBtn = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        physicalLbl.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        physicalLbl.setText("Physical Health");
+
+        idPhysicalLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        idPhysicalLbl.setText("ID:");
+
+        activityLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        activityLbl.setText("Activity Level:");
+
+        activityBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        activityBtn.setText("What is Activity level?");
+
+        bmiBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bmiBtn.setText("BMI Checker");
+
+        macroBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        macroBtn.setText("Macronutrients");
+        macroBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                macroBtnActionPerformed(evt);
+            }
+        });
+
+        cardioBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cardioBtn.setText("Activity/Cardio");
+        cardioBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cardioBtnActionPerformed(evt);
+            }
+        });
+
+        dietBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        dietBtn.setText("Diet");
+        dietBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dietBtnActionPerformed(evt);
+            }
+        });
+
+        saveActivityIdBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        saveActivityIdBtn.setText("Save ID and Activity Level");
+
+        menuPhysicalBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        menuPhysicalBtn.setText("Menu");
+        menuPhysicalBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuPhysicalBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(263, 263, 263)
+                                .addComponent(physicalLbl))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(idPhysicalLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(idPhysicalTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(saveActivityIdBtn)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(activityLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(activityTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(macroBtn)
+                                .addGap(31, 31, 31)
+                                .addComponent(cardioBtn)))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(dietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(menuPhysicalBtn)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bmiBtn)
+                            .addComponent(activityBtn))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(physicalLbl))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(menuPhysicalBtn)))
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idPhysicalLbl)
+                    .addComponent(idPhysicalTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activityLbl)
+                    .addComponent(activityTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(saveActivityIdBtn)
+                .addGap(85, 85, 85)
+                .addComponent(bmiBtn)
+                .addGap(36, 36, 36)
+                .addComponent(activityBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(macroBtn)
+                    .addComponent(cardioBtn)
+                    .addComponent(dietBtn))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
-    private void macroNutrientsBtnActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+    private void menuPhysicalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPhysicalBtnActionPerformed
         // TODO add your handling code here:
-        PhysicalGUI pg = new PhysicalGUI();
-        pg.setVisible(true);
+        MenuGUI mg = new MenuGUI();
+        mg.setVisible(true);
         this.dispose();
-    }                                                 
+    }//GEN-LAST:event_menuPhysicalBtnActionPerformed
 
-    private void workoutPlanBtnActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void macroBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_macroBtnActionPerformed
         // TODO add your handling code here:
-        PhysicalGUI pg = new PhysicalGUI();
-        pg.setVisible(true);
+        MacroGUI mg = new MacroGUI();
+        mg.setVisible(true);
         this.dispose();
-    }                                              
+    }//GEN-LAST:event_macroBtnActionPerformed
 
-    private void activityMBtnActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void cardioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardioBtnActionPerformed
         // TODO add your handling code here:
-        PhysicalGUI pg = new PhysicalGUI();
-        pg.setVisible(true);
+        PhysicalCardioGUI pcg = new PhysicalCardioGUI();
+        pcg.setVisible(true);
         this.dispose();
-    }                                            
+    }//GEN-LAST:event_cardioBtnActionPerformed
 
-    private void dietMBtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void dietBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietBtnActionPerformed
         // TODO add your handling code here:
-        PhysicalGUI pg = new PhysicalGUI();
-        pg.setVisible(true);
+        PhysicalDietGUI pdg = new PhysicalDietGUI();
+        pdg.setVisible(true);
         this.dispose();
-    }                                        
-
-    private void menuBtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        // TODO add your handling code here:
-        PhysicalGUI pg = new PhysicalGUI();
-        pg.setVisible(true);
-        this.dispose();
-    }                                       
-
-
-
+    }//GEN-LAST:event_dietBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,11 +229,18 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify            
-    private javax.swing.JButton activityMBtn;
-    private javax.swing.JButton dietMBtn;
-    private javax.swing.JButton macroNutrientsBtn;
-    private javax.swing.JButton menuBtn;
-    private javax.swing.JButton workoutPlanBtn;
-    // End of variables declaration  
-   }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton activityBtn;
+    private javax.swing.JLabel activityLbl;
+    private javax.swing.JTextField activityTf;
+    private javax.swing.JButton bmiBtn;
+    private javax.swing.JButton cardioBtn;
+    private javax.swing.JButton dietBtn;
+    private javax.swing.JLabel idPhysicalLbl;
+    private javax.swing.JTextField idPhysicalTf;
+    private javax.swing.JButton macroBtn;
+    private javax.swing.JButton menuPhysicalBtn;
+    private javax.swing.JLabel physicalLbl;
+    private javax.swing.JButton saveActivityIdBtn;
+    // End of variables declaration//GEN-END:variables
+}

@@ -29,13 +29,21 @@ public class MenuGUI extends javax.swing.JFrame {
         menuTf = new javax.swing.JLabel();
         physicalMenuBtn = new javax.swing.JButton();
         mentalMenuBtn = new javax.swing.JButton();
+        idLbl = new javax.swing.JLabel();
+        nameLbl = new javax.swing.JLabel();
+        weightLbl = new javax.swing.JLabel();
+        heightLbl = new javax.swing.JLabel();
+        nameTf = new javax.swing.JTextField();
+        weightTf = new javax.swing.JTextField();
+        heightTf = new javax.swing.JTextField();
+        idTf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         menuTf.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         menuTf.setText("Good Health and Wellbeing");
 
-        physicalMenuBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        physicalMenuBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         physicalMenuBtn.setText("Physical Health ");
         physicalMenuBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,11 +51,47 @@ public class MenuGUI extends javax.swing.JFrame {
             }
         });
 
-        mentalMenuBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        mentalMenuBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         mentalMenuBtn.setText("Mental Wellbeing");
         mentalMenuBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mentalMenuBtnActionPerformed(evt);
+            }
+        });
+
+        idLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        idLbl.setText("ID:");
+
+        nameLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        nameLbl.setText("Name:");
+
+        weightLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        weightLbl.setText("Weight (in KG): ");
+
+        heightLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        heightLbl.setText("Height (in cm)");
+
+        nameTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTfActionPerformed(evt);
+            }
+        });
+
+        weightTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weightTfActionPerformed(evt);
+            }
+        });
+
+        heightTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heightTfActionPerformed(evt);
+            }
+        });
+
+        idTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idTfActionPerformed(evt);
             }
         });
 
@@ -56,15 +100,31 @@ public class MenuGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(physicalMenuBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(mentalMenuBtn)
-                .addGap(24, 24, 24))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(menuTf)
-                .addGap(92, 92, 92))
+                .addGap(240, 240, 240))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(idLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nameLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(weightLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(heightLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(40, 40, 40)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(weightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameTf, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(heightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idTf, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(physicalMenuBtn)
+                    .addComponent(mentalMenuBtn))
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,9 +133,25 @@ public class MenuGUI extends javax.swing.JFrame {
                 .addComponent(menuTf)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(physicalMenuBtn)
-                    .addComponent(mentalMenuBtn))
-                .addContainerGap(210, Short.MAX_VALUE))
+                    .addComponent(mentalMenuBtn)
+                    .addComponent(idLbl)
+                    .addComponent(idTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(physicalMenuBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nameLbl)
+                            .addComponent(nameTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(75, 75, 75)
+                        .addComponent(weightLbl))
+                    .addComponent(weightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(79, 79, 79)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(heightLbl)
+                    .addComponent(heightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         pack();
@@ -94,6 +170,22 @@ public class MenuGUI extends javax.swing.JFrame {
         mg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_mentalMenuBtnActionPerformed
+
+    private void nameTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTfActionPerformed
+
+    private void weightTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weightTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_weightTfActionPerformed
+
+    private void heightTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heightTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_heightTfActionPerformed
+
+    private void idTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idTfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,8 +223,16 @@ public class MenuGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel heightLbl;
+    private javax.swing.JTextField heightTf;
+    private javax.swing.JLabel idLbl;
+    private javax.swing.JTextField idTf;
     private javax.swing.JButton mentalMenuBtn;
     private javax.swing.JLabel menuTf;
+    private javax.swing.JLabel nameLbl;
+    private javax.swing.JTextField nameTf;
     private javax.swing.JButton physicalMenuBtn;
+    private javax.swing.JLabel weightLbl;
+    private javax.swing.JTextField weightTf;
     // End of variables declaration//GEN-END:variables
 }

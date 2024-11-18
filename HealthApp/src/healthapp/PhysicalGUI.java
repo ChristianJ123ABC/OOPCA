@@ -180,7 +180,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void menuPhysicalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPhysicalBtnActionPerformed
         // TODO add your handling code here:
-        MenuGUI mg = new MenuGUI();
+        UserGUI mg = new UserGUI();
         mg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuPhysicalBtnActionPerformed

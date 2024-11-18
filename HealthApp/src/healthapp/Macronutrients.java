@@ -42,6 +42,7 @@ public class Macronutrients extends Physical { //used to grab variables from sup
         protein = 0.0;
         carbs = 0.0;
         fats = 0.0;
+        bmr = 0.0;
         bmiCheck = " ";
     }
     

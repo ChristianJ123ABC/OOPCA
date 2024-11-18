@@ -30,7 +30,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         activityLbl = new javax.swing.JLabel();
         activityBtn = new javax.swing.JButton();
         activityTf = new javax.swing.JTextField();
-        bmiBtn = new javax.swing.JButton();
         macroBtn = new javax.swing.JButton();
         cardioBtn = new javax.swing.JButton();
         saveActivityBtn = new javax.swing.JButton();
@@ -55,14 +54,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         activityTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activityTfActionPerformed(evt);
-            }
-        });
-
-        bmiBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        bmiBtn.setText("BMI Checker");
-        bmiBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bmiBtnActionPerformed(evt);
             }
         });
 
@@ -124,7 +115,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bmiBtn)
                             .addComponent(activityBtn)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(activityLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,11 +160,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     .addComponent(saveActivityBtn)
                     .addComponent(displayActivityBtn)
                     .addComponent(removeActivityBtn))
-                .addGap(62, 62, 62)
-                .addComponent(bmiBtn)
-                .addGap(27, 27, 27)
+                .addGap(73, 73, 73)
                 .addComponent(activityBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(menuPhysicalBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -227,10 +215,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_activityTfActionPerformed
 
-    private void bmiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bmiBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bmiBtnActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -270,7 +254,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.JButton activityBtn;
     private javax.swing.JLabel activityLbl;
     private javax.swing.JTextField activityTf;
-    private javax.swing.JButton bmiBtn;
     private javax.swing.JButton cardioBtn;
     private javax.swing.JButton dietBtn;
     private javax.swing.JButton displayActivityBtn;

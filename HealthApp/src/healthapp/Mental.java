@@ -20,5 +20,27 @@ public class Mental {
         this.stressLevel = stressLevel;
         this.sleepHours = sleepHours;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setStressLevel(String stressLevel) {
+        this.stressLevel = stressLevel;
+    }
+
+    public void setSleepHours(float sleepHours) {
+        this.sleepHours = sleepHours;
+    }
+
+    public String getStressLevel() {
+        return stressLevel;
+    }
+
+    public float getSleepHours() {
+        return sleepHours;
+    }
+    
+    
     
 }

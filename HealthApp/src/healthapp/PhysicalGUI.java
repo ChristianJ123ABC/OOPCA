@@ -52,9 +52,19 @@ public class PhysicalGUI extends javax.swing.JFrame {
         activityBtn.setText("What is Activity level?");
 
         activityTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        activityTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activityTfActionPerformed(evt);
+            }
+        });
 
         bmiBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         bmiBtn.setText("BMI Checker");
+        bmiBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bmiBtnActionPerformed(evt);
+            }
+        });
 
         macroBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         macroBtn.setText("Macronutrients");
@@ -212,6 +222,14 @@ public class PhysicalGUI extends javax.swing.JFrame {
         pdg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_dietBtnActionPerformed
+
+    private void activityTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_activityTfActionPerformed
+
+    private void bmiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bmiBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bmiBtnActionPerformed
 
     /**
      * @param args the command line arguments

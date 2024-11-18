@@ -10,8 +10,8 @@ package healthapp;
  */
 public class Physical extends User { //used to grab variables from superclass
     //declare variables
-    private double bmi;
-    private String activityLevel;
+    protected double bmi;
+    protected String activityLevel;
 
     //overloaded constructor
     public Physical(double bmi, String activityLevel, int id, int age, String name, double weight, double height) {

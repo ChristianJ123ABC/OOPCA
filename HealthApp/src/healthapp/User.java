@@ -10,12 +10,14 @@ import java.io.Serializable;
  *
  * @author Christian Joseph - created the entire User superclass
  */
-public abstract class User implements Serializable { //creates an abstract class and prevents any GUI errors 
+public class User implements Serializable { //creates an abstract class and prevents any GUI errors 
     protected int id;
     protected String name;
     protected double weight;
     protected double height;
     protected int age;
+    
+    
     
     //overloaded constructor
     public User(int id, int age, String name, double weight, double height) {
@@ -80,6 +82,7 @@ public abstract class User implements Serializable { //creates an abstract class
     public String getDetails(){
         return "ID: "+id+"\n Age: "+age+"\n Name: "+name+"\n Weight: "+weight+"\n Height: "+height;
     }
+    
     
     
     

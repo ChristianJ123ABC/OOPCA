@@ -15,6 +15,7 @@ public class Macronutrients extends Physical { //used to grab variables from sup
     private double protein;
     private double carbs;
     private double fats;
+    private String bmiCheck;
 
     //overloaded constructor
     public Macronutrients(double calories, double waterIntake, double protein, double carbs, double fats, double bmi, String activityLevel, int id, int age, String name, double weight, double height) {
@@ -45,7 +46,34 @@ public class Macronutrients extends Physical { //used to grab variables from sup
         fats = 0.2*calories;
         carbs = 0.4*calories;
         waterIntake = weight*0.03;
+        
     }
+    
+    public void checkBmi(){
+        //source https://www.pacehospital.com/bmi-calculator-ranges-importance
+        if(bmi>=35){
+            bmiCheck = "Extremely Obese";
+        }
+        
+        else if(bmi>30 && bmi<=34.9){
+            bmiCheck = "Obese";
+        }
+        
+        else if(bmi>24.9 && bmi<=29.9){
+            bmiCheck = "Overweight";
+        }
+        
+        else if (bmi>18.5 && bmi<=24.9){
+            bmiCheck = "Normal weight";
+        }
+        
+        else{
+            bmiCheck = "Underweight";
+        }
+    }
+    
+    
+    
 
     //setters and getters
     public double getCalories() {

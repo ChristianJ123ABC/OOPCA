@@ -8,13 +8,15 @@ package healthapp;
  *
  * @author chris
  */
-public class Macronutrients extends Physical {
+public class Macronutrients extends Physical { //used to grab variables from superclass
+    //declare variables
     private double calories;
     private double waterIntake;
     private double protein;
     private double carbs;
     private double fats;
 
+    //overloaded constructor
     public Macronutrients(double calories, double waterIntake, double protein, double carbs, double fats, double bmi, String activityLevel, int id, int age, String name, double weight, double height) {
         super(bmi, activityLevel, id, age, name, weight, height);
         this.calories = calories;
@@ -24,6 +26,7 @@ public class Macronutrients extends Physical {
         this.fats = fats;
     }
     
+    //default constructor
     public Macronutrients(){
         super();
         calories = 0.0;
@@ -32,7 +35,19 @@ public class Macronutrients extends Physical {
         carbs = 0.0;
         fats = 0.0;
     }
+    
+    //compute method for Macros
+    public void computeMacros(){
+        //sources:
+        //https://www.acko.com/calculators/water-intake-calculator/
+        //https://www.bodybuilding.com/fun/macronutrients_calculator.htm
+        protein = 0.4*calories;
+        fats = 0.2*calories;
+        carbs = 0.4*calories;
+        waterIntake = weight*0.03;
+    }
 
+    //setters and getters
     public double getCalories() {
         return calories;
     }

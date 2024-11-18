@@ -15,17 +15,24 @@ public class Macronutrients extends Physical { //used to grab variables from sup
     private double protein;
     private double carbs;
     private double fats;
+    private double bmr;
     private String bmiCheck;
 
     //overloaded constructor
-    public Macronutrients(double calories, double waterIntake, double protein, double carbs, double fats, double bmi, String activityLevel, int id, int age, String name, double weight, double height) {
-        super(bmi, activityLevel, id, age, name, weight, height);
+
+    public Macronutrients(double calories, double waterIntake, double protein, double carbs, double fats, double bmr, String bmiCheck, double bmi, double activityLevel, String activity, int id, int age, String name, double weight, double height) {
+        super(bmi, activityLevel, activity, id, age, name, weight, height);
         this.calories = calories;
         this.waterIntake = waterIntake;
         this.protein = protein;
         this.carbs = carbs;
         this.fats = fats;
+        this.bmr = bmr;
+        this.bmiCheck = bmiCheck;
     }
+
+    
+    
     
     //default constructor
     public Macronutrients(){
@@ -35,6 +42,7 @@ public class Macronutrients extends Physical { //used to grab variables from sup
         protein = 0.0;
         carbs = 0.0;
         fats = 0.0;
+        bmiCheck = " ";
     }
     
     //compute method for Macros
@@ -42,6 +50,9 @@ public class Macronutrients extends Physical { //used to grab variables from sup
         //sources:
         //https://www.acko.com/calculators/water-intake-calculator/
         //https://www.bodybuilding.com/fun/macronutrients_calculator.htm
+        //https://www.calculator.net/calorie-calculator.html
+        bmr = (10*weight)+(6.25*height)-(5*age)+5;
+        calories = bmr*activityLevel;
         protein = 0.4*calories;
         fats = 0.2*calories;
         carbs = 0.4*calories;
@@ -76,6 +87,7 @@ public class Macronutrients extends Physical { //used to grab variables from sup
     
 
     //setters and getters
+
     public double getCalories() {
         return calories;
     }
@@ -115,6 +127,23 @@ public class Macronutrients extends Physical { //used to grab variables from sup
     public void setFats(double fats) {
         this.fats = fats;
     }
+
+    public double getBmr() {
+        return bmr;
+    }
+
+    public void setBmr(double bmr) {
+        this.bmr = bmr;
+    }
+
+    public String getBmiCheck() {
+        return bmiCheck;
+    }
+
+    public void setBmiCheck(String bmiCheck) {
+        this.bmiCheck = bmiCheck;
+    }
+    
     
     
     

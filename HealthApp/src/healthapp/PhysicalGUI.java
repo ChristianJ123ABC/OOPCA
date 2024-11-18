@@ -4,17 +4,22 @@
  */
 package healthapp;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author flips
  */
 public class PhysicalGUI extends javax.swing.JFrame {
+    
 
     /**
      * Creates new form PhysicalGUI
      */
     public PhysicalGUI() {
         initComponents();
+        
     }
 
     /**
@@ -49,6 +54,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
         activityBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         activityBtn.setText("What is Activity level?");
+        activityBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activityBtnActionPerformed(evt);
+            }
+        });
 
         activityTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         activityTf.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +85,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
         saveActivityBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         saveActivityBtn.setText("Save");
+        saveActivityBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveActivityBtnActionPerformed(evt);
+            }
+        });
 
         menuPhysicalBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         menuPhysicalBtn.setText("Menu");
@@ -102,9 +117,19 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
         displayActivityBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         displayActivityBtn.setText("Display");
+        displayActivityBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayActivityBtnActionPerformed(evt);
+            }
+        });
 
         removeActivityBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         removeActivityBtn.setText("Remove");
+        removeActivityBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeActivityBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,9 +185,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     .addComponent(saveActivityBtn)
                     .addComponent(displayActivityBtn)
                     .addComponent(removeActivityBtn))
-                .addGap(73, 73, 73)
+                .addGap(29, 29, 29)
                 .addComponent(activityBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(menuPhysicalBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -213,7 +238,29 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void activityTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityTfActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_activityTfActionPerformed
+
+    private void saveActivityBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActivityBtnActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_saveActivityBtnActionPerformed
+
+    private void displayActivityBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayActivityBtnActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_displayActivityBtnActionPerformed
+
+    private void removeActivityBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActivityBtnActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_removeActivityBtnActionPerformed
+
+    private void activityBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityBtnActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Sedentary (type 1): Little to no exercise: \n Lightly Active (type 2): Spend most of the day on your feet \n Moderately Active (type 3): Spend a majority of the day doing physical activities (mailman, waitress) \n Very Active (type 4): Spend almost your entire day doing physical activity (carpenters) \n Extremely Active (type 5): Perform high amounts of exercise AND physical work (competitive athlete)");
+    }//GEN-LAST:event_activityBtnActionPerformed
 
     /**
      * @param args the command line arguments

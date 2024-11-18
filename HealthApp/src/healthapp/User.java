@@ -10,15 +10,17 @@ import java.io.Serializable;
  *
  * @author Christian Joseph - created the entire User superclass
  */
-public abstract class User implements Serializable {
+public abstract class User implements Serializable { //creates an abstract class and prevents any GUI errors 
     protected int id;
     protected String name;
     protected double weight;
     protected double height;
+    protected int age;
     
     //overloaded constructor
-    public User(int id, String name, double weight, double height) {
+    public User(int id, int age, String name, double weight, double height) {
         this.id = id;
+        this.age = age;
         this.name = name;
         this.weight = weight;
         this.height = height;
@@ -27,6 +29,7 @@ public abstract class User implements Serializable {
     //default constructor
     public User(){
         id = 0;
+        age = 0;
         name = " ";
         weight = 0.0;
         height = 0.0;
@@ -39,6 +42,14 @@ public abstract class User implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+    
+    public int getAge(){
+        return age;
+    }
+    
+    public void setAge(int age){
+        this.age = age;
     }
 
     public String getName() {
@@ -65,9 +76,9 @@ public abstract class User implements Serializable {
         this.height = height;
     }
     
-    //used to quickly add the details of the user
+    //method used to retrieve details easier
     public String getDetails(){
-        return "ID: "+id+"\n Name: "+name+"\n Weight: "+weight+"\n Height: "+height;
+        return "ID: "+id+"\n Age: "+age+"\n Name: "+name+"\n Weight: "+weight+"\n Height: "+height;
     }
     
     

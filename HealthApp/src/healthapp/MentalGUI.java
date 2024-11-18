@@ -172,7 +172,7 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void menuMentalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMentalBtnActionPerformed
         // TODO add your handling code here:
-        MenuGUI mg = new MenuGUI();
+        UserGUI mg = new UserGUI();
         mg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuMentalBtnActionPerformed

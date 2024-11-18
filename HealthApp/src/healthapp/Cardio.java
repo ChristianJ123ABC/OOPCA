@@ -12,16 +12,14 @@ public class Cardio extends Physical{
     private String type;
     private int duration;
     private double caloriesBurned;
-    private double kph;
     private double activityTime;
     private double met;
 
-    public Cardio(String type, int duration, double caloriesBurned, double kph, double activityTime, double met, double bmi, double activityLevel, String activity, int id, int age, String name, double weight, double height) {
+    public Cardio(String type, int duration, double caloriesBurned, double activityTime, double met, double bmi, double activityLevel, String activity, int id, int age, String name, double weight, double height) {
         super(bmi, activityLevel, activity, id, age, name, weight, height);
         this.type = type;
         this.duration = duration;
         this.caloriesBurned = caloriesBurned;
-        this.kph = kph;
         this.activityTime = activityTime;
         this.met = met;
     }
@@ -83,13 +81,6 @@ public class Cardio extends Physical{
         this.caloriesBurned = caloriesBurned;
     }
 
-    public double getKph() {
-        return kph;
-    }
-
-    public void setKph(double kph) {
-        this.kph = kph;
-    }
 
     public double getActivityTime() {
         return activityTime;

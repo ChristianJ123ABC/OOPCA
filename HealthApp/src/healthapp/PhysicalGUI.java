@@ -12,13 +12,13 @@ import javax.swing.JOptionPane;
  * @author flips
  */
 public class PhysicalGUI extends javax.swing.JFrame {
-    
+   
     /**
      * Creates new form PhysicalGUI
      */
     public PhysicalGUI() {
         initComponents();
-        
+                
         
     }
 
@@ -271,12 +271,14 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void saveActivityBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActivityBtnActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
         
         
     }//GEN-LAST:event_saveActivityBtnActionPerformed
 
     private void displayActivityBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayActivityBtnActionPerformed
         // TODO add your handling code here:
+        
         
         
     }//GEN-LAST:event_displayActivityBtnActionPerformed

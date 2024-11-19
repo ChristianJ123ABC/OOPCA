@@ -27,7 +27,7 @@ public class UserGUI extends javax.swing.JFrame {
     public UserGUI() {
         initComponents();
         userList = new ArrayList<>();
-        read();
+        read(); //loads the objects into the program on load
     }
 
     /**
@@ -302,7 +302,7 @@ public class UserGUI extends javax.swing.JFrame {
                 }
             }
         }
-        clearUserFields();
+        clearUserFields(); //clears the text from textfields
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
@@ -319,8 +319,8 @@ public class UserGUI extends javax.swing.JFrame {
                 }
             }
         }
-        clearUserFields();
-        save();
+        clearUserFields(); //clears the textfields
+        save(); //saves the user information into the file
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
@@ -336,15 +336,15 @@ public class UserGUI extends javax.swing.JFrame {
         //places those values into an array
         userList.add(u);
         
-        clearUserFields();
-        save();
+        clearUserFields(); //clears the textfields
+        save(); //saves the user information into the file
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void ageTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ageTfActionPerformed
 
-    private void clearUserFields(){
+    private void clearUserFields(){ //clears the textfields
         nameTf.setText(" ");
         idTf.setText(" ");
         ageTf.setText(" ");
@@ -352,7 +352,7 @@ public class UserGUI extends javax.swing.JFrame {
         heightTf.setText(" ");
     }
     
-    private void save(){
+    private void save(){ //saves the user information into the file
         //declare objects
         File f;
         FileOutputStream fStream;
@@ -390,7 +390,7 @@ public class UserGUI extends javax.swing.JFrame {
             oStream.close();
         }
         catch(IOException|ClassNotFoundException e){
-            System.out.println("Error:"+e);
+            System.out.println("Error: "+e);
         }
     }
     /**

@@ -4,17 +4,28 @@
  */
 package healthapp;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author flips
  */
 public class MentalGUI extends javax.swing.JFrame {
+    private ArrayList<Mental> mental;
+
 
     /**
      * Creates new form MentalGUI
      */
     public MentalGUI() {
         initComponents();
+         mental = new ArrayList<>();
+         read();
     }
 
     /**
@@ -79,9 +90,19 @@ public class MentalGUI extends javax.swing.JFrame {
 
         displayStressBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         displayStressBtn.setText("Display");
+        displayStressBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayStressBtnActionPerformed(evt);
+            }
+        });
 
         removeStressBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         removeStressBtn.setText("Remove");
+        removeStressBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeStressBtnActionPerformed(evt);
+            }
+        });
 
         saveStressBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         saveStressBtn.setText("Save");
@@ -197,12 +218,72 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void saveStressBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveStressBtnActionPerformed
         // TODO add your handling code here:
+         Mental m = new Mental(); //creates instance of mental class
+        //whatever the user types into the textfield, it will be put into that corresponding variable in User
+        m.setsleepLevel(stressLevelTf.getText());
+        m.setsleepHours(sleepHoursTf.getText());
+        
+        
+        //places those values into an array
+        mental.add(m);
+        
+        clearUserFields();
+        save();
+        
     }//GEN-LAST:event_saveStressBtnActionPerformed
 
     private void SleepHrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SleepHrActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SleepHrActionPerformed
 
+    private void displayStressBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayStressBtnActionPerformed
+        // TODO add your handling code here:
+        
+            if(mental.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Sorry, there are no details added in the system");
+        }
+        else{
+            //traversing an ArrayList
+            for(int i = 0; i < mental.size();i++){
+                JOptionPane.showMessageDialog(null,mental.get(i).getDetails());
+            }
+        }
+     
+    }//GEN-LAST:event_displayStressBtnActionPerformed
+
+    private void removeStressBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeStressBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeStressBtnActionPerformed
+
+     private void clearUserFields(){ //clears the textfields
+        stressLevelTf.setText(" ");
+        sleepHoursTf.setText(" ");
+     
+    }
+    
+    
+    private void read(){
+        //declare objects
+        File f;
+        FileInputStream fStream;
+        ObjectInputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("mentals.dat");
+            fStream = new FileInputStream(f);
+            oStream = new ObjectInputStream(fStream);
+            
+            //use objects
+            mental = (ArrayList<Mental>)oStream.readObject();
+            
+            oStream.close();
+        }
+        catch(IOException|ClassNotFoundException e){
+            System.out.println("Error:"+e);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

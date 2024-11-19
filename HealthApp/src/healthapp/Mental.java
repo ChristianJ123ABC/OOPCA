@@ -41,6 +41,10 @@ public class Mental {
         return sleepHours;
     }
     
+     public String getDetails(){
+        return "Mental Details: "+id+","+stressLevel+","+sleepHours;
+    }
+    
     
     
 }

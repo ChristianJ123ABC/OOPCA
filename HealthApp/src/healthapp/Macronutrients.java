@@ -20,7 +20,7 @@ public class Macronutrients extends Physical { //used to grab variables from sup
 
     //overloaded constructor
 
-    public Macronutrients(double calories, double waterIntake, double protein, double carbs, double fats, double bmr, String bmiCheck, double bmi, double activityLevel, String activity, int id, int age, String name, double weight, double height) {
+    public Macronutrients(double calories, double waterIntake, double protein, double carbs, double fats, double bmr, String bmiCheck, double bmi, double activityLevel, String activity, String id, int age, String name, double weight, double height) {
         super(bmi, activityLevel, activity, id, age, name, weight, height);
         this.calories = calories;
         this.waterIntake = waterIntake;
@@ -54,9 +54,9 @@ public class Macronutrients extends Physical { //used to grab variables from sup
         //https://www.calculator.net/calorie-calculator.html
         bmr = (10*weight)+(6.25*height)-(5*age)+5;
         calories = bmr*activityLevel;
-        protein = 0.4*calories;
-        fats = 0.2*calories;
-        carbs = 0.4*calories;
+        protein = Math.rint((0.4*calories)/4); //divides by how many kcal are in 1 gram of that macronutrient, to turn it into grams
+        fats = Math.rint((0.2*calories)/9);
+        carbs = Math.rint((0.4*calories)/4);
         waterIntake = weight*0.03;
         
     }

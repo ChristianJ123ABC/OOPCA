@@ -16,7 +16,7 @@ public class Physical extends User { //used to grab variables from superclass
 
     //overloaded constructor
 
-    public Physical(double bmi, double activityLevel, String activity, int id, int age, String name, double weight, double height) {
+    public Physical(double bmi, double activityLevel, String activity, String id, int age, String name, double weight, double height) {
         super(id, age, name, weight, height);
         this.bmi = bmi;
         this.activityLevel = activityLevel;

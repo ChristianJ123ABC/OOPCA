@@ -11,7 +11,7 @@ package healthapp;
 public class Diet extends Physical {
     private String mealType;
 
-    public Diet(String mealType, double bmi, double activityLevel, String activity, int id, int age, String name, double weight, double height) {
+    public Diet(String mealType, double bmi, double activityLevel, String activity, String id, int age, String name, double weight, double height) {
         super(bmi, activityLevel, activity, id, age, name, weight, height);
         this.mealType = mealType;
     }

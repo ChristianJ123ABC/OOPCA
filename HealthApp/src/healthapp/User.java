@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author Christian Joseph - created the entire User superclass
  */
 public class User implements Serializable { //creates an abstract class and prevents any GUI errors 
-    protected int id;
+    protected String id;
     protected String name;
     protected double weight;
     protected double height;
@@ -20,7 +20,7 @@ public class User implements Serializable { //creates an abstract class and prev
     
     
     //overloaded constructor
-    public User(int id, int age, String name, double weight, double height) {
+    public User(String id, int age, String name, double weight, double height) {
         this.id = id;
         this.age = age;
         this.name = name;
@@ -30,7 +30,7 @@ public class User implements Serializable { //creates an abstract class and prev
     
     //default constructor
     public User(){
-        id = 0;
+        id = " ";
         age = 0;
         name = " ";
         weight = 0.0;
@@ -38,11 +38,11 @@ public class User implements Serializable { //creates an abstract class and prev
     }
     
     //setters and getters
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     

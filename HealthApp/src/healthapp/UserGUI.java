@@ -4,6 +4,15 @@
  */
 package healthapp;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -11,12 +20,14 @@ package healthapp;
  * @author chris
  */
 public class UserGUI extends javax.swing.JFrame {
-
+    private ArrayList<User> userList;
     /**
      * Creates new form MenuGUI
      */
     public UserGUI() {
         initComponents();
+        userList = new ArrayList<>();
+        read();
     }
 
     /**
@@ -43,8 +54,6 @@ public class UserGUI extends javax.swing.JFrame {
         searchBtn = new javax.swing.JButton();
         deleteBtn = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
-        loadBtn = new javax.swing.JButton();
-        saveBtn = new javax.swing.JButton();
         ageLbl = new javax.swing.JLabel();
         ageTf = new javax.swing.JTextField();
 
@@ -141,22 +150,6 @@ public class UserGUI extends javax.swing.JFrame {
             }
         });
 
-        loadBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        loadBtn.setText("Load");
-        loadBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loadBtnActionPerformed(evt);
-            }
-        });
-
-        saveBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        saveBtn.setText("Save");
-        saveBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveBtnActionPerformed(evt);
-            }
-        });
-
         ageLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         ageLbl.setText("Age:");
 
@@ -209,8 +202,6 @@ public class UserGUI extends javax.swing.JFrame {
                                     .addComponent(ageTf, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(200, 200, 200)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(saveBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(loadBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(physicalMenuBtn, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(mentalMenuBtn, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(55, 55, 55))
@@ -230,29 +221,18 @@ public class UserGUI extends javax.swing.JFrame {
                     .addComponent(nameLbl)
                     .addComponent(nameTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(physicalMenuBtn))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ageLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ageTf, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(weightLbl)
-                            .addComponent(weightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(heightLbl)
-                            .addComponent(heightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(loadBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ageLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ageTf, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(weightLbl)
+                    .addComponent(weightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(79, 79, 79)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(heightLbl)
+                    .addComponent(heightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(displayBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,32 +277,122 @@ public class UserGUI extends javax.swing.JFrame {
 
     private void displayBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBtnActionPerformed
         // TODO add your handling code here:
+        if(userList.isEmpty()){ //if the arrayList is empty, it will display an error message
+            JOptionPane.showMessageDialog(null,"There are no users on the list");
+        }
+        else{
+            
+            for(int i = 0; i < userList.size();i++){ //checks for every object in the array and displays them
+                JOptionPane.showMessageDialog(null,userList.get(i).getDetails());
+            }
+        }
     }//GEN-LAST:event_displayBtnActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         // TODO add your handling code here:
+        if(userList.isEmpty()){ //if the arrayList is empty, it will display an error message
+            JOptionPane.showMessageDialog(null,"There are no users on the list");
+        }
+        else{
+            String search = idTf.getText(); //creates a search variable to traverse the arraylist
+            
+            for(User u:userList){//for each user object in the list, it will search it
+                if(u.getId().equalsIgnoreCase(search)){//check if the id of object matches the user search
+                    JOptionPane.showMessageDialog(null,u.getDetails());//if the id matches, print the details of that object
+                }
+            }
+        }
+        clearUserFields();
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         // TODO add your handling code here:
+        if(userList.isEmpty()){ //if the arrayList is empty, it will display an error message
+            JOptionPane.showMessageDialog(null,"There are no users on the list");
+        }
+        else{
+            String search = idTf.getText();
+            for(int i = 0; i < userList.size();i++){
+                User u = userList.get(i); //fetches the user object and puts it into i
+                if(u.getId().equalsIgnoreCase(search)){ //if the id equals the user search, it will delete it
+                    userList.remove(u);
+                }
+            }
+        }
+        clearUserFields();
+        save();
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
+        User u = new User(); //creates instance of User class
+        //whatever the user types into the textfield, it will be put into that corresponding variable in User
+        u.setId(idTf.getText());
+        u.setName(nameTf.getText());
+        u.setAge(Integer.parseInt(ageTf.getText()));
+        u.setWeight(Double.parseDouble(weightTf.getText()));
+        u.setHeight(Double.parseDouble(heightTf.getText()));
+        
+        //places those values into an array
+        userList.add(u);
+        
+        clearUserFields();
+        save();
     }//GEN-LAST:event_addBtnActionPerformed
-
-    private void loadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_loadBtnActionPerformed
-
-    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_saveBtnActionPerformed
 
     private void ageTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ageTfActionPerformed
 
+    private void clearUserFields(){
+        nameTf.setText(" ");
+        idTf.setText(" ");
+        ageTf.setText(" ");
+        weightTf.setText(" ");
+        heightTf.setText(" ");
+    }
+    
+    private void save(){
+        //declare objects
+        File f;
+        FileOutputStream fStream;
+        ObjectOutputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("users.dat");
+            fStream = new FileOutputStream(f);
+            oStream = new ObjectOutputStream(fStream);
+            
+            //use objects
+            oStream.writeObject(userList);
+        }
+        catch(IOException e){
+            System.out.println("Error:"+e);
+        }
+    }
+    
+    private void read(){
+        //declare objects
+        File f;
+        FileInputStream fStream;
+        ObjectInputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("users.dat");
+            fStream = new FileInputStream(f);
+            oStream = new ObjectInputStream(fStream);
+            
+            //use objects
+            userList = (ArrayList<User>)oStream.readObject();
+            
+            oStream.close();
+        }
+        catch(IOException|ClassNotFoundException e){
+            System.out.println("Error:"+e);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -369,13 +439,11 @@ public class UserGUI extends javax.swing.JFrame {
     private javax.swing.JTextField heightTf;
     private javax.swing.JLabel idLbl;
     private javax.swing.JTextField idTf;
-    private javax.swing.JButton loadBtn;
     private javax.swing.JButton mentalMenuBtn;
     private javax.swing.JLabel menuTf;
     private javax.swing.JLabel nameLbl;
     private javax.swing.JTextField nameTf;
     private javax.swing.JButton physicalMenuBtn;
-    private javax.swing.JButton saveBtn;
     private javax.swing.JButton searchBtn;
     private javax.swing.JLabel weightLbl;
     private javax.swing.JTextField weightTf;

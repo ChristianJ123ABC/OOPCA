@@ -13,7 +13,7 @@ public class WorkoutPlan extends Physical {
     private double duration;
     private String frequency;
 
-    public WorkoutPlan(String type, double duration, String frequency, double bmi, double activityLevel, String activity, int id, int age, String name, double weight, double height) {
+    public WorkoutPlan(String type, double duration, String frequency, double bmi, double activityLevel, String activity, String id, int age, String name, double weight, double height) {
         super(bmi, activityLevel, activity, id, age, name, weight, height);
         this.type = type;
         this.duration = duration;

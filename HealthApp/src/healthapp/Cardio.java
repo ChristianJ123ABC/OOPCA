@@ -15,7 +15,7 @@ public class Cardio extends Physical{
     private double activityTime;
     private double met;
 
-    public Cardio(String type, int duration, double caloriesBurned, double activityTime, double met, double bmi, double activityLevel, String activity, int id, int age, String name, double weight, double height) {
+    public Cardio(String type, int duration, double caloriesBurned, double activityTime, double met, double bmi, double activityLevel, String activity, String id, int age, String name, double weight, double height) {
         super(bmi, activityLevel, activity, id, age, name, weight, height);
         this.type = type;
         this.duration = duration;

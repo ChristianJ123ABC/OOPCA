@@ -43,8 +43,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         dietBtn = new javax.swing.JButton();
         displayActivityBtn = new javax.swing.JButton();
         removeActivityBtn = new javax.swing.JButton();
-        idTf = new javax.swing.JTextField();
-        idLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,16 +131,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
             }
         });
 
-        idTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idTf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idTfActionPerformed(evt);
-            }
-        });
-
-        idLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        idLbl.setText("ID:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,12 +144,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(saveActivityBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idTf, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(displayActivityBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(removeActivityBtn)))))
+                        .addComponent(displayActivityBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(removeActivityBtn)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -187,10 +172,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                                 .addComponent(dietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(workoutBtn)))
-                        .addGap(40, 40, 40))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(idLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(219, 219, 219))))
+                        .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,11 +183,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(activityLbl)
                     .addComponent(activityTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idLbl)
-                    .addComponent(idTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveActivityBtn)
                     .addComponent(displayActivityBtn)
@@ -293,10 +271,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Sedentary (type 1): Little to no exercise: \n Lightly Active (type 2): Spend most of the day on your feet \n Moderately Active (type 3): Spend a majority of the day doing physical activities (mailman, waitress) \n Very Active (type 4): Spend almost your entire day doing physical activity (carpenters) \n Extremely Active (type 5): Perform high amounts of exercise AND physical work (competitive athlete)");
     }//GEN-LAST:event_activityBtnActionPerformed
 
-    private void idTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idTfActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -339,8 +313,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.JButton cardioBtn;
     private javax.swing.JButton dietBtn;
     private javax.swing.JButton displayActivityBtn;
-    private javax.swing.JLabel idLbl;
-    private javax.swing.JTextField idTf;
     private javax.swing.JButton macroBtn;
     private javax.swing.JButton menuPhysicalBtn;
     private javax.swing.JLabel physicalLbl;

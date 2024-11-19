@@ -12,11 +12,13 @@ import javax.swing.JOptionPane;
  * @author flips
  */
 public class PhysicalGUI extends javax.swing.JFrame {
+    
    
     /**
      * Creates new form PhysicalGUI
      */
     public PhysicalGUI() {
+        
         initComponents();
                 
         
@@ -183,14 +185,14 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(activityLbl)
                     .addComponent(activityTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveActivityBtn)
                     .addComponent(displayActivityBtn)
                     .addComponent(removeActivityBtn))
                 .addGap(39, 39, 39)
                 .addComponent(activityBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(menuPhysicalBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -241,6 +243,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void activityTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityTfActionPerformed
         // TODO add your handling code here:
+      
        
         
         
@@ -249,13 +252,17 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void saveActivityBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActivityBtnActionPerformed
         // TODO add your handling code here:
-        // TODO add your handling code here:
+
+        
+        
+        
         
         
     }//GEN-LAST:event_saveActivityBtnActionPerformed
 
     private void displayActivityBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayActivityBtnActionPerformed
         // TODO add your handling code here:
+        
         
         
         

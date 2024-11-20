@@ -4,28 +4,38 @@
  */
 package healthapp;
 
+import java.io.Serializable;
+
 /**
  *
  * @author pyaku
  */
-public class Mental {
+public class Mental implements Serializable {
     
-    private int id;
-    private String stressLevel;
-    private float sleepHours;
+    protected String id;
+    protected double stressLevel;
+    protected float sleepHours;
     
 
-    public Mental(int id, String stressLevel, float sleepHours) {
+    public Mental(String id, double stressLevel, float sleepHours) {
         this.id = id;
         this.stressLevel = stressLevel;
         this.sleepHours = sleepHours;
     }
-
-    public void setId(int id) {
+    
+     //default constructor
+    public Mental(){
+        id = " ";
+        stressLevel = 0;
+        sleepHours = 0;
+ 
+    }
+    
+    public void setId(String id) {
         this.id = id;
     }
 
-    public void setStressLevel(String stressLevel) {
+    public void setStressLevel(double stressLevel) {
         this.stressLevel = stressLevel;
     }
 
@@ -33,7 +43,7 @@ public class Mental {
         this.sleepHours = sleepHours;
     }
 
-    public String getStressLevel() {
+    public double getStressLevel() {
         return stressLevel;
     }
 

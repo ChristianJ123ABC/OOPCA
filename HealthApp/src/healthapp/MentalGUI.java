@@ -6,8 +6,10 @@ package healthapp;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -39,15 +41,15 @@ public class MentalGUI extends javax.swing.JFrame {
 
         mentalLbl = new javax.swing.JLabel();
         stressLbl = new javax.swing.JLabel();
-        stressTf = new javax.swing.JTextField();
+        stressLblTf = new javax.swing.JTextField();
         dietBtn = new javax.swing.JButton();
         activityBtn = new javax.swing.JButton();
         menuMentalBtn = new javax.swing.JButton();
         displayStressBtn = new javax.swing.JButton();
         removeStressBtn = new javax.swing.JButton();
         saveStressBtn = new javax.swing.JButton();
-        SleepHrs = new javax.swing.JLabel();
-        SleepHr = new javax.swing.JTextField();
+        sleepHrsLbl = new javax.swing.JLabel();
+        sleepHrsTf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,10 +59,10 @@ public class MentalGUI extends javax.swing.JFrame {
         stressLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         stressLbl.setText("Stress Level: ");
 
-        stressTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        stressTf.addActionListener(new java.awt.event.ActionListener() {
+        stressLblTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        stressLblTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stressTfActionPerformed(evt);
+                stressLblTfActionPerformed(evt);
             }
         });
 
@@ -112,14 +114,14 @@ public class MentalGUI extends javax.swing.JFrame {
             }
         });
 
-        SleepHrs.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        SleepHrs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SleepHrs.setText("Sleep Hours:");
+        sleepHrsLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        sleepHrsLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sleepHrsLbl.setText("Sleep Hours:");
 
-        SleepHr.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        SleepHr.addActionListener(new java.awt.event.ActionListener() {
+        sleepHrsTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        sleepHrsTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SleepHrActionPerformed(evt);
+                sleepHrsTfActionPerformed(evt);
             }
         });
 
@@ -147,9 +149,9 @@ public class MentalGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(SleepHrs, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(sleepHrsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(SleepHr, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sleepHrsTf, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(saveStressBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -159,7 +161,7 @@ public class MentalGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(stressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(stressTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(stressLblTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -169,12 +171,12 @@ public class MentalGUI extends javax.swing.JFrame {
                 .addComponent(mentalLbl)
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(stressTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stressLblTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(stressLbl))
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SleepHr, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SleepHrs, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sleepHrsTf, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sleepHrsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveStressBtn)
@@ -212,29 +214,19 @@ public class MentalGUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_dietBtnActionPerformed
 
-    private void stressTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stressTfActionPerformed
+    private void stressLblTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stressLblTfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_stressTfActionPerformed
+    }//GEN-LAST:event_stressLblTfActionPerformed
 
     private void saveStressBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveStressBtnActionPerformed
         // TODO add your handling code here:
-         Mental m = new Mental(); //creates instance of mental class
-        //whatever the user types into the textfield, it will be put into that corresponding variable in User
-        m.setsleepLevel(stressLevelTf.getText());
-        m.setsleepHours(sleepHoursTf.getText());
-        
-        
-        //places those values into an array
-        mental.add(m);
-        
-        clearUserFields();
-        save();
+       
         
     }//GEN-LAST:event_saveStressBtnActionPerformed
 
-    private void SleepHrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SleepHrActionPerformed
+    private void sleepHrsTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sleepHrsTfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SleepHrActionPerformed
+    }//GEN-LAST:event_sleepHrsTfActionPerformed
 
     private void displayStressBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayStressBtnActionPerformed
         // TODO add your handling code here:
@@ -253,15 +245,35 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void removeStressBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeStressBtnActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_removeStressBtnActionPerformed
 
      private void clearUserFields(){ //clears the textfields
-        stressLevelTf.setText(" ");
-        sleepHoursTf.setText(" ");
+        stressLblTf.setText(" ");
+        sleepHrsTf.setText(" ");
      
     }
     
     
+     private void save(){ //saves the user information into the file
+        //declare objects
+        File f;
+        FileOutputStream fStream;
+        ObjectOutputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("users.dat");
+            fStream = new FileOutputStream(f);
+            oStream = new ObjectOutputStream(fStream);
+            
+            //use objects
+            oStream.writeObject(mental);
+        }
+        catch(IOException e){
+            System.out.println("Error:"+e);
+        }
+    }
     private void read(){
         //declare objects
         File f;
@@ -270,7 +282,7 @@ public class MentalGUI extends javax.swing.JFrame {
         
         try{
             //create objects
-            f = new File("mentals.dat");
+            f = new File("user.dat");
             fStream = new FileInputStream(f);
             oStream = new ObjectInputStream(fStream);
             
@@ -320,8 +332,6 @@ public class MentalGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField SleepHr;
-    private javax.swing.JLabel SleepHrs;
     private javax.swing.JButton activityBtn;
     private javax.swing.JButton dietBtn;
     private javax.swing.JButton displayStressBtn;
@@ -329,7 +339,9 @@ public class MentalGUI extends javax.swing.JFrame {
     private javax.swing.JButton menuMentalBtn;
     private javax.swing.JButton removeStressBtn;
     private javax.swing.JButton saveStressBtn;
+    private javax.swing.JLabel sleepHrsLbl;
+    private javax.swing.JTextField sleepHrsTf;
     private javax.swing.JLabel stressLbl;
-    private javax.swing.JTextField stressTf;
+    private javax.swing.JTextField stressLblTf;
     // End of variables declaration//GEN-END:variables
 }

@@ -56,6 +56,7 @@ public class UserGUI extends javax.swing.JFrame {
         addBtn = new javax.swing.JButton();
         ageLbl = new javax.swing.JLabel();
         ageTf = new javax.swing.JTextField();
+        returnMenuBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -160,12 +161,22 @@ public class UserGUI extends javax.swing.JFrame {
             }
         });
 
+        returnMenuBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        returnMenuBtn.setText("Back to Main");
+        returnMenuBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnMenuBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(returnMenuBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(menuTf)
                 .addGap(240, 240, 240))
             .addGroup(layout.createSequentialGroup()
@@ -215,23 +226,25 @@ public class UserGUI extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(menuTf)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addContainerGap()
+                        .addComponent(menuTf)
+                        .addGap(41, 41, 41)
+                        .addComponent(mentalMenuBtn)
+                        .addGap(31, 31, 31)
+                        .addComponent(physicalMenuBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(returnMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(idLbl)
                             .addComponent(idTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nameLbl)
-                            .addComponent(nameTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(mentalMenuBtn)
-                        .addGap(31, 31, 31)
-                        .addComponent(physicalMenuBtn)))
+                            .addComponent(nameTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ageLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -355,6 +368,14 @@ public class UserGUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_physicalMenuBtnActionPerformed
 
+    private void returnMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnMenuBtnActionPerformed
+        // TODO add your handling code here:
+        IntroGUI ig = new IntroGUI();
+        ig.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_returnMenuBtnActionPerformed
+
     private void clearUserFields(){ //clears the textfields
         nameTf.setText(" ");
         idTf.setText(" ");
@@ -455,6 +476,7 @@ public class UserGUI extends javax.swing.JFrame {
     private javax.swing.JLabel nameLbl;
     private javax.swing.JTextField nameTf;
     private javax.swing.JButton physicalMenuBtn;
+    private javax.swing.JButton returnMenuBtn;
     private javax.swing.JButton searchBtn;
     private javax.swing.JLabel weightLbl;
     private javax.swing.JTextField weightTf;

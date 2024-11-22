@@ -43,13 +43,16 @@ public class MentalGUI extends javax.swing.JFrame {
         stressLbl = new javax.swing.JLabel();
         stressLblTf = new javax.swing.JTextField();
         dietBtn = new javax.swing.JButton();
-        activityBtn = new javax.swing.JButton();
         menuMentalBtn = new javax.swing.JButton();
         displayStressBtn = new javax.swing.JButton();
         removeStressBtn = new javax.swing.JButton();
         saveStressBtn = new javax.swing.JButton();
         sleepHrsLbl = new javax.swing.JLabel();
         sleepHrsTf = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        caloriesLbl = new javax.swing.JLabel();
+        caloriesLbl1 = new javax.swing.JLabel();
+        caloriesLbl2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,18 +70,10 @@ public class MentalGUI extends javax.swing.JFrame {
         });
 
         dietBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        dietBtn.setText("Diet");
+        dietBtn.setText("Search");
         dietBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dietBtnActionPerformed(evt);
-            }
-        });
-
-        activityBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        activityBtn.setText("Activity");
-        activityBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                activityBtnActionPerformed(evt);
             }
         });
 
@@ -90,7 +85,7 @@ public class MentalGUI extends javax.swing.JFrame {
             }
         });
 
-        displayStressBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        displayStressBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         displayStressBtn.setText("Display");
         displayStressBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +93,7 @@ public class MentalGUI extends javax.swing.JFrame {
             }
         });
 
-        removeStressBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        removeStressBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         removeStressBtn.setText("Remove");
         removeStressBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +101,7 @@ public class MentalGUI extends javax.swing.JFrame {
             }
         });
 
-        saveStressBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        saveStressBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         saveStressBtn.setText("Save");
         saveStressBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,69 +120,99 @@ public class MentalGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("Id");
+
+        caloriesLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        caloriesLbl.setText("Calories:");
+
+        caloriesLbl1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        caloriesLbl1.setText("Calories:");
+
+        caloriesLbl2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        caloriesLbl2.setText("Calories:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(6, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(activityBtn)
-                        .addGap(572, 572, 572))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(mentalLbl)
-                                .addGap(244, 244, 244))
+                                .addComponent(sleepHrsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(sleepHrsTf, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(menuMentalBtn)
-                                .addGap(190, 190, 190)
-                                .addComponent(dietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(19, 19, 19))))
+                                .addComponent(stressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(stressLblTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(mentalLbl))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(caloriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGap(159, 159, 159))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(sleepHrsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(sleepHrsTf, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(caloriesLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caloriesLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(saveStressBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(displayStressBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(removeStressBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(stressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(stressLblTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(removeStressBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(dietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(menuMentalBtn)))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(mentalLbl)
-                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(mentalLbl)
+                        .addGap(79, 79, 79))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(caloriesLbl)
+                        .addGap(18, 18, 18)))
+                .addComponent(caloriesLbl1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(caloriesLbl2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(stressLbl, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(stressLblTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(stressLblTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(stressLbl))
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sleepHrsTf, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sleepHrsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(sleepHrsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sleepHrsTf, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(90, 90, 90)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveStressBtn)
                     .addComponent(displayStressBtn)
-                    .addComponent(removeStressBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(removeStressBtn)
                     .addComponent(dietBtn)
-                    .addComponent(activityBtn)
                     .addComponent(menuMentalBtn))
-                .addGap(14, 14, 14))
+                .addGap(39, 39, 39))
         );
 
         pack();
@@ -199,13 +224,6 @@ public class MentalGUI extends javax.swing.JFrame {
         mg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuMentalBtnActionPerformed
-
-    private void activityBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityBtnActionPerformed
-        // TODO add your handling code here:
-        MentalActivityGUI mag = new MentalActivityGUI();
-        mag.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_activityBtnActionPerformed
 
     private void dietBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietBtnActionPerformed
         // TODO add your handling code here:
@@ -332,9 +350,12 @@ public class MentalGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton activityBtn;
+    private javax.swing.JLabel caloriesLbl;
+    private javax.swing.JLabel caloriesLbl1;
+    private javax.swing.JLabel caloriesLbl2;
     private javax.swing.JButton dietBtn;
     private javax.swing.JButton displayStressBtn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel mentalLbl;
     private javax.swing.JButton menuMentalBtn;
     private javax.swing.JButton removeStressBtn;

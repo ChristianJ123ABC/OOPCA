@@ -15,7 +15,7 @@ public class HealthApp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        UserGUI myGUI = new UserGUI();
+        IntroGUI myGUI = new IntroGUI();
         myGUI.setVisible(true);
     }
     

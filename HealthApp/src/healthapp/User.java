@@ -16,6 +16,7 @@ public class User implements Serializable { //creates an abstract class and prev
     protected double weight;
     protected double height;
     protected int age;
+    protected String password;
     
     
     
@@ -35,6 +36,7 @@ public class User implements Serializable { //creates an abstract class and prev
         name = " ";
         weight = 0.0;
         height = 0.0;
+        password = " ";
     }
     
     //setters and getters
@@ -78,9 +80,19 @@ public class User implements Serializable { //creates an abstract class and prev
         this.height = height;
     }
     
+    
+    
     //method used to retrieve details easier
     public String getDetails(){
         return "ID: "+id+"\n Age: "+age+"\n Name: "+name+"\n Weight: "+weight+"\n Height: "+height;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     

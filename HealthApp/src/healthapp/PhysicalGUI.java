@@ -33,6 +33,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pBtnGrp = new javax.swing.ButtonGroup();
         physicalLbl = new javax.swing.JLabel();
         frequencyLbl = new javax.swing.JLabel();
         cardioTypeTf = new javax.swing.JTextField();
@@ -188,9 +189,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
         caloriesLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         caloriesLbl.setText("Calories:");
 
+        pBtnGrp.add(macroRb);
         macroRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         macroRb.setText("Macronutrient");
 
+        pBtnGrp.add(cardioRb);
         cardioRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cardioRb.setText("Cardio");
         cardioRb.addActionListener(new java.awt.event.ActionListener() {
@@ -199,9 +202,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
             }
         });
 
+        pBtnGrp.add(dietRb);
         dietRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dietRb.setText("Diet");
 
+        pBtnGrp.add(workoutRb);
         workoutRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         workoutRb.setText("Workout Plan");
 
@@ -520,6 +525,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.JTextField frequencyTf;
     private javax.swing.JRadioButton macroRb;
     private javax.swing.JButton menuPhysicalBtn;
+    private javax.swing.ButtonGroup pBtnGrp;
     private javax.swing.JLabel physicalLbl;
     private javax.swing.JButton removeActivityBtn;
     private javax.swing.JButton saveActivityBtn;

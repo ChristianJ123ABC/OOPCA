@@ -59,6 +59,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
         cardioRb = new javax.swing.JRadioButton();
         dietRb = new javax.swing.JRadioButton();
         workoutRb = new javax.swing.JRadioButton();
+        dietTypeBtn = new javax.swing.JButton();
+        workoutTypeBtn = new javax.swing.JButton();
+        cardioTypeBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -202,6 +205,30 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         workoutRb.setText("Workout Plan");
 
+        dietTypeBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        dietTypeBtn.setText("Types of Diet");
+        dietTypeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dietTypeBtnActionPerformed(evt);
+            }
+        });
+
+        workoutTypeBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        workoutTypeBtn.setText("Types of Workout");
+        workoutTypeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                workoutTypeBtnActionPerformed(evt);
+            }
+        });
+
+        cardioTypeBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cardioTypeBtn.setText("Types of Cardio");
+        cardioTypeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cardioTypeBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -260,15 +287,27 @@ public class PhysicalGUI extends javax.swing.JFrame {
                                     .addComponent(workoutRb, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                                     .addComponent(dietRb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(saveActivityBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(displayActivityBtn)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(saveActivityBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(displayActivityBtn))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(dietTypeBtn)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(removeActivityBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dietBtn)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(removeActivityBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dietBtn))
+                            .addComponent(workoutTypeBtn))
                         .addGap(18, 18, 18)
-                        .addComponent(menuPhysicalBtn)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(cardioTypeBtn))
+                            .addComponent(menuPhysicalBtn))))
                 .addGap(0, 26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -316,8 +355,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                             .addComponent(displayActivityBtn)
                             .addComponent(removeActivityBtn)
                             .addComponent(dietBtn)
-                            .addComponent(menuPhysicalBtn))
-                        .addContainerGap(44, Short.MAX_VALUE))
+                            .addComponent(menuPhysicalBtn)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(macroRb)
@@ -326,8 +364,13 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(dietRb)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(workoutRb)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(workoutRb)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dietTypeBtn)
+                    .addComponent(workoutTypeBtn)
+                    .addComponent(cardioTypeBtn))
+                .addContainerGap())
         );
 
         pack();
@@ -342,9 +385,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void dietBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietBtnActionPerformed
         // TODO add your handling code here:
-        PhysicalDietGUI pdg = new PhysicalDietGUI();
-        pdg.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_dietBtnActionPerformed
 
     private void cardioTypeTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardioTypeTfActionPerformed
@@ -411,6 +452,18 @@ public class PhysicalGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cardioRbActionPerformed
 
+    private void dietTypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietTypeBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dietTypeBtnActionPerformed
+
+    private void workoutTypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workoutTypeBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_workoutTypeBtnActionPerformed
+
+    private void cardioTypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardioTypeBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cardioTypeBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -454,10 +507,12 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.JLabel cardioDurLbl;
     private javax.swing.JTextField cardioDurTf;
     private javax.swing.JRadioButton cardioRb;
+    private javax.swing.JButton cardioTypeBtn;
     private javax.swing.JLabel cardioTypeLbl;
     private javax.swing.JTextField cardioTypeTf;
     private javax.swing.JButton dietBtn;
     private javax.swing.JRadioButton dietRb;
+    private javax.swing.JButton dietTypeBtn;
     private javax.swing.JLabel dietTypeLbl;
     private javax.swing.JTextField dietTypeTf;
     private javax.swing.JButton displayActivityBtn;
@@ -473,5 +528,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.JLabel workoutLbl;
     private javax.swing.JRadioButton workoutRb;
     private javax.swing.JTextField workoutTf;
+    private javax.swing.JButton workoutTypeBtn;
     // End of variables declaration//GEN-END:variables
 }

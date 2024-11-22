@@ -256,20 +256,6 @@ public class UserGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void physicalMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_physicalMenuBtnActionPerformed
-        // TODO add your handling code here:
-        PhysicalGUI pg = new PhysicalGUI();
-        pg.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_physicalMenuBtnActionPerformed
-
-    private void mentalMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mentalMenuBtnActionPerformed
-        // TODO add your handling code here:
-        MentalGUI mg = new MentalGUI();
-        mg.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_mentalMenuBtnActionPerformed
-
     private void nameTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTfActionPerformed
@@ -354,6 +340,20 @@ public class UserGUI extends javax.swing.JFrame {
     private void ageTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ageTfActionPerformed
+
+    private void mentalMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mentalMenuBtnActionPerformed
+        // TODO add your handling code here:
+        MentalGUI mg = new MentalGUI();
+        mg.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_mentalMenuBtnActionPerformed
+
+    private void physicalMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_physicalMenuBtnActionPerformed
+        // TODO add your handling code here:
+        PhysicalGUI pg = new PhysicalGUI();
+        pg.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_physicalMenuBtnActionPerformed
 
     private void clearUserFields(){ //clears the textfields
         nameTf.setText(" ");

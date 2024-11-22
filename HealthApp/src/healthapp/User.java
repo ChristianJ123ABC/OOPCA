@@ -84,7 +84,7 @@ public class User implements Serializable { //creates an abstract class and prev
     
     //method used to retrieve details easier
     public String getDetails(){
-        return "ID: "+id+"\n Password: "+"\n Age: "+age+"\n Name: "+name+"\n Weight: "+weight+"\n Height: "+height;
+        return "ID: "+id+"\n Password: "+password+"\n Age: "+age+"\n Name: "+name+"\n Weight: "+weight+"\n Height: "+height;
     }
 
     public String getPassword() {

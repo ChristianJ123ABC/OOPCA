@@ -35,6 +35,7 @@ public class Physical extends User { //used to grab variables from superclass
     //compute method for BMI
     public void computeBmi(){
         bmi = (weight/height/height)*10000; //source: https://www.cdc.gov/growth-chart-training/hcp/using-bmi/body-mass-index.html#:~:text=A%20measure%20of%20weight%20relative%20to%20height&text=The%20equations%20for%20calculating%20BMI,)%20%2F%20%5Bheight%20(m)%5D&text=Metric%20units%3A%20BMI%20%3D%20%5Bweight,height%20(cm)%5D%20x%2010%2C000
+        
     }
     
     

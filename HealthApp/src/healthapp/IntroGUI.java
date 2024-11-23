@@ -4,6 +4,10 @@
  */
 package healthapp;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -12,17 +16,40 @@ import javax.swing.JOptionPane;
  * @author chris
  */
 public class IntroGUI extends javax.swing.JFrame {
-    
+    private ArrayList<User> userList;
 
     /**
      * Creates new form Intro
      */
     public IntroGUI() {
-        initComponents();
-        
-        
-        
+        initComponents(); 
+        userList = new ArrayList<>();
+        read();
     }
+    
+    private void read(){
+        //declare objects
+        File f;
+        FileInputStream fStream;
+        ObjectInputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("users.dat");
+            fStream = new FileInputStream(f);
+            oStream = new ObjectInputStream(fStream);
+            
+            //use objects
+            userList = (ArrayList<User>)oStream.readObject();
+            
+            oStream.close();
+        }
+        catch(IOException|ClassNotFoundException e){
+            System.out.println("Error: "+e);
+        }
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -186,13 +213,42 @@ public class IntroGUI extends javax.swing.JFrame {
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
         // TODO add your handling code here:
-        
         this.dispose();
     }//GEN-LAST:event_exitBtnActionPerformed
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
         
+        //source https://stackoverflow.com/questions/53983811/java-passing-arraylist-to-another-jframe
+       
+        for(User u: userList){ //for each object in U,search each of them
+            //if the ID or password from the User equals their login details, send them to physical
+            if(u.getId().equalsIgnoreCase(idTf.getText()) && u.getPassword().equalsIgnoreCase(passwordPField.getText()) && mLoginRb.isSelected()){ 
+                MentalGUI m = new MentalGUI();
+                m.setVisible(true);
+                this.dispose();
+                break;
+            }
+            //if the ID or password from the User equals their login details, send them to mental
+            else if(u.getId().equalsIgnoreCase(idTf.getText()) && u.getPassword().equalsIgnoreCase(passwordPField.getText()) && pLoginRb.isSelected()){
+                PhysicalGUI p = new PhysicalGUI();
+                p.setVisible(true);
+                this.dispose();
+                break;
+            }
+            //if the ID or password from the User does NOT equals their login details, send an error message
+            else if(!u.getId().equalsIgnoreCase(idTf.getText()) && !u.getPassword().equalsIgnoreCase(passwordPField.getText())){
+                JOptionPane.showMessageDialog(null, "Incorrect details");
+                break;
+            }
+            
+            //if no parameter is selected, send an error message
+            else if(!pLoginRb.isSelected() || mLoginRb.isSelected()){
+                JOptionPane.showMessageDialog(null, "Please accept a parameter before you log in");
+                break;
+            }
+        }
+               
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void idTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTfActionPerformed

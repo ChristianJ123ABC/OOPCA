@@ -32,6 +32,7 @@ public class UserGUI extends javax.swing.JFrame {
     }
     
     
+    
    
     
     
@@ -399,6 +400,7 @@ public class UserGUI extends javax.swing.JFrame {
         ageTf.setText(" ");
         weightTf.setText(" ");
         heightTf.setText(" ");
+        JOptionPane.showMessageDialog(null, "Remove white space from text field before typing anything new");
     }
     
     private void save(){ //saves the user information into the file

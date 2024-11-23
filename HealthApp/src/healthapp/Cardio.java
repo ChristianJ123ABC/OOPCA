@@ -35,19 +35,19 @@ public class Cardio extends Physical{
     
     public void calculateMet(){ //calculates the MET value, the bodys expenditure for energy
         //source https://blog.nasm.org/metabolic-equivalents-for-weight-loss#:~:text=To%20determine%20calories%20expended%20by,%2F%20200%20%3D%20KCAL%2FMIN.&text=So%20in%2045%20minutes%2C%20this,NEAT%20or%20non%2Dactivity%20thermogenesis.
-        if(type == "Slow Walk"){
+        if(type == "1"){ //slow walk
             met = 2.0;
         }
         
-        else if (type == "Moderate Run"){
-            met = 11.5;
+        else if (type == "2"){ //moderate run
+            met = 11.5; 
         }
         
-        else if (type == "Light Cycle"){
+        else if (type == "3"){ //light cycling
             met = 8.0;
         }
         
-        else if (type == "Light Swimming"){
+        else if (type == "4"){ //light swimming
             met = 7.0;
         }
     }

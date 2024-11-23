@@ -18,8 +18,28 @@ public class PhysicalGUI extends javax.swing.JFrame {
      * Creates new form PhysicalGUI
      */
     public PhysicalGUI() {
-        
         initComponents();
+        //making the labels invisible on load;
+        idLbl.setVisible(false);
+        cardioTypeLbl.setVisible(false);
+        cardioDurLbl.setVisible(false);
+        workoutLbl.setVisible(false);
+        frequencyLbl.setVisible(false);
+        durationLbl.setVisible(false);
+        dietTypeLbl.setVisible(false);
+        caloriesLbl.setVisible(false);
+        
+        //making the textfields invisible on load
+        idTf.setVisible(false);
+        cardioTypeTf.setVisible(false);
+        cardioDurTf.setVisible(false);
+        workoutTf.setVisible(false);
+        frequencyTf.setVisible(false);
+        durationTf.setVisible(false);
+        dietTypeTf.setVisible(false);
+        caloriesTf.setVisible(false);
+        
+        
                 
         
     }
@@ -42,13 +62,13 @@ public class PhysicalGUI extends javax.swing.JFrame {
         dietBtn = new javax.swing.JButton();
         displayActivityBtn = new javax.swing.JButton();
         removeActivityBtn = new javax.swing.JButton();
-        IdLbl = new javax.swing.JLabel();
+        idLbl = new javax.swing.JLabel();
         cardioTypeLbl = new javax.swing.JLabel();
         cardioDurLbl = new javax.swing.JLabel();
         workoutLbl = new javax.swing.JLabel();
         durationLbl = new javax.swing.JLabel();
         dietTypeLbl = new javax.swing.JLabel();
-        IdTf = new javax.swing.JTextField();
+        idTf = new javax.swing.JTextField();
         cardioDurTf = new javax.swing.JTextField();
         workoutTf = new javax.swing.JTextField();
         frequencyTf = new javax.swing.JTextField();
@@ -63,6 +83,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         dietTypeBtn = new javax.swing.JButton();
         workoutTypeBtn = new javax.swing.JButton();
         cardioTypeBtn = new javax.swing.JButton();
+        warningLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,7 +91,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         physicalLbl.setText("Physical Health");
 
         frequencyLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        frequencyLbl.setText("Frequency(per week):");
+        frequencyLbl.setText("Frequency (per week):");
 
         cardioTypeTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cardioTypeTf.addActionListener(new java.awt.event.ActionListener() {
@@ -119,8 +140,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
             }
         });
 
-        IdLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        IdLbl.setText("ID:");
+        idLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        idLbl.setText("ID:");
 
         cardioTypeLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         cardioTypeLbl.setText("Cardio Type:");
@@ -137,10 +158,10 @@ public class PhysicalGUI extends javax.swing.JFrame {
         dietTypeLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         dietTypeLbl.setText("Diet Type:");
 
-        IdTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        IdTf.addActionListener(new java.awt.event.ActionListener() {
+        idTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        idTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IdTfActionPerformed(evt);
+                idTfActionPerformed(evt);
             }
         });
 
@@ -192,6 +213,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
         pBtnGrp.add(macroRb);
         macroRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         macroRb.setText("Macronutrient");
+        macroRb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                macroRbActionPerformed(evt);
+            }
+        });
 
         pBtnGrp.add(cardioRb);
         cardioRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -205,10 +231,20 @@ public class PhysicalGUI extends javax.swing.JFrame {
         pBtnGrp.add(dietRb);
         dietRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dietRb.setText("Diet");
+        dietRb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dietRbActionPerformed(evt);
+            }
+        });
 
         pBtnGrp.add(workoutRb);
         workoutRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         workoutRb.setText("Workout Plan");
+        workoutRb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                workoutRbActionPerformed(evt);
+            }
+        });
 
         dietTypeBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         dietTypeBtn.setText("Types of Diet");
@@ -234,6 +270,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
             }
         });
 
+        warningLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        warningLbl.setText("Please press one of the radio buttons on the right to activate the program");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -241,77 +280,79 @@ public class PhysicalGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(IdLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(macroRb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(caloriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(dietTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cardioTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cardioDurLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addComponent(cardioRb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(275, 275, 275)
-                                        .addComponent(physicalLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(dietTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(durationLbl)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(durationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(frequencyLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(workoutLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(workoutTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(frequencyTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(cardioDurTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(cardioTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(IdTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(98, 98, 98)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(workoutRb, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                                    .addComponent(dietRb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addComponent(saveActivityBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(displayActivityBtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(saveActivityBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(displayActivityBtn))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(dietTypeBtn)))
+                        .addContainerGap()
+                        .addComponent(dietTypeBtn)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(removeActivityBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dietBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(menuPhysicalBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(workoutTypeBtn)
+                        .addGap(58, 58, 58)
+                        .addComponent(cardioTypeBtn)
+                        .addGap(26, 26, 26))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(idLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(macroRb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(removeActivityBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(dietBtn))
-                            .addComponent(workoutTypeBtn))
+                            .addComponent(cardioDurLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cardioTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cardioTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cardioDurTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cardioRb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(cardioTypeBtn))
-                            .addComponent(menuPhysicalBtn))))
-                .addGap(0, 26, Short.MAX_VALUE))
+                                .addGap(275, 275, 275)
+                                .addComponent(physicalLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(durationLbl)
+                                .addGap(18, 18, 18)
+                                .addComponent(durationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(frequencyLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(frequencyTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(workoutLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(workoutTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(98, 98, 98)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(workoutRb, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(dietRb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(caloriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(dietTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dietTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(166, 166, 166)
+                .addComponent(warningLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,8 +363,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(IdLbl)
-                            .addComponent(IdTf, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(idLbl)
+                            .addComponent(idTf, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cardioTypeLbl)
@@ -351,14 +392,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(caloriesLbl))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(saveActivityBtn)
-                            .addComponent(displayActivityBtn)
-                            .addComponent(removeActivityBtn)
-                            .addComponent(dietBtn)
-                            .addComponent(menuPhysicalBtn)))
+                            .addComponent(caloriesLbl)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(macroRb)
@@ -368,12 +402,21 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         .addComponent(dietRb)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(workoutRb)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(warningLbl)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dietTypeBtn)
+                    .addComponent(saveActivityBtn)
+                    .addComponent(displayActivityBtn)
+                    .addComponent(removeActivityBtn)
+                    .addComponent(dietBtn)
+                    .addComponent(menuPhysicalBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(workoutTypeBtn)
+                    .addComponent(dietTypeBtn)
                     .addComponent(cardioTypeBtn))
-                .addContainerGap())
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -423,9 +466,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_removeActivityBtnActionPerformed
 
-    private void IdTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdTfActionPerformed
+    private void idTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_IdTfActionPerformed
+    }//GEN-LAST:event_idTfActionPerformed
 
     private void cardioDurTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardioDurTfActionPerformed
         // TODO add your handling code here:
@@ -453,19 +496,117 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void cardioRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardioRbActionPerformed
         // TODO add your handling code here:
+        //make the ID, cardio type and duration visible
+        idLbl.setVisible(true);
+        cardioTypeLbl.setVisible(true);
+        cardioDurLbl.setVisible(true);
+        workoutLbl.setVisible(false);
+        frequencyLbl.setVisible(false);
+        durationLbl.setVisible(false);
+        dietTypeLbl.setVisible(false);
+        caloriesLbl.setVisible(false);
+        
+        
+        idTf.setVisible(true);
+        cardioTypeTf.setVisible(true);
+        cardioDurTf.setVisible(true);
+        workoutTf.setVisible(false);
+        frequencyTf.setVisible(false);
+        durationTf.setVisible(false);
+        dietTypeTf.setVisible(false);
+        caloriesTf.setVisible(false);
+        warningLbl.setVisible(false);
+       
     }//GEN-LAST:event_cardioRbActionPerformed
 
     private void dietTypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietTypeBtnActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Depending on your preference of food, you could try these following diets: \n Keto (1), Paleo (2), Mediterranean (3), Carnivore (4), Non-restrictive (5)"); 
     }//GEN-LAST:event_dietTypeBtnActionPerformed
 
     private void workoutTypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workoutTypeBtnActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Here is an example of a few workouts: \n Crossfit (1), Bodybuilding (2), Bodyweight training / Calisthenics (3), Powerlifting (4)");
     }//GEN-LAST:event_workoutTypeBtnActionPerformed
 
     private void cardioTypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardioTypeBtnActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Different types of Cardio: \n Slow walk <3mph (1), moderate running pace(2), Light cycling (3), light swimming (4)");
     }//GEN-LAST:event_cardioTypeBtnActionPerformed
+
+    private void macroRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_macroRbActionPerformed
+        // TODO add your handling code here:
+        //make the ID and calories appear
+        idLbl.setVisible(true);
+        cardioTypeLbl.setVisible(false);
+        cardioDurLbl.setVisible(false);
+        workoutLbl.setVisible(false);
+        frequencyLbl.setVisible(false);
+        durationLbl.setVisible(false);
+        dietTypeLbl.setVisible(false);
+        caloriesLbl.setVisible(true);
+        
+        
+        idTf.setVisible(true);
+        cardioTypeTf.setVisible(false);
+        cardioDurTf.setVisible(false);
+        workoutTf.setVisible(false);
+        frequencyTf.setVisible(false);
+        durationTf.setVisible(false);
+        dietTypeTf.setVisible(false);
+        caloriesTf.setVisible(true);
+        warningLbl.setVisible(false);
+        
+        
+    }//GEN-LAST:event_macroRbActionPerformed
+
+    private void dietRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietRbActionPerformed
+        // TODO add your handling code here:
+        //make the ID, diet type and calories visible
+        idLbl.setVisible(true);
+        cardioTypeLbl.setVisible(false);
+        cardioDurLbl.setVisible(false);
+        workoutLbl.setVisible(false);
+        frequencyLbl.setVisible(false);
+        durationLbl.setVisible(false);
+        dietTypeLbl.setVisible(true);
+        caloriesLbl.setVisible(true);
+        
+        
+        idTf.setVisible(true);
+        cardioTypeTf.setVisible(false);
+        cardioDurTf.setVisible(false);
+        workoutTf.setVisible(false);
+        frequencyTf.setVisible(false);
+        durationTf.setVisible(false);
+        dietTypeTf.setVisible(true);
+        caloriesTf.setVisible(true);
+        warningLbl.setVisible(false);
+    }//GEN-LAST:event_dietRbActionPerformed
+
+    private void workoutRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workoutRbActionPerformed
+        // TODO add your handling code here:
+        //makes the ID, workout duration, frequency and duration visible
+        idLbl.setVisible(true);
+        cardioTypeLbl.setVisible(false);
+        cardioDurLbl.setVisible(false);
+        workoutLbl.setVisible(true);
+        frequencyLbl.setVisible(true);
+        durationLbl.setVisible(true);
+        dietTypeLbl.setVisible(false);
+        caloriesLbl.setVisible(false);
+        
+        
+        idTf.setVisible(true);
+        cardioTypeTf.setVisible(false);
+        cardioDurTf.setVisible(false);
+        workoutTf.setVisible(true);
+        frequencyTf.setVisible(true);
+        durationTf.setVisible(true);
+        dietTypeTf.setVisible(false);
+        caloriesTf.setVisible(false);
+        warningLbl.setVisible(false);
+    }//GEN-LAST:event_workoutRbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -503,8 +644,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel IdLbl;
-    private javax.swing.JTextField IdTf;
     private javax.swing.JLabel caloriesLbl;
     private javax.swing.JTextField caloriesTf;
     private javax.swing.JLabel cardioDurLbl;
@@ -523,12 +662,15 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.JTextField durationTf;
     private javax.swing.JLabel frequencyLbl;
     private javax.swing.JTextField frequencyTf;
+    private javax.swing.JLabel idLbl;
+    private javax.swing.JTextField idTf;
     private javax.swing.JRadioButton macroRb;
     private javax.swing.JButton menuPhysicalBtn;
     private javax.swing.ButtonGroup pBtnGrp;
     private javax.swing.JLabel physicalLbl;
     private javax.swing.JButton removeActivityBtn;
     private javax.swing.JButton saveActivityBtn;
+    private javax.swing.JLabel warningLbl;
     private javax.swing.JLabel workoutLbl;
     private javax.swing.JRadioButton workoutRb;
     private javax.swing.JTextField workoutTf;

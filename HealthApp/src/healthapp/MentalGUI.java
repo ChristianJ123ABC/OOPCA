@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author flips
  */
 public class MentalGUI extends javax.swing.JFrame {
-    private ArrayList<Mental> mental;
+    private ArrayList<Mental> mentalG;
 
 
     /**
@@ -24,7 +24,19 @@ public class MentalGUI extends javax.swing.JFrame {
      */
     public MentalGUI() {
         initComponents();
-         mental = new ArrayList<>();
+        frequencyLbl.setVisible(false);
+        frequencyTf.setVisible(false);
+        weightLbl.setVisible(false);
+        weightTf.setVisible(false);
+        metLbl.setVisible(false);
+        metTf.setVisible(false);
+        activityDLbl.setVisible(false);
+        activityDTf.setVisible(false);
+        dietTypeLbl.setVisible(false);
+        dietTTf.setVisible(false);
+        caloriesLbl.setVisible(false);
+        caloriesTf.setVisible(false);
+         mentalG = new ArrayList<>();
          read();
     }
 
@@ -41,22 +53,22 @@ public class MentalGUI extends javax.swing.JFrame {
         mentalLbl = new javax.swing.JLabel();
         dietTypeLbl = new javax.swing.JLabel();
         IdTf = new javax.swing.JTextField();
-        searchMBtn = new javax.swing.JButton();
+        caloriesBBtn = new javax.swing.JButton();
         menuMBtn = new javax.swing.JButton();
         displayMBtn = new javax.swing.JButton();
         removeMBtn = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
         caloriesLbl = new javax.swing.JLabel();
         IdLbl = new javax.swing.JLabel();
-        ActivityLbl = new javax.swing.JLabel();
-        activityTLbl = new javax.swing.JLabel();
+        frequencyLbl = new javax.swing.JLabel();
+        metLbl = new javax.swing.JLabel();
         activityDLbl = new javax.swing.JLabel();
         stressLbl = new javax.swing.JLabel();
         sleepHLbl = new javax.swing.JLabel();
-        activityTf = new javax.swing.JTextField();
+        frequencyTf = new javax.swing.JTextField();
         stressTf = new javax.swing.JTextField();
         activityDTf = new javax.swing.JTextField();
-        activityTTf = new javax.swing.JTextField();
+        metTf = new javax.swing.JTextField();
         dietTTf = new javax.swing.JTextField();
         caloriesTf = new javax.swing.JTextField();
         sleepHTf = new javax.swing.JTextField();
@@ -64,6 +76,8 @@ public class MentalGUI extends javax.swing.JFrame {
         dietMBtn = new javax.swing.JButton();
         activitiesRB = new javax.swing.JRadioButton();
         dietRb = new javax.swing.JRadioButton();
+        weightLbl = new javax.swing.JLabel();
+        weightTf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,11 +94,16 @@ public class MentalGUI extends javax.swing.JFrame {
             }
         });
 
-        searchMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        searchMBtn.setText("Search");
-        searchMBtn.addActionListener(new java.awt.event.ActionListener() {
+        caloriesBBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        caloriesBBtn.setText("Calories Burned");
+        caloriesBBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                caloriesBBtnMouseClicked(evt);
+            }
+        });
+        caloriesBBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchMBtnActionPerformed(evt);
+                caloriesBBtnActionPerformed(evt);
             }
         });
 
@@ -127,11 +146,11 @@ public class MentalGUI extends javax.swing.JFrame {
         IdLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         IdLbl.setText("Id:");
 
-        ActivityLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        ActivityLbl.setText("Activity Level:");
+        frequencyLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        frequencyLbl.setText("Frequency:");
 
-        activityTLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        activityTLbl.setText("Activity Type:");
+        metLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        metLbl.setText("Met:");
 
         activityDLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         activityDLbl.setText("Activity Duration:");
@@ -142,10 +161,10 @@ public class MentalGUI extends javax.swing.JFrame {
         sleepHLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         sleepHLbl.setText("Sleep Hours:");
 
-        activityTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        activityTf.addActionListener(new java.awt.event.ActionListener() {
+        frequencyTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        frequencyTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                activityTfActionPerformed(evt);
+                frequencyTfActionPerformed(evt);
             }
         });
 
@@ -163,10 +182,10 @@ public class MentalGUI extends javax.swing.JFrame {
             }
         });
 
-        activityTTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        activityTTf.addActionListener(new java.awt.event.ActionListener() {
+        metTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        metTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                activityTTfActionPerformed(evt);
+                metTfActionPerformed(evt);
             }
         });
 
@@ -176,7 +195,13 @@ public class MentalGUI extends javax.swing.JFrame {
                 dietTTfActionPerformed(evt);
             }
         });
+        dietTTf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dietTTfKeyReleased(evt);
+            }
+        });
 
+        caloriesTf.setEditable(false);
         caloriesTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         caloriesTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,6 +218,11 @@ public class MentalGUI extends javax.swing.JFrame {
 
         activitiesMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         activitiesMBtn.setText("Types Of Activity");
+        activitiesMBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activitiesMBtnActionPerformed(evt);
+            }
+        });
 
         dietMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         dietMBtn.setText("Types Of Diet");
@@ -200,15 +230,58 @@ public class MentalGUI extends javax.swing.JFrame {
         mBtnGrp.add(activitiesRB);
         activitiesRB.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         activitiesRB.setText("Activities");
+        activitiesRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activitiesRBActionPerformed(evt);
+            }
+        });
 
         mBtnGrp.add(dietRb);
         dietRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dietRb.setText("Diet");
+        dietRb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dietRbActionPerformed(evt);
+            }
+        });
+
+        weightLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        weightLbl.setText("Weight:");
+
+        weightTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(IdLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(frequencyLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(13, 13, 13))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(dietTypeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                            .addComponent(caloriesLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(frequencyTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IdTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(activityDTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(metTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dietTTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caloriesTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(activitiesRB, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dietRb, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(115, 115, 115))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -220,7 +293,7 @@ public class MentalGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(activityTLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(metLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(stressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -233,48 +306,26 @@ public class MentalGUI extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(sleepHTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(addBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(displayMBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(removeMBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(searchMBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(weightLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(weightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(addBtn)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(displayMBtn)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(removeMBtn)))
                                 .addGap(18, 18, 18)
                                 .addComponent(menuMBtn))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(activitiesMBtn)
                         .addGap(18, 18, 18)
-                        .addComponent(dietMBtn)))
-                .addContainerGap(187, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(IdLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(ActivityLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(13, 13, 13))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(dietTypeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                            .addComponent(caloriesLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(activityTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IdTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(activityDTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(activityTTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dietTTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caloriesTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(activitiesRB, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dietRb, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(115, 115, 115))
+                        .addComponent(dietMBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(caloriesBBtn)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,13 +340,13 @@ public class MentalGUI extends javax.swing.JFrame {
                         .addComponent(activitiesRB)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ActivityLbl)
-                    .addComponent(activityTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(frequencyLbl)
+                    .addComponent(frequencyTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dietRb))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(activityTLbl)
-                    .addComponent(activityTTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(metLbl)
+                    .addComponent(metTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(activityDLbl)
@@ -316,17 +367,21 @@ public class MentalGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sleepHLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sleepHTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(weightLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(weightTf, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBtn)
                     .addComponent(displayMBtn)
                     .addComponent(removeMBtn)
-                    .addComponent(searchMBtn)
                     .addComponent(menuMBtn))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dietMBtn)
-                    .addComponent(activitiesMBtn))
+                    .addComponent(activitiesMBtn)
+                    .addComponent(caloriesBBtn))
                 .addGap(35, 35, 35))
         );
 
@@ -340,10 +395,11 @@ public class MentalGUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_menuMBtnActionPerformed
 
-    private void searchMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchMBtnActionPerformed
+    private void caloriesBBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caloriesBBtnActionPerformed
         // TODO add your handling code here:
-       
-    }//GEN-LAST:event_searchMBtnActionPerformed
+     
+        
+    }//GEN-LAST:event_caloriesBBtnActionPerformed
 
     private void IdTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdTfActionPerformed
         // TODO add your handling code here:
@@ -351,33 +407,65 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-       
+        if(activitiesRB.isSelected()){
+            MentalActivity a = new MentalActivity();
+            a.setId(IdTf.getText());
+            a.setStressLevel(stressTf.getText());
+            a.setSleepHours(sleepHTf.getText());
+            a.setWeight (Double.parseDouble(weightTf.getText()));
+            a.setFrequency (Double.parseDouble(frequencyTf.getText()));
+            a.setMet(Double.parseDouble(metTf.getText()));
+            a.setDuration(Double.parseDouble(activityDTf.getText()));
+            mentalG.add(a);
+        }
+        else if(dietRb.isSelected()){
+            MentalDiet d = new MentalDiet();
+            d.setId(IdTf.getText());
+            d.setStressLevel(stressTf.getText());
+            d.setSleepHours(sleepHTf.getText());
+            d.setDietType (dietTTf.getText());
+            d.setCalories (Double.parseDouble(caloriesTf.getText()));
+            mentalG.add(d);
+        }
+          clearFields();
         
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void displayMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayMBtnActionPerformed
         // TODO add your handling code here:
-        
-            if(mental.isEmpty()){
-            JOptionPane.showMessageDialog(null,"Sorry, there are no details added in the system");
+          if(mentalG.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Sorry, there are no information in the system");
         }
         else{
             //traversing an ArrayList
-            for(int i = 0; i < mental.size();i++){
-                JOptionPane.showMessageDialog(null,mental.get(i).getDetails());
+            for(int i = 0; i < mentalG.size();i++){
+                JOptionPane.showMessageDialog(null,mentalG.get(i).getDetails());
             }
         }
-     
+       read();
     }//GEN-LAST:event_displayMBtnActionPerformed
 
     private void removeMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeMBtnActionPerformed
         // TODO add your handling code here:
-        
+         if(mentalG.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Sorry, there are no information in the system");
+        }
+        else{
+            String searchTerm = IdTf.getText();
+            for(int i = 0; i < mentalG.size();i++){
+                Mental m = mentalG.get(i);
+                if(m.getId().equalsIgnoreCase(searchTerm)){
+                    mentalG.remove(m);
+                }
+            }
+        }
+        clearFields();
+        read();
     }//GEN-LAST:event_removeMBtnActionPerformed
 
-    private void activityTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityTfActionPerformed
+    private void frequencyTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frequencyTfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_activityTfActionPerformed
+    }//GEN-LAST:event_frequencyTfActionPerformed
 
     private void stressTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stressTfActionPerformed
         // TODO add your handling code here:
@@ -387,23 +475,93 @@ public class MentalGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_activityDTfActionPerformed
 
-    private void activityTTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityTTfActionPerformed
+    private void metTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_metTfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_activityTTfActionPerformed
-
-    private void dietTTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietTTfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dietTTfActionPerformed
+    }//GEN-LAST:event_metTfActionPerformed
 
     private void caloriesTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caloriesTfActionPerformed
         // TODO add your handling code here:
+      
     }//GEN-LAST:event_caloriesTfActionPerformed
 
     private void sleepHTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sleepHTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sleepHTfActionPerformed
 
-    
+    private void activitiesRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activitiesRBActionPerformed
+        // TODO add your handling code here:
+        dietTypeLbl.setVisible(false);
+        dietTTf.setVisible(false);
+        caloriesLbl.setVisible(false);
+        caloriesTf.setVisible(false);
+        frequencyLbl.setVisible(true);
+        frequencyTf.setVisible(true);
+        metLbl.setVisible(true);
+        metTf.setVisible(true);
+        activityDLbl.setVisible(true);
+        activityDTf.setVisible(true);
+        
+        
+    }//GEN-LAST:event_activitiesRBActionPerformed
+
+    private void dietRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietRbActionPerformed
+        // TODO add your handling code here:
+        frequencyLbl.setVisible(false);
+        frequencyTf.setVisible(false);
+        metLbl.setVisible(false);
+        metTf.setVisible(false);
+        activityDLbl.setVisible(false);
+        activityDTf.setVisible(false);
+        dietTypeLbl.setVisible(true);
+        dietTTf.setVisible(true);
+        caloriesLbl.setVisible(true);
+        caloriesTf.setVisible(true);
+    }//GEN-LAST:event_dietRbActionPerformed
+
+    private void caloriesBBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_caloriesBBtnMouseClicked
+        // TODO add your handling code here:
+        //    if(caloriesBBtn.onClick()){
+        //    JOptionPane.showMessageDialog(null,"Sorry, there are no details in the system to calculate caloried burned");
+      //  }
+      //  else{
+            //traversing an ArrayList
+       //     for(int i = 0; i < mentalG.size();i++){
+       //         JOptionPane.showMessageDialog(null,"Calories Burned: "+caloriesBurned);
+      //      }
+      //  }
+    }//GEN-LAST:event_caloriesBBtnMouseClicked
+
+    private void activitiesMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activitiesMBtnActionPerformed
+        // TODO add your handling code here:
+      //  JOptionPane.showMessageDialog(null,);
+    }//GEN-LAST:event_activitiesMBtnActionPerformed
+
+    private void dietTTfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dietTTfKeyReleased
+        // TODO add your handling code here:
+           String input = dietTTf.getText().toLowerCase();
+        // Check for specific diet type keywords
+                switch (input) {
+                    case "chicken":
+                        caloriesTf.setText("200 kcal");
+                        break;
+                    case "beef":
+                        caloriesTf.setText("250 kcal");
+                        break;
+                    case "salad":
+                        caloriesTf.setText("50 kcal");
+                        break;
+                    default:
+                        caloriesTf.setText("Unknown");
+                        break;
+                        
+                }  
+    }//GEN-LAST:event_dietTTfKeyReleased
+
+    private void dietTTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietTTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dietTTfActionPerformed
+
+  
     
     
     private void read(){
@@ -419,7 +577,7 @@ public class MentalGUI extends javax.swing.JFrame {
             oStream = new ObjectInputStream(fStream);
             
             //use objects
-            mental = (ArrayList<Mental>)oStream.readObject();
+            mentalG = (ArrayList<Mental>)oStream.readObject();
             
             oStream.close();
         }
@@ -428,6 +586,18 @@ public class MentalGUI extends javax.swing.JFrame {
         }
     }
     
+    
+      private void clearFields(){
+        IdTf.setText(" ");
+        stressTf.setText(" ");
+        sleepHTf.setText(" ");
+        weightTf.setText(" ");
+        frequencyTf.setText(" ");
+        activityDTf.setText(" ");
+        dietTTf.setText(" ");
+        caloriesTf.setText(" ");
+    
+    }
     /**
      * @param args the command line arguments
      */
@@ -464,17 +634,14 @@ public class MentalGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ActivityLbl;
     private javax.swing.JLabel IdLbl;
     private javax.swing.JTextField IdTf;
     private javax.swing.JButton activitiesMBtn;
     private javax.swing.JRadioButton activitiesRB;
     private javax.swing.JLabel activityDLbl;
     private javax.swing.JTextField activityDTf;
-    private javax.swing.JLabel activityTLbl;
-    private javax.swing.JTextField activityTTf;
-    private javax.swing.JTextField activityTf;
     private javax.swing.JButton addBtn;
+    private javax.swing.JButton caloriesBBtn;
     private javax.swing.JLabel caloriesLbl;
     private javax.swing.JTextField caloriesTf;
     private javax.swing.JButton dietMBtn;
@@ -482,14 +649,19 @@ public class MentalGUI extends javax.swing.JFrame {
     private javax.swing.JTextField dietTTf;
     private javax.swing.JLabel dietTypeLbl;
     private javax.swing.JButton displayMBtn;
+    private javax.swing.JLabel frequencyLbl;
+    private javax.swing.JTextField frequencyTf;
     private javax.swing.ButtonGroup mBtnGrp;
     private javax.swing.JLabel mentalLbl;
     private javax.swing.JButton menuMBtn;
+    private javax.swing.JLabel metLbl;
+    private javax.swing.JTextField metTf;
     private javax.swing.JButton removeMBtn;
-    private javax.swing.JButton searchMBtn;
     private javax.swing.JLabel sleepHLbl;
     private javax.swing.JTextField sleepHTf;
     private javax.swing.JLabel stressLbl;
     private javax.swing.JTextField stressTf;
+    private javax.swing.JLabel weightLbl;
+    private javax.swing.JTextField weightTf;
     // End of variables declaration//GEN-END:variables
 }

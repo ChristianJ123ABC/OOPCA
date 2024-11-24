@@ -8,47 +8,66 @@ package healthapp;
  *
  * @author pyaku
  */
-public class MentalActivity {
-    private int id;
-    private String type;
-    private String duration;
-    private String caloriesBurned;
-
-    public MentalActivity(int id, String type,String duration, String caloriesBurned) {
-        this.id = id;
-        this.type = type;
-         this.duration = duration;
+public class MentalActivity extends Mental {
+    private double weight;
+    private double frequency;
+    private double met;
+    private double duration;
+    private double caloriesBurned;
+    
+     public MentalActivity(double weight, double frequency, double met, double duration, double caloriesBurned, String id, String stressLevel, String sleepHours) {
+        super(id, stressLevel, sleepHours);
+        this.weight = weight;
+        this.frequency = frequency;
+        this.met = met;
+        this.duration = duration;
         this.caloriesBurned = caloriesBurned;
     }
+    
 
-    public void setId(int id) {
-        this.id = id;
+    public MentalActivity() {
+        this.weight = 0;
+        this.frequency = 0;
+        this.met = 0;
+         this.duration = 0;
+        this.caloriesBurned = 0;
     }
 
-    public void setType(String type) {
-        this.type = type;
+
+     public void setWeight(double weight) {
+        this.weight = weight;
+    }
+      public void setFrequency(double frequency) {
+        this.frequency = frequency;
     }
 
-    public void setDuration(String duration) {
+    public void setMet(double met) {
+        this.met = met;
+    }
+
+    public void setDuration(double duration) {
         this.duration = duration;
     }
 
-    public void setCaloriesBurned(String caloriesBurned) {
+    public void setCaloriesBurned(double caloriesBurned) {
         this.caloriesBurned = caloriesBurned;
-    }
+    }    
     
-    
- 
-
-    public String getType() {
-        return type;
+    public double getWeight() {
+        return weight;
+    }
+   public double getFrequency() {
+        return frequency;
+    }
+    public double getMet() {
+        return met;
     }
 
-    public String getDuration() {
+    public double getDuration() {
         return duration;
     }
 
-    public String getCaloriesBurned() {
+    public double getCaloriesBurned() {
         return caloriesBurned;
     }
 
@@ -57,10 +76,14 @@ public class MentalActivity {
     
     //compute method
     
-    public void compute(){
-     
+    public  void computeCaloriesBurned(){
+     caloriesBurned =  (met * weight * duration * frequency);
 }
     
+      @Override
+    public String getDetails(){
+        return super.getDetails()+","+weight+","+frequency+", "+met+", "+duration;
+    }
 }
 
 

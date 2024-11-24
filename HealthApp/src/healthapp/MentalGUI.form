@@ -27,6 +27,44 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="IdLbl" min="-2" pref="97" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="frequencyLbl" min="-2" pref="116" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="dietTypeLbl" pref="123" max="32767" attributes="0"/>
+                          <Component id="caloriesLbl" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="frequencyTf" min="-2" pref="204" max="-2" attributes="0"/>
+                  <Component id="IdTf" min="-2" pref="204" max="-2" attributes="0"/>
+                  <Component id="activityDTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                  <Component id="metTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                  <Component id="dietTTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                  <Component id="caloriesTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="213" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="activitiesRB" min="-2" pref="98" max="-2" attributes="0"/>
+                  <Component id="dietRb" min="-2" pref="98" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -40,7 +78,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="activityTLbl" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                          <Component id="metLbl" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="stressLbl" min="-2" pref="111" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -57,13 +95,20 @@
                               <Component id="sleepHTf" min="-2" pref="204" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="addBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="displayMBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="removeMBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="searchMBtn" min="-2" pref="107" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="weightLbl" min="-2" pref="111" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="weightTf" min="-2" pref="205" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="addBtn" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="displayMBtn" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="removeMBtn" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="menuMBtn" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -73,47 +118,11 @@
                       <Component id="activitiesMBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="dietMBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="caloriesBBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <EmptySpace pref="187" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="IdLbl" min="-2" pref="97" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ActivityLbl" min="-2" pref="116" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="dietTypeLbl" pref="123" max="32767" attributes="0"/>
-                          <Component id="caloriesLbl" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="activityTf" min="-2" pref="204" max="-2" attributes="0"/>
-                  <Component id="IdTf" min="-2" pref="204" max="-2" attributes="0"/>
-                  <Component id="activityDTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
-                  <Component id="activityTTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
-                  <Component id="dietTTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
-                  <Component id="caloriesTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="activitiesRB" min="-2" pref="98" max="-2" attributes="0"/>
-                  <Component id="dietRb" min="-2" pref="98" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -132,14 +141,14 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ActivityLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="activityTf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="frequencyLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="frequencyTf" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dietRb" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="activityTLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="activityTTf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="metLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="metTf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -166,18 +175,23 @@
                   <Component id="sleepHLbl" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="sleepHTf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="weightLbl" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="weightTf" alignment="3" pref="32" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="displayMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="removeMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="searchMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="menuMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="dietMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="activitiesMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="caloriesBBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
           </Group>
@@ -211,15 +225,16 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IdTfActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="searchMBtn">
+    <Component class="javax.swing.JButton" name="caloriesBBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Search"/>
+        <Property name="text" type="java.lang.String" value="Calories Burned"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchMBtnActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="caloriesBBtnMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="caloriesBBtnActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="menuMBtn">
@@ -283,20 +298,20 @@
         <Property name="text" type="java.lang.String" value="Id:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ActivityLbl">
+    <Component class="javax.swing.JLabel" name="frequencyLbl">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Activity Level:"/>
+        <Property name="text" type="java.lang.String" value="Frequency:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="activityTLbl">
+    <Component class="javax.swing.JLabel" name="metLbl">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Activity Type:"/>
+        <Property name="text" type="java.lang.String" value="Met:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="activityDLbl">
@@ -323,14 +338,14 @@
         <Property name="text" type="java.lang.String" value="Sleep Hours:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="activityTf">
+    <Component class="javax.swing.JTextField" name="frequencyTf">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activityTfActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="frequencyTfActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="stressTf">
@@ -353,14 +368,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activityDTfActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="activityTTf">
+    <Component class="javax.swing.JTextField" name="metTf">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activityTTfActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="metTfActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="dietTTf">
@@ -371,10 +386,12 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dietTTfActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dietTTfKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="caloriesTf">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
@@ -400,6 +417,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Types Of Activity"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activitiesMBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="dietMBtn">
       <Properties>
@@ -419,6 +439,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Activities"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activitiesRBActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="dietRb">
       <Properties>
@@ -429,6 +452,24 @@
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Diet"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dietRbActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="weightLbl">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Weight:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="weightTf">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>

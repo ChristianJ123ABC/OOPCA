@@ -13,11 +13,11 @@ import java.io.Serializable;
 public class Mental implements Serializable {
     
     protected String id;
-    protected double stressLevel;
-    protected float sleepHours;
+    protected String stressLevel;
+    protected String sleepHours;
     
 
-    public Mental(String id, double stressLevel, float sleepHours) {
+    public Mental(String id, String stressLevel, String sleepHours) {
         this.id = id;
         this.stressLevel = stressLevel;
         this.sleepHours = sleepHours;
@@ -26,8 +26,8 @@ public class Mental implements Serializable {
      //default constructor
     public Mental(){
         id = " ";
-        stressLevel = 0;
-        sleepHours = 0;
+        stressLevel = " ";
+        sleepHours = " ";
  
     }
     
@@ -35,19 +35,22 @@ public class Mental implements Serializable {
         this.id = id;
     }
 
-    public void setStressLevel(double stressLevel) {
+    public void setStressLevel(String stressLevel) {
         this.stressLevel = stressLevel;
     }
 
-    public void setSleepHours(float sleepHours) {
+    public void setSleepHours(String sleepHours) {
         this.sleepHours = sleepHours;
     }
+     public String getId() {
+        return id;
+    }
 
-    public double getStressLevel() {
+    public String getStressLevel() {
         return stressLevel;
     }
 
-    public float getSleepHours() {
+    public String getSleepHours() {
         return sleepHours;
     }
     

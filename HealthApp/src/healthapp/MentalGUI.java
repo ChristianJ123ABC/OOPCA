@@ -78,6 +78,7 @@ public class MentalGUI extends javax.swing.JFrame {
         dietRb = new javax.swing.JRadioButton();
         weightLbl = new javax.swing.JLabel();
         weightTf = new javax.swing.JTextField();
+        clearMBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -250,6 +251,14 @@ public class MentalGUI extends javax.swing.JFrame {
 
         weightTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
+        clearMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        clearMBtn.setText("Clear");
+        clearMBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearMBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -299,32 +308,40 @@ public class MentalGUI extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(stressTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(sleepHLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(activitiesMBtn)
                                 .addGap(18, 18, 18)
-                                .addComponent(sleepHTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(dietMBtn))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(weightLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(sleepHLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(weightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(addBtn)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(displayMBtn)
+                                        .addComponent(sleepHTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(weightLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(weightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(addBtn)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(displayMBtn)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(removeMBtn)))
                                         .addGap(18, 18, 18)
-                                        .addComponent(removeMBtn)))
-                                .addGap(18, 18, 18)
-                                .addComponent(menuMBtn))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(activitiesMBtn)
+                                        .addComponent(clearMBtn)))))
                         .addGap(18, 18, 18)
-                        .addComponent(dietMBtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(caloriesBBtn)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(caloriesBBtn))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(menuMBtn)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -376,7 +393,8 @@ public class MentalGUI extends javax.swing.JFrame {
                     .addComponent(addBtn)
                     .addComponent(displayMBtn)
                     .addComponent(removeMBtn)
-                    .addComponent(menuMBtn))
+                    .addComponent(menuMBtn)
+                    .addComponent(clearMBtn))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dietMBtn)
@@ -561,6 +579,11 @@ public class MentalGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_dietTTfActionPerformed
 
+    private void clearMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearMBtnActionPerformed
+        // TODO add your handling code here:
+        clearFields();
+    }//GEN-LAST:event_clearMBtnActionPerformed
+
   
     
     
@@ -644,6 +667,7 @@ public class MentalGUI extends javax.swing.JFrame {
     private javax.swing.JButton caloriesBBtn;
     private javax.swing.JLabel caloriesLbl;
     private javax.swing.JTextField caloriesTf;
+    private javax.swing.JButton clearMBtn;
     private javax.swing.JButton dietMBtn;
     private javax.swing.JRadioButton dietRb;
     private javax.swing.JTextField dietTTf;

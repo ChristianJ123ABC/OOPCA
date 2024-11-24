@@ -6,8 +6,10 @@ package healthapp;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -16,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author chris
  */
 public class IntroGUI extends javax.swing.JFrame {
-    private ArrayList<User> userList;
+    public ArrayList<User> userList;
 
     /**
      * Creates new form Intro
@@ -24,10 +26,14 @@ public class IntroGUI extends javax.swing.JFrame {
     public IntroGUI() {
         initComponents(); 
         userList = new ArrayList<>();
-        read();
+        readUsers();
     }
     
-    private void read(){
+    
+    
+    
+    
+    private void readUsers(){
         //declare objects
         File f;
         FileInputStream fStream;
@@ -48,6 +54,8 @@ public class IntroGUI extends javax.swing.JFrame {
             System.out.println("Error: "+e);
         }
     }
+    
+    
     
     
 
@@ -155,9 +163,9 @@ public class IntroGUI extends javax.swing.JFrame {
                                         .addComponent(createLbl))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(loginBtn)
-                                        .addGap(228, 228, 228)
-                                        .addComponent(registerBtn)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(registerBtn)
+                                        .addGap(252, 252, 252)
                                         .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(211, 211, 211)
@@ -193,11 +201,10 @@ public class IntroGUI extends javax.swing.JFrame {
                     .addComponent(createLbl)
                     .addComponent(passwordPField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(registerBtn)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(loginBtn)
-                        .addComponent(exitBtn)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(loginBtn)
+                    .addComponent(exitBtn)
+                    .addComponent(registerBtn))
                 .addGap(103, 103, 103))
         );
 
@@ -220,35 +227,40 @@ public class IntroGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //source https://stackoverflow.com/questions/53983811/java-passing-arraylist-to-another-jframe
-       
-        for(User u: userList){ //for each object in U,search each of them
-            //if the ID or password from the User equals their login details, send them to physical
-            if(u.getId().equalsIgnoreCase(idTf.getText()) && u.getPassword().equalsIgnoreCase(passwordPField.getText()) && mLoginRb.isSelected()){ 
-                MentalGUI m = new MentalGUI();
-                m.setVisible(true);
-                this.dispose();
-                break;
+        //source 2 https://stackoverflow.com/questions/60320923/how-do-i-set-a-boolean-inside-a-for-loop-to-true-if-a-value-is-reached
+            boolean flag = false; //boolean to check if login is true or not
+            for(User u: userList){ //for each object in U,search each of them
+                //if the ID or password from the User equals their login details, send them to physical
+                if(u.getId().equals(idTf.getText()) && u.getPassword().equals(passwordPField.getText()) && mLoginRb.isSelected()){ 
+                    MentalGUI m = new MentalGUI();
+                    m.setVisible(true);
+                    this.dispose();
+                    flag = true;
+                    break;
+                    
+                }
+                //if the ID or password from the User equals their login details, send them to mental
+                else if(u.getId().equals(idTf.getText()) && u.getPassword().equals(passwordPField.getText()) && pLoginRb.isSelected()){
+                    PhysicalGUI p = new PhysicalGUI();
+                    p.setVisible(true);
+                    this.dispose();
+                    flag = true;
+                    break;
+                    
+                }
             }
-            //if the ID or password from the User equals their login details, send them to mental
-            else if(u.getId().equalsIgnoreCase(idTf.getText()) && u.getPassword().equalsIgnoreCase(passwordPField.getText()) && pLoginRb.isSelected()){
-                PhysicalGUI p = new PhysicalGUI();
-                p.setVisible(true);
-                this.dispose();
-                break;
-            }
-            //if the ID or password from the User does NOT equals their login details, send an error message
-            else if(!u.getId().equalsIgnoreCase(idTf.getText()) && !u.getPassword().equalsIgnoreCase(passwordPField.getText())){
-                JOptionPane.showMessageDialog(null, "Incorrect details");
-                break;
-            }
+                //if the ID or password from the User does NOT equals their login details / boolean flag is false, run this statement
+                if(flag == false){
+                //if no parameter is selected or the details are wrong, send an error message
+                    if(!pLoginRb.isSelected() || mLoginRb.isSelected()){
+                        JOptionPane.showMessageDialog(null, "Please accept a parameter before you log in");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Incorrect details");
+                    }
+                }
             
-            //if no parameter is selected, send an error message
-            else if(!pLoginRb.isSelected() || mLoginRb.isSelected()){
-                JOptionPane.showMessageDialog(null, "Please accept a parameter before you log in");
-                break;
-            }
-        }
-               
+             
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void idTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTfActionPerformed
@@ -297,7 +309,7 @@ public class IntroGUI extends javax.swing.JFrame {
     private javax.swing.JLabel createLbl;
     private javax.swing.JButton exitBtn;
     private javax.swing.JLabel idLbl;
-    private javax.swing.JTextField idTf;
+    public javax.swing.JTextField idTf;
     private javax.swing.JButton loginBtn;
     private javax.swing.JRadioButton mLoginRb;
     private javax.swing.JLabel messageLbl;

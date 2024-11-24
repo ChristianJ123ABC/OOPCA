@@ -28,8 +28,10 @@ public class UserGUI extends javax.swing.JFrame {
     public UserGUI() {
         initComponents();
         userList = new ArrayList<>();
-        read(); //loads the objects into the program on load
+        readUsers(); //loads the objects into the program on load
     }
+    
+    
     
     
     
@@ -316,15 +318,13 @@ public class UserGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"There are no users on the list");
         }
         else{
-            String search = idTf.getText(); //creates a search variable to traverse the arraylist
             
             for(User u:userList){//for each user object in the list, it will search it
-                if(u.getId().equalsIgnoreCase(search)){//check if the id of object matches the user search
+                if(u.getId().equalsIgnoreCase(idTf.getText())){//check if the id of object matches the user search
                     JOptionPane.showMessageDialog(null,u.getDetails());//if the id matches, print the details of that object
                 }
             }
         }
-        clearUserFields(); //clears the text from textfields
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
@@ -333,16 +333,16 @@ public class UserGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"There are no users on the list");
         }
         else{
-            String search = idTf.getText();
+            
             for(int i = 0; i < userList.size();i++){
                 User u = userList.get(i); //fetches the user object and puts it into i
-                if(u.getId().equalsIgnoreCase(search)){ //if the id equals the user search, it will delete it
+                
+                if(u.getId().equalsIgnoreCase(idTf.getText())){ //if the id equals the user search, it will delete it
                     userList.remove(u);
                 }
             }
         }
-        clearUserFields(); //clears the textfields
-        save(); //saves the user information into the file
+        saveUsers(); //saves the user information into the file
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
@@ -358,9 +358,9 @@ public class UserGUI extends javax.swing.JFrame {
         
         //places those values into an array
         userList.add(u);
+        JOptionPane.showMessageDialog(null, "User created! Please go back to the menu and log in");
         
-        clearUserFields(); //clears the textfields
-        save(); //saves the user information into the file
+        saveUsers(); //saves the user information into the file
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void ageTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTfActionPerformed
@@ -393,17 +393,9 @@ public class UserGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTfActionPerformed
 
-    private void clearUserFields(){ //clears the textfields
-        nameTf.setText(" ");
-        passwordPField.setText(" ");
-        idTf.setText(" ");
-        ageTf.setText(" ");
-        weightTf.setText(" ");
-        heightTf.setText(" ");
-        JOptionPane.showMessageDialog(null, "Remove white space from text field before typing anything new");
-    }
+   
     
-    private void save(){ //saves the user information into the file
+    private void saveUsers(){ //saves the user information into the file
         //declare objects
         File f;
         FileOutputStream fStream;
@@ -423,7 +415,7 @@ public class UserGUI extends javax.swing.JFrame {
         }
     }
     
-    private void read(){
+    private void readUsers(){
         //declare objects
         File f;
         FileInputStream fStream;

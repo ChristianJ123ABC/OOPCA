@@ -148,7 +148,7 @@ public class Macronutrients extends Physical { //used to grab variables from sup
     //method used to retrieve details easier
     @Override
     public String getDetails(){
-        return super.getDetails()+"\n Calories: "+calories;
+        return " Macronutrient Details: \n ID: "+id+"\n Calories: "+calories+"\n Activity Level: "+activityLevel;
     }
     
     

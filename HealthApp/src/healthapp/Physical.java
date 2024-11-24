@@ -99,4 +99,5 @@ public class Physical extends User { //used to grab variables from superclass
     
     
     
+    
 }

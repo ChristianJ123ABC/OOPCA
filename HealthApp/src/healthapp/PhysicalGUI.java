@@ -586,8 +586,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
             
             for(User u:userList){//for each user object in the list, it will search it
                 if(u.getId().equalsIgnoreCase(idTf.getText())){//check if the id of object matches the user search
-                    if(u instanceof Macronutrients){
-                        JOptionPane.showMessageDialog(null,((Macronutrients)u).getDetails());//if the id matches, print the details of that object
+                    if(u instanceof Macronutrients){ //if User, u,  is an instance of Macronutrients, run the statement
+                        JOptionPane.showMessageDialog(null,((Macronutrients)u).getDetails());//print the macronutrients GetDetails method
                     }
                 }
             }
@@ -682,7 +682,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
 
             else{
-                
                 for(int i = 0; i < userList.size();i++){ 
                         JOptionPane.showMessageDialog(null,  userList.get(i).getDetails()); 
                     }

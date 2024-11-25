@@ -71,20 +71,25 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="weightTf" min="-2" pref="213" max="-2" attributes="0"/>
-                  <Component id="heightTf" min="-2" pref="213" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="weightTf" min="-2" pref="213" max="-2" attributes="0"/>
+                          <Component id="heightTf" min="-2" pref="213" max="-2" attributes="0"/>
+                          <Component id="ageTf" min="-2" pref="213" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="displayBtn" min="-2" pref="117" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="searchBtn" min="-2" pref="117" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="returnMenuBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                      <Component id="deleteBtn" min="-2" pref="117" max="-2" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="ageTf" min="-2" pref="213" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
-              <Component id="deleteBtn" min="-2" pref="117" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="returnMenuBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -137,10 +142,10 @@
               <EmptySpace pref="32" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="searchBtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="deleteBtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                   <Component id="registerBtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                   <Component id="displayBtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                   <Component id="returnMenuBtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                  <Component id="deleteBtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
           </Group>

@@ -36,6 +36,9 @@ public class MentalGUI extends javax.swing.JFrame {
         dietTTf.setVisible(false);
         caloriesLbl.setVisible(false);
         caloriesTf.setVisible(false);
+        activitiesMBtn.setVisible(false);
+        dietMBtn.setVisible(false);
+        caloriesBBtn.setVisible(false);
          mentalG = new ArrayList<>();
          read();
     }
@@ -196,13 +199,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 dietTTfActionPerformed(evt);
             }
         });
-        dietTTf.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                dietTTfKeyReleased(evt);
-            }
-        });
 
-        caloriesTf.setEditable(false);
         caloriesTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         caloriesTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,6 +224,12 @@ public class MentalGUI extends javax.swing.JFrame {
 
         dietMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         dietMBtn.setText("Types Of Diet");
+        dietMBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        dietMBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dietMBtnActionPerformed(evt);
+            }
+        });
 
         mBtnGrp.add(activitiesRB);
         activitiesRB.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -250,6 +253,11 @@ public class MentalGUI extends javax.swing.JFrame {
         weightLbl.setText("Weight:");
 
         weightTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        weightTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weightTfActionPerformed(evt);
+            }
+        });
 
         clearMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         clearMBtn.setText("Clear");
@@ -268,94 +276,79 @@ public class MentalGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(IdLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(activitiesMBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(caloriesBBtn))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(frequencyLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(13, 13, 13))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(dietTypeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                            .addComponent(caloriesLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(frequencyTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IdTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(activityDTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(metTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dietTTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caloriesTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(activitiesRB, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dietRb, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(115, 115, 115))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(activityDLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sleepHLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(weightLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(241, 241, 241))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(addBtn)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(displayMBtn)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(removeMBtn)
+                                                .addGap(18, 18, 18)))
+                                        .addComponent(clearMBtn)))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dietMBtn)
+                            .addComponent(menuMBtn)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(229, 229, 229)
                         .addComponent(mentalLbl))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(metLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(stressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(stressTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(stressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(frequencyLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(metLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(activityDLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dietTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caloriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IdLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(weightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(activitiesMBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(dietMBtn))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(sleepHLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(sleepHTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(weightLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(weightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(addBtn)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(displayMBtn)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(removeMBtn)))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(clearMBtn)))))
-                        .addGap(18, 18, 18)
+                            .addComponent(frequencyTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(IdTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(activityDTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(metTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dietTTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(caloriesTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(stressTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sleepHTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(caloriesBBtn))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(menuMBtn)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(activitiesRB, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dietRb, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(115, 115, 115))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(mentalLbl)
-                .addGap(11, 11, 11)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(IdLbl)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(IdTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(activitiesRB)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(IdLbl)
+                        .addComponent(IdTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(activitiesRB))
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(frequencyLbl)
                     .addComponent(frequencyTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -377,18 +370,18 @@ public class MentalGUI extends javax.swing.JFrame {
                     .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(caloriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(stressTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(stressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(stressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stressTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sleepHLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sleepHTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(weightLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(weightTf, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBtn)
                     .addComponent(displayMBtn)
@@ -397,9 +390,9 @@ public class MentalGUI extends javax.swing.JFrame {
                     .addComponent(clearMBtn))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dietMBtn)
                     .addComponent(activitiesMBtn)
-                    .addComponent(caloriesBBtn))
+                    .addComponent(caloriesBBtn)
+                    .addComponent(dietMBtn))
                 .addGap(35, 35, 35))
         );
 
@@ -495,6 +488,7 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void metTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_metTfActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_metTfActionPerformed
 
     private void caloriesTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caloriesTfActionPerformed
@@ -518,7 +512,9 @@ public class MentalGUI extends javax.swing.JFrame {
         metTf.setVisible(true);
         activityDLbl.setVisible(true);
         activityDTf.setVisible(true);
-        
+        activitiesMBtn.setVisible(true);
+        caloriesBBtn.setVisible(true);
+        dietMBtn.setVisible(false);
         
     }//GEN-LAST:event_activitiesRBActionPerformed
 
@@ -534,6 +530,10 @@ public class MentalGUI extends javax.swing.JFrame {
         dietTTf.setVisible(true);
         caloriesLbl.setVisible(true);
         caloriesTf.setVisible(true);
+        activitiesMBtn.setVisible(false);
+        caloriesBBtn.setVisible(false);
+        dietMBtn.setVisible(true);
+      
     }//GEN-LAST:event_dietRbActionPerformed
 
     private void caloriesBBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_caloriesBBtnMouseClicked
@@ -551,38 +551,53 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void activitiesMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activitiesMBtnActionPerformed
         // TODO add your handling code here:
-      //  JOptionPane.showMessageDialog(null,);
+        // displays the message box with activities and METs values of the respective activities 
+        
+      JOptionPane.showMessageDialog(null,"Here are MET values and some exapmples of activities a person can do to improve their mental health: \n "
+              + "(1)Physical Activities (MET Values) \n  Yoga: 2.5 METs (light effort, Hatha yoga) \n Walking in Nature: 3.8 METs (moderate walking, 4 mph)"
+              + "\n Running or Jogging: 7.0-11.0 METs (depends on pace, 6 mph = 9.8 METs) \n Dancing: 4.8-7.8 METs (ballroom = 3.0, fast dancing = 7.8)"
+              + "\n Swimming: 5.8-10.0 METs (depends on speed and stroke) "
+              + "\n (2)Social Activities (MET Values): \n Volunteering: 2.0-3.0 METs (light effort, standing or moving) \n  Joining Support Groups: 1.5 METs (seated discussion)"
+              + "\n Team Sports: 4.0-10.0 METs (depending on sport, e.g., volleyball = 4.0, soccer = 7.0+) \n "
+              + "(3) Mindfulness and Relaxation Activities (MET Values): \n Meditation: 1.0 METs (resting equivalent) \n"
+              + " Deep Breathing Exercises: 1.0 METs (resting equivalent) \n  Progressive Muscle Relaxation: 1.0-1.3 METs " );
     }//GEN-LAST:event_activitiesMBtnActionPerformed
-
-    private void dietTTfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dietTTfKeyReleased
-        // TODO add your handling code here:
-           String input = dietTTf.getText().toLowerCase();
-        // Check for specific diet type keywords
-                switch (input) {
-                    case "chicken":
-                        caloriesTf.setText("200 kcal");
-                        break;
-                    case "beef":
-                        caloriesTf.setText("250 kcal");
-                        break;
-                    case "salad":
-                        caloriesTf.setText("50 kcal");
-                        break;
-                    default:
-                        caloriesTf.setText("Unknown");
-                        break;
-                        
-                }  
-    }//GEN-LAST:event_dietTTfKeyReleased
 
     private void dietTTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietTTfActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_dietTTfActionPerformed
 
     private void clearMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearMBtnActionPerformed
         // TODO add your handling code here:
         clearFields();
     }//GEN-LAST:event_clearMBtnActionPerformed
+
+    private void dietMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietMBtnActionPerformed
+        // TODO add your handling code here:
+        // Displays the message box for Types of diet and calories it contain for improvement of persons mental wellbeing.
+        
+        JOptionPane.showMessageDialog(null,"Here are some types of diet and calories they are equal to which is helpful for persons mental wellbeing: \n"
+                + "(1) Mediterranean Diet: Focuses on plant-based foods, healthy fats, and lean proteins like fish."
+                + " Known for its benefits in reducing heart disease and improving mental health. "
+                + "\n Calories: 2,000–2,500 kcal/day (moderate activity level). \n"
+                + " (2) Ketogenic (Keto) Diet: A low-carb, high-fat diet that shifts the body into ketosis, where fat is burned for energy instead of carbohydrates. \n"
+                + "Often used for weight loss and brain health. \n"
+                + " Calories: ~1,500–2,000 kcal/day (varies with goal and macro breakdown). \n "
+                + "(3) Plant-Based Diet:  Focuses on foods derived from plants, including vegetables, fruits, grains, legumes, and nuts. "
+                + "Can be vegetarian, vegan, or include limited animal products. Supports gut and mental health. \n "
+                + " Calories: 1,800–2,200 kcal/day. \n "
+                + "(4) DASH Diet (Dietary Approaches to Stop Hypertension): Designed to reduce high blood pressure, emphasizing fruits, vegetables, lean proteins, and  \n "
+                + "low-fat dairy while reducing sodium. Improves both physical and mental well-being.  \n "
+                + " Calories: 2,000 kcal/day (based on standard guidelines). \n "
+                + "(5) Low-Sugar Diet: Limits added sugars and focuses on complex carbs, proteins, and healthy fats to stabilize blood sugar and reduce mood swings."
+                + "\n  Helps with mental clarity and weight control. \n "
+                + " Calories: 1,500–2,000 kcal/day.");
+    }//GEN-LAST:event_dietMBtnActionPerformed
+
+    private void weightTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weightTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_weightTfActionPerformed
 
   
     
@@ -619,6 +634,7 @@ public class MentalGUI extends javax.swing.JFrame {
         activityDTf.setText(" ");
         dietTTf.setText(" ");
         caloriesTf.setText(" ");
+        metTf.setText(" ");
     
     }
     /**

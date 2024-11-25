@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author chris
  */
 public class IntroGUI extends javax.swing.JFrame {
-    public ArrayList<User> userList;
+    public ArrayList<User> userList;//arrayList to store Login Details
 
     /**
      * Creates new form Intro
@@ -26,13 +26,13 @@ public class IntroGUI extends javax.swing.JFrame {
     public IntroGUI() {
         initComponents(); 
         userList = new ArrayList<>();
-        readUsers();
+        readUsers();//puts the users information into the arrayList on load
     }
     
     
     
     
-    
+    //create a file to store the loginDetails and then place them into the userList when called
     private void readUsers(){
         //declare objects
         File f;
@@ -82,6 +82,7 @@ public class IntroGUI extends javax.swing.JFrame {
         passwordPField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(996, 570));
 
         titleLbl.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         titleLbl.setText("Health Improvement 101");
@@ -143,39 +144,37 @@ public class IntroGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(passwordLbl)
-                                            .addComponent(idLbl))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(idTf, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                                            .addComponent(passwordPField))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(loginBtn)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(createBtn)
-                                        .addGap(208, 208, 208)
-                                        .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(passwordLbl)
+                                    .addComponent(idLbl))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(idTf, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                                    .addComponent(passwordPField))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(mLoginRb)
-                                .addGap(18, 18, 18)
-                                .addComponent(pLoginRb)))
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(messageLbl)))
-                .addContainerGap())
+                                .addComponent(loginBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(createBtn)
+                                .addGap(262, 262, 262)
+                                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(mLoginRb)
+                        .addGap(18, 18, 18)
+                        .addComponent(pLoginRb)))
+                .addGap(23, 23, 23))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(messageLbl)
+                .addContainerGap(65, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(titleLbl)
-                .addGap(201, 201, 201))
+                .addGap(269, 269, 269))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +182,7 @@ public class IntroGUI extends javax.swing.JFrame {
                 .addComponent(titleLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(messageLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(mLoginRb)
                     .addComponent(pLoginRb))
@@ -191,7 +190,7 @@ public class IntroGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLbl)
                     .addComponent(idTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLbl)
                     .addComponent(passwordPField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -225,7 +224,7 @@ public class IntroGUI extends javax.swing.JFrame {
         //source 2 https://stackoverflow.com/questions/60320923/how-do-i-set-a-boolean-inside-a-for-loop-to-true-if-a-value-is-reached
             boolean flag = false; //boolean to check if login is true or not
             for(User u: userList){ //for each object in U,search each of them
-                //if the ID or password from the User equals their login details, send them to physical
+                //if the ID or password from the User equals their login details, send them to Mental
                 if(u.getId().equals(idTf.getText()) && u.getPassword().equals(passwordPField.getText()) && mLoginRb.isSelected()){ 
                     MentalGUI m = new MentalGUI();
                     m.setVisible(true);
@@ -234,7 +233,7 @@ public class IntroGUI extends javax.swing.JFrame {
                     break;
                     
                 }
-                //if the ID or password from the User equals their login details, send them to mental
+                //if the ID or password from the User equals their login details, send them to Physical
                 else if(u.getId().equals(idTf.getText()) && u.getPassword().equals(passwordPField.getText()) && pLoginRb.isSelected()){
                     PhysicalGUI p = new PhysicalGUI();
                     p.setVisible(true);

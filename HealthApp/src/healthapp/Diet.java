@@ -31,5 +31,10 @@ public class Diet extends Physical {
         this.mealType = mealType;
     }
     
+    @Override
+    public String getDetails(){
+        return " Diet Details: \n ID: "+id+"\n Type of Diet: "+mealType;
+    }
+    
     
 }

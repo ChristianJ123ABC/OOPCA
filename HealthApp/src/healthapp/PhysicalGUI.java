@@ -38,7 +38,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         cardioTypeLbl.setVisible(false);
         cardioDurLbl.setVisible(false);
         workoutLbl.setVisible(false);
-        frequencyLbl.setVisible(false);
         durationLbl.setVisible(false);
         dietTypeLbl.setVisible(false);
         caloriesLbl.setVisible(false);
@@ -51,7 +50,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         cardioTypeTf.setVisible(false);
         cardioDurTf.setVisible(false);
         workoutTf.setVisible(false);
-        frequencyTf.setVisible(false);
         durationTf.setVisible(false);
         dietTypeTf.setVisible(false);
         caloriesTf.setVisible(false); 
@@ -175,6 +173,92 @@ public class PhysicalGUI extends javax.swing.JFrame {
         }
     }
     
+    private void readDiet(){
+        //declare objects
+        File f;
+        FileInputStream fStream;
+        ObjectInputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("diet.dat");
+            fStream = new FileInputStream(f);
+            oStream = new ObjectInputStream(fStream);
+            
+            //use objects
+            userList = (ArrayList<User>)oStream.readObject();
+            
+            oStream.close();
+        }
+        catch(IOException|ClassNotFoundException e){
+            System.out.println("Error: "+e);
+        }
+    }
+    
+    //save the macros to a file
+    private void saveDiet(){
+        //declare objects
+        File f;
+        FileOutputStream fStream;
+        ObjectOutputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("diet.dat");
+            fStream = new FileOutputStream(f);
+            oStream = new ObjectOutputStream(fStream);
+            
+            //use objects
+            oStream.writeObject(userList);
+        }
+        catch(IOException e){
+            System.out.println("Error:"+e);
+        }
+    }
+    
+    private void readWorkout(){
+        //declare objects
+        File f;
+        FileInputStream fStream;
+        ObjectInputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("workout.dat");
+            fStream = new FileInputStream(f);
+            oStream = new ObjectInputStream(fStream);
+            
+            //use objects
+            userList = (ArrayList<User>)oStream.readObject();
+            
+            oStream.close();
+        }
+        catch(IOException|ClassNotFoundException e){
+            System.out.println("Error: "+e);
+        }
+    }
+    
+    //save the macros to a file
+    private void saveWorkout(){
+        //declare objects
+        File f;
+        FileOutputStream fStream;
+        ObjectOutputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("workout.dat");
+            fStream = new FileOutputStream(f);
+            oStream = new ObjectOutputStream(fStream);
+            
+            //use objects
+            oStream.writeObject(userList);
+        }
+        catch(IOException e){
+            System.out.println("Error:"+e);
+        }
+    }
+    
     
     
     /**
@@ -188,7 +272,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
         pBtnGrp = new javax.swing.ButtonGroup();
         physicalLbl = new javax.swing.JLabel();
-        frequencyLbl = new javax.swing.JLabel();
         cardioTypeTf = new javax.swing.JTextField();
         addBtn = new javax.swing.JButton();
         menuPhysicalBtn = new javax.swing.JButton();
@@ -204,7 +287,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         idTf = new javax.swing.JTextField();
         cardioDurTf = new javax.swing.JTextField();
         workoutTf = new javax.swing.JTextField();
-        frequencyTf = new javax.swing.JTextField();
         durationTf = new javax.swing.JTextField();
         dietTypeTf = new javax.swing.JTextField();
         caloriesTf = new javax.swing.JTextField();
@@ -228,9 +310,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
         physicalLbl.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         physicalLbl.setText("Physical Health");
-
-        frequencyLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        frequencyLbl.setText("Frequency (per week):");
 
         cardioTypeTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cardioTypeTf.addActionListener(new java.awt.event.ActionListener() {
@@ -292,7 +371,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutLbl.setText("Workout:");
 
         durationLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        durationLbl.setText("Duration Per Session:");
+        durationLbl.setText("Session Duration (in min):");
 
         dietTypeLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         dietTypeLbl.setText("Diet Type:");
@@ -315,13 +394,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 workoutTfActionPerformed(evt);
-            }
-        });
-
-        frequencyTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        frequencyTf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frequencyTfActionPerformed(evt);
             }
         });
 
@@ -473,16 +545,37 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(kcalLbl)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(dietTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dietTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(physicalLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(363, 363, 363))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(warningLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(caloriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(userRemoveLbl)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(activityQuestionBtn)
+                    .addComponent(recommendBtn))
+                .addGap(17, 17, 17))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -510,45 +603,23 @@ public class PhysicalGUI extends javax.swing.JFrame {
                                     .addComponent(dietRb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(macroRb)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(frequencyLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(workoutLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(workoutTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(workoutLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(workoutTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(workoutRb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(frequencyTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(caloriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(durationLbl)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(durationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(physicalLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(363, 363, 363))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(workoutRb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(warningLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(userRemoveLbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(activityQuestionBtn)
-                    .addComponent(recommendBtn))
-                .addGap(17, 17, 17))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(durationLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(durationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(dietTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dietTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -582,30 +653,33 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         .addComponent(workoutRb)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(frequencyLbl)
-                    .addComponent(frequencyTf, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(durationLbl)
                     .addComponent(durationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dietTypeLbl)
-                    .addComponent(dietTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(dietTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(activityQuestionBtn)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(activityQuestionBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(caloriesLbl)
-                            .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)
+                            .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addComponent(userRemoveLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(recommendBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(kcalLbl))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
                         .addComponent(warningLbl)
-                        .addGap(4, 4, 4)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(addBtn)
                             .addComponent(displayBtn)
@@ -616,11 +690,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(workoutTypeBtn)
                             .addComponent(dietTypeBtn)
-                            .addComponent(cardioTypeBtn)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(recommendBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(kcalLbl)))
+                            .addComponent(cardioTypeBtn))))
                 .addContainerGap())
         );
 
@@ -656,6 +726,25 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     if(u.getId().equalsIgnoreCase(idTf.getText())){
                         if (u instanceof Cardio){
                             JOptionPane.showMessageDialog(null, ((Cardio)u).getDetails());
+                        }
+                    }
+                }
+            }
+            
+            else if(dietRb.isSelected()){
+                for(User u:userList){
+                    if(u.getId().equalsIgnoreCase(idTf.getText())){
+                        if (u instanceof Diet){
+                            JOptionPane.showMessageDialog(null, ((Diet)u).getDetails());
+                        }
+                    }
+                }
+            }
+            else if(workoutRb.isSelected()){
+                for(User u:userList){
+                    if(u.getId().equalsIgnoreCase(idTf.getText())){
+                        if (u instanceof WorkoutPlan){
+                            JOptionPane.showMessageDialog(null, ((WorkoutPlan)u).getDetails());
                         }
                     }
                 }
@@ -788,6 +877,129 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 }
         }
         
+        else if (dietRb.isSelected()){
+            readUsers();
+            Diet d = new Diet();
+            boolean flag = false;
+            
+                for(User u:userList){
+                    if(u.getId().equals(idTf.getText())){
+                        flag = true;
+                        String mealType = " ";
+                        
+                        //sources:
+                        //https://www.omnicalculator.com/health/keto
+                        //https://www.carbmanager.com/article/y3o50xaaabh0cmjd/paleo-macros-do-you-need-to-track-them#:~:text=An%20initial%20Paleo%20macros%20ratio,better%20at%20higher%20carb%20intakes.
+                        //https://my.clevelandclinic.org/health/articles/16037-mediterranean-diet
+                        if(dietTypeTf.getText().equals("1")){ 
+                            mealType = "Keto";
+                            JOptionPane.showMessageDialog(null, "Keto is a low carb, high fat diet, so you should adjust your calories accordingly: \n 5% of your calories as carbs \n 70% as fats \n 25% protein");
+
+                        }
+        
+                        else if (dietTypeTf.getText().equals("2")){ 
+                             mealType = "Paleo";
+                             JOptionPane.showMessageDialog(null, "Paleo consists mainly of meat and fish, followed by vegetables, so you should adjust your calories accordingly: \n 25% of your calories as carbs \n 50% as fats \n 25% protein");
+
+                        }
+        
+                        else if (dietTypeTf.getText().equals("3")){ //light cycling
+                            mealType = "Mediterranean";
+                            JOptionPane.showMessageDialog(null, "Mediterranean focuses on plant-based foods and healthy fats, so you should adjust your calories accordingly: \n 40-50% of your calories as carbs \n 25-35% as fats \n 20-30% protein");
+
+                        }
+        
+                        else if (dietTypeTf.getText().equals("4")){ //light swimming
+                             mealType = "Carnivore";
+                             JOptionPane.showMessageDialog(null, "Carnivore ONLY consists of meat, fish and other animal products such as eggs or dairy products so you should adjust your calories accordingly: \n 0-5% of your calories as carbs \n 70-80% as fats \n 20-30% protein");
+
+                        }
+                        
+                        else if(dietTypeTf.getText().equals("5")){
+                            mealType = "Non-Restrictive";
+                            JOptionPane.showMessageDialog(null, "Non-restrictive basically means you can eat whatever, however we still suggest using this macro split: \n 40% of your calories as carbs \n 30% as fats \n 30% protein");
+
+                        }
+                        
+                        d.setId(idTf.getText());
+                        d.setMealType(mealType);
+                        userList.add(d);
+                        saveDiet();
+                        break;
+                        
+
+                    }
+
+                    if (!flag){
+                        JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
+                        
+                    }
+                }
+        }
+        else if (workoutRb.isSelected()){
+            readUsers();
+            WorkoutPlan w = new WorkoutPlan();
+            boolean flag = false;
+            
+                for(User u:userList){
+                    if(u.getId().equals(idTf.getText())){
+                        String type = " ";
+                        double duration = 0.0;
+                        String frequency =  " ";
+                        //sources:
+                        //https://runningonrealfood.com/crossfit-style-workouts/
+                        //https://www.hevyapp.com/2-day-split-workout/
+                        //https://fitnessprogramer.com/calisthenics-workout-plan/#Sample_Calisthenics_Workout_Plan
+                        //https://www.pinterest.com/pin/the-intermediate-powerlifting-sample-program--644859240409704732/
+                        if(workoutTf.getText().equalsIgnoreCase("1")){
+                            if(Double.parseDouble(durationTf.getText()) < 90){
+                                JOptionPane.showMessageDialog(null, "We recommend doing a different workout since this category of workout requires long rest times, therefore long gym sessions. We recommend calisthenics or crossfit");
+                            }
+                            type = "Crossfit";
+                            JOptionPane.showMessageDialog(null, "Here is a sample AMRAP workout for "+type+": \n 15 Minute AMRAP: \n 15 burpees \n 15 sit ups \n 15 Ten Inch box jumps \n Complete as many reps as possible in 15 minutes ");
+                        }
+                        
+                        else if(workoutTf.getText().equalsIgnoreCase("2")){
+                            type = "Bodybuilding";
+                            JOptionPane.showMessageDialog(null, "Here is a sample 2 day Full Body workout for "+type+" \n Recommended Split: D1-Rest-Rest-D2-Rest-Rest-Rest \n Day 1 Upper: \n Bench Press 2x8-10 @ RPE8-9 \n Cable Row 2x6-8 @ RPE 8-9 \n Machine Shoulder Press 2x10-12 @ RPE 8-9 \n Wide Grip Lat Pulldown 3x10-12 @ RPE 7-8 \n Cable Flys 3x12-15 @ RPE 7-8 \n DB Lateral Raise 3x12-15 @ RPE 8-9 \n Cable Curl 2x8-10 @ RPE9-10 \n Double Rope Tricep Pushdown 2x15-20 @ RPE 9-10");
+                            JOptionPane.showMessageDialog(null, "Day 2: \n Barbell Squat 3x5-8 @ RPE7-8 \n Barbell RDL 3x8-10 @ RPE 7-8 \n Leg Extension 3x8-10 @ RPE 7-8 \n Hamstring Curl 3x12-15 @ RPE 7-8 \n Seated Calf Raise 3x15-20 @ RPE 8-9 \n Barbell Hip-Thrust 3x10-12 @RPE7-8");
+                            
+                        }
+                        
+                        else if(workoutTf.getText().equalsIgnoreCase("3")){
+                            type = "Calisthenics";
+                            JOptionPane.showMessageDialog(null, "Here is a sample workout for "+type+" \n 3 Rounds (rest 2 minutes each round, 45 seconds each exercise): \n Windmill 10 reps \n Archer push-up 10 reps \n Pull-Up 10 reps \n Tricep Dips 10 reps \n Close Grip push up 10 reps \n Air Squats 10 reps \n Hip-thrust jumps 10 reps \n Scissor Kick 10 reps");
+                            
+                        }
+                        
+                        else if(workoutTf.getText().equalsIgnoreCase("4")){
+                            if(Double.parseDouble(durationTf.getText()) < 120){
+                                JOptionPane.showMessageDialog(null, "We recommend doing a different workout since this category of workout requires long rest times, therefore long gym sessions. We recommend calisthenics or crossfit");
+                            }
+                            type = "Powerlifting";
+                            JOptionPane.showMessageDialog(null, "Here is a 4 day workout for "+type+" \n Recommended Split: D1-D2-Rest-D3-Rest-D4-Rest \n Day 1: \n Barbell Squat 3x7-9 @ RPE 6-7 \n Bench Press 4x7-9 @ RPE 6-7 \n RDL 3x4-6 @ RPE 8-9 \n Lat Pulldown 3x7-9 @ RPE 6-7");
+                            JOptionPane.showMessageDialog(null, "Day 2: \n Barbell Squat 3x3-5 @ RPE 8-9 \n Bench Press 4x3-5 @ RPE 8-9 \n Overhead Press 3x4-6 @ RPE 8-9 \n Cable Row 3x4-6 @ RPE 8-9");
+                            JOptionPane.showMessageDialog(null, "Day 3: \n Barbell Squat 3x3-5 @ RPE 8-9 \n Bench Press 4x3-5 @ RPE 8-9 \n Overhead Press 3x4-6 @ RPE 8-9 \n Cable Row 3x4-6 @ RPE 8-9");
+                            JOptionPane.showMessageDialog(null, "Day 4: \n Low Bar Squat 3x4-6 @ RPE 8-9 \n Close Grip Bench Press 4x4-6 @ RPE 8-9 \n Deadlift 3x3-5 @ RPE 8-9");
+                        }
+                        
+                        w.setId(idTf.getText());
+                        w.setType(type);
+                        w.setDuration(Double.parseDouble(durationTf.getText()));
+                        userList.add(w);
+                        saveWorkout();
+                        break;
+                        
+
+                    }
+
+                    if (!flag){
+                        JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
+                        
+                    }
+                }
+        }
+        
         
         
     }//GEN-LAST:event_addBtnActionPerformed
@@ -828,6 +1040,14 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     userList.remove(u);
                     saveCardio();
                 }
+                else if(u.getId().equalsIgnoreCase(idTf.getText()) && dietRb.isSelected()){
+                    userList.remove(u);
+                    saveDiet();
+                }
+                else if(u.getId().equalsIgnoreCase(idTf.getText()) && workoutRb.isSelected()){
+                    userList.remove(u);
+                    saveWorkout();
+                }
             }
         }
         
@@ -844,10 +1064,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private void workoutTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workoutTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_workoutTfActionPerformed
-
-    private void frequencyTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frequencyTfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_frequencyTfActionPerformed
 
     private void durationTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_durationTfActionPerformed
         // TODO add your handling code here:
@@ -869,7 +1085,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         cardioTypeLbl.setVisible(true);
         cardioDurLbl.setVisible(true);
         workoutLbl.setVisible(false);
-        frequencyLbl.setVisible(false);
         durationLbl.setVisible(false);
         dietTypeLbl.setVisible(false);
         caloriesLbl.setVisible(false);
@@ -882,7 +1097,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         cardioTypeTf.setVisible(true);
         cardioDurTf.setVisible(true);
         workoutTf.setVisible(false);
-        frequencyTf.setVisible(false);
         durationTf.setVisible(false);
         dietTypeTf.setVisible(false);
         caloriesTf.setVisible(false);
@@ -919,7 +1133,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         cardioTypeLbl.setVisible(false);
         cardioDurLbl.setVisible(false);
         workoutLbl.setVisible(false);
-        frequencyLbl.setVisible(false);
         durationLbl.setVisible(false);
         dietTypeLbl.setVisible(false);
         caloriesLbl.setVisible(false);
@@ -932,7 +1145,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         cardioTypeTf.setVisible(false);
         cardioDurTf.setVisible(false);
         workoutTf.setVisible(false);
-        frequencyTf.setVisible(false);
         durationTf.setVisible(false);
         dietTypeTf.setVisible(false);
         caloriesTf.setVisible(false);
@@ -950,15 +1162,15 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void dietRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietRbActionPerformed
         // TODO add your handling code here:
-        //make the ID, diet type and calories visible
+        //make the ID and Diet TYPE visible
+        readDiet();
         idLbl.setVisible(true);
         cardioTypeLbl.setVisible(false);
         cardioDurLbl.setVisible(false);
         workoutLbl.setVisible(false);
-        frequencyLbl.setVisible(false);
         durationLbl.setVisible(false);
         dietTypeLbl.setVisible(true);
-        caloriesLbl.setVisible(true);
+        caloriesLbl.setVisible(false);
         warningLbl.setVisible(false);
         kcalLbl.setVisible(false);
         userRemoveLbl.setVisible(true);
@@ -967,10 +1179,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
         cardioTypeTf.setVisible(false);
         cardioDurTf.setVisible(false);
         workoutTf.setVisible(false);
-        frequencyTf.setVisible(false);
         durationTf.setVisible(false);
         dietTypeTf.setVisible(true);
-        caloriesTf.setVisible(true);
+        caloriesTf.setVisible(false);
         activityTf.setVisible(false);
         
         dietTypeBtn.setVisible(true);
@@ -983,11 +1194,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private void workoutRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workoutRbActionPerformed
         // TODO add your handling code here:
         //makes the ID, workout duration, frequency and duration visible
+        readWorkout();
         idLbl.setVisible(true);
         cardioTypeLbl.setVisible(false);
         cardioDurLbl.setVisible(false);
         workoutLbl.setVisible(true);
-        frequencyLbl.setVisible(true);
         durationLbl.setVisible(true);
         dietTypeLbl.setVisible(false);
         caloriesLbl.setVisible(false);
@@ -1000,7 +1211,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         cardioTypeTf.setVisible(false);
         cardioDurTf.setVisible(false);
         workoutTf.setVisible(true);
-        frequencyTf.setVisible(true);
         durationTf.setVisible(true);
         dietTypeTf.setVisible(false);
         caloriesTf.setVisible(false);
@@ -1117,8 +1327,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.JButton displayBtn;
     private javax.swing.JLabel durationLbl;
     private javax.swing.JTextField durationTf;
-    private javax.swing.JLabel frequencyLbl;
-    private javax.swing.JTextField frequencyTf;
     private javax.swing.JLabel idLbl;
     private javax.swing.JTextField idTf;
     private javax.swing.JLabel kcalLbl;

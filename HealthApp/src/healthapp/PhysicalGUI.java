@@ -175,6 +175,49 @@ public class PhysicalGUI extends javax.swing.JFrame {
         }
     }
     
+    private void readDiet(){
+        //declare objects
+        File f;
+        FileInputStream fStream;
+        ObjectInputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("diet.dat");
+            fStream = new FileInputStream(f);
+            oStream = new ObjectInputStream(fStream);
+            
+            //use objects
+            userList = (ArrayList<User>)oStream.readObject();
+            
+            oStream.close();
+        }
+        catch(IOException|ClassNotFoundException e){
+            System.out.println("Error: "+e);
+        }
+    }
+    
+    //save the macros to a file
+    private void saveDiet(){
+        //declare objects
+        File f;
+        FileOutputStream fStream;
+        ObjectOutputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("diet.dat");
+            fStream = new FileOutputStream(f);
+            oStream = new ObjectOutputStream(fStream);
+            
+            //use objects
+            oStream.writeObject(userList);
+        }
+        catch(IOException e){
+            System.out.println("Error:"+e);
+        }
+    }
+    
     
     
     /**
@@ -588,16 +631,20 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     .addComponent(durationLbl)
                     .addComponent(durationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(dietTypeLbl)
-                    .addComponent(dietTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(dietTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(activityQuestionBtn)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(caloriesLbl)
-                            .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(4, 4, 4)
                         .addComponent(userRemoveLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -655,6 +702,16 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     if(u.getId().equalsIgnoreCase(idTf.getText())){
                         if (u instanceof Cardio){
                             JOptionPane.showMessageDialog(null, ((Cardio)u).getDetails());
+                        }
+                    }
+                }
+            }
+            
+            else if(dietRb.isSelected()){
+                for(User u:userList){
+                    if(u.getId().equalsIgnoreCase(idTf.getText())){
+                        if (u instanceof Diet){
+                            JOptionPane.showMessageDialog(null, ((Diet)u).getDetails());
                         }
                     }
                 }
@@ -787,6 +844,75 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 }
         }
         
+        else if (dietRb.isSelected()){
+            readUsers();
+            Diet d = new Diet();
+            boolean flag = false;
+            
+                for(User u:userList){
+                    if(u.getId().equals(idTf.getText())){
+                        flag = true;
+                        String mealType = " ";
+                        
+                        if(dietTypeTf.getText().equals("1")){ //slow walk
+                            mealType = "Keto";
+                        }
+        
+                        else if (dietTypeTf.getText().equals("2")){ //moderate run
+                             mealType = "Paleo";
+                        }
+        
+                        else if (dietTypeTf.getText().equals("3")){ //light cycling
+                            mealType = "Mediterranean";
+                        }
+        
+                        else if (dietTypeTf.getText().equals("4")){ //light swimming
+                             mealType = "Carnivore";
+                        }
+                        
+                        else if(dietTypeTf.getText().equals("5")){
+                            mealType = "Non-Restrictive";
+                        }
+                        
+                        
+                        
+                        
+                        
+                        //sources:
+                        //https://www.omnicalculator.com/health/keto
+                        //https://www.carbmanager.com/article/y3o50xaaabh0cmjd/paleo-macros-do-you-need-to-track-them#:~:text=An%20initial%20Paleo%20macros%20ratio,better%20at%20higher%20carb%20intakes.
+                        //https://my.clevelandclinic.org/health/articles/16037-mediterranean-diet
+                        if(mealType.equalsIgnoreCase("Keto")){
+                            JOptionPane.showMessageDialog(null, "Keto is a low carb, high fat diet, so you should adjust your calories accordingly: \n 5% of your calories as carbs \n 70% as fats \n 25% protein");
+                        }
+                        else if(mealType.equalsIgnoreCase("Paleo")){
+                            JOptionPane.showMessageDialog(null, "Paleo consists mainly of meat and fish, followed by vegetables, so you should adjust your calories accordingly: \n 25% of your calories as carbs \n 50% as fats \n 25% protein");
+                        }
+                        else if(mealType.equalsIgnoreCase("Mediterranean")){
+                            JOptionPane.showMessageDialog(null, "Mediterranean focuses on plant-based foods and healthy fats, so you should adjust your calories accordingly: \n 40-50% of your calories as carbs \n 25-35% as fats \n 20-30% protein");
+                        }
+                        else if(mealType.equalsIgnoreCase("Carnivore")){
+                            JOptionPane.showMessageDialog(null, "Carnivore ONLY consists of meat, fish and other animal products such as eggs or dairy products so you should adjust your calories accordingly: \n 0-5% of your calories as carbs \n 70-80% as fats \n 20-30% protein");
+                        }
+                        else if(mealType.equalsIgnoreCase("Non-Restrictive")){
+                            JOptionPane.showMessageDialog(null, "This diet allows you to have zero restriction on what you eat, but we still recommend these macros: \n 40% of your calories as carbs \n 30% as fats \n 30% protein");
+                        }
+                        d.setId(idTf.getText());
+                        d.setMealType(mealType);
+                        userList.add(d);
+                        saveDiet();
+                        break;
+                        
+
+                    }
+
+                    if (!flag){
+                        JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
+                        
+                    }
+                }
+        }
+        
         
         
     }//GEN-LAST:event_addBtnActionPerformed
@@ -826,6 +952,10 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 else if(u.getId().equalsIgnoreCase(idTf.getText()) && cardioRb.isSelected()){
                     userList.remove(u);
                     saveCardio();
+                }
+                else if(u.getId().equalsIgnoreCase(idTf.getText()) && dietRb.isSelected()){
+                    userList.remove(u);
+                    saveDiet();
                 }
             }
         }
@@ -949,7 +1079,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void dietRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietRbActionPerformed
         // TODO add your handling code here:
-        //make the ID, diet type and calories visible
+        //make the ID and Diet TYPE visible
+        readDiet();
         idLbl.setVisible(true);
         cardioTypeLbl.setVisible(false);
         cardioDurLbl.setVisible(false);
@@ -957,7 +1088,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         frequencyLbl.setVisible(false);
         durationLbl.setVisible(false);
         dietTypeLbl.setVisible(true);
-        caloriesLbl.setVisible(true);
+        caloriesLbl.setVisible(false);
         warningLbl.setVisible(false);
         kcalLbl.setVisible(false);
         userRemoveLbl.setVisible(true);
@@ -969,7 +1100,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         frequencyTf.setVisible(false);
         durationTf.setVisible(false);
         dietTypeTf.setVisible(true);
-        caloriesTf.setVisible(true);
+        caloriesTf.setVisible(false);
         activityTf.setVisible(false);
         
         dietTypeBtn.setVisible(true);

@@ -71,9 +71,8 @@ public class IntroGUI extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         titleLbl = new javax.swing.JLabel();
         messageLbl = new javax.swing.JLabel();
-        registerBtn = new javax.swing.JButton();
+        createBtn = new javax.swing.JButton();
         exitBtn = new javax.swing.JButton();
-        createLbl = new javax.swing.JLabel();
         loginBtn = new javax.swing.JButton();
         idLbl = new javax.swing.JLabel();
         passwordLbl = new javax.swing.JLabel();
@@ -90,11 +89,11 @@ public class IntroGUI extends javax.swing.JFrame {
         messageLbl.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         messageLbl.setText("We aim to improve the overall health of anyone who uses this by providing a variety of options for either their mental or physical wellbeing");
 
-        registerBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        registerBtn.setText("Register");
-        registerBtn.addActionListener(new java.awt.event.ActionListener() {
+        createBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        createBtn.setText("Create Account");
+        createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerBtnActionPerformed(evt);
+                createBtnActionPerformed(evt);
             }
         });
 
@@ -105,9 +104,6 @@ public class IntroGUI extends javax.swing.JFrame {
                 exitBtnActionPerformed(evt);
             }
         });
-
-        createLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        createLbl.setText("Create an account ");
 
         loginBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         loginBtn.setText("Login");
@@ -159,13 +155,12 @@ public class IntroGUI extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(idTf, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                                             .addComponent(passwordPField))
-                                        .addGap(61, 61, 61)
-                                        .addComponent(createLbl))
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(loginBtn)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(registerBtn)
-                                        .addGap(252, 252, 252)
+                                        .addComponent(createBtn)
+                                        .addGap(208, 208, 208)
                                         .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(211, 211, 211)
@@ -198,25 +193,24 @@ public class IntroGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLbl)
-                    .addComponent(createLbl)
                     .addComponent(passwordPField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loginBtn)
                     .addComponent(exitBtn)
-                    .addComponent(registerBtn))
+                    .addComponent(createBtn))
                 .addGap(103, 103, 103))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
+    private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         // TODO add your handling code here:
         UserGUI myGUI = new UserGUI();
         myGUI.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_registerBtnActionPerformed
+    }//GEN-LAST:event_createBtnActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
         // TODO add your handling code here:
@@ -306,7 +300,7 @@ public class IntroGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel createLbl;
+    private javax.swing.JButton createBtn;
     private javax.swing.JButton exitBtn;
     private javax.swing.JLabel idLbl;
     public javax.swing.JTextField idTf;
@@ -316,7 +310,6 @@ public class IntroGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton pLoginRb;
     private javax.swing.JLabel passwordLbl;
     private javax.swing.JPasswordField passwordPField;
-    private javax.swing.JButton registerBtn;
     private javax.swing.JLabel titleLbl;
     // End of variables declaration//GEN-END:variables
 }

@@ -184,13 +184,15 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cardioTypeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cardioRb" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cardioTypeTf" alignment="0" pref="25" max="32767" attributes="0"/>
+                  <Component id="cardioTypeTf" min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cardioDurLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="dietRb" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="cardioDurTf" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cardioDurLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dietRb" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

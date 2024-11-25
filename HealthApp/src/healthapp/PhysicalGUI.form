@@ -170,19 +170,6 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="physicalLbl" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-<<<<<<< HEAD
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="idTf" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="idLbl" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="activityTf" alignment="0" pref="25" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="activityLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="macroRb" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-=======
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="idLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="idTf" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
@@ -192,7 +179,6 @@
                   <Component id="activityLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="macroRb" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="activityTf" min="-2" pref="21" max="-2" attributes="0"/>
->>>>>>> ea4a9e3931a8d72325f8f0c7509724d2a3c5a88b
               </Group>
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

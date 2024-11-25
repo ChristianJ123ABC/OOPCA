@@ -12,7 +12,7 @@ public class WorkoutPlan extends Physical {
     private String type;
     private double duration;
    
-
+    //overloaded constructor
     public WorkoutPlan(String type, double duration, double bmi, double activityLevel, String activity, String id, int age, String name, double weight, double height) {
         super(bmi, activityLevel, activity, id, age, name, weight, height);
         this.type = type;
@@ -20,13 +20,15 @@ public class WorkoutPlan extends Physical {
         
     }
     
+    //default constructor
     public WorkoutPlan(){
         super();
         type = " ";
         duration = 0.0;
         
     }
-
+    
+    //setters and getters
     public String getType() {
         return type;
     }
@@ -43,7 +45,7 @@ public class WorkoutPlan extends Physical {
         this.duration = duration;
     }
     
-    //method used to retrieve details easier
+    //overriding method of getDetails (grabbed from User SuperClass)
     @Override
     public String getDetails(){
         return " Workout Details: \n ID: "+id+"\n Workout Type: "+type+" \n Workout Duration: "+duration;

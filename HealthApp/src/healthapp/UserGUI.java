@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  * @author chris
  */
 public class UserGUI extends javax.swing.JFrame {
-    private ArrayList<User> userList;
+    private ArrayList<User> userList; //arrayList to store User Details
     
     /**
      * Creates new form MenuGUI
@@ -370,6 +370,7 @@ public class UserGUI extends javax.swing.JFrame {
 
     private void mentalMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mentalMenuBtnActionPerformed
         // TODO add your handling code here:
+        //displays the MentalGUI on click
         MentalGUI mg = new MentalGUI();
         mg.setVisible(true);
         this.dispose();
@@ -377,6 +378,7 @@ public class UserGUI extends javax.swing.JFrame {
 
     private void physicalMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_physicalMenuBtnActionPerformed
         // TODO add your handling code here:
+        //same as above
         PhysicalGUI pg = new PhysicalGUI();
         pg.setVisible(true);
         this.dispose();
@@ -395,8 +397,8 @@ public class UserGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_nameTfActionPerformed
 
    
-    
-    private void saveUsers(){ //saves the user information into the file
+    //saves the user information into the file
+    private void saveUsers(){ 
         //declare objects
         File f;
         FileOutputStream fStream;
@@ -416,6 +418,7 @@ public class UserGUI extends javax.swing.JFrame {
         }
     }
     
+    //puts the users information into the arrayList when called
     private void readUsers(){
         //declare objects
         File f;

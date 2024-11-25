@@ -15,6 +15,7 @@ public class Cardio extends Physical{
     private String activityName;
     private double met;
 
+    //overloaded constructor
     public Cardio(String type, int duration, double caloriesBurned, String activityName, double met, double bmi, double activityLevel, String activity, String id, int age, String name, double weight, double height) {
         super(bmi, activityLevel, activity, id, age, name, weight, height);
         this.type = type;
@@ -24,6 +25,7 @@ public class Cardio extends Physical{
         this.met = met;
     }
     
+    //default constructor
     public Cardio(){
         super();
         type = " ";
@@ -33,7 +35,8 @@ public class Cardio extends Physical{
         met = 0.0;
     }
     
-    public void calculateMet(){ //calculates the MET value, the bodys expenditure for energy
+    //calculates the MET value, the bodys expenditure for energy
+    public void calculateMet(){ 
         //source https://www.calculator.net/calories-burned-calculator.html?activity=1&activity2=Running%3A+fast&chour=1&cmin=30&cweight=160&cweightunit=k&ctype=1&x=Calculate
         //source 2 https://www.healthline.com/health/what-are-mets
         if(type == "1"){ //slow walk
@@ -57,11 +60,12 @@ public class Cardio extends Physical{
         }
     }
     
+    //compute method for calories burnt
     public void calculateKcalBurned(){
         caloriesBurned = (duration*met*weight/200); //calories burned per minute
     }
     
-
+    //setters and getters
     public String getType() {
         return type;
     }
@@ -103,6 +107,7 @@ public class Cardio extends Physical{
         this.met = met;
     }
     
+    //overriding method of getDetails (grabbed from User SuperClass)
     @Override
     public String getDetails(){
         return " Cardio Details: \n ID: "+id+"\n Cardio Type: "+activityName+"\n Duration of Session: "+duration+" minutes";

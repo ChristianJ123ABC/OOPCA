@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author chris
  */
 public class IntroGUI extends javax.swing.JFrame {
-    public ArrayList<User> userList;
+    public ArrayList<User> userList;//arrayList to store Login Details
 
     /**
      * Creates new form Intro
@@ -26,13 +26,13 @@ public class IntroGUI extends javax.swing.JFrame {
     public IntroGUI() {
         initComponents(); 
         userList = new ArrayList<>();
-        readUsers();
+        readUsers();//puts the users information into the arrayList on load
     }
     
     
     
     
-    
+    //create a file to store the loginDetails and then place them into the userList when called
     private void readUsers(){
         //declare objects
         File f;
@@ -225,7 +225,7 @@ public class IntroGUI extends javax.swing.JFrame {
         //source 2 https://stackoverflow.com/questions/60320923/how-do-i-set-a-boolean-inside-a-for-loop-to-true-if-a-value-is-reached
             boolean flag = false; //boolean to check if login is true or not
             for(User u: userList){ //for each object in U,search each of them
-                //if the ID or password from the User equals their login details, send them to physical
+                //if the ID or password from the User equals their login details, send them to Mental
                 if(u.getId().equals(idTf.getText()) && u.getPassword().equals(passwordPField.getText()) && mLoginRb.isSelected()){ 
                     MentalGUI m = new MentalGUI();
                     m.setVisible(true);
@@ -234,7 +234,7 @@ public class IntroGUI extends javax.swing.JFrame {
                     break;
                     
                 }
-                //if the ID or password from the User equals their login details, send them to mental
+                //if the ID or password from the User equals their login details, send them to Physical
                 else if(u.getId().equals(idTf.getText()) && u.getPassword().equals(passwordPField.getText()) && pLoginRb.isSelected()){
                     PhysicalGUI p = new PhysicalGUI();
                     p.setVisible(true);

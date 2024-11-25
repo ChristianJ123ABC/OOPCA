@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author flips
  */
 public class PhysicalGUI extends javax.swing.JFrame {
-    private ArrayList<User> userList;
+    private ArrayList<User> userList; //arrayList to store Physical section objects
     
    
     /**
@@ -28,7 +28,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
     public PhysicalGUI() {
         initComponents();
         userList = new ArrayList<>();
-        readUsers();
+        readUsers(); //puts the users information into the arrayList on load
         
         
        
@@ -54,6 +54,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         dietTypeTf.setVisible(false);
         caloriesTf.setVisible(false); 
         
+        //makes the buttons invisible on load
         dietTypeBtn.setVisible(false);
         cardioTypeBtn.setVisible(false);
         workoutTypeBtn.setVisible(false);
@@ -130,6 +131,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         }
     }
     
+    //the same as above
     private void readCardio(){
         //declare objects
         File f;
@@ -152,20 +154,20 @@ public class PhysicalGUI extends javax.swing.JFrame {
         }
     }
     
-    //save the macros to a file
+    
     private void saveCardio(){
-        //declare objects
+       
         File f;
         FileOutputStream fStream;
         ObjectOutputStream oStream;
         
         try{
-            //create objects
+            
             f = new File("cardio.dat");
             fStream = new FileOutputStream(f);
             oStream = new ObjectOutputStream(fStream);
             
-            //use objects
+            
             oStream.writeObject(userList);
         }
         catch(IOException e){
@@ -174,18 +176,16 @@ public class PhysicalGUI extends javax.swing.JFrame {
     }
     
     private void readDiet(){
-        //declare objects
+        
         File f;
         FileInputStream fStream;
         ObjectInputStream oStream;
         
         try{
-            //create objects
             f = new File("diet.dat");
             fStream = new FileInputStream(f);
             oStream = new ObjectInputStream(fStream);
             
-            //use objects
             userList = (ArrayList<User>)oStream.readObject();
             
             oStream.close();
@@ -195,20 +195,16 @@ public class PhysicalGUI extends javax.swing.JFrame {
         }
     }
     
-    //save the macros to a file
     private void saveDiet(){
-        //declare objects
         File f;
         FileOutputStream fStream;
         ObjectOutputStream oStream;
         
         try{
-            //create objects
             f = new File("diet.dat");
             fStream = new FileOutputStream(f);
             oStream = new ObjectOutputStream(fStream);
             
-            //use objects
             oStream.writeObject(userList);
         }
         catch(IOException e){
@@ -217,18 +213,15 @@ public class PhysicalGUI extends javax.swing.JFrame {
     }
     
     private void readWorkout(){
-        //declare objects
         File f;
         FileInputStream fStream;
         ObjectInputStream oStream;
         
         try{
-            //create objects
             f = new File("workout.dat");
             fStream = new FileInputStream(f);
             oStream = new ObjectInputStream(fStream);
             
-            //use objects
             userList = (ArrayList<User>)oStream.readObject();
             
             oStream.close();
@@ -238,20 +231,16 @@ public class PhysicalGUI extends javax.swing.JFrame {
         }
     }
     
-    //save the macros to a file
     private void saveWorkout(){
-        //declare objects
         File f;
         FileOutputStream fStream;
         ObjectOutputStream oStream;
         
         try{
-            //create objects
             f = new File("workout.dat");
             fStream = new FileOutputStream(f);
             oStream = new ObjectOutputStream(fStream);
             
-            //use objects
             oStream.writeObject(userList);
         }
         catch(IOException e){
@@ -698,6 +687,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void menuPhysicalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPhysicalBtnActionPerformed
         // TODO add your handling code here:
+        //clicking on the menu button returns you to the register screen
         UserGUI mg = new UserGUI();
         mg.setVisible(true);
         this.dispose();
@@ -720,6 +710,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 }
             }
             
+            //the  same as above for the rest
             else if(cardioRb.isSelected()){
                 for(User u:userList){
                     if(u.getId().equalsIgnoreCase(idTf.getText())){
@@ -762,19 +753,21 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
+        //if macro is clicked, grab the user details and make an instance of Macronutrients
         if(macroRb.isSelected()){
             readUsers();
             Macronutrients m = new Macronutrients();
-            boolean flag = false;
+            boolean flag = false; //flag to check if something is true or false
             
             
-                for(User u:userList){
-                    if(u.getId().equals(idTf.getText())){
+                for(User u:userList){ //for every object in User, run it through this if statement
+                    if(u.getId().equals(idTf.getText())){ //if the user id in the array is equal to the id in the textfield, run this
                         flag = true;
                         int age = u.getAge();
                         double height = u.getHeight();
                         double weight = u.getWeight();
                         double activityLevel = 0;
+                        //if the users activity is equal to a certain activityLevel, change the value accordingly
                         if(activityTf.getText().equals("1")){
                            activityLevel = 1.2;
                          }
@@ -795,7 +788,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                             activityLevel = 1.9;
                         }
 
-
+                        //compute method for macros
                         double bmr = (10*weight)+(6.25*height)-(5*age)+5;
                         double calories = Math.round(bmr*activityLevel);
                         double protein = Math.rint((0.4*calories)/4); //divides by how many kcal are in 1 gram of that macronutrient, to turn it into grams
@@ -803,21 +796,24 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         double carbs = Math.rint((0.4*calories)/4);
                         double waterIntake = weight*0.03;
                         
+                        //place the ID, calories and activityLevel into the userList under, m.
                         m.setId(idTf.getText());
                         m.setCalories(calories);
                         m.setActivityLevel(activityLevel);
                         userList.add(m);
 
 
-
+                        
                         JOptionPane.showMessageDialog(null, "Based on your calories on your activity level of: "+activityLevel+" your maintenance calories are "+calories+".");
                         JOptionPane.showMessageDialog(null, "Here are your macronutrients: \n Protein: "+protein+" \n Carbohydrates: "+carbs+" \n Fats: "+fats+" \n Water Intake: "+waterIntake+" Litres");
+                        //save the userList details into a macros.dat file
                         saveMacros();
-                        break;
+                        break; //break when complete
                         
 
                     }
-
+                    
+                    //if flag is false / incorrect ID, display error
                     if (!flag){
                         JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
                         
@@ -825,6 +821,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 }
         }
         
+        //the same as above for the rest
         else if (cardioRb.isSelected()){
             readUsers();
             Cardio c = new Cardio();
@@ -1006,14 +1003,16 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private void displayBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBtnActionPerformed
         // TODO add your handling code here:
         
-            if(userList.isEmpty()){ //if the arrayList is empty, it will display an error message
+            //if the arrayList is empty, it will display an error message
+            if(userList.isEmpty()){ 
                 JOptionPane.showMessageDialog(null,"There are no users on the list");
             }
 
 
             else{
+                //display each object in the userList
                 for(int i = 0; i < userList.size();i++){ 
-                        JOptionPane.showMessageDialog(null,  userList.get(i).getDetails()); 
+                        JOptionPane.showMessageDialog(null,  userList.get(i).getDetails()); //grab the details of each user
                     }
                 }
           
@@ -1024,11 +1023,13 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
         // TODO add your handling code here:
+        //if the arrayList is empty, it will display an error message
         if(userList.isEmpty()){
             JOptionPane.showMessageDialog(null,"Sorry, there are no users on the list");
         }
         else{
             
+            //if the userID equals the id in the textfield and its respective category is selected, delete the user from that ArrayList
             for(int i = 0; i < userList.size();i++){
                 User u = userList.get(i);
                 if(u.getId().equalsIgnoreCase(idTf.getText()) && macroRb.isSelected()){
@@ -1078,7 +1079,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void cardioRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardioRbActionPerformed
         // TODO add your handling code here:
-        //make the ID, cardio type and duration visible
+        //make the ID, warning message, cardio type and duration visible, then load the .dat file for that respective category so its in the userList
+        
         readCardio();
         idLbl.setVisible(true);
         cardioTypeLbl.setVisible(true);
@@ -1126,7 +1128,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void macroRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_macroRbActionPerformed
         // TODO add your handling code here:
-        //make the ID and activityLevel button appear
+        //make the ID, warning message, calorie message, activity button  and recommended intake button appear, then load the .dat file for that respective category so its in the userList
         readMacros();
         idLbl.setVisible(true);
         cardioTypeLbl.setVisible(false);
@@ -1161,7 +1163,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void dietRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietRbActionPerformed
         // TODO add your handling code here:
-        //make the ID and Diet TYPE visible
+        //make the ID, Diet type, warning message and types of diet button visible, then load the .dat file for that respective category so its in the userList
         readDiet();
         idLbl.setVisible(true);
         cardioTypeLbl.setVisible(false);
@@ -1192,8 +1194,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void workoutRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workoutRbActionPerformed
         // TODO add your handling code here:
-        //makes the ID, workout duration, frequency and duration visible
-        readWorkout();
+        //makes the ID, workout duration, frequency, duration, warning message and the types of workout button visible, then load the .dat file for that respective category so its in the userList
+        readWorkout(); 
         idLbl.setVisible(true);
         cardioTypeLbl.setVisible(false);
         cardioDurLbl.setVisible(false);
@@ -1233,14 +1235,20 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void recommendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recommendBtnActionPerformed
         // TODO add your handling code here:
+        
+        //instances of Macronutrients and Physical
         Macronutrients m = new Macronutrients();
         Physical p = new Physical();
         
         //source
         https://stackoverflow.com/questions/16583604/formatting-numbers-using-decimalformat
+        //for each User, go through each object
         for(User u: userList){
+            //if the userid equals the id in the textfield, run this statement
             if(u.getId().equals(idTf.getText())){
                 DecimalFormat df = new DecimalFormat("#.00"); //used to round something to 2 decimal places
+                
+                //compute method for Macronutrients + user details
                 double bmi = (u.getWeight()/u.getHeight()/u.getHeight()*10000);
                 int age = u.getAge();
                 double height = u.getHeight();
@@ -1250,7 +1258,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 double calories = bmr*activityLevel;
                 
                
-                
+                //checks the BMI and displays a message depending on it
                 if(bmi>24.9){
                     JOptionPane.showMessageDialog(null, "Based on your BMI of "+df.format(bmi)+",we suggest that you should reduce your maintenance calories by 300-500");
                     JOptionPane.showMessageDialog(null, "Maintenance Calories based on sedentary activity level (default preset): "+calories);

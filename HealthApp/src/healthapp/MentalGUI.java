@@ -92,7 +92,7 @@ public class MentalGUI extends javax.swing.JFrame {
     }
     
     //save the activities details to a file
-    private void savActivities(){
+    private void saveActivities(){
         //declare objects
         File f;
         FileOutputStream fStream;
@@ -136,7 +136,7 @@ public class MentalGUI extends javax.swing.JFrame {
     }
     
     //save the macros to a file
-    private void savDiet(){
+    private void saveDiet(){
         //declare objects
         File f;
         FileOutputStream fStream;
@@ -225,11 +225,6 @@ public class MentalGUI extends javax.swing.JFrame {
 
         caloriesBBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         caloriesBBtn.setText("Calories Burned");
-        caloriesBBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                caloriesBBtnMouseClicked(evt);
-            }
-        });
         caloriesBBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caloriesBBtnActionPerformed(evt);
@@ -533,7 +528,20 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void caloriesBBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caloriesBBtnActionPerformed
         // TODO add your handling code here:
-     
+         if(caloriesBBtn.isSelected()){
+            JOptionPane.showMessageDialog(null,"Sorry, there are no details in the system to calculate caloried burned");
+        }
+        else{
+            //traversing an ArrayList
+           for(int i = 0; i < mentalG.size();i++){
+               double frequency = Double.parseDouble(frequencyTf.getText());
+               double met = Double.parseDouble(metTf.getText());
+               double weight = Double.parseDouble(weightTf.getText());
+                double duration = Double.parseDouble(activityDTf.getText());
+                  double caloriesBurned =  (met * weight * duration * frequency);
+               JOptionPane.showMessageDialog(null,"Calories Burned: "+caloriesBurned);
+            }
+        }
         
     }//GEN-LAST:event_caloriesBBtnActionPerformed
 
@@ -571,6 +579,7 @@ public class MentalGUI extends javax.swing.JFrame {
                  
         }
                   clearFields();
+                  saveActivities();
 
         if(dietRb.isSelected()){
                 read();
@@ -595,7 +604,7 @@ public class MentalGUI extends javax.swing.JFrame {
                  
         }
           clearFields();
-        
+        saveDiet();
     }//GEN-LAST:event_addBtnActionPerformed
                   
    
@@ -699,19 +708,6 @@ public class MentalGUI extends javax.swing.JFrame {
         dietMBtn.setVisible(true);
       
     }//GEN-LAST:event_dietRbActionPerformed
-
-    private void caloriesBBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_caloriesBBtnMouseClicked
-        // TODO add your handling code here:
-        //    if(caloriesBBtn.onClick()){
-        //    JOptionPane.showMessageDialog(null,"Sorry, there are no details in the system to calculate caloried burned");
-      //  }
-      //  else{
-            //traversing an ArrayList
-       //     for(int i = 0; i < mentalG.size();i++){
-       //         JOptionPane.showMessageDialog(null,"Calories Burned: "+caloriesBurned);
-      //      }
-      //  }
-    }//GEN-LAST:event_caloriesBBtnMouseClicked
 
     private void activitiesMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activitiesMBtnActionPerformed
         // TODO add your handling code here:

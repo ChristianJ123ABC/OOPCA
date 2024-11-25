@@ -570,6 +570,8 @@ public class MentalGUI extends javax.swing.JFrame {
                         
                  
         }
+                  clearFields();
+
         if(dietRb.isSelected()){
                 read();
             MentalDiet d = new MentalDiet();

@@ -6,8 +6,10 @@ package healthapp;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -41,6 +43,129 @@ public class MentalGUI extends javax.swing.JFrame {
         caloriesBBtn.setVisible(false);
          mentalG = new ArrayList<>();
          read();
+    }
+    
+    
+       private void read(){
+        //declare objects
+        File f;
+        FileInputStream fStream;
+        ObjectInputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("user.dat");
+            fStream = new FileInputStream(f);
+            oStream = new ObjectInputStream(fStream);
+            
+            //use objects
+            mentalG = (ArrayList<Mental>)oStream.readObject();
+            
+            oStream.close();
+        }
+        catch(IOException|ClassNotFoundException e){
+            System.out.println("Error:"+e);
+        }
+    }
+    
+     //display the activities details into the program 
+    private void readActivities(){
+        //declare objects
+        File f;
+        FileInputStream fStream;
+        ObjectInputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("activities.dat");
+            fStream = new FileInputStream(f);
+            oStream = new ObjectInputStream(fStream);
+            
+            //use objects
+            mentalG = (ArrayList<Mental>)oStream.readObject();
+            
+            oStream.close();
+        }
+        catch(IOException|ClassNotFoundException e){
+            System.out.println("Error: "+e);
+        }
+    }
+    
+    //save the activities details to a file
+    private void savActivities(){
+        //declare objects
+        File f;
+        FileOutputStream fStream;
+        ObjectOutputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("activities.dat");
+            fStream = new FileOutputStream(f);
+            oStream = new ObjectOutputStream(fStream);
+            
+            //use objects
+            oStream.writeObject(mentalG);
+        }
+        catch(IOException e){
+            System.out.println("Error:"+e);
+        }
+    }
+    
+      //display the macros into the program when you start the app
+    private void readDiet(){
+        //declare objects
+        File f;
+        FileInputStream fStream;
+        ObjectInputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("diet.dat");
+            fStream = new FileInputStream(f);
+            oStream = new ObjectInputStream(fStream);
+            
+            //use objects
+            mentalG = (ArrayList<Mental>)oStream.readObject();
+            
+            oStream.close();
+        }
+        catch(IOException|ClassNotFoundException e){
+            System.out.println("Error: "+e);
+        }
+    }
+    
+    //save the macros to a file
+    private void savDiet(){
+        //declare objects
+        File f;
+        FileOutputStream fStream;
+        ObjectOutputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("diet.dat");
+            fStream = new FileOutputStream(f);
+            oStream = new ObjectOutputStream(fStream);
+            
+            //use objects
+            oStream.writeObject(mentalG);
+        }
+        catch(IOException e){
+            System.out.println("Error:"+e);
+        }
+    }
+      private void clearFields(){
+        IdTf.setText(" ");
+        stressTf.setText(" ");
+        sleepHTf.setText(" ");
+        weightTf.setText(" ");
+        frequencyTf.setText(" ");
+        activityDTf.setText(" ");
+        dietTTf.setText(" ");
+        caloriesTf.setText(" ");
+        metTf.setText(" ");
+    
     }
 
     /**
@@ -419,6 +544,7 @@ public class MentalGUI extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
         if(activitiesRB.isSelected()){
+            read();
             MentalActivity a = new MentalActivity();
             a.setId(IdTf.getText());
             a.setStressLevel(stressTf.getText());
@@ -428,8 +554,24 @@ public class MentalGUI extends javax.swing.JFrame {
             a.setMet(Double.parseDouble(metTf.getText()));
             a.setDuration(Double.parseDouble(activityDTf.getText()));
             mentalG.add(a);
+            
+              JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
+                      + "StressLevel "+stressTf.getText()+" \n "
+                              + "SleepHours: "+sleepHTf.getText()+" \n"
+                                      + "Weight:"+weightTf.getText()+" \n"
+                                              + "Frequency:"+frequencyTf.getText()+" \n"
+                                                      + "MET Value:"+metTf.getText()+" \n"
+                                                              + "Activity Duration:"+activityDTf.getText());
+               
+                    }
+
+        else {
+                        JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
+                        
+                 
         }
-        else if(dietRb.isSelected()){
+        if(dietRb.isSelected()){
+                read();
             MentalDiet d = new MentalDiet();
             d.setId(IdTf.getText());
             d.setStressLevel(stressTf.getText());
@@ -437,11 +579,28 @@ public class MentalGUI extends javax.swing.JFrame {
             d.setDietType (dietTTf.getText());
             d.setCalories (Double.parseDouble(caloriesTf.getText()));
             mentalG.add(d);
+          JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
+                      + "StressLevel "+stressTf.getText()+" \n "
+                              + "SleepHours: "+sleepHTf.getText()+" \n"
+                                      + "Diet Type:"+dietTTf.getText()+" \n"
+                                              + "Calories Intake:"+caloriesTf.getText());
+               
+                    }
+
+        else {
+                        JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
+                        
+                 
         }
           clearFields();
         
     }//GEN-LAST:event_addBtnActionPerformed
-
+                  
+   
+   
+   
+   
+   
     private void displayMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayMBtnActionPerformed
         // TODO add your handling code here:
           if(mentalG.isEmpty()){
@@ -462,14 +621,17 @@ public class MentalGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Sorry, there are no information in the system");
         }
         else{
-            String searchTerm = IdTf.getText();
+            
             for(int i = 0; i < mentalG.size();i++){
                 Mental m = mentalG.get(i);
-                if(m.getId().equalsIgnoreCase(searchTerm)){
+                if(m.getId().equalsIgnoreCase(IdTf.getText()) && activitiesRB.isSelected()){
+                 mentalG.remove(m);
+               }
+                else if(m.getId().equalsIgnoreCase(IdTf.getText()) && dietRb.isSelected()){
                     mentalG.remove(m);
-                }
-            }
+                    }
         }
+      }
         clearFields();
         read();
     }//GEN-LAST:event_removeMBtnActionPerformed
@@ -602,41 +764,7 @@ public class MentalGUI extends javax.swing.JFrame {
   
     
     
-    private void read(){
-        //declare objects
-        File f;
-        FileInputStream fStream;
-        ObjectInputStream oStream;
-        
-        try{
-            //create objects
-            f = new File("user.dat");
-            fStream = new FileInputStream(f);
-            oStream = new ObjectInputStream(fStream);
-            
-            //use objects
-            mentalG = (ArrayList<Mental>)oStream.readObject();
-            
-            oStream.close();
-        }
-        catch(IOException|ClassNotFoundException e){
-            System.out.println("Error:"+e);
-        }
-    }
-    
-    
-      private void clearFields(){
-        IdTf.setText(" ");
-        stressTf.setText(" ");
-        sleepHTf.setText(" ");
-        weightTf.setText(" ");
-        frequencyTf.setText(" ");
-        activityDTf.setText(" ");
-        dietTTf.setText(" ");
-        caloriesTf.setText(" ");
-        metTf.setText(" ");
-    
-    }
+ 
     /**
      * @param args the command line arguments
      */

@@ -27,86 +27,24 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="IdLbl" min="-2" pref="97" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="frequencyLbl" min="-2" pref="116" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="dietTypeLbl" pref="123" max="32767" attributes="0"/>
-                          <Component id="caloriesLbl" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="frequencyTf" min="-2" pref="204" max="-2" attributes="0"/>
-                  <Component id="IdTf" min="-2" pref="204" max="-2" attributes="0"/>
-                  <Component id="activityDTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
-                  <Component id="metTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
-                  <Component id="dietTTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
-                  <Component id="caloriesTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="213" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="activitiesRB" min="-2" pref="98" max="-2" attributes="0"/>
-                  <Component id="dietRb" min="-2" pref="98" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Component id="activityDLbl" min="-2" pref="131" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
-                      <Component id="mentalLbl" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="metLbl" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="stressLbl" min="-2" pref="111" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="stressTf" min="-2" pref="204" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="activitiesMBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="dietMBtn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="caloriesBBtn" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="sleepHLbl" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="sleepHLbl" min="-2" pref="111" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="sleepHTf" min="-2" pref="204" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="weightLbl" min="-2" pref="111" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="weightTf" min="-2" pref="205" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="addBtn" min="-2" max="-2" attributes="0"/>
@@ -114,9 +52,9 @@
                                               <Component id="displayMBtn" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="removeMBtn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="clearMBtn" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -124,18 +62,56 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="caloriesBBtn" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="menuMBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="dietMBtn" min="-2" max="-2" attributes="0"/>
+                          <Component id="menuMBtn" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
+                      <Component id="mentalLbl" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="stressLbl" min="-2" pref="111" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="frequencyLbl" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
+                  <Component id="metLbl" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                  <Component id="activityDLbl" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                  <Component id="dietTypeLbl" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+                  <Component id="caloriesLbl" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+                  <Component id="IdLbl" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="weightTf" min="-2" pref="205" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="frequencyTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="IdTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="activityDTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="metTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="dietTTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="caloriesTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="stressTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="sleepHTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="205" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="activitiesRB" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="dietRb" min="-2" pref="98" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -144,15 +120,15 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="mentalLbl" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="IdLbl" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="IdTf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="activitiesRB" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="IdLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="IdTf" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="activitiesRB" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="frequencyLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="frequencyTf" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -179,21 +155,21 @@
                   <Component id="caloriesLbl" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="stressTf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="stressLbl" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="stressLbl" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="stressTf" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="sleepHLbl" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="sleepHTf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="sleepHLbl" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="sleepHTf" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="weightLbl" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="weightTf" alignment="3" pref="32" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="7" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="displayMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -203,9 +179,9 @@
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dietMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="activitiesMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="caloriesBBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dietMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
           </Group>
@@ -400,12 +376,10 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dietTTfActionPerformed"/>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dietTTfKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="caloriesTf">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
@@ -441,7 +415,13 @@
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Types Of Diet"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Default Cursor"/>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dietMBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="activitiesRB">
       <Properties>
@@ -485,6 +465,9 @@
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weightTfActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="clearMBtn">
       <Properties>

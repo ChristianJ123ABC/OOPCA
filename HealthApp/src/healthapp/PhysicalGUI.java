@@ -808,12 +808,13 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
                     }
                     
+                }
                     //if flag is false / incorrect ID, display error
-                    if (!u.getId().equals(idTf.getText()) && !flag){
+                    if (!flag){
                         JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
                         
                     }
-                }
+                
         }
         
         //the same as above for the rest
@@ -861,12 +862,12 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         
 
                     }
-
-                    if (!u.getId().equals(idTf.getText()) && !flag){
+                }
+                    if (!flag){
                         JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
                         
                     }
-                }
+                
         }
         
         else if (dietRb.isSelected()){
@@ -922,12 +923,12 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         
 
                     }
-
+                }
                     if (!flag){
                         JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
                         
                     }
-                }
+                
         }
         else if (workoutRb.isSelected()){
             readUsers();

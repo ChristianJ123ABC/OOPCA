@@ -643,9 +643,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     .addComponent(durationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(durationLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dietTypeLbl)
-                    .addComponent(dietTypeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dietTypeLbl, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(dietTypeTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(caloriesLbl)
@@ -756,6 +756,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
             
                 for(User u:userList){ //for every object in User, run it through this if statement
                     if(u.getId().equals(idTf.getText())){ //if the user id in the array is equal to the id in the textfield, run this
+                        readMacros();
                         flag = true;
                         int age = u.getAge();
                         double height = u.getHeight();
@@ -823,6 +824,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
             
                 for(User u:userList){
                     if(u.getId().equals(idTf.getText())){
+                        readCardio();
                         flag = true;
                         double weight = u.getWeight();
                         double met = 0;
@@ -874,6 +876,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
             
                 for(User u:userList){
                     if(u.getId().equals(idTf.getText())){
+                        readDiet();
                         flag = true;
                         String mealType = " ";
                         
@@ -933,7 +936,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
             
                 for(User u:userList){
                     if(u.getId().equals(idTf.getText())){
+                        readWorkout();
                         String type = " ";
+                        flag = true;
                         double duration = 0.0;
                         String frequency =  " ";
                         //sources:

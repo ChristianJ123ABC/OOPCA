@@ -586,11 +586,11 @@ public class MentalGUI extends javax.swing.JFrame {
                            clearFields();
                            break;
                 }  
-                  
+              }  
         if (!flag){
                         JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");   
       }
-    }         
+            
   }           
 
         
@@ -610,7 +610,9 @@ public class MentalGUI extends javax.swing.JFrame {
                          d.setSleepHours(sleepHTf.getText());
                          d.setDietType (dietTTf.getText());
                          d.setCalories (Double.parseDouble(caloriesTf.getText()));
-                     userList.add(d);
+                         userList.add(d);
+                         
+                         
                       JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
                       + "StressLevel "+stressTf.getText()+" \n "
                       + "SleepHours: "+sleepHTf.getText()+" \n"
@@ -620,11 +622,12 @@ public class MentalGUI extends javax.swing.JFrame {
                       saveMentalDiet();
                       clearFields();
                       break;
-             }        
+             }   
+          }
              if(!flag) {
                         JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");          
             }          
-        }
+       
       } 
     }//GEN-LAST:event_addBtnActionPerformed
                   

@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author flips
  */
 public class MentalGUI extends javax.swing.JFrame {
-    private ArrayList<Mental> mentalG;
+    private ArrayList<User> userList;
 
 
     /**
@@ -41,12 +41,12 @@ public class MentalGUI extends javax.swing.JFrame {
         activitiesMBtn.setVisible(false);
         dietMBtn.setVisible(false);
         caloriesBBtn.setVisible(false);
-         mentalG = new ArrayList<>();
-         read();
+         userList = new ArrayList<>();
+        
     }
     
     
-       private void read(){
+       private void readUsers(){
         //declare objects
         File f;
         FileInputStream fStream;
@@ -54,12 +54,12 @@ public class MentalGUI extends javax.swing.JFrame {
         
         try{
             //create objects
-            f = new File("user.dat");
+            f = new File("users.dat");
             fStream = new FileInputStream(f);
             oStream = new ObjectInputStream(fStream);
             
             //use objects
-            mentalG = (ArrayList<Mental>)oStream.readObject();
+            userList = (ArrayList<User>)oStream.readObject();
             
             oStream.close();
         }
@@ -69,7 +69,7 @@ public class MentalGUI extends javax.swing.JFrame {
     }
     
      //display the activities details into the program 
-    private void readActivities(){
+    private void readMentalActivities(){
         //declare objects
         File f;
         FileInputStream fStream;
@@ -77,12 +77,12 @@ public class MentalGUI extends javax.swing.JFrame {
         
         try{
             //create objects
-            f = new File("activities.dat");
+            f = new File("Mentalactivities.dat");
             fStream = new FileInputStream(f);
             oStream = new ObjectInputStream(fStream);
             
             //use objects
-            mentalG = (ArrayList<Mental>)oStream.readObject();
+            userList = (ArrayList<User>)oStream.readObject();
             
             oStream.close();
         }
@@ -92,7 +92,7 @@ public class MentalGUI extends javax.swing.JFrame {
     }
     
     //save the activities details to a file
-    private void saveActivities(){
+    private void saveMentalActivities(){
         //declare objects
         File f;
         FileOutputStream fStream;
@@ -100,12 +100,12 @@ public class MentalGUI extends javax.swing.JFrame {
         
         try{
             //create objects
-            f = new File("activities.dat");
+            f = new File("Mentalactivities.dat");
             fStream = new FileOutputStream(f);
             oStream = new ObjectOutputStream(fStream);
             
             //use objects
-            oStream.writeObject(mentalG);
+            oStream.writeObject(userList);
         }
         catch(IOException e){
             System.out.println("Error:"+e);
@@ -113,7 +113,7 @@ public class MentalGUI extends javax.swing.JFrame {
     }
     
       //display the macros into the program when you start the app
-    private void readDiet(){
+    private void readMentalDiet(){
         //declare objects
         File f;
         FileInputStream fStream;
@@ -121,12 +121,12 @@ public class MentalGUI extends javax.swing.JFrame {
         
         try{
             //create objects
-            f = new File("diet.dat");
+            f = new File("Mentaldiet.dat");
             fStream = new FileInputStream(f);
             oStream = new ObjectInputStream(fStream);
             
             //use objects
-            mentalG = (ArrayList<Mental>)oStream.readObject();
+            userList = (ArrayList<User>)oStream.readObject();
             
             oStream.close();
         }
@@ -136,7 +136,7 @@ public class MentalGUI extends javax.swing.JFrame {
     }
     
     //save the macros to a file
-    private void saveDiet(){
+    private void saveMentalDiet(){
         //declare objects
         File f;
         FileOutputStream fStream;
@@ -144,12 +144,12 @@ public class MentalGUI extends javax.swing.JFrame {
         
         try{
             //create objects
-            f = new File("diet.dat");
+            f = new File("Mentaldiet.dat");
             fStream = new FileOutputStream(f);
             oStream = new ObjectOutputStream(fStream);
             
             //use objects
-            oStream.writeObject(mentalG);
+            oStream.writeObject(userList);
         }
         catch(IOException e){
             System.out.println("Error:"+e);
@@ -533,16 +533,19 @@ public class MentalGUI extends javax.swing.JFrame {
         }
         else{
             //traversing an ArrayList
-           for(int i = 0; i < mentalG.size();i++){
+           for(int i = 0; i < userList.size();i++){
+              for(User u:userList){
+               if(u.getId().equals(IdTf.getText())){
                double frequency = Double.parseDouble(frequencyTf.getText());
                double met = Double.parseDouble(metTf.getText());
-               double weight = Double.parseDouble(weightTf.getText());
-                double duration = Double.parseDouble(activityDTf.getText());
-                  double caloriesBurned =  (met * weight * duration * frequency);
+               double weight = u.getWeight();
+               double duration = Double.parseDouble(activityDTf.getText());
+               double caloriesBurned =  (met * weight * duration * frequency);
                JOptionPane.showMessageDialog(null,"Calories Burned: "+caloriesBurned);
             }
-        }
-        
+           }
+         }
+       }
     }//GEN-LAST:event_caloriesBBtnActionPerformed
 
     private void IdTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdTfActionPerformed
@@ -552,59 +555,77 @@ public class MentalGUI extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
         if(activitiesRB.isSelected()){
-            read();
+            readUsers();
             MentalActivity a = new MentalActivity();
-            a.setId(IdTf.getText());
-            a.setStressLevel(stressTf.getText());
-            a.setSleepHours(sleepHTf.getText());
-            a.setWeight (Double.parseDouble(weightTf.getText()));
-            a.setFrequency (Double.parseDouble(frequencyTf.getText()));
-            a.setMet(Double.parseDouble(metTf.getText()));
-            a.setDuration(Double.parseDouble(activityDTf.getText()));
-            mentalG.add(a);
+              boolean flag = false;
+               
+             
+             for(User u:userList){
+                  if( u.getId().equals(IdTf.getText())) {
+                      readMentalActivities();
+                      flag = true;
+                  
+                   a.setId(IdTf.getText());
+                   a.setStressLevel(stressTf.getText());
+                   a.setSleepHours(sleepHTf.getText());
+                   a.setWeight (Double.parseDouble(weightTf.getText()));
+                   a.setFrequency (Double.parseDouble(frequencyTf.getText()));
+                   a.setMet(Double.parseDouble(metTf.getText()));
+                   a.setDuration(Double.parseDouble(activityDTf.getText()));
+                       userList.add(a);
             
-              JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
+                 JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
                       + "StressLevel "+stressTf.getText()+" \n "
-                              + "SleepHours: "+sleepHTf.getText()+" \n"
-                                      + "Weight:"+weightTf.getText()+" \n"
-                                              + "Frequency:"+frequencyTf.getText()+" \n"
-                                                      + "MET Value:"+metTf.getText()+" \n"
-                                                              + "Activity Duration:"+activityDTf.getText());
-               
-                    }
+                      + "SleepHours: "+sleepHTf.getText()+" \n"
+                      + "Weight:"+weightTf.getText()+" \n"
+                      + "Frequency:"+frequencyTf.getText()+" \n"
+                      + "MET Value:"+metTf.getText()+" \n"
+                      + "Activity Duration:"+activityDTf.getText());
+                     
+                           saveMentalActivities();
+                           clearFields();
+                           break;
+                }  
+                  
+        if (!flag){
+                        JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");   
+      }
+    }         
+  }           
 
-        else {
-                        JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
-                        
-                 
-        }
-                  clearFields();
-                  saveActivities();
-
-        if(dietRb.isSelected()){
-                read();
-            MentalDiet d = new MentalDiet();
-            d.setId(IdTf.getText());
-            d.setStressLevel(stressTf.getText());
-            d.setSleepHours(sleepHTf.getText());
-            d.setDietType (dietTTf.getText());
-            d.setCalories (Double.parseDouble(caloriesTf.getText()));
-            mentalG.add(d);
-          JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
+        
+        
+        else if(dietRb.isSelected()){
+               readUsers();  
+             MentalDiet d = new MentalDiet();
+             boolean flag = false;
+             
+                   for(User u:userList){
+                   if( u.getId().equals(IdTf.getText())) {
+                        readMentalDiet();
+                         flag = true;
+                         
+                         d.setId(IdTf.getText());
+                         d.setStressLevel(stressTf.getText());
+                         d.setSleepHours(sleepHTf.getText());
+                         d.setDietType (dietTTf.getText());
+                         d.setCalories (Double.parseDouble(caloriesTf.getText()));
+                     userList.add(d);
+                      JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
                       + "StressLevel "+stressTf.getText()+" \n "
-                              + "SleepHours: "+sleepHTf.getText()+" \n"
-                                      + "Diet Type:"+dietTTf.getText()+" \n"
-                                              + "Calories Intake:"+caloriesTf.getText());
-               
-                    }
-
-        else {
-                        JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
-                        
-                 
+                      + "SleepHours: "+sleepHTf.getText()+" \n"
+                      + "Diet Type:"+dietTTf.getText()+" \n"
+                      + "Calories Intake:"+caloriesTf.getText());
+            
+                      saveMentalDiet();
+                      clearFields();
+                      break;
+             }        
+             if(!flag) {
+                        JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");          
+            }          
         }
-          clearFields();
-        saveDiet();
+      } 
     }//GEN-LAST:event_addBtnActionPerformed
                   
    
@@ -614,37 +635,36 @@ public class MentalGUI extends javax.swing.JFrame {
    
     private void displayMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayMBtnActionPerformed
         // TODO add your handling code here:
-          if(mentalG.isEmpty()){
+          if(userList.isEmpty()){
             JOptionPane.showMessageDialog(null,"Sorry, there are no information in the system");
         }
         else{
             //traversing an ArrayList
-            for(int i = 0; i < mentalG.size();i++){
-                JOptionPane.showMessageDialog(null,mentalG.get(i).getDetails());
+            for(int i = 0; i < userList.size();i++){
+                JOptionPane.showMessageDialog(null,userList.get(i).getDetails());
             }
-        }
-       read();
+          }
     }//GEN-LAST:event_displayMBtnActionPerformed
 
     private void removeMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeMBtnActionPerformed
         // TODO add your handling code here:
-         if(mentalG.isEmpty()){
+         if(userList.isEmpty()){
             JOptionPane.showMessageDialog(null,"Sorry, there are no information in the system");
         }
         else{
             
-            for(int i = 0; i < mentalG.size();i++){
-                Mental m = mentalG.get(i);
+            for(int i = 0; i < userList.size();i++){
+                User m = userList.get(i);
                 if(m.getId().equalsIgnoreCase(IdTf.getText()) && activitiesRB.isSelected()){
-                 mentalG.remove(m);
+                 userList.remove(m);
                }
                 else if(m.getId().equalsIgnoreCase(IdTf.getText()) && dietRb.isSelected()){
-                    mentalG.remove(m);
+                    userList.remove(m);
                     }
         }
       }
         clearFields();
-        read();
+       
     }//GEN-LAST:event_removeMBtnActionPerformed
 
     private void frequencyTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frequencyTfActionPerformed
@@ -688,6 +708,8 @@ public class MentalGUI extends javax.swing.JFrame {
         activitiesMBtn.setVisible(true);
         caloriesBBtn.setVisible(true);
         dietMBtn.setVisible(false);
+        weightLbl.setVisible(true);
+        weightTf.setVisible(true);
         
     }//GEN-LAST:event_activitiesRBActionPerformed
 
@@ -706,6 +728,8 @@ public class MentalGUI extends javax.swing.JFrame {
         activitiesMBtn.setVisible(false);
         caloriesBBtn.setVisible(false);
         dietMBtn.setVisible(true);
+        weightLbl.setVisible(false);
+        weightTf.setVisible(false);
       
     }//GEN-LAST:event_dietRbActionPerformed
 

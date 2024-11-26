@@ -316,7 +316,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
 
         menuPhysicalBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        menuPhysicalBtn.setText("Menu");
+        menuPhysicalBtn.setText("Back to Login");
         menuPhysicalBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuPhysicalBtnActionPerformed(evt);
@@ -682,8 +682,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private void menuPhysicalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPhysicalBtnActionPerformed
         // TODO add your handling code here:
         //clicking on the menu button returns you to the register screen
-        UserGUI mg = new UserGUI();
-        mg.setVisible(true);
+        IntroGUI ig = new IntroGUI();
+        ig.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuPhysicalBtnActionPerformed
 
@@ -695,6 +695,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
         else{
             
             if(macroRb.isSelected()){
+                if(idTf.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Textfield is empty, please type an ID to search");
+                }
                 for(User u:userList){//for each user object in the list, it will search it
                     if(u.getId().equalsIgnoreCase(idTf.getText())){//check if the id of object matches the user search
                         if(u instanceof Macronutrients){ //if User, u,  is an instance of Macronutrients, run the statement
@@ -706,6 +709,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
             
             //the  same as above for the rest
             else if(cardioRb.isSelected()){
+                if(idTf.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Textfield is empty, please type an ID to search");
+                }
                 for(User u:userList){
                     if(u.getId().equalsIgnoreCase(idTf.getText())){
                         if (u instanceof Cardio){
@@ -716,6 +722,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
             }
             
             else if(dietRb.isSelected()){
+                if(idTf.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Textfield is empty, please type an ID to search");
+                }
                 for(User u:userList){
                     if(u.getId().equalsIgnoreCase(idTf.getText())){
                         if (u instanceof Diet){
@@ -725,6 +734,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 }
             }
             else if(workoutRb.isSelected()){
+                if(idTf.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Textfield is empty, please type an ID to search");
+                }
                 for(User u:userList){
                     if(u.getId().equalsIgnoreCase(idTf.getText())){
                         if (u instanceof WorkoutPlan){
@@ -732,6 +744,18 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         }
                     }
                 }
+            }
+            
+            if(workoutRb.isSelected() || dietRb.isSelected() || macroRb.isSelected() || cardioRb.isSelected()){
+                for(User u: userList){
+                    if(!u.getId().equalsIgnoreCase(idTf.getText()) && !idTf.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(null, "ID does not exist, try a searching a valid one");
+                    }
+                }
+            }
+            
+            if(!workoutRb.isSelected() && !dietRb.isSelected() && !cardioRb.isSelected() && !macroRb.isSelected()){
+                JOptionPane.showMessageDialog(null, "Press a radio button to activate the program");
             }
         }
     }//GEN-LAST:event_searchBtnActionPerformed
@@ -996,6 +1020,10 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 
         }
         
+        if(!workoutRb.isSelected() && !dietRb.isSelected() && !cardioRb.isSelected() && !macroRb.isSelected()){
+                JOptionPane.showMessageDialog(null, "Press a radio button to activate the program");
+            }
+        
         
         
     }//GEN-LAST:event_addBtnActionPerformed
@@ -1027,29 +1055,50 @@ public class PhysicalGUI extends javax.swing.JFrame {
         if(userList.isEmpty()){
             JOptionPane.showMessageDialog(null,"Sorry, there are no users on the list");
         }
-        else{
+        else if(!userList.isEmpty()){
             
             //if the userID equals the id in the textfield and its respective category is selected, delete the user from that ArrayList
             for(int i = 0; i < userList.size();i++){
                 User u = userList.get(i);
                 if(u.getId().equalsIgnoreCase(idTf.getText()) && macroRb.isSelected()){
                     userList.remove(u);
+                    JOptionPane.showMessageDialog(null, "Macro Details Removed");
                     saveMacros();
                 }
                 else if(u.getId().equalsIgnoreCase(idTf.getText()) && cardioRb.isSelected()){
                     userList.remove(u);
+                    JOptionPane.showMessageDialog(null, "Cardio Details Removed");
                     saveCardio();
                 }
                 else if(u.getId().equalsIgnoreCase(idTf.getText()) && dietRb.isSelected()){
                     userList.remove(u);
+                    JOptionPane.showMessageDialog(null, "Diet Details Removed");
                     saveDiet();
                 }
                 else if(u.getId().equalsIgnoreCase(idTf.getText()) && workoutRb.isSelected()){
                     userList.remove(u);
+                    JOptionPane.showMessageDialog(null, "Workout Details Removed");
                     saveWorkout();
                 }
+                else if(!workoutRb.isSelected() && !dietRb.isSelected() && !cardioRb.isSelected() && !macroRb.isSelected()){
+                    JOptionPane.showMessageDialog(null, "Press a radio button to activate the program");
+                    break;
+                }
+                
+                if(idTf.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Textfield is empty, please type an ID to delete");
+                    break;
+                }
+                
+                if(!u.getId().equalsIgnoreCase(idTf.getText()) && !idTf.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "ID does not exist, try a valid one");
+                }
+                
             }
+            
         }
+        
+        
         
     }//GEN-LAST:event_removeBtnActionPerformed
 

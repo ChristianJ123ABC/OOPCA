@@ -232,7 +232,7 @@ public class MentalGUI extends javax.swing.JFrame {
         });
 
         menuMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        menuMBtn.setText("Menu");
+        menuMBtn.setText("Back to Login");
         menuMBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuMBtnActionPerformed(evt);
@@ -521,8 +521,8 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void menuMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMBtnActionPerformed
         // TODO add your handling code here:
-        UserGUI mg = new UserGUI();
-        mg.setVisible(true);
+        IntroGUI ig = new IntroGUI();
+        ig.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuMBtnActionPerformed
 

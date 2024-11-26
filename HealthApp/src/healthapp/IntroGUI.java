@@ -246,7 +246,7 @@ public class IntroGUI extends javax.swing.JFrame {
                 //if the ID or password from the User does NOT equals their login details / boolean flag is false, run this statement
                 if(flag == false){
                 //if no parameter is selected or the details are wrong, send an error message
-                    if(!pLoginRb.isSelected() || mLoginRb.isSelected()){
+                    if(!pLoginRb.isSelected() || !mLoginRb.isSelected()){
                         JOptionPane.showMessageDialog(null, "Please accept a parameter before you log in");
                     }
                     else{

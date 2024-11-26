@@ -49,8 +49,6 @@ public class UserGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         menuTf = new javax.swing.JLabel();
-        physicalMenuBtn = new javax.swing.JButton();
-        mentalMenuBtn = new javax.swing.JButton();
         idLbl = new javax.swing.JLabel();
         nameLbl = new javax.swing.JLabel();
         weightLbl = new javax.swing.JLabel();
@@ -73,22 +71,6 @@ public class UserGUI extends javax.swing.JFrame {
 
         menuTf.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         menuTf.setText("Good Health and Wellbeing");
-
-        physicalMenuBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        physicalMenuBtn.setText("Physical Health ");
-        physicalMenuBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                physicalMenuBtnActionPerformed(evt);
-            }
-        });
-
-        mentalMenuBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        mentalMenuBtn.setText("Mental Wellbeing");
-        mentalMenuBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mentalMenuBtnActionPerformed(evt);
-            }
-        });
 
         idLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         idLbl.setText("ID:");
@@ -233,40 +215,27 @@ public class UserGUI extends javax.swing.JFrame {
                                 .addComponent(idTf, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                                 .addComponent(passwordPField))))
                     .addComponent(nameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(mentalMenuBtn)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(53, 53, 53)
-                            .addComponent(returnMenuBtn)))
-                    .addComponent(physicalMenuBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 415, Short.MAX_VALUE)
+                .addComponent(returnMenuBtn)
+                .addGap(35, 35, 35))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(mentalMenuBtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(physicalMenuBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(menuTf)
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(idLbl)
-                            .addComponent(idTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(passwordLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passwordPField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nameLbl)
-                            .addComponent(nameTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap()
+                .addComponent(menuTf)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idLbl)
+                    .addComponent(idTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordPField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameLbl)
+                    .addComponent(nameTf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ageLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -372,22 +341,6 @@ public class UserGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ageTfActionPerformed
 
-    private void mentalMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mentalMenuBtnActionPerformed
-        // TODO add your handling code here:
-        //displays the MentalGUI on click
-        MentalGUI mg = new MentalGUI();
-        mg.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_mentalMenuBtnActionPerformed
-
-    private void physicalMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_physicalMenuBtnActionPerformed
-        // TODO add your handling code here:
-        //same as above
-        PhysicalGUI pg = new PhysicalGUI();
-        pg.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_physicalMenuBtnActionPerformed
-
     private void returnMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnMenuBtnActionPerformed
         // TODO add your handling code here:
         IntroGUI ig = new IntroGUI();
@@ -489,13 +442,11 @@ public class UserGUI extends javax.swing.JFrame {
     private javax.swing.JTextField heightTf;
     private javax.swing.JLabel idLbl;
     private javax.swing.JTextField idTf;
-    private javax.swing.JButton mentalMenuBtn;
     private javax.swing.JLabel menuTf;
     private javax.swing.JLabel nameLbl;
     private javax.swing.JTextField nameTf;
     private javax.swing.JLabel passwordLbl;
     private javax.swing.JPasswordField passwordPField;
-    private javax.swing.JButton physicalMenuBtn;
     private javax.swing.JButton registerBtn;
     private javax.swing.JButton returnMenuBtn;
     private javax.swing.JButton searchBtn;

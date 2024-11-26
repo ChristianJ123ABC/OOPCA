@@ -809,7 +809,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     }
                     
                     //if flag is false / incorrect ID, display error
-                    if (!flag){
+                    if (!u.getId().equals(idTf.getText()) && !flag){
                         JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
                         
                     }
@@ -862,7 +862,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
                     }
 
-                    if (!flag){
+                    if (!u.getId().equals(idTf.getText()) && !flag){
                         JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
                         
                     }
@@ -987,12 +987,12 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         
 
                     }
-
+                }
                     if (!flag){
                         JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
                         
                     }
-                }
+                
         }
         
         

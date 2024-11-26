@@ -134,6 +134,11 @@ public class IntroGUI extends javax.swing.JFrame {
         buttonGroup1.add(pLoginRb);
         pLoginRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         pLoginRb.setText("Physical Login");
+        pLoginRb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pLoginRbActionPerformed(evt);
+            }
+        });
 
         passwordPField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
@@ -156,7 +161,7 @@ public class IntroGUI extends javax.swing.JFrame {
                                     .addComponent(passwordPField)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(loginBtn)
-                                .addGap(253, 253, 253)
+                                .addGap(269, 269, 269)
                                 .addComponent(createBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -169,11 +174,11 @@ public class IntroGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addComponent(titleLbl))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(messageLbl)))
+                        .addComponent(messageLbl))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(265, 265, 265)
+                        .addComponent(titleLbl)))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -246,11 +251,11 @@ public class IntroGUI extends javax.swing.JFrame {
                 //if the ID or password from the User does NOT equals their login details / boolean flag is false, run this statement
                 if(flag == false){
                 //if no parameter is selected or the details are wrong, send an error message
-                    if(!pLoginRb.isSelected() || !mLoginRb.isSelected()){
+                    if(!pLoginRb.isSelected() && !mLoginRb.isSelected()){
                         JOptionPane.showMessageDialog(null, "Please accept a parameter before you log in");
                     }
                     else{
-                        JOptionPane.showMessageDialog(null, "Incorrect details");
+                        JOptionPane.showMessageDialog(null, "Incorrect login details, please try again");
                     }
                 }
             
@@ -261,6 +266,10 @@ public class IntroGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_idTfActionPerformed
+
+    private void pLoginRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pLoginRbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pLoginRbActionPerformed
 
     /**
      * @param args the command line arguments

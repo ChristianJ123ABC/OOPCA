@@ -60,6 +60,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutTypeBtn.setVisible(false);
         activityQuestionBtn.setVisible(false);
         recommendBtn.setVisible(false);
+        refreshBtn.setVisible(false);
     }
     
     
@@ -294,6 +295,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         recommendBtn = new javax.swing.JButton();
         kcalLbl = new javax.swing.JLabel();
         userRemoveLbl = new javax.swing.JLabel();
+        refreshBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -505,6 +507,14 @@ public class PhysicalGUI extends javax.swing.JFrame {
         userRemoveLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         userRemoveLbl.setText("Click remove button twice to remove all details (user+category)");
 
+        refreshBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        refreshBtn.setText("Refresh Page");
+        refreshBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -519,15 +529,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
                                 .addComponent(caloriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(addBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(displayBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(removeBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(searchBtn))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(45, 45, 45)
                                 .addComponent(userRemoveLbl))
@@ -549,8 +550,19 @@ public class PhysicalGUI extends javax.swing.JFrame {
                                         .addComponent(durationLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(durationTf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(32, 32, 32)))))
-                        .addGap(0, 176, Short.MAX_VALUE)))
+                                        .addGap(32, 32, 32))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(addBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(displayBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(removeBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(searchBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(refreshBtn)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -573,7 +585,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                                 .addComponent(workoutTypeBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cardioTypeBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                                 .addComponent(activityQuestionBtn)))
                         .addGap(20, 20, 20))
                     .addGroup(layout.createSequentialGroup()
@@ -664,7 +676,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
                             .addComponent(displayBtn)
                             .addComponent(removeBtn)
                             .addComponent(searchBtn)
-                            .addComponent(menuPhysicalBtn)))
+                            .addComponent(menuPhysicalBtn)
+                            .addComponent(refreshBtn)))
                     .addComponent(recommendBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -702,6 +715,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     if(u.getId().equalsIgnoreCase(idTf.getText())){//check if the id of object matches the user search
                         if(u instanceof Macronutrients){ //if User, u,  is an instance of Macronutrients, run the statement
                             JOptionPane.showMessageDialog(null,((Macronutrients)u).getDetails());//print the macronutrients GetDetails method
+                            break;
                         }
                     }
                 }
@@ -716,6 +730,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     if(u.getId().equalsIgnoreCase(idTf.getText())){
                         if (u instanceof Cardio){
                             JOptionPane.showMessageDialog(null, ((Cardio)u).getDetails());
+                            break;
                         }
                     }
                 }
@@ -729,6 +744,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     if(u.getId().equalsIgnoreCase(idTf.getText())){
                         if (u instanceof Diet){
                             JOptionPane.showMessageDialog(null, ((Diet)u).getDetails());
+                            break;
                         }
                     }
                 }
@@ -741,19 +757,13 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     if(u.getId().equalsIgnoreCase(idTf.getText())){
                         if (u instanceof WorkoutPlan){
                             JOptionPane.showMessageDialog(null, ((WorkoutPlan)u).getDetails());
+                            break;
                         }
                     }
                 }
             }
             
-            //if any of the radio buttons are clicked and the user trys to search an ID that does not exist, tell them the ID does not exist
-            if(workoutRb.isSelected() || dietRb.isSelected() || macroRb.isSelected() || cardioRb.isSelected()){
-                for(User u: userList){
-                    if(!u.getId().equalsIgnoreCase(idTf.getText()) && !idTf.getText().isEmpty()){
-                        JOptionPane.showMessageDialog(null, "ID does not exist, try a searching a valid one");
-                    }
-                }
-            }
+           
             
             //if neither of the radio buttons are not clicked and the user trys to click search, it will tell them to press one
             if(!workoutRb.isSelected() && !dietRb.isSelected() && !cardioRb.isSelected() && !macroRb.isSelected()){
@@ -773,7 +783,13 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        //if macro is clicked, grab the user details and make an instance of Macronutrients
+        
+        //if none of the radio buttons are clicked and the user presses delete, it will tell them to press one to activate the program
+        if(!workoutRb.isSelected() && !dietRb.isSelected() && !cardioRb.isSelected() && !macroRb.isSelected()){
+                JOptionPane.showMessageDialog(null, "Press a radio button to activate the program");
+                
+        }
+        //if macro radio button is clicked, grab the user details and make an instance of Macronutrients
         if(macroRb.isSelected()){
             readUsers();
             Macronutrients m = new Macronutrients();
@@ -1022,10 +1038,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 
         }
         
-        //if none of the radio buttons are clicked and the user presses delete, it will tell them to press one to activate the program
-        if(!workoutRb.isSelected() && !dietRb.isSelected() && !cardioRb.isSelected() && !macroRb.isSelected()){
-                JOptionPane.showMessageDialog(null, "Press a radio button to activate the program");
-            }
+        
+        
         
         
         
@@ -1086,19 +1100,16 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 //if none of the radio buttons are clicked and the user presses delete, it will tell them to press one to activate the program
                 else if(!workoutRb.isSelected() && !dietRb.isSelected() && !cardioRb.isSelected() && !macroRb.isSelected()){
                     JOptionPane.showMessageDialog(null, "Press a radio button to activate the program");
-                    break;
+                    
                 }
                 
                 //if the ID textfield is empty, display error
                 if(idTf.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "Textfield is empty, please type an ID to delete");
-                    break;
+                    
                 }
                 
-                //if the ID in the textfield does not exist in the user array and the textfield isnt empty, tell them it doesn't exist
-                if(!u.getId().equalsIgnoreCase(idTf.getText()) && !idTf.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(null, "ID does not exist, try a valid one");
-                }
+                
                 
             }
             
@@ -1163,6 +1174,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutTypeBtn.setVisible(false);
         activityQuestionBtn.setVisible(false);
         recommendBtn.setVisible(false);
+        refreshBtn.setVisible(true);
        
     }//GEN-LAST:event_cardioRbActionPerformed
 
@@ -1211,6 +1223,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutTypeBtn.setVisible(false);
         activityQuestionBtn.setVisible(true);
         recommendBtn.setVisible(true);
+        refreshBtn.setVisible(true);
         
            
         
@@ -1245,6 +1258,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutTypeBtn.setVisible(false);
         activityQuestionBtn.setVisible(false);
         recommendBtn.setVisible(false);
+        refreshBtn.setVisible(true);
     }//GEN-LAST:event_dietRbActionPerformed
 
     private void workoutRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workoutRbActionPerformed
@@ -1277,6 +1291,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutTypeBtn.setVisible(true);
         activityQuestionBtn.setVisible(false);
         recommendBtn.setVisible(false);
+        refreshBtn.setVisible(true);
     }//GEN-LAST:event_workoutRbActionPerformed
 
     private void activityTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityTfActionPerformed
@@ -1295,10 +1310,14 @@ public class PhysicalGUI extends javax.swing.JFrame {
         Macronutrients m = new Macronutrients();
         Physical p = new Physical();
         
+        //retrieve user details
+        readUsers();
+        
         //source
         https://stackoverflow.com/questions/16583604/formatting-numbers-using-decimalformat
         //for each User, go through each object
         for(User u: userList){
+            
             //if the userid equals the id in the textfield, run this statement
             if(u.getId().equals(idTf.getText())){
                 DecimalFormat df = new DecimalFormat("#.00"); //used to round something to 2 decimal places
@@ -1324,7 +1343,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Maintenance Calories based on sedentary activity level (default preset): "+calories);
                 }
                 
-                else if(bmi<18.5){
+                else{
                     JOptionPane.showMessageDialog(null, "Based on your BMI of "+df.format(bmi)+",we suggest that you should increase your maintenance calories by 300-500");
                     JOptionPane.showMessageDialog(null, "Maintenance Calories based on sedentary activity level (default preset): "+calories);
                     
@@ -1333,6 +1352,14 @@ public class PhysicalGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_recommendBtnActionPerformed
+
+    private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
+        // TODO add your handling code here:
+        PhysicalGUI p = new PhysicalGUI();
+        p.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_refreshBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1397,6 +1424,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup pBtnGrp;
     private javax.swing.JLabel physicalLbl;
     private javax.swing.JButton recommendBtn;
+    private javax.swing.JButton refreshBtn;
     private javax.swing.JButton removeBtn;
     private javax.swing.JButton searchBtn;
     private javax.swing.JLabel userRemoveLbl;

@@ -746,6 +746,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 }
             }
             
+            //if any of the radio buttons are clicked and the user trys to search an ID that does not exist, tell them the ID does not exist
             if(workoutRb.isSelected() || dietRb.isSelected() || macroRb.isSelected() || cardioRb.isSelected()){
                 for(User u: userList){
                     if(!u.getId().equalsIgnoreCase(idTf.getText()) && !idTf.getText().isEmpty()){
@@ -754,6 +755,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 }
             }
             
+            //if neither of the radio buttons are not clicked and the user trys to click search, it will tell them to press one
             if(!workoutRb.isSelected() && !dietRb.isSelected() && !cardioRb.isSelected() && !macroRb.isSelected()){
                 JOptionPane.showMessageDialog(null, "Press a radio button to activate the program");
             }
@@ -1020,6 +1022,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 
         }
         
+        //if none of the radio buttons are clicked and the user presses delete, it will tell them to press one to activate the program
         if(!workoutRb.isSelected() && !dietRb.isSelected() && !cardioRb.isSelected() && !macroRb.isSelected()){
                 JOptionPane.showMessageDialog(null, "Press a radio button to activate the program");
             }
@@ -1080,16 +1083,19 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Workout Details Removed");
                     saveWorkout();
                 }
+                //if none of the radio buttons are clicked and the user presses delete, it will tell them to press one to activate the program
                 else if(!workoutRb.isSelected() && !dietRb.isSelected() && !cardioRb.isSelected() && !macroRb.isSelected()){
                     JOptionPane.showMessageDialog(null, "Press a radio button to activate the program");
                     break;
                 }
                 
+                //if the ID textfield is empty, display error
                 if(idTf.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "Textfield is empty, please type an ID to delete");
                     break;
                 }
                 
+                //if the ID in the textfield does not exist in the user array and the textfield isnt empty, tell them it doesn't exist
                 if(!u.getId().equalsIgnoreCase(idTf.getText()) && !idTf.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "ID does not exist, try a valid one");
                 }

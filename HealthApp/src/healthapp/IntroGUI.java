@@ -27,6 +27,9 @@ public class IntroGUI extends javax.swing.JFrame {
         initComponents(); 
         userList = new ArrayList<>();
         readUsers();//puts the users information into the arrayList on load
+        //getContentPane().setBackground(new java.awt.Color(57, 214, 18));
+        setSize(1000, 596);
+
     }
     
     
@@ -79,58 +82,85 @@ public class IntroGUI extends javax.swing.JFrame {
         idTf = new javax.swing.JTextField();
         mLoginRb = new javax.swing.JRadioButton();
         pLoginRb = new javax.swing.JRadioButton();
+        messageLbl1 = new javax.swing.JLabel();
         passwordPField = new javax.swing.JPasswordField();
+        backgroundLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(996, 570));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(996, 559));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        titleLbl.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        titleLbl.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        titleLbl.setForeground(new java.awt.Color(124, 95, 53));
         titleLbl.setText("Health Improvement 101");
+        getContentPane().add(titleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
 
-        messageLbl.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        messageLbl.setText("We aim to improve the overall health of anyone who uses this by providing a variety of options for either their mental or physical wellbeing");
+        messageLbl.setFont(new java.awt.Font("Segoe UI Variable", 3, 14)); // NOI18N
+        messageLbl.setForeground(new java.awt.Color(144, 154, 101));
+        messageLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        messageLbl.setText("To use this program, you have to first register an account and then log in with those same details to either Mental or Physical");
+        getContentPane().add(messageLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, 940, 40));
 
-        createBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        createBtn.setText("Create Account");
+        createBtn.setBackground(new java.awt.Color(210, 211, 215));
+        createBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        createBtn.setText("Register");
+        createBtn.setBorder(null);
+        createBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(createBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 100, -1));
 
-        exitBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        exitBtn.setBackground(new java.awt.Color(208, 209, 213));
+        exitBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
         exitBtn.setText("Exit");
+        exitBtn.setBorder(null);
+        exitBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(exitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 440, 40, -1));
 
-        loginBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        loginBtn.setBackground(new java.awt.Color(226, 226, 226));
+        loginBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
         loginBtn.setText("Login");
+        loginBtn.setBorder(null);
+        loginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 70, -1));
 
-        idLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        idLbl.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
         idLbl.setText("ID:");
+        getContentPane().add(idLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
 
-        passwordLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        passwordLbl.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
         passwordLbl.setText("Password:");
+        getContentPane().add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 357, -1, -1));
 
-        idTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        idTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         idTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idTfActionPerformed(evt);
             }
         });
+        getContentPane().add(idTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 145, -1));
 
+        mLoginRb.setBackground(new java.awt.Color(225, 225, 225));
         buttonGroup1.add(mLoginRb);
         mLoginRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mLoginRb.setText("Mental Login");
+        getContentPane().add(mLoginRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, -1));
 
+        pLoginRb.setBackground(new java.awt.Color(225, 225, 225));
         buttonGroup1.add(pLoginRb);
         pLoginRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         pLoginRb.setText("Physical Login");
@@ -139,73 +169,19 @@ public class IntroGUI extends javax.swing.JFrame {
                 pLoginRbActionPerformed(evt);
             }
         });
+        getContentPane().add(pLoginRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, -1, -1));
 
-        passwordPField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        messageLbl1.setFont(new java.awt.Font("Segoe UI Variable", 3, 14)); // NOI18N
+        messageLbl1.setForeground(new java.awt.Color(144, 154, 101));
+        messageLbl1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        messageLbl1.setText("We aim to improve the overall health of anyone who uses this by providing a variety of options for either their mental or physical wellbeing");
+        getContentPane().add(messageLbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 940, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(passwordLbl)
-                                    .addComponent(idLbl))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(idTf, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                                    .addComponent(passwordPField)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(loginBtn)
-                                .addGap(269, 269, 269)
-                                .addComponent(createBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(mLoginRb)
-                        .addGap(18, 18, 18)
-                        .addComponent(pLoginRb)))
-                .addGap(18, 18, 18))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(messageLbl))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addComponent(titleLbl)))
-                .addContainerGap(48, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(titleLbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(messageLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(mLoginRb)
-                    .addComponent(pLoginRb))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idLbl)
-                    .addComponent(idTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordLbl)
-                    .addComponent(passwordPField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginBtn)
-                    .addComponent(exitBtn)
-                    .addComponent(createBtn))
-                .addGap(103, 103, 103))
-        );
+        passwordPField.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        getContentPane().add(passwordPField, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 145, -1));
+
+        backgroundLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IntroGUI Images/pexels-totalshape-2383010 (1).jpg"))); // NOI18N
+        getContentPane().add(backgroundLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -308,6 +284,7 @@ public class IntroGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel backgroundLbl;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton createBtn;
     private javax.swing.JButton exitBtn;
@@ -316,6 +293,7 @@ public class IntroGUI extends javax.swing.JFrame {
     private javax.swing.JButton loginBtn;
     private javax.swing.JRadioButton mLoginRb;
     private javax.swing.JLabel messageLbl;
+    private javax.swing.JLabel messageLbl1;
     private javax.swing.JRadioButton pLoginRb;
     private javax.swing.JLabel passwordLbl;
     private javax.swing.JPasswordField passwordPField;

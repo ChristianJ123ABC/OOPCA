@@ -573,14 +573,14 @@ public class MentalGUI extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
         if(activitiesRB.isSelected()){
-            readUsers();
+            readUsers(); //load Users
+            readMentalActivities();  //load MentalActivities
             MentalActivity a = new MentalActivity();
               boolean flag = false;
                
              
              for(User u:userList){
                   if( u.getId().equals(IdTf.getText())) {
-                      readMentalActivities();
                       flag = true;
                   
                    a.setId(IdTf.getText());
@@ -614,13 +614,14 @@ public class MentalGUI extends javax.swing.JFrame {
         
         
         else if(dietRb.isSelected()){
-               readUsers();  
-             MentalDiet d = new MentalDiet();
+               readUsers(); //load Users
+               readMentalDiet();
+             MentalDiet d = new MentalDiet(); //load MentalDiet
              boolean flag = false;
              
                    for(User u:userList){
                    if( u.getId().equals(IdTf.getText())) {
-                        readMentalDiet();
+                       
                          flag = true;
                          
                          d.setId(IdTf.getText());

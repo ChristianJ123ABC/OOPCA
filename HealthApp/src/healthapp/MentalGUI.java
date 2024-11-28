@@ -155,19 +155,7 @@ public class MentalGUI extends javax.swing.JFrame {
             System.out.println("Error:"+e);
         }
     }
-      private void clearFields(){
-        IdTf.setText(" ");
-        stressTf.setText(" ");
-        sleepHTf.setText(" ");
-        weightTf.setText(" ");
-        frequencyTf.setText(" ");
-        activityDTf.setText(" ");
-        dietTTf.setText(" ");
-        caloriesTf.setText(" ");
-        metTf.setText(" ");
-    
-    }
-
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -601,7 +589,6 @@ public class MentalGUI extends javax.swing.JFrame {
                       + "Activity Duration:"+activityDTf.getText());
                      
                            saveMentalActivities();
-                           clearFields();
                            break;
                 }  
               }  
@@ -639,7 +626,6 @@ public class MentalGUI extends javax.swing.JFrame {
                       + "Calories Intake:"+caloriesTf.getText());
             
                       saveMentalDiet();
-                      clearFields();
                       break;
              }   
           }
@@ -685,7 +671,6 @@ public class MentalGUI extends javax.swing.JFrame {
                     }
         }
       }
-        clearFields();
        
     }//GEN-LAST:event_removeMBtnActionPerformed
 
@@ -776,7 +761,6 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void clearMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearMBtnActionPerformed
         // TODO add your handling code here:
-        clearFields();
     }//GEN-LAST:event_clearMBtnActionPerformed
 
     private void dietMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietMBtnActionPerformed

@@ -551,18 +551,19 @@ public class MentalGUI extends javax.swing.JFrame {
                       JOptionPane.showMessageDialog(null, "Calories Burned: " + caloriesBurned);
                         userFound = true;
                         break; // Exit loop once user is found and calculation is done
-            }
-        }
-
+                      }
+                 }
                  if (!userFound) {
                      JOptionPane.showMessageDialog(null, "User ID not found in the system");
-                 }
-
-         } 
+                      }
+                 
+                } 
+           
                 catch (NumberFormatException e) {
                   JOptionPane.showMessageDialog(null, "Invalid input! Please enter valid numbers for frequency, MET, and duration.");
                 }
-         }
+           
+            }
     }//GEN-LAST:event_caloriesBBtnActionPerformed
 
     private void IdTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdTfActionPerformed

@@ -528,24 +528,41 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void caloriesBBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caloriesBBtnActionPerformed
         // TODO add your handling code here:
-         if(caloriesBBtn.isSelected()){
-            JOptionPane.showMessageDialog(null,"Sorry, there are no details in the system to calculate caloried burned");
-        }
-        else{
-            //traversing an ArrayList
-           for(int i = 0; i < userList.size();i++){
-              for(User u:userList){
-               if(u.getId().equals(IdTf.getText())){
-               double frequency = Double.parseDouble(frequencyTf.getText());
-               double met = Double.parseDouble(metTf.getText());
-               double weight = u.getWeight();
-               double duration = Double.parseDouble(activityDTf.getText());
-               double caloriesBurned =  (met * weight * duration * frequency);
-               JOptionPane.showMessageDialog(null,"Calories Burned: "+caloriesBurned);
+      if (caloriesBBtn.isSelected()) {
+    JOptionPane.showMessageDialog(null, "Sorry, there are no details in the system to calculate calories burned");
+                } 
+      
+        else {
+           // Check if inputs are valid
+      
+           try {
+             double frequency = Double.parseDouble(frequencyTf.getText());
+             double met = Double.parseDouble(metTf.getText());
+             double duration = Double.parseDouble(activityDTf.getText());
+        
+             boolean userFound = false;
+
+            // Traverse userList
+             for (User u : userList) {
+                      if (u.getId().equals(IdTf.getText())) {
+                       double weight = u.getWeight();
+                      double caloriesBurned = met * weight * duration * frequency;
+
+                      JOptionPane.showMessageDialog(null, "Calories Burned: " + caloriesBurned);
+                        userFound = true;
+                        break; // Exit loop once user is found and calculation is done
             }
-           }
+        }
+
+                 if (!userFound) {
+                     JOptionPane.showMessageDialog(null, "User ID not found in the system");
+                 }
+
+         } 
+                catch (NumberFormatException e) {
+                  JOptionPane.showMessageDialog(null, "Invalid input! Please enter valid numbers for frequency, MET, and duration.");
+                }
          }
-       }
     }//GEN-LAST:event_caloriesBBtnActionPerformed
 
     private void IdTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdTfActionPerformed

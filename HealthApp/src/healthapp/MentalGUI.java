@@ -46,6 +46,7 @@ public class MentalGUI extends javax.swing.JFrame {
     }
     
     
+    //reads the App user details 
        private void readUsers(){
         //declare objects
         File f;
@@ -112,7 +113,7 @@ public class MentalGUI extends javax.swing.JFrame {
         }
     }
     
-      //display the macros into the program when you start the app
+      //display the mental Diet  into the program when you start the app
     private void readMentalDiet(){
         //declare objects
         File f;
@@ -135,7 +136,7 @@ public class MentalGUI extends javax.swing.JFrame {
         }
     }
     
-    //save the macros to a file
+    //save the mental diets details to a file
     private void saveMentalDiet(){
         //declare objects
         File f;
@@ -516,8 +517,10 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void caloriesBBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caloriesBBtnActionPerformed
         // TODO add your handling code here:
+        
+        //function to see if the button is selected
       if (caloriesBBtn.isSelected()) {
-    JOptionPane.showMessageDialog(null, "Sorry, there are no details in the system to calculate calories burned");
+    JOptionPane.showMessageDialog(null, "Sorry, there are no details in the system to calculate calories burned");  //message box to sho if there's no any information
                 } 
       
         else {
@@ -531,22 +534,23 @@ public class MentalGUI extends javax.swing.JFrame {
              boolean userFound = false;
 
             // Traverse userList
-             for (User u : userList) {
-                      if (u.getId().equals(IdTf.getText())) {
+             for (User u : userList) { //runs through array list called userList
+                      if (u.getId().equals(IdTf.getText())) { //if function to see entered id matches to the arraylist 
                        double weight = u.getWeight();
-                      double caloriesBurned = met * weight * duration * frequency;
+                      double caloriesBurned = met * weight * duration * frequency;// calculates the calories burned
 
-                      JOptionPane.showMessageDialog(null, "Calories Burned: " + caloriesBurned);
+                      JOptionPane.showMessageDialog(null, "Calories Burned: " + caloriesBurned);// message box to show the calculated calories
                         userFound = true;
                         break; // Exit loop once user is found and calculation is done
                       }
                  }
-                 if (!userFound) {
+                 if (!userFound) { //if the id doesn't match the given message pops up
                      JOptionPane.showMessageDialog(null, "User ID not found in the system");
                       }
                  
                 } 
            
+           //catch function to see if the given details matches the format for mental activities
                 catch (NumberFormatException e) {
                   JOptionPane.showMessageDialog(null, "Invalid input! Please enter valid numbers for frequency, MET, and duration.");
                 }
@@ -567,8 +571,8 @@ public class MentalGUI extends javax.swing.JFrame {
               boolean flag = false;
                
              
-             for(User u:userList){
-                  if( u.getId().equals(IdTf.getText())) {
+             for(User u:userList){  //runs through array list called userList
+                  if( u.getId().equals(IdTf.getText())) {  
                       flag = true;
                   
                    a.setId(IdTf.getText());
@@ -578,7 +582,9 @@ public class MentalGUI extends javax.swing.JFrame {
                    a.setFrequency (Double.parseDouble(frequencyTf.getText()));
                    a.setMet(Double.parseDouble(metTf.getText()));
                    a.setDuration(Double.parseDouble(activityDTf.getText()));
-                       userList.add(a);
+                       
+                   //adds the entered Activities to users
+                   userList.add(a);
             
                  JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
                       + "StressLevel "+stressTf.getText()+" \n "
@@ -588,7 +594,7 @@ public class MentalGUI extends javax.swing.JFrame {
                       + "MET Value:"+metTf.getText()+" \n"
                       + "Activity Duration:"+activityDTf.getText());
                      
-                           saveMentalActivities();
+                           saveMentalActivities();// save to mental Activities
                            break;
                 }  
               }  
@@ -602,8 +608,8 @@ public class MentalGUI extends javax.swing.JFrame {
         
         else if(dietRb.isSelected()){
                readUsers(); //load Users
-               readMentalDiet();
-             MentalDiet d = new MentalDiet(); //load MentalDiet
+               readMentalDiet();//loads mental diets
+             MentalDiet d = new MentalDiet();
              boolean flag = false;
              
                    for(User u:userList){
@@ -616,6 +622,8 @@ public class MentalGUI extends javax.swing.JFrame {
                          d.setSleepHours(sleepHTf.getText());
                          d.setDietType (dietTTf.getText());
                          d.setCalories (Double.parseDouble(caloriesTf.getText()));
+                         
+                         //Add diet types and calories to user list
                          userList.add(d);
                          
                          
@@ -625,7 +633,7 @@ public class MentalGUI extends javax.swing.JFrame {
                       + "Diet Type:"+dietTTf.getText()+" \n"
                       + "Calories Intake:"+caloriesTf.getText());
             
-                      saveMentalDiet();
+                      saveMentalDiet();// saves the new details entered to mental Diet
                       break;
              }   
           }

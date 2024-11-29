@@ -60,7 +60,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="dietMBtn" min="-2" max="-2" attributes="0"/>
                           <Component id="menuMBtn" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -104,12 +104,12 @@
                           <Component id="stressTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
                           <Component id="sleepHTf" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="205" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="activitiesRB" min="-2" pref="98" max="-2" attributes="0"/>
                           <Component id="dietRb" min="-2" pref="98" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -149,27 +149,27 @@
                   <Component id="dietTTf" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dietTypeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="caloriesTf" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="caloriesLbl" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="stressLbl" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="stressTf" min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="stressLbl" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="stressTf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="sleepHLbl" min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="sleepHTf" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="weightLbl" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="weightTf" alignment="3" pref="32" max="32767" attributes="0"/>
+                  <Component id="weightTf" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="7" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="displayMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -177,13 +177,13 @@
                   <Component id="menuMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="clearMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="activitiesMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="caloriesBBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dietMBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

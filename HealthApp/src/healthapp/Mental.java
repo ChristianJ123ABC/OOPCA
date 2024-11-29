@@ -15,6 +15,7 @@ public class Mental extends User {
     protected String sleepHours;
     
 
+        //overloaded constructor
     public Mental(String id, String stressLevel, String sleepHours) {
         this.Id = id;
         this.stressLevel = stressLevel;
@@ -29,6 +30,8 @@ public class Mental extends User {
  
     }
     
+    
+    //overrides the setters from healthApp.user
     @Override
     public void setId(String id) {
         this.Id = id;
@@ -46,6 +49,8 @@ public class Mental extends User {
      *
      * @return
      */
+    
+    //overrides the getters from the user
     @Override
      public String getId() {
         return Id;
@@ -61,7 +66,7 @@ public class Mental extends User {
     
     @Override
      public String getDetails(){
-        return "Mental Details: "+Id+","+stressLevel+","+sleepHours;
+        return "Mental Details: \n Your Id:"+Id+",Stress Level: "+stressLevel+",Sleep Hours: "+sleepHours;
     }
     
     

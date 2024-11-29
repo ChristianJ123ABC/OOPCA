@@ -15,6 +15,8 @@ public class MentalActivity extends Mental {
     private double duration;
     private double caloriesBurned;
     
+    
+        //overloaded constructor
      public MentalActivity(double weight, double frequency, double met, double duration, double caloriesBurned, String id, String stressLevel, String sleepHours) {
         super(id, stressLevel, sleepHours);
         this.weight = weight;
@@ -24,8 +26,8 @@ public class MentalActivity extends Mental {
         this.caloriesBurned = caloriesBurned;
     }
     
-
-    public MentalActivity() {
+         // defult constructor
+      public MentalActivity() {
         this.weight = 0;
         this.frequency = 0;
         this.met = 0;
@@ -33,7 +35,7 @@ public class MentalActivity extends Mental {
         this.caloriesBurned = 0;
     }
 
-
+      //setters
      public void setWeight(double weight) {
         this.weight = weight;
     }
@@ -53,6 +55,8 @@ public class MentalActivity extends Mental {
         this.caloriesBurned = caloriesBurned;
     }    
     
+    
+    //getters
     public double getWeight() {
         return weight;
     }
@@ -82,7 +86,7 @@ public class MentalActivity extends Mental {
     
       @Override
     public String getDetails(){
-        return super.getDetails()+","+weight+","+frequency+", "+met+", "+duration;
+        return super.getDetails()+",Weight :"+weight+",Frequency: "+frequency+",Met: "+met+", Duration :"+duration;
     }
 }
 

@@ -26,6 +26,10 @@ public class MentalGUI extends javax.swing.JFrame {
      */
     public MentalGUI() {
         initComponents();
+        userList = new ArrayList<>();
+        readUsers(); //reads the users details into the arrayListwhen program runs
+        
+        //To make the jlabel, textfield and buttons invisible when the program runs
         frequencyLbl.setVisible(false);
         frequencyTf.setVisible(false);
         weightLbl.setVisible(false);
@@ -41,8 +45,7 @@ public class MentalGUI extends javax.swing.JFrame {
         activitiesMBtn.setVisible(false);
         dietMBtn.setVisible(false);
         caloriesBBtn.setVisible(false);
-         userList = new ArrayList<>();
-        
+             
     }
     
     
@@ -405,7 +408,7 @@ public class MentalGUI extends javax.swing.JFrame {
                                                 .addComponent(removeMBtn)
                                                 .addGap(18, 18, 18)))
                                         .addComponent(clearMBtn)))))
-                        .addGap(18, 18, 18)
+                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(dietMBtn)
                             .addComponent(menuMBtn)))
@@ -440,11 +443,11 @@ public class MentalGUI extends javax.swing.JFrame {
                             .addComponent(caloriesTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(stressTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(sleepHTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(activitiesRB, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dietRb, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(115, 115, 115))))
+                        .addGap(131, 131, 131))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -474,35 +477,35 @@ public class MentalGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dietTTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dietTypeLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(caloriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(stressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(stressTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sleepHLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sleepHTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(weightLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(weightTf, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                    .addComponent(weightTf))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBtn)
                     .addComponent(displayMBtn)
                     .addComponent(removeMBtn)
                     .addComponent(menuMBtn)
                     .addComponent(clearMBtn))
-                .addGap(26, 26, 26)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(activitiesMBtn)
                     .addComponent(caloriesBBtn)
                     .addComponent(dietMBtn))
-                .addGap(35, 35, 35))
+                .addGap(8, 8, 8))
         );
 
         pack();
@@ -510,7 +513,7 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void menuMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMBtnActionPerformed
         // TODO add your handling code here:
-        IntroGUI ig = new IntroGUI();
+        IntroGUI ig = new IntroGUI();//To returns you to the register screen when clicked to menu button.
         ig.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuMBtnActionPerformed
@@ -572,9 +575,9 @@ public class MentalGUI extends javax.swing.JFrame {
                
              
              for(User u:userList){  //runs through array list called userList
-                  if( u.getId().equals(IdTf.getText())) {  
-                      flag = true;
-                  
+                  if( u.getId().equals(IdTf.getText())) {  //if function to see entered id matches to the arraylist.
+                      flag = true; //if the id is true
+                  //Get the inputs entered in Mental Activities
                    a.setId(IdTf.getText());
                    a.setStressLevel(stressTf.getText());
                    a.setSleepHours(sleepHTf.getText());
@@ -585,8 +588,9 @@ public class MentalGUI extends javax.swing.JFrame {
                        
                    //adds the entered Activities to users
                    userList.add(a);
-            
-                 JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
+           
+                  //show message box with the details user input in mental diet field
+                  JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
                       + "StressLevel "+stressTf.getText()+" \n "
                       + "SleepHours: "+sleepHTf.getText()+" \n"
                       + "Weight:"+weightTf.getText()+" \n"
@@ -612,11 +616,11 @@ public class MentalGUI extends javax.swing.JFrame {
              MentalDiet d = new MentalDiet();
              boolean flag = false;
              
-                   for(User u:userList){
-                   if( u.getId().equals(IdTf.getText())) {
+                   for(User u:userList){ //runs through th earraylist 
+                   if( u.getId().equals(IdTf.getText())) {// checks if  the id entered matche s with the id in arraylist
                        
-                         flag = true;
-                         
+                         flag = true;//if the id is true
+                         //Get the inputs entered in Diet section
                          d.setId(IdTf.getText());
                          d.setStressLevel(stressTf.getText());
                          d.setSleepHours(sleepHTf.getText());
@@ -626,9 +630,9 @@ public class MentalGUI extends javax.swing.JFrame {
                          //Add diet types and calories to user list
                          userList.add(d);
                          
-                         
+                         //show message box with the details user input in mental diet field
                       JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
-                      + "StressLevel "+stressTf.getText()+" \n "
+                      + "StressLevel: "+stressTf.getText()+" \n "
                       + "SleepHours: "+sleepHTf.getText()+" \n"
                       + "Diet Type:"+dietTTf.getText()+" \n"
                       + "Calories Intake:"+caloriesTf.getText());
@@ -651,7 +655,7 @@ public class MentalGUI extends javax.swing.JFrame {
    
     private void displayMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayMBtnActionPerformed
         // TODO add your handling code here:
-          if(userList.isEmpty()){
+          if(userList.isEmpty()){  // if the array list is empty then it displays the sorry message.
             JOptionPane.showMessageDialog(null,"Sorry, there are no information in the system");
         }
         else{
@@ -664,20 +668,29 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void removeMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeMBtnActionPerformed
         // TODO add your handling code here:
-         if(userList.isEmpty()){
-            JOptionPane.showMessageDialog(null,"Sorry, there are no information in the system");
+         if(userList.isEmpty()){   //if the array list is empty then it displays the sorry message.
+             JOptionPane.showMessageDialog(null,"Sorry, there are no information in the system");
         }
         else{
-            
+            // Traverse the user list to find and remove the matching user.
             for(int i = 0; i < userList.size();i++){
-                User m = userList.get(i);
+                User m = userList.get(i);// Get the current user object.
+                // Check if the user's ID matches the input and if the "Diet" option is selected.
                 if(m.getId().equalsIgnoreCase(IdTf.getText()) && activitiesRB.isSelected()){
-                 userList.remove(m);
+                 userList.remove(m);// Remove the user from the list.
+                 
+                 JOptionPane.showMessageDialog(null, "Activity record for ID: " + m.getId() + " has been removed.");
+                    break; // Exit the loop after removing the user to avoid `ConcurrentModificationException`.
                }
+                
+                // Checks if the user's ID matches the input and if the Diet option is selected.
                 else if(m.getId().equalsIgnoreCase(IdTf.getText()) && dietRb.isSelected()){
-                    userList.remove(m);
+                    userList.remove(m);// Remove the user from the list.
+                    
+                    JOptionPane.showMessageDialog(null, "Diet record for ID: " + m.getId() + " has been removed.");
+                         break; // Exit the loop after removing the user to avoid `ConcurrentModificationException`.
                     }
-        }
+             }
       }
        
     }//GEN-LAST:event_removeMBtnActionPerformed
@@ -710,10 +723,15 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void activitiesRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activitiesRBActionPerformed
         // TODO add your handling code here:
+        
+        //makes the named jlabel and textfield  not visible
         dietTypeLbl.setVisible(false);
         dietTTf.setVisible(false);
         caloriesLbl.setVisible(false);
         caloriesTf.setVisible(false);
+        dietMBtn.setVisible(false);
+        
+        //makes the named jlabel and textfield visible
         frequencyLbl.setVisible(true);
         frequencyTf.setVisible(true);
         metLbl.setVisible(true);
@@ -722,7 +740,6 @@ public class MentalGUI extends javax.swing.JFrame {
         activityDTf.setVisible(true);
         activitiesMBtn.setVisible(true);
         caloriesBBtn.setVisible(true);
-        dietMBtn.setVisible(false);
         weightLbl.setVisible(true);
         weightTf.setVisible(true);
         
@@ -730,28 +747,33 @@ public class MentalGUI extends javax.swing.JFrame {
 
     private void dietRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietRbActionPerformed
         // TODO add your handling code here:
+        
+        //makes the named jlabel and textfield  not visible
         frequencyLbl.setVisible(false);
         frequencyTf.setVisible(false);
         metLbl.setVisible(false);
         metTf.setVisible(false);
         activityDLbl.setVisible(false);
         activityDTf.setVisible(false);
+        activitiesMBtn.setVisible(false);
+        caloriesBBtn.setVisible(false);
+        weightLbl.setVisible(false);
+        weightTf.setVisible(false);
+        
+        //makes the named jlabel and textfield visible
         dietTypeLbl.setVisible(true);
         dietTTf.setVisible(true);
         caloriesLbl.setVisible(true);
         caloriesTf.setVisible(true);
-        activitiesMBtn.setVisible(false);
-        caloriesBBtn.setVisible(false);
         dietMBtn.setVisible(true);
-        weightLbl.setVisible(false);
-        weightTf.setVisible(false);
+       
       
     }//GEN-LAST:event_dietRbActionPerformed
 
     private void activitiesMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activitiesMBtnActionPerformed
         // TODO add your handling code here:
-        // displays the message box with activities and METs values of the respective activities 
         
+        // displays the message box with activities and METs values of the respective activities 
       JOptionPane.showMessageDialog(null,"Here are MET values and some exapmples of activities a person can do to improve their mental health: \n "
               + "(1)Physical Activities (MET Values) \n  Yoga: 2.5 METs (light effort, Hatha yoga) \n Walking in Nature: 3.8 METs (moderate walking, 4 mph)"
               + "\n Running or Jogging: 7.0-11.0 METs (depends on pace, 6 mph = 9.8 METs) \n Dancing: 4.8-7.8 METs (ballroom = 3.0, fast dancing = 7.8)"
@@ -767,14 +789,29 @@ public class MentalGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_dietTTfActionPerformed
 
+    
+     private void clearFields(){
+        IdTf.setText(" ");
+        stressTf.setText(" ");
+        sleepHTf.setText(" ");
+        frequencyTf.setText(" ");
+        metTf.setText(" ");
+        dietTTf.setText(" ");
+        caloriesTf.setText(" ");
+        activityDTf.setText(" ");
+        weightTf.setText(" ");
+    }
+    
+    
     private void clearMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearMBtnActionPerformed
         // TODO add your handling code here:
+        clearFields();
     }//GEN-LAST:event_clearMBtnActionPerformed
 
     private void dietMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietMBtnActionPerformed
         // TODO add your handling code here:
-        // Displays the message box for Types of diet and calories it contain for improvement of persons mental wellbeing.
         
+        // Displays the message box for Types of diet and calories it contain for improvement of persons mental wellbeing.
         JOptionPane.showMessageDialog(null,"Here are some types of diet and calories they are equal to which is helpful for persons mental wellbeing: \n"
                 + "(1) Mediterranean Diet: Focuses on plant-based foods, healthy fats, and lean proteins like fish."
                 + " Known for its benefits in reducing heart disease and improving mental health. "
@@ -831,7 +868,7 @@ public class MentalGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MentalGUI().setVisible(true);
+                new MentalGUI().setVisible(true);// a new window called mentalGUI is created and the layout is visible when the program runs.
             }
         });
     }

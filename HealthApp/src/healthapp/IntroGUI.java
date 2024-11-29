@@ -6,10 +6,8 @@ package healthapp;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -29,6 +27,13 @@ public class IntroGUI extends javax.swing.JFrame {
         readUsers();//puts the users information into the arrayList on load
         //getContentPane().setBackground(new java.awt.Color(57, 214, 18));
         setSize(1000, 596);
+        //removes blue background on click from buttons
+        //source https://stackoverflow.com/questions/19663009/overriding-button-background
+        loginBtn.setContentAreaFilled(false);
+        exitBtn.setContentAreaFilled(false);
+        createBtn.setContentAreaFilled(false);
+        mLoginRb.setContentAreaFilled(false);
+        pLoginRb.setContentAreaFilled(false);
 
     }
     
@@ -71,7 +76,7 @@ public class IntroGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        rbBGroup = new javax.swing.ButtonGroup();
         titleLbl = new javax.swing.JLabel();
         messageLbl = new javax.swing.JLabel();
         createBtn = new javax.swing.JButton();
@@ -107,6 +112,7 @@ public class IntroGUI extends javax.swing.JFrame {
         createBtn.setText("Register");
         createBtn.setBorder(null);
         createBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        createBtn.setFocusable(false);
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createBtnActionPerformed(evt);
@@ -119,6 +125,7 @@ public class IntroGUI extends javax.swing.JFrame {
         exitBtn.setText("Exit");
         exitBtn.setBorder(null);
         exitBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitBtn.setFocusable(false);
         exitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitBtnActionPerformed(evt);
@@ -129,8 +136,18 @@ public class IntroGUI extends javax.swing.JFrame {
         loginBtn.setBackground(new java.awt.Color(226, 226, 226));
         loginBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
         loginBtn.setText("Login");
-        loginBtn.setBorder(null);
+        loginBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         loginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        loginBtn.setFocusPainted(false);
+        loginBtn.setFocusable(false);
+        loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                loginBtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                loginBtnMouseReleased(evt);
+            }
+        });
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginBtnActionPerformed(evt);
@@ -155,15 +172,17 @@ public class IntroGUI extends javax.swing.JFrame {
         getContentPane().add(idTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 145, -1));
 
         mLoginRb.setBackground(new java.awt.Color(225, 225, 225));
-        buttonGroup1.add(mLoginRb);
+        rbBGroup.add(mLoginRb);
         mLoginRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mLoginRb.setText("Mental Login");
+        mLoginRb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(mLoginRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, -1));
 
         pLoginRb.setBackground(new java.awt.Color(225, 225, 225));
-        buttonGroup1.add(pLoginRb);
+        rbBGroup.add(pLoginRb);
         pLoginRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         pLoginRb.setText("Physical Login");
+        pLoginRb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pLoginRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pLoginRbActionPerformed(evt);
@@ -247,6 +266,15 @@ public class IntroGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pLoginRbActionPerformed
 
+    private void loginBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_loginBtnMouseReleased
+
+    private void loginBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginBtnMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -285,7 +313,6 @@ public class IntroGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundLbl;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton createBtn;
     private javax.swing.JButton exitBtn;
     private javax.swing.JLabel idLbl;
@@ -297,6 +324,7 @@ public class IntroGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton pLoginRb;
     private javax.swing.JLabel passwordLbl;
     private javax.swing.JPasswordField passwordPField;
+    private javax.swing.ButtonGroup rbBGroup;
     private javax.swing.JLabel titleLbl;
     // End of variables declaration//GEN-END:variables
 }

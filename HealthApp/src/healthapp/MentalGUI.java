@@ -31,14 +31,14 @@ public class MentalGUI extends javax.swing.JFrame {
         
         //used to change the background colour
         //source: https://stackoverflow.com/questions/1081486/setting-background-color-for-a-jframe
-          getContentPane().setBackground(new java.awt.Color(0, 204, 204));
+          getContentPane().setBackground(new java.awt.Color(248, 245, 238));
         
         
         //To make the jlabel, textfield and buttons invisible when the program runs
         frequencyLbl.setVisible(false);
         frequencyTf.setVisible(false);
-        weightLbl.setVisible(false);
-        weightTf.setVisible(false);
+        activityTLbl.setVisible(false);
+        activityTTf.setVisible(false);
         metLbl.setVisible(false);
         metTf.setVisible(false);
         activityDLbl.setVisible(false);
@@ -50,7 +50,8 @@ public class MentalGUI extends javax.swing.JFrame {
         activitiesMBtn.setVisible(false);
         dietMBtn.setVisible(false);
         caloriesBBtn.setVisible(false);
-             
+        mentalDILbl.setVisible(false);
+        mentalAILbl.setVisible(false);
     }
     
     
@@ -201,10 +202,13 @@ public class MentalGUI extends javax.swing.JFrame {
         dietMBtn = new javax.swing.JButton();
         activitiesRB = new javax.swing.JRadioButton();
         dietRb = new javax.swing.JRadioButton();
-        weightLbl = new javax.swing.JLabel();
-        weightTf = new javax.swing.JTextField();
+        activityTLbl = new javax.swing.JLabel();
+        activityTTf = new javax.swing.JTextField();
         clearMBtn = new javax.swing.JButton();
         mWLbl = new javax.swing.JLabel();
+        mentalAILbl = new javax.swing.JLabel();
+        mentalDILbl = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -231,7 +235,7 @@ public class MentalGUI extends javax.swing.JFrame {
 
         caloriesBBtn.setBackground(new java.awt.Color(0, 204, 204));
         caloriesBBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
-        caloriesBBtn.setForeground(new java.awt.Color(0, 102, 0));
+        caloriesBBtn.setForeground(new java.awt.Color(0, 102, 102));
         caloriesBBtn.setText("Calories Burned");
         caloriesBBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         caloriesBBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +243,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 caloriesBBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(caloriesBBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 461, -1, -1));
+        getContentPane().add(caloriesBBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 460, -1, -1));
 
         menuMBtn.setBackground(new java.awt.Color(0, 204, 204));
         menuMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
@@ -251,7 +255,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 menuMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(menuMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 402, -1, -1));
+        getContentPane().add(menuMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, -1, -1));
 
         displayMBtn.setBackground(new java.awt.Color(0, 204, 204));
         displayMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -263,11 +267,11 @@ public class MentalGUI extends javax.swing.JFrame {
                 displayMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(displayMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 402, -1, -1));
+        getContentPane().add(displayMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 100, -1));
 
         removeMBtn.setBackground(new java.awt.Color(0, 204, 204));
         removeMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
-        removeMBtn.setForeground(new java.awt.Color(153, 153, 0));
+        removeMBtn.setForeground(new java.awt.Color(51, 51, 0));
         removeMBtn.setText("Remove");
         removeMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         removeMBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -275,7 +279,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 removeMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(removeMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 402, -1, -1));
+        getContentPane().add(removeMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 100, -1));
 
         addBtn.setBackground(new java.awt.Color(0, 204, 204));
         addBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
@@ -287,7 +291,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 addBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 402, -1, -1));
+        getContentPane().add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 50, -1));
 
         caloriesLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         caloriesLbl.setForeground(new java.awt.Color(0, 102, 51));
@@ -307,8 +311,8 @@ public class MentalGUI extends javax.swing.JFrame {
 
         metLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         metLbl.setForeground(new java.awt.Color(102, 0, 153));
-        metLbl.setText("Met:");
-        getContentPane().add(metLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 150, -1));
+        metLbl.setText("MET Value:");
+        getContentPane().add(metLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 150, -1));
 
         activityDLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         activityDLbl.setForeground(new java.awt.Color(51, 102, 0));
@@ -350,12 +354,13 @@ public class MentalGUI extends javax.swing.JFrame {
         getContentPane().add(activityDTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 204, 30));
 
         metTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        metTf.setToolTipText("Check Activity Types For MET Value");
         metTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 metTfActionPerformed(evt);
             }
         });
-        getContentPane().add(metTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 204, 30));
+        getContentPane().add(metTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 204, 30));
 
         dietTTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         dietTTf.addActionListener(new java.awt.event.ActionListener() {
@@ -382,21 +387,23 @@ public class MentalGUI extends javax.swing.JFrame {
         getContentPane().add(sleepHTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 204, 30));
 
         activitiesMBtn.setBackground(new java.awt.Color(0, 204, 204));
-        activitiesMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        activitiesMBtn.setForeground(new java.awt.Color(153, 51, 0));
+        activitiesMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        activitiesMBtn.setForeground(new java.awt.Color(0, 102, 51));
         activitiesMBtn.setText("Types Of Activity");
+        activitiesMBtn.setToolTipText("Choose Activity Types and MET value.");
         activitiesMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         activitiesMBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activitiesMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(activitiesMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 461, -1, -1));
+        getContentPane().add(activitiesMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, -1, -1));
 
         dietMBtn.setBackground(new java.awt.Color(0, 204, 204));
         dietMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
-        dietMBtn.setForeground(new java.awt.Color(255, 153, 51));
+        dietMBtn.setForeground(new java.awt.Color(153, 51, 0));
         dietMBtn.setText("Types Of Diet");
+        dietMBtn.setToolTipText("Choose Your Diet Type.");
         dietMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         dietMBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         dietMBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -404,48 +411,46 @@ public class MentalGUI extends javax.swing.JFrame {
                 dietMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(dietMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 461, -1, -1));
+        getContentPane().add(dietMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
 
-        activitiesRB.setBackground(new java.awt.Color(0, 204, 204));
         mBtnGrp.add(activitiesRB);
         activitiesRB.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
         activitiesRB.setForeground(new java.awt.Color(255, 102, 0));
         activitiesRB.setText("Activities");
-        activitiesRB.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        activitiesRB.setBorderPainted(true);
+        activitiesRB.setBorder(null);
         activitiesRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activitiesRBActionPerformed(evt);
             }
         });
-        getContentPane().add(activitiesRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 98, -1));
+        getContentPane().add(activitiesRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 98, -1));
 
-        dietRb.setBackground(new java.awt.Color(0, 204, 204));
         mBtnGrp.add(dietRb);
         dietRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dietRb.setForeground(new java.awt.Color(102, 51, 0));
         dietRb.setText("Diet");
-        dietRb.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        dietRb.setBorderPainted(true);
+        dietRb.setBorder(null);
         dietRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dietRbActionPerformed(evt);
             }
         });
-        getContentPane().add(dietRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 98, -1));
+        getContentPane().add(dietRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 98, -1));
 
-        weightLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        weightLbl.setForeground(new java.awt.Color(102, 0, 153));
-        weightLbl.setText("Weight:");
-        getContentPane().add(weightLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, 26));
+        activityTLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        activityTLbl.setForeground(new java.awt.Color(102, 0, 153));
+        activityTLbl.setText("Activity Type:");
+        activityTLbl.setToolTipText("");
+        getContentPane().add(activityTLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 140, 26));
 
-        weightTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
-        weightTf.addActionListener(new java.awt.event.ActionListener() {
+        activityTTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        activityTTf.setToolTipText("check Activity Types Below");
+        activityTTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                weightTfActionPerformed(evt);
+                activityTTfActionPerformed(evt);
             }
         });
-        getContentPane().add(weightTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 205, 30));
+        getContentPane().add(activityTTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 205, 30));
 
         clearMBtn.setBackground(new java.awt.Color(0, 204, 204));
         clearMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
@@ -457,13 +462,26 @@ public class MentalGUI extends javax.swing.JFrame {
                 clearMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(clearMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 402, -1, -1));
+        getContentPane().add(clearMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 70, -1));
 
-        mWLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MentalGUI Images/istockphoto-1363774646-612x612.jpg"))); // NOI18N
+        mWLbl.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        mWLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MentalGUI Images/mentalwellbeing1.jpg"))); // NOI18N
+        mWLbl.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         mWLbl.setDoubleBuffered(true);
-        mWLbl.setMinimumSize(new java.awt.Dimension(612, 612));
-        mWLbl.setPreferredSize(new java.awt.Dimension(612, 612));
-        getContentPane().add(mWLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 270, 280));
+        mWLbl.setRequestFocusEnabled(false);
+        getContentPane().add(mWLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 270, 290));
+        mWLbl.getAccessibleContext().setAccessibleName("");
+
+        mentalAILbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MentalGUI Images/mentalActivity.jpg"))); // NOI18N
+        mentalAILbl.setToolTipText("");
+        getContentPane().add(mentalAILbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 270, 290));
+
+        mentalDILbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MentalGUI Images/mentalDiet.png"))); // NOI18N
+        getContentPane().add(mentalDILbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 270, 290));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Choose Radio Button To Activate The Program.");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 280, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -538,7 +556,7 @@ public class MentalGUI extends javax.swing.JFrame {
                    a.setId(IdTf.getText());
                    a.setStressLevel(stressTf.getText());
                    a.setSleepHours(sleepHTf.getText());
-                   a.setWeight (Double.parseDouble(weightTf.getText()));
+                   a.setWeight (Double.parseDouble(activityTTf.getText()));
                    a.setFrequency (Double.parseDouble(frequencyTf.getText()));
                    a.setMet(Double.parseDouble(metTf.getText()));
                    a.setDuration(Double.parseDouble(activityDTf.getText()));
@@ -550,7 +568,7 @@ public class MentalGUI extends javax.swing.JFrame {
                   JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
                       + "StressLevel "+stressTf.getText()+" \n "
                       + "SleepHours: "+sleepHTf.getText()+" \n"
-                      + "Weight:"+weightTf.getText()+" \n"
+                      + "Weight:"+activityTTf.getText()+" \n"
                       + "Frequency:"+frequencyTf.getText()+" \n"
                       + "MET Value:"+metTf.getText()+" \n"
                       + "Activity Duration:"+activityDTf.getText());
@@ -681,12 +699,16 @@ public class MentalGUI extends javax.swing.JFrame {
     private void activitiesRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activitiesRBActionPerformed
         // TODO add your handling code here:
         
+        readMentalActivities();
+        
         //makes the named jlabel and textfield  not visible
         dietTypeLbl.setVisible(false);
         dietTTf.setVisible(false);
         caloriesLbl.setVisible(false);
         caloriesTf.setVisible(false);
         dietMBtn.setVisible(false);
+        mentalDILbl.setVisible(false);
+        mWLbl.setVisible(false);
         
         //makes the named jlabel and textfield visible
         frequencyLbl.setVisible(true);
@@ -697,13 +719,19 @@ public class MentalGUI extends javax.swing.JFrame {
         activityDTf.setVisible(true);
         activitiesMBtn.setVisible(true);
         caloriesBBtn.setVisible(true);
-        weightLbl.setVisible(true);
-        weightTf.setVisible(true);
+        activityTLbl.setVisible(true);
+        activityTTf.setVisible(true);
+        mentalAILbl.setVisible(true);
+        
+        //To change Activity page background colour
+        getContentPane().setBackground(new java.awt.Color(190, 245, 143));
         
     }//GEN-LAST:event_activitiesRBActionPerformed
 
     private void dietRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietRbActionPerformed
         // TODO add your handling code here:
+        
+        readMentalDiet();
         
         //makes the named jlabel and textfield  not visible
         frequencyLbl.setVisible(false);
@@ -714,8 +742,10 @@ public class MentalGUI extends javax.swing.JFrame {
         activityDTf.setVisible(false);
         activitiesMBtn.setVisible(false);
         caloriesBBtn.setVisible(false);
-        weightLbl.setVisible(false);
-        weightTf.setVisible(false);
+        activityTLbl.setVisible(false);
+        activityTTf.setVisible(false);
+        mentalAILbl.setVisible(false);
+        mWLbl.setVisible(false);
         
         //makes the named jlabel and textfield visible
         dietTypeLbl.setVisible(true);
@@ -723,7 +753,10 @@ public class MentalGUI extends javax.swing.JFrame {
         caloriesLbl.setVisible(true);
         caloriesTf.setVisible(true);
         dietMBtn.setVisible(true);
+        mentalDILbl.setVisible(true);
        
+        //To change Diet page background colour
+        getContentPane().setBackground(new java.awt.Color(217, 175, 122));
       
     }//GEN-LAST:event_dietRbActionPerformed
 
@@ -735,8 +768,10 @@ public class MentalGUI extends javax.swing.JFrame {
               + "(1)Physical Activities (MET Values) \n  Yoga: 2.5 METs (light effort, Hatha yoga) \n Walking in Nature: 3.8 METs (moderate walking, 4 mph)"
               + "\n Running or Jogging: 7.0-11.0 METs (depends on pace, 6 mph = 9.8 METs) \n Dancing: 4.8-7.8 METs (ballroom = 3.0, fast dancing = 7.8)"
               + "\n Swimming: 5.8-10.0 METs (depends on speed and stroke) "
+              
               + "\n (2)Social Activities (MET Values): \n Volunteering: 2.0-3.0 METs (light effort, standing or moving) \n  Joining Support Groups: 1.5 METs (seated discussion)"
               + "\n Team Sports: 4.0-10.0 METs (depending on sport, e.g., volleyball = 4.0, soccer = 7.0+) \n "
+              
               + "(3) Mindfulness and Relaxation Activities (MET Values): \n Meditation: 1.0 METs (resting equivalent) \n"
               + " Deep Breathing Exercises: 1.0 METs (resting equivalent) \n  Progressive Muscle Relaxation: 1.0-1.3 METs " );
     }//GEN-LAST:event_activitiesMBtnActionPerformed
@@ -756,7 +791,7 @@ public class MentalGUI extends javax.swing.JFrame {
         dietTTf.setText(" ");
         caloriesTf.setText(" ");
         activityDTf.setText(" ");
-        weightTf.setText(" ");
+        activityTTf.setText(" ");
     }
     
     
@@ -771,25 +806,21 @@ public class MentalGUI extends javax.swing.JFrame {
         // Displays the message box for Types of diet and calories it contain for improvement of persons mental wellbeing.
         JOptionPane.showMessageDialog(null,"Here are some types of diet and calories they are equal to which is helpful for persons mental wellbeing: \n"
                 + "(1) Mediterranean Diet: Focuses on plant-based foods, healthy fats, and lean proteins like fish."
-                + " Known for its benefits in reducing heart disease and improving mental health. "
                 + "\n Calories: 2,000–2,500 kcal/day (moderate activity level). \n"
                 + " (2) Ketogenic (Keto) Diet: A low-carb, high-fat diet that shifts the body into ketosis, where fat is burned for energy instead of carbohydrates. \n"
-                + "Often used for weight loss and brain health. \n"
                 + " Calories: ~1,500–2,000 kcal/day (varies with goal and macro breakdown). \n "
-                + "(3) Plant-Based Diet:  Focuses on foods derived from plants, including vegetables, fruits, grains, legumes, and nuts. "
-                + "Can be vegetarian, vegan, or include limited animal products. Supports gut and mental health. \n "
+                + "(3) Plant-Based Diet:  Focuses on foods derived from plants, including vegetables, fruits, grains, legumes, and nuts. \n"
                 + " Calories: 1,800–2,200 kcal/day. \n "
                 + "(4) DASH Diet (Dietary Approaches to Stop Hypertension): Designed to reduce high blood pressure, emphasizing fruits, vegetables, lean proteins, and  \n "
                 + "low-fat dairy while reducing sodium. Improves both physical and mental well-being.  \n "
                 + " Calories: 2,000 kcal/day (based on standard guidelines). \n "
-                + "(5) Low-Sugar Diet: Limits added sugars and focuses on complex carbs, proteins, and healthy fats to stabilize blood sugar and reduce mood swings."
-                + "\n  Helps with mental clarity and weight control. \n "
+                + "(5) Low-Sugar Diet: Limits added sugars and focuses on complex carbs, proteins, and healthy fats to stabilize blood sugar and reduce mood swings.\n"
                 + " Calories: 1,500–2,000 kcal/day.");
     }//GEN-LAST:event_dietMBtnActionPerformed
 
-    private void weightTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weightTfActionPerformed
+    private void activityTTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activityTTfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_weightTfActionPerformed
+    }//GEN-LAST:event_activityTTfActionPerformed
 
   
     
@@ -837,6 +868,8 @@ public class MentalGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton activitiesRB;
     private javax.swing.JLabel activityDLbl;
     private javax.swing.JTextField activityDTf;
+    private javax.swing.JLabel activityTLbl;
+    private javax.swing.JTextField activityTTf;
     private javax.swing.JButton addBtn;
     private javax.swing.JButton caloriesBBtn;
     private javax.swing.JLabel caloriesLbl;
@@ -849,8 +882,11 @@ public class MentalGUI extends javax.swing.JFrame {
     private javax.swing.JButton displayMBtn;
     private javax.swing.JLabel frequencyLbl;
     private javax.swing.JTextField frequencyTf;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.ButtonGroup mBtnGrp;
     private javax.swing.JLabel mWLbl;
+    private javax.swing.JLabel mentalAILbl;
+    private javax.swing.JLabel mentalDILbl;
     private javax.swing.JLabel mentalLbl;
     private javax.swing.JButton menuMBtn;
     private javax.swing.JLabel metLbl;
@@ -860,7 +896,5 @@ public class MentalGUI extends javax.swing.JFrame {
     private javax.swing.JTextField sleepHTf;
     private javax.swing.JLabel stressLbl;
     private javax.swing.JTextField stressTf;
-    private javax.swing.JLabel weightLbl;
-    private javax.swing.JTextField weightTf;
     // End of variables declaration//GEN-END:variables
 }

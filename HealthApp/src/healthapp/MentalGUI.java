@@ -26,9 +26,13 @@ public class MentalGUI extends javax.swing.JFrame {
      */
     public MentalGUI() {
         initComponents();
-        getContentPane().setBackground(new java.awt.Color(0, 204, 204));
         userList = new ArrayList<>();
         readUsers(); //reads the users details into the arrayListwhen program runs
+        
+        //used to change the background colour
+        //source: https://stackoverflow.com/questions/1081486/setting-background-color-for-a-jframe
+          getContentPane().setBackground(new java.awt.Color(0, 204, 204));
+        
         
         //To make the jlabel, textfield and buttons invisible when the program runs
         frequencyLbl.setVisible(false);
@@ -200,316 +204,266 @@ public class MentalGUI extends javax.swing.JFrame {
         weightLbl = new javax.swing.JLabel();
         weightTf = new javax.swing.JTextField();
         clearMBtn = new javax.swing.JButton();
+        mWLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        mentalLbl.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        mentalLbl.setBackground(new java.awt.Color(0, 204, 204));
+        mentalLbl.setFont(new java.awt.Font("Onyx", 1, 36)); // NOI18N
+        mentalLbl.setForeground(new java.awt.Color(102, 0, 102));
         mentalLbl.setText("Mental Wellbeing");
+        getContentPane().add(mentalLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 180, -1));
 
-        dietTypeLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        dietTypeLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        dietTypeLbl.setForeground(new java.awt.Color(0, 102, 102));
         dietTypeLbl.setText("Diet Type:");
+        getContentPane().add(dietTypeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 150, -1));
 
-        IdTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        IdTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         IdTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IdTfActionPerformed(evt);
             }
         });
+        getContentPane().add(IdTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 204, 30));
 
-        caloriesBBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        caloriesBBtn.setBackground(new java.awt.Color(0, 204, 204));
+        caloriesBBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        caloriesBBtn.setForeground(new java.awt.Color(0, 102, 0));
         caloriesBBtn.setText("Calories Burned");
+        caloriesBBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         caloriesBBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caloriesBBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(caloriesBBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 461, -1, -1));
 
-        menuMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        menuMBtn.setBackground(new java.awt.Color(0, 204, 204));
+        menuMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        menuMBtn.setForeground(new java.awt.Color(102, 102, 255));
         menuMBtn.setText("Back to Login");
+        menuMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menuMBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuMBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(menuMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 402, -1, -1));
 
+        displayMBtn.setBackground(new java.awt.Color(0, 204, 204));
         displayMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        displayMBtn.setForeground(new java.awt.Color(153, 255, 0));
         displayMBtn.setText("Display");
+        displayMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         displayMBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 displayMBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(displayMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 402, -1, -1));
 
-        removeMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        removeMBtn.setBackground(new java.awt.Color(0, 204, 204));
+        removeMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        removeMBtn.setForeground(new java.awt.Color(153, 153, 0));
         removeMBtn.setText("Remove");
+        removeMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         removeMBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeMBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(removeMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 402, -1, -1));
 
-        addBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        addBtn.setBackground(new java.awt.Color(0, 204, 204));
+        addBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        addBtn.setForeground(new java.awt.Color(0, 51, 51));
         addBtn.setText("Add");
+        addBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 402, -1, -1));
 
-        caloriesLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        caloriesLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        caloriesLbl.setForeground(new java.awt.Color(0, 102, 51));
         caloriesLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         caloriesLbl.setText("Calories:");
+        getContentPane().add(caloriesLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 150, 30));
 
-        IdLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        IdLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        IdLbl.setForeground(new java.awt.Color(0, 51, 51));
         IdLbl.setText("Id:");
+        getContentPane().add(IdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 160, -1));
 
-        frequencyLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        frequencyLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        frequencyLbl.setForeground(new java.awt.Color(102, 51, 0));
         frequencyLbl.setText("Frequency:");
+        getContentPane().add(frequencyLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 160, -1));
 
-        metLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        metLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        metLbl.setForeground(new java.awt.Color(102, 0, 153));
         metLbl.setText("Met:");
+        getContentPane().add(metLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 150, -1));
 
-        activityDLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        activityDLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        activityDLbl.setForeground(new java.awt.Color(51, 102, 0));
         activityDLbl.setText("Activity Duration:");
+        getContentPane().add(activityDLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, -1, -1));
 
-        stressLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        stressLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        stressLbl.setForeground(new java.awt.Color(153, 153, 0));
         stressLbl.setText("Stress Level:");
+        getContentPane().add(stressLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 160, 20));
 
-        sleepHLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        sleepHLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        sleepHLbl.setForeground(new java.awt.Color(51, 0, 204));
         sleepHLbl.setText("Sleep Hours:");
+        getContentPane().add(sleepHLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 150, -1));
 
-        frequencyTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        frequencyTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         frequencyTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 frequencyTfActionPerformed(evt);
             }
         });
+        getContentPane().add(frequencyTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 204, 30));
 
-        stressTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        stressTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         stressTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stressTfActionPerformed(evt);
             }
         });
+        getContentPane().add(stressTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 200, 30));
 
-        activityDTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        activityDTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         activityDTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activityDTfActionPerformed(evt);
             }
         });
+        getContentPane().add(activityDTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 204, 30));
 
-        metTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        metTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         metTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 metTfActionPerformed(evt);
             }
         });
+        getContentPane().add(metTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 204, 30));
 
-        dietTTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        dietTTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         dietTTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dietTTfActionPerformed(evt);
             }
         });
+        getContentPane().add(dietTTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 204, -1));
 
-        caloriesTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        caloriesTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         caloriesTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caloriesTfActionPerformed(evt);
             }
         });
+        getContentPane().add(caloriesTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 204, 30));
 
-        sleepHTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        sleepHTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         sleepHTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sleepHTfActionPerformed(evt);
             }
         });
+        getContentPane().add(sleepHTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 204, 30));
 
+        activitiesMBtn.setBackground(new java.awt.Color(0, 204, 204));
         activitiesMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        activitiesMBtn.setForeground(new java.awt.Color(153, 51, 0));
         activitiesMBtn.setText("Types Of Activity");
+        activitiesMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         activitiesMBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activitiesMBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(activitiesMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 461, -1, -1));
 
-        dietMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        dietMBtn.setBackground(new java.awt.Color(0, 204, 204));
+        dietMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        dietMBtn.setForeground(new java.awt.Color(255, 153, 51));
         dietMBtn.setText("Types Of Diet");
+        dietMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         dietMBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         dietMBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dietMBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(dietMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 461, -1, -1));
 
+        activitiesRB.setBackground(new java.awt.Color(0, 204, 204));
         mBtnGrp.add(activitiesRB);
-        activitiesRB.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        activitiesRB.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
+        activitiesRB.setForeground(new java.awt.Color(255, 102, 0));
         activitiesRB.setText("Activities");
+        activitiesRB.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         activitiesRB.setBorderPainted(true);
         activitiesRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activitiesRBActionPerformed(evt);
             }
         });
+        getContentPane().add(activitiesRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 98, -1));
 
+        dietRb.setBackground(new java.awt.Color(0, 204, 204));
         mBtnGrp.add(dietRb);
         dietRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dietRb.setForeground(new java.awt.Color(102, 51, 0));
         dietRb.setText("Diet");
+        dietRb.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        dietRb.setBorderPainted(true);
         dietRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dietRbActionPerformed(evt);
             }
         });
+        getContentPane().add(dietRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 98, -1));
 
-        weightLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        weightLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        weightLbl.setForeground(new java.awt.Color(102, 0, 153));
         weightLbl.setText("Weight:");
+        getContentPane().add(weightLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, 26));
 
-        weightTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        weightTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         weightTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 weightTfActionPerformed(evt);
             }
         });
+        getContentPane().add(weightTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 205, 30));
 
-        clearMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        clearMBtn.setBackground(new java.awt.Color(0, 204, 204));
+        clearMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        clearMBtn.setForeground(new java.awt.Color(51, 0, 153));
         clearMBtn.setText("Clear");
+        clearMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         clearMBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearMBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(clearMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 402, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(activitiesMBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(caloriesBBtn))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(sleepHLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(weightLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(241, 241, 241))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(addBtn)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(displayMBtn)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(removeMBtn)
-                                                .addGap(18, 18, 18)))
-                                        .addComponent(clearMBtn)))))
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dietMBtn)
-                            .addComponent(menuMBtn)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addComponent(mentalLbl))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(stressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(frequencyLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(metLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(activityDLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dietTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caloriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IdLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(weightTf, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(frequencyTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IdTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(activityDTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(metTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dietTTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(caloriesTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(stressTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sleepHTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(activitiesRB, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dietRb, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(131, 131, 131))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(mentalLbl)
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(IdLbl)
-                        .addComponent(IdTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(activitiesRB))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(frequencyLbl)
-                    .addComponent(frequencyTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dietRb))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(metLbl)
-                    .addComponent(metTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(activityDLbl)
-                    .addComponent(activityDTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dietTTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dietTypeLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(caloriesTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caloriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(stressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(stressTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sleepHLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sleepHTf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(weightLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(weightTf))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addBtn)
-                    .addComponent(displayMBtn)
-                    .addComponent(removeMBtn)
-                    .addComponent(menuMBtn)
-                    .addComponent(clearMBtn))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(activitiesMBtn)
-                    .addComponent(caloriesBBtn)
-                    .addComponent(dietMBtn))
-                .addGap(8, 8, 8))
-        );
+        mWLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MentalGUI Images/istockphoto-1363774646-612x612.jpg"))); // NOI18N
+        mWLbl.setDoubleBuffered(true);
+        mWLbl.setMinimumSize(new java.awt.Dimension(612, 612));
+        mWLbl.setPreferredSize(new java.awt.Dimension(612, 612));
+        getContentPane().add(mWLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 270, 280));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -896,6 +850,7 @@ public class MentalGUI extends javax.swing.JFrame {
     private javax.swing.JLabel frequencyLbl;
     private javax.swing.JTextField frequencyTf;
     private javax.swing.ButtonGroup mBtnGrp;
+    private javax.swing.JLabel mWLbl;
     private javax.swing.JLabel mentalLbl;
     private javax.swing.JButton menuMBtn;
     private javax.swing.JLabel metLbl;

@@ -99,6 +99,7 @@ public class IntroGUI extends javax.swing.JFrame {
         titleLbl.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         titleLbl.setForeground(new java.awt.Color(124, 95, 53));
         titleLbl.setText("Health Improvement 101");
+        titleLbl.setToolTipText("");
         getContentPane().add(titleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
 
         messageLbl.setFont(new java.awt.Font("Segoe UI Variable", 3, 14)); // NOI18N

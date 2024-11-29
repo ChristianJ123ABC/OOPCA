@@ -969,7 +969,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 //if the ID textfield is empty, display error
                 if(idTf.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "Textfield is empty, please type an ID to delete");
-                    
+                    break;
                 }
                 
                 

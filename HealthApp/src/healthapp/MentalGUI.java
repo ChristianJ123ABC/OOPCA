@@ -26,6 +26,7 @@ public class MentalGUI extends javax.swing.JFrame {
      */
     public MentalGUI() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(0, 204, 204));
         userList = new ArrayList<>();
         readUsers(); //reads the users details into the arrayListwhen program runs
         
@@ -201,6 +202,7 @@ public class MentalGUI extends javax.swing.JFrame {
         clearMBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
 
         mentalLbl.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         mentalLbl.setText("Mental Wellbeing");
@@ -346,6 +348,7 @@ public class MentalGUI extends javax.swing.JFrame {
         mBtnGrp.add(activitiesRB);
         activitiesRB.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         activitiesRB.setText("Activities");
+        activitiesRB.setBorderPainted(true);
         activitiesRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activitiesRBActionPerformed(evt);

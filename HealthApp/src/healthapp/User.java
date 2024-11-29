@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Christian Joseph - created the entire User superclass
+ * @author Christian Joseph 
  */
 public class User implements Serializable { //creates an abstract class and prevents any GUI errors 
     protected String id;

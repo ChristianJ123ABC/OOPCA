@@ -205,7 +205,7 @@
           <ComponentRef name="rbBGroup"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Segoe UI Variable" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Mental Login"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -227,7 +227,7 @@
           <ComponentRef name="rbBGroup"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Segoe UI Variable" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Physical Login"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -275,7 +275,7 @@
     <Component class="javax.swing.JLabel" name="backgroundLbl">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/IntroGUI Images/pexels-totalshape-2383010 (1).jpg"/>
+          <Image iconType="3" name="/IntroGUI Images/healthcare.jpg"/>
         </Property>
       </Properties>
       <Constraints>

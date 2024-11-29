@@ -6,7 +6,7 @@ package healthapp;
 
 /**
  *
- * @author chris
+ * @author Christian Joseph
  */
 public class Macronutrients extends Physical { //used to grab variables from superclass
     //declare variables

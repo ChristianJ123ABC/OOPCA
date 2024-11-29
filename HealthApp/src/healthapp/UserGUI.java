@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author chris
+ * @author Christian Joseph
  */
 public class UserGUI extends javax.swing.JFrame {
     private ArrayList<User> userList; //arrayList to store User Details

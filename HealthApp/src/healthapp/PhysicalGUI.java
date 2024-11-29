@@ -4,6 +4,7 @@
  */
 package healthapp;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author flips
+ * @author Christian Joseph
  */
 public class PhysicalGUI extends javax.swing.JFrame {
     private ArrayList<User> userList; //arrayList to store Physical section objects
@@ -29,7 +30,9 @@ public class PhysicalGUI extends javax.swing.JFrame {
         initComponents();
         userList = new ArrayList<>();
         readUsers(); //puts the users information into the arrayList on load
-        
+        //used to change the background colour
+        //source: https://stackoverflow.com/questions/1081486/setting-background-color-for-a-jframe
+        getContentPane().setBackground(new java.awt.Color(3, 169, 252));
         
        
         //making the labels invisible on load;
@@ -40,9 +43,12 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutLbl.setVisible(false);
         durationLbl.setVisible(false);
         dietTypeLbl.setVisible(false);
-        caloriesLbl.setVisible(false);
         kcalLbl.setVisible(false);
         userRemoveLbl.setVisible(false);
+        workoutBackgroundLbl.setVisible(false);
+        dietBackgroundLbl.setVisible(false);
+        cardioBackgroundLbl.setVisible(false);
+        macroBackgroundLbl.setVisible(false);
         
         //making the textfields invisible on load
         idTf.setVisible(false);
@@ -52,15 +58,32 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutTf.setVisible(false);
         durationTf.setVisible(false);
         dietTypeTf.setVisible(false);
-        caloriesTf.setVisible(false); 
         
-        //makes the buttons invisible on load
+        //makes the buttons invisible / remove background on load
         dietTypeBtn.setVisible(false);
         cardioTypeBtn.setVisible(false);
         workoutTypeBtn.setVisible(false);
         activityQuestionBtn.setVisible(false);
         recommendBtn.setVisible(false);
         refreshBtn.setVisible(false);
+        addBtn.setContentAreaFilled(false);
+        displayBtn.setContentAreaFilled(false);
+        removeBtn.setContentAreaFilled(false);
+        searchBtn.setContentAreaFilled(false);
+        refreshBtn.setContentAreaFilled(false);
+        dietTypeBtn.setContentAreaFilled(false);
+        workoutTypeBtn.setContentAreaFilled(false);
+        cardioTypeBtn.setContentAreaFilled(false);
+        activityQuestionBtn.setContentAreaFilled(false);
+        menuPhysicalBtn.setContentAreaFilled(false);
+        recommendBtn.setContentAreaFilled(false);
+        
+        cardioRb.setContentAreaFilled(false);
+        dietRb.setContentAreaFilled(false);
+        workoutRb.setContentAreaFilled(false);
+        macroRb.setContentAreaFilled(false);
+        
+        
     }
     
     
@@ -279,8 +302,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutTf = new javax.swing.JTextField();
         durationTf = new javax.swing.JTextField();
         dietTypeTf = new javax.swing.JTextField();
-        caloriesTf = new javax.swing.JTextField();
-        caloriesLbl = new javax.swing.JLabel();
         macroRb = new javax.swing.JRadioButton();
         cardioRb = new javax.swing.JRadioButton();
         dietRb = new javax.swing.JRadioButton();
@@ -296,16 +317,22 @@ public class PhysicalGUI extends javax.swing.JFrame {
         kcalLbl = new javax.swing.JLabel();
         userRemoveLbl = new javax.swing.JLabel();
         refreshBtn = new javax.swing.JButton();
+        macroBackgroundLbl = new javax.swing.JLabel();
+        cardioBackgroundLbl = new javax.swing.JLabel();
+        workoutBackgroundLbl = new javax.swing.JLabel();
+        dietBackgroundLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(102, 204, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        physicalLbl.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        physicalLbl.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        physicalLbl.setForeground(new java.awt.Color(255, 51, 51));
         physicalLbl.setText("Physical Health");
-        getContentPane().add(physicalLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 2, -1, -1));
+        getContentPane().add(physicalLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 0, -1, -1));
 
-        cardioTypeTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cardioTypeTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        cardioTypeTf.setBorder(null);
         cardioTypeTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cardioTypeTfActionPerformed(evt);
@@ -313,17 +340,23 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(cardioTypeTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 128, 204, 23));
 
-        addBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        addBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        addBtn.setForeground(new java.awt.Color(102, 255, 102));
         addBtn.setText("Add");
+        addBtn.setBorder(null);
+        addBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 473, -1, -1));
+        getContentPane().add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 473, 50, -1));
 
-        menuPhysicalBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        menuPhysicalBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        menuPhysicalBtn.setForeground(new java.awt.Color(51, 255, 0));
         menuPhysicalBtn.setText("Back to Login");
+        menuPhysicalBtn.setBorder(null);
+        menuPhysicalBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuPhysicalBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuPhysicalBtnActionPerformed(evt);
@@ -331,8 +364,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(menuPhysicalBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 473, -1, -1));
 
-        searchBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        searchBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        searchBtn.setForeground(new java.awt.Color(204, 204, 0));
         searchBtn.setText("Search");
+        searchBtn.setBorder(null);
+        searchBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         searchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchBtnActionPerformed(evt);
@@ -340,8 +376,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 473, -1, -1));
 
-        displayBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        displayBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        displayBtn.setForeground(new java.awt.Color(255, 102, 51));
         displayBtn.setText("Display");
+        displayBtn.setBorder(null);
+        displayBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         displayBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 displayBtnActionPerformed(evt);
@@ -349,8 +388,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(displayBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 473, -1, -1));
 
-        removeBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        removeBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        removeBtn.setForeground(new java.awt.Color(255, 51, 51));
         removeBtn.setText("Remove");
+        removeBtn.setBorder(null);
+        removeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         removeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeBtnActionPerformed(evt);
@@ -358,31 +400,37 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(removeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 473, -1, -1));
 
-        idLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        idLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         idLbl.setText("ID:");
         getContentPane().add(idLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 53, 131, -1));
 
-        cardioTypeLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cardioTypeLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cardioTypeLbl.setForeground(new java.awt.Color(255, 51, 51));
         cardioTypeLbl.setText("Cardio Type:");
         getContentPane().add(cardioTypeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 127, 131, -1));
 
-        cardioDurLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cardioDurLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cardioDurLbl.setForeground(new java.awt.Color(255, 51, 51));
         cardioDurLbl.setText("Cardio Duration (in min):");
         getContentPane().add(cardioDurLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 170, 228, -1));
 
-        workoutLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        workoutLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        workoutLbl.setForeground(new java.awt.Color(51, 102, 255));
         workoutLbl.setText("Workout:");
         getContentPane().add(workoutLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 213, 131, -1));
 
-        durationLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        durationLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        durationLbl.setForeground(new java.awt.Color(51, 102, 255));
         durationLbl.setText("Session Duration (in min):");
         getContentPane().add(durationLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 256, -1, -1));
 
-        dietTypeLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        dietTypeLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        dietTypeLbl.setForeground(new java.awt.Color(0, 204, 0));
         dietTypeLbl.setText("Diet Type:");
         getContentPane().add(dietTypeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 298, 131, -1));
 
-        idTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        idTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        idTf.setBorder(null);
         idTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idTfActionPerformed(evt);
@@ -390,7 +438,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(idTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 54, 204, 23));
 
-        cardioDurTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cardioDurTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        cardioDurTf.setBorder(null);
         cardioDurTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cardioDurTfActionPerformed(evt);
@@ -398,7 +447,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(cardioDurTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 171, 204, 23));
 
-        workoutTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        workoutTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        workoutTf.setBorder(null);
         workoutTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 workoutTfActionPerformed(evt);
@@ -406,15 +456,17 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(workoutTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 204, 23));
 
-        durationTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        durationTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        durationTf.setBorder(null);
         durationTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 durationTfActionPerformed(evt);
             }
         });
-        getContentPane().add(durationTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 257, 204, 23));
+        getContentPane().add(durationTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 204, 23));
 
-        dietTypeTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        dietTypeTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        dietTypeTf.setBorder(null);
         dietTypeTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dietTypeTfActionPerformed(evt);
@@ -422,60 +474,59 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(dietTypeTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 299, 204, 23));
 
-        caloriesTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        caloriesTf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caloriesTfActionPerformed(evt);
-            }
-        });
-        getContentPane().add(caloriesTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 336, 204, 23));
-
-        caloriesLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        caloriesLbl.setText("Calories:");
-        getContentPane().add(caloriesLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 335, 131, -1));
-
         pBtnGrp.add(macroRb);
-        macroRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        macroRb.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        macroRb.setForeground(new java.awt.Color(255, 153, 0));
         macroRb.setText("Macronutrients");
+        macroRb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         macroRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 macroRbActionPerformed(evt);
             }
         });
-        getContentPane().add(macroRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(601, 10, -1, -1));
+        getContentPane().add(macroRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 80, -1, -1));
 
         pBtnGrp.add(cardioRb);
-        cardioRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cardioRb.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cardioRb.setForeground(new java.awt.Color(255, 51, 51));
         cardioRb.setText("Cardio");
+        cardioRb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cardioRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cardioRbActionPerformed(evt);
             }
         });
-        getContentPane().add(cardioRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(866, 10, -1, -1));
+        getContentPane().add(cardioRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 50, -1, -1));
 
         pBtnGrp.add(dietRb);
-        dietRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dietRb.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        dietRb.setForeground(new java.awt.Color(0, 204, 0));
         dietRb.setText("Diet");
+        dietRb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dietRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dietRbActionPerformed(evt);
             }
         });
-        getContentPane().add(dietRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(939, 10, 58, -1));
+        getContentPane().add(dietRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, 70, -1));
 
         pBtnGrp.add(workoutRb);
-        workoutRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        workoutRb.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        workoutRb.setForeground(new java.awt.Color(51, 102, 255));
         workoutRb.setText("Workout Plan");
+        workoutRb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         workoutRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 workoutRbActionPerformed(evt);
             }
         });
-        getContentPane().add(workoutRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(735, 10, 125, -1));
+        getContentPane().add(workoutRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 50, 150, -1));
 
-        dietTypeBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        dietTypeBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        dietTypeBtn.setForeground(new java.awt.Color(0, 204, 0));
         dietTypeBtn.setText("Types of Diet");
+        dietTypeBtn.setBorder(null);
+        dietTypeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dietTypeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dietTypeBtnActionPerformed(evt);
@@ -483,8 +534,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(dietTypeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 524, -1, -1));
 
-        workoutTypeBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        workoutTypeBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        workoutTypeBtn.setForeground(new java.awt.Color(51, 102, 255));
         workoutTypeBtn.setText("Types of Workout");
+        workoutTypeBtn.setBorder(null);
+        workoutTypeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         workoutTypeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 workoutTypeBtnActionPerformed(evt);
@@ -492,8 +546,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(workoutTypeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 524, -1, -1));
 
-        cardioTypeBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cardioTypeBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        cardioTypeBtn.setForeground(new java.awt.Color(255, 51, 51));
         cardioTypeBtn.setText("Types of Cardio");
+        cardioTypeBtn.setBorder(null);
+        cardioTypeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cardioTypeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cardioTypeBtnActionPerformed(evt);
@@ -501,15 +558,17 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(cardioTypeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 524, -1, -1));
 
-        warningLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        warningLbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         warningLbl.setText("Please press one of the radio buttons on the right to activate the program");
         getContentPane().add(warningLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 435, 661, -1));
 
-        activityLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        activityLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        activityLbl.setForeground(new java.awt.Color(255, 153, 0));
         activityLbl.setText("Activity Level:");
         getContentPane().add(activityLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 84, 131, -1));
 
-        activityTf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        activityTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        activityTf.setBorder(null);
         activityTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activityTfActionPerformed(evt);
@@ -517,8 +576,11 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(activityTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 85, 204, 23));
 
-        activityQuestionBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        activityQuestionBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        activityQuestionBtn.setForeground(new java.awt.Color(255, 153, 0));
         activityQuestionBtn.setText("What is Activity Level?");
+        activityQuestionBtn.setBorder(null);
+        activityQuestionBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         activityQuestionBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activityQuestionBtnActionPerformed(evt);
@@ -526,31 +588,53 @@ public class PhysicalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(activityQuestionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 524, -1, -1));
 
-        recommendBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        recommendBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        recommendBtn.setForeground(new java.awt.Color(255, 153, 0));
         recommendBtn.setText("Recommended Intake");
+        recommendBtn.setBorder(null);
+        recommendBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         recommendBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recommendBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(recommendBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(698, 396, -1, -1));
+        getContentPane().add(recommendBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, -1, -1));
 
-        kcalLbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        kcalLbl.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         kcalLbl.setText("Click this with your ID in the ID textfield but NOT submitted");
-        getContentPane().add(kcalLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 438, -1, -1));
+        getContentPane().add(kcalLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, -1, -1));
 
-        userRemoveLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        userRemoveLbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         userRemoveLbl.setText("Click remove button twice to remove all details (user+category)");
         getContentPane().add(userRemoveLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 396, -1, -1));
 
-        refreshBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        refreshBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        refreshBtn.setForeground(new java.awt.Color(0, 255, 255));
         refreshBtn.setText("Refresh Page");
+        refreshBtn.setBorder(null);
+        refreshBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         refreshBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshBtnActionPerformed(evt);
             }
         });
         getContentPane().add(refreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 473, -1, -1));
+
+        macroBackgroundLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhysicalGUI Images/macros.png"))); // NOI18N
+        macroBackgroundLbl.setText("jLabel1");
+        getContentPane().add(macroBackgroundLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, 270, 280));
+
+        cardioBackgroundLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhysicalGUI Images/cardio.png"))); // NOI18N
+        cardioBackgroundLbl.setText("jLabel1");
+        getContentPane().add(cardioBackgroundLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, 270, 280));
+
+        workoutBackgroundLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhysicalGUI Images/workout.png"))); // NOI18N
+        workoutBackgroundLbl.setText("jLabel1");
+        getContentPane().add(workoutBackgroundLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, 270, 280));
+
+        dietBackgroundLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhysicalGUI Images/diet.png"))); // NOI18N
+        dietBackgroundLbl.setText("jLabel1");
+        getContentPane().add(dietBackgroundLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, 270, 280));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1002,10 +1086,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_dietTypeTfActionPerformed
 
-    private void caloriesTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caloriesTfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caloriesTfActionPerformed
-
     private void cardioRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardioRbActionPerformed
         // TODO add your handling code here:
         //make the ID, warning message, cardio type and duration visible, then load the .dat file for that respective category so its in the userList
@@ -1017,11 +1097,14 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutLbl.setVisible(false);
         durationLbl.setVisible(false);
         dietTypeLbl.setVisible(false);
-        caloriesLbl.setVisible(false);
         activityLbl.setVisible(false);
         warningLbl.setVisible(false);
         kcalLbl.setVisible(false);
         userRemoveLbl.setVisible(true);
+        workoutBackgroundLbl.setVisible(false);
+        dietBackgroundLbl.setVisible(false);
+        cardioBackgroundLbl.setVisible(true);
+        macroBackgroundLbl.setVisible(false);
         
         idTf.setVisible(true);
         cardioTypeTf.setVisible(true);
@@ -1029,7 +1112,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutTf.setVisible(false);
         durationTf.setVisible(false);
         dietTypeTf.setVisible(false);
-        caloriesTf.setVisible(false);
         activityTf.setVisible(false);
         
         dietTypeBtn.setVisible(false);
@@ -1066,11 +1148,14 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutLbl.setVisible(false);
         durationLbl.setVisible(false);
         dietTypeLbl.setVisible(false);
-        caloriesLbl.setVisible(false);
         activityLbl.setVisible(true);
         warningLbl.setVisible(false);
         kcalLbl.setVisible(true);
         userRemoveLbl.setVisible(true);
+        workoutBackgroundLbl.setVisible(false);
+        dietBackgroundLbl.setVisible(false);
+        cardioBackgroundLbl.setVisible(false);
+        macroBackgroundLbl.setVisible(true);
         
         idTf.setVisible(true);
         cardioTypeTf.setVisible(false);
@@ -1078,7 +1163,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutTf.setVisible(false);
         durationTf.setVisible(false);
         dietTypeTf.setVisible(false);
-        caloriesTf.setVisible(false);
         activityTf.setVisible(true);
         
         dietTypeBtn.setVisible(false);
@@ -1102,10 +1186,13 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutLbl.setVisible(false);
         durationLbl.setVisible(false);
         dietTypeLbl.setVisible(true);
-        caloriesLbl.setVisible(false);
         warningLbl.setVisible(false);
         kcalLbl.setVisible(false);
         userRemoveLbl.setVisible(true);
+        workoutBackgroundLbl.setVisible(false);
+        dietBackgroundLbl.setVisible(true);
+        cardioBackgroundLbl.setVisible(false);
+        macroBackgroundLbl.setVisible(false);
         
         idTf.setVisible(true);
         cardioTypeTf.setVisible(false);
@@ -1113,7 +1200,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutTf.setVisible(false);
         durationTf.setVisible(false);
         dietTypeTf.setVisible(true);
-        caloriesTf.setVisible(false);
         activityTf.setVisible(false);
         
         dietTypeBtn.setVisible(true);
@@ -1134,11 +1220,14 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutLbl.setVisible(true);
         durationLbl.setVisible(true);
         dietTypeLbl.setVisible(false);
-        caloriesLbl.setVisible(false);
         warningLbl.setVisible(false);
         activityLbl.setVisible(false);
         kcalLbl.setVisible(false);
         userRemoveLbl.setVisible(true);
+        workoutBackgroundLbl.setVisible(true);
+        dietBackgroundLbl.setVisible(false);
+        cardioBackgroundLbl.setVisible(false);
+        macroBackgroundLbl.setVisible(false);
         
         idTf.setVisible(true);
         cardioTypeTf.setVisible(false);
@@ -1146,7 +1235,6 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutTf.setVisible(true);
         durationTf.setVisible(true);
         dietTypeTf.setVisible(false);
-        caloriesTf.setVisible(false);
         activityTf.setVisible(false);
         
         dietTypeBtn.setVisible(false);
@@ -1264,14 +1352,14 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.JButton activityQuestionBtn;
     private javax.swing.JTextField activityTf;
     private javax.swing.JButton addBtn;
-    private javax.swing.JLabel caloriesLbl;
-    private javax.swing.JTextField caloriesTf;
+    private javax.swing.JLabel cardioBackgroundLbl;
     private javax.swing.JLabel cardioDurLbl;
     private javax.swing.JTextField cardioDurTf;
     private javax.swing.JRadioButton cardioRb;
     private javax.swing.JButton cardioTypeBtn;
     private javax.swing.JLabel cardioTypeLbl;
     private javax.swing.JTextField cardioTypeTf;
+    private javax.swing.JLabel dietBackgroundLbl;
     private javax.swing.JRadioButton dietRb;
     private javax.swing.JButton dietTypeBtn;
     private javax.swing.JLabel dietTypeLbl;
@@ -1282,6 +1370,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.JLabel idLbl;
     private javax.swing.JTextField idTf;
     private javax.swing.JLabel kcalLbl;
+    private javax.swing.JLabel macroBackgroundLbl;
     private javax.swing.JRadioButton macroRb;
     private javax.swing.JButton menuPhysicalBtn;
     private javax.swing.ButtonGroup pBtnGrp;
@@ -1292,6 +1381,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.JButton searchBtn;
     private javax.swing.JLabel userRemoveLbl;
     private javax.swing.JLabel warningLbl;
+    private javax.swing.JLabel workoutBackgroundLbl;
     private javax.swing.JLabel workoutLbl;
     private javax.swing.JRadioButton workoutRb;
     private javax.swing.JTextField workoutTf;

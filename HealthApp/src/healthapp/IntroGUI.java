@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author chris
+ * @author Christian Joseph
  */
 public class IntroGUI extends javax.swing.JFrame {
     public ArrayList<User> userList;//arrayList to store Login Details
@@ -174,14 +174,14 @@ public class IntroGUI extends javax.swing.JFrame {
 
         mLoginRb.setBackground(new java.awt.Color(225, 225, 225));
         rbBGroup.add(mLoginRb);
-        mLoginRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        mLoginRb.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
         mLoginRb.setText("Mental Login");
         mLoginRb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(mLoginRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, -1));
 
         pLoginRb.setBackground(new java.awt.Color(225, 225, 225));
         rbBGroup.add(pLoginRb);
-        pLoginRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        pLoginRb.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
         pLoginRb.setText("Physical Login");
         pLoginRb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pLoginRb.addActionListener(new java.awt.event.ActionListener() {
@@ -200,7 +200,7 @@ public class IntroGUI extends javax.swing.JFrame {
         passwordPField.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         getContentPane().add(passwordPField, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 145, -1));
 
-        backgroundLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IntroGUI Images/pexels-totalshape-2383010 (1).jpg"))); // NOI18N
+        backgroundLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IntroGUI Images/healthcare.jpg"))); // NOI18N
         getContentPane().add(backgroundLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 560));
 
         pack();

@@ -520,7 +520,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 workoutRbActionPerformed(evt);
             }
         });
-        getContentPane().add(workoutRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 50, 150, -1));
+        getContentPane().add(workoutRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 50, 160, -1));
 
         dietTypeBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         dietTypeBtn.setForeground(new java.awt.Color(0, 204, 0));

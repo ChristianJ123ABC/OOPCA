@@ -234,7 +234,7 @@ public class MentalGUI extends javax.swing.JFrame {
         getContentPane().add(IdTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 204, 30));
 
         caloriesBBtn.setBackground(new java.awt.Color(0, 204, 204));
-        caloriesBBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        caloriesBBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         caloriesBBtn.setForeground(new java.awt.Color(0, 102, 102));
         caloriesBBtn.setText("Calories Burned");
         caloriesBBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -243,10 +243,10 @@ public class MentalGUI extends javax.swing.JFrame {
                 caloriesBBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(caloriesBBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 460, -1, -1));
+        getContentPane().add(caloriesBBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 460, -1, -1));
 
         menuMBtn.setBackground(new java.awt.Color(0, 204, 204));
-        menuMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        menuMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         menuMBtn.setForeground(new java.awt.Color(102, 102, 255));
         menuMBtn.setText("Back to Login");
         menuMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -255,11 +255,11 @@ public class MentalGUI extends javax.swing.JFrame {
                 menuMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(menuMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, -1, -1));
+        getContentPane().add(menuMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, -1, -1));
 
         displayMBtn.setBackground(new java.awt.Color(0, 204, 204));
-        displayMBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        displayMBtn.setForeground(new java.awt.Color(153, 255, 0));
+        displayMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        displayMBtn.setForeground(new java.awt.Color(255, 51, 0));
         displayMBtn.setText("Display");
         displayMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         displayMBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -270,7 +270,7 @@ public class MentalGUI extends javax.swing.JFrame {
         getContentPane().add(displayMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 100, -1));
 
         removeMBtn.setBackground(new java.awt.Color(0, 204, 204));
-        removeMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        removeMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         removeMBtn.setForeground(new java.awt.Color(51, 51, 0));
         removeMBtn.setText("Remove");
         removeMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -279,10 +279,10 @@ public class MentalGUI extends javax.swing.JFrame {
                 removeMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(removeMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 100, -1));
+        getContentPane().add(removeMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 110, -1));
 
         addBtn.setBackground(new java.awt.Color(0, 204, 204));
-        addBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        addBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         addBtn.setForeground(new java.awt.Color(0, 51, 51));
         addBtn.setText("Add");
         addBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -291,7 +291,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 addBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 50, -1));
+        getContentPane().add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 60, -1));
 
         caloriesLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         caloriesLbl.setForeground(new java.awt.Color(0, 102, 51));
@@ -387,7 +387,7 @@ public class MentalGUI extends javax.swing.JFrame {
         getContentPane().add(sleepHTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 204, 30));
 
         activitiesMBtn.setBackground(new java.awt.Color(0, 204, 204));
-        activitiesMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        activitiesMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         activitiesMBtn.setForeground(new java.awt.Color(0, 102, 51));
         activitiesMBtn.setText("Types Of Activity");
         activitiesMBtn.setToolTipText("Choose Activity Types and MET value.");
@@ -397,10 +397,10 @@ public class MentalGUI extends javax.swing.JFrame {
                 activitiesMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(activitiesMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, -1, -1));
+        getContentPane().add(activitiesMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, -1, -1));
 
         dietMBtn.setBackground(new java.awt.Color(0, 204, 204));
-        dietMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        dietMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         dietMBtn.setForeground(new java.awt.Color(153, 51, 0));
         dietMBtn.setText("Types Of Diet");
         dietMBtn.setToolTipText("Choose Your Diet Type.");
@@ -453,7 +453,7 @@ public class MentalGUI extends javax.swing.JFrame {
         getContentPane().add(activityTTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 205, 30));
 
         clearMBtn.setBackground(new java.awt.Color(0, 204, 204));
-        clearMBtn.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        clearMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         clearMBtn.setForeground(new java.awt.Color(51, 0, 153));
         clearMBtn.setText("Clear");
         clearMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

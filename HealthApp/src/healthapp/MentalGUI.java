@@ -763,6 +763,9 @@ public class MentalGUI extends javax.swing.JFrame {
     private void activitiesMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activitiesMBtnActionPerformed
         // TODO add your handling code here:
         
+        //source:
+        //https://positivepsychology.com/mental-health-exercises-interventions/
+        //https://www.whyiexercise.com/metabolic-equivalent.html
         // displays the message box with activities and METs values of the respective activities 
       JOptionPane.showMessageDialog(null,"Here are MET values and some exapmples of activities a person can do to improve their mental health: \n "
               + "(1)Physical Activities (MET Values) \n  Yoga: 2.5 METs (light effort, Hatha yoga) \n Walking in Nature: 3.8 METs (moderate walking, 4 mph)"
@@ -803,6 +806,10 @@ public class MentalGUI extends javax.swing.JFrame {
     private void dietMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietMBtnActionPerformed
         // TODO add your handling code here:
         
+        //source:
+        //https://barbend.com/types-of-diets/
+        //https://www.twinkl.ie/blog/everything-you-need-to-know-about-different-types-of-diets
+        //https://www.healthline.com/nutrition/9-weight-loss-diets-reviewed#TOC_TITLE_HDR_5
         // Displays the message box for Types of diet and calories it contain for improvement of persons mental wellbeing.
         JOptionPane.showMessageDialog(null,"Here are some types of diet and calories they are equal to which is helpful for persons mental wellbeing: \n"
                 + "(1) Mediterranean Diet: Focuses on plant-based foods, healthy fats, and lean proteins like fish."

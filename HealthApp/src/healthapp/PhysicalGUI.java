@@ -4,8 +4,8 @@
  */
 package healthapp;
 
-//imports of certain packages
-import java.awt.Color;
+//packages for certain compute methods
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -30,7 +30,10 @@ public class PhysicalGUI extends javax.swing.JFrame {
     public PhysicalGUI() {
         initComponents();
         userList = new ArrayList<>();
-        readUsers(); //puts the users information into the arrayList on load
+        
+        //puts the users information into the arrayList on load
+        readUsers(); 
+        
         //used to change the background colour
         //source: https://stackoverflow.com/questions/1081486/setting-background-color-for-a-jframe
         getContentPane().setBackground(new java.awt.Color(29,161, 242));
@@ -50,6 +53,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         dietBackgroundLbl.setVisible(false);
         cardioBackgroundLbl.setVisible(false);
         macroBackgroundLbl.setVisible(false);
+        refreshMessLbl.setVisible(false);
         
         //making the textfields invisible on load
         idTf.setVisible(false);
@@ -323,6 +327,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         workoutBackgroundLbl = new javax.swing.JLabel();
         dietBackgroundLbl = new javax.swing.JLabel();
         physicalBackgroundLbl = new javax.swing.JLabel();
+        refreshMessLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 204, 0));
@@ -562,7 +567,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
         warningLbl.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
         warningLbl.setText("Please press one of the radio buttons on the right to activate the program");
-        getContentPane().add(warningLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 661, -1));
+        getContentPane().add(warningLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 661, -1));
 
         activityLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         activityLbl.setForeground(new java.awt.Color(255, 153, 0));
@@ -620,7 +625,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 refreshBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(refreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 473, -1, -1));
+        getContentPane().add(refreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 473, -1, 30));
 
         macroBackgroundLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhysicalGUI Images/macros.png"))); // NOI18N
         macroBackgroundLbl.setText("jLabel1");
@@ -641,6 +646,10 @@ public class PhysicalGUI extends javax.swing.JFrame {
         physicalBackgroundLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhysicalGUI Images/Physical-Health-and-Mental-Health-removebg-preview.png"))); // NOI18N
         getContentPane().add(physicalBackgroundLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 520, 450));
 
+        refreshMessLbl.setFont(new java.awt.Font("Century", 1, 12)); // NOI18N
+        refreshMessLbl.setText("Make sure to refresh the page after each usage (e.g. if you add,delete,etc). this is to make the program perform smoothly");
+        getContentPane().add(refreshMessLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 880, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -654,19 +663,28 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         // TODO add your handling code here:
-        if(userList.isEmpty()){ //if the arrayList is empty, it will display an error message
+        
+        //if the arrayList is empty, it will display an error message
+        if(userList.isEmpty()){ 
             JOptionPane.showMessageDialog(null,"There are no users on the list");
         }
         else{
             
+            //if the ID textfield is empty and macro is selected, display error
             if(macroRb.isSelected()){
                 if(idTf.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "Textfield is empty, please type an ID to search");
                 }
-                for(User u:userList){//for each user object in the list, it will search it
-                    if(u.getId().equalsIgnoreCase(idTf.getText())){//check if the id of object matches the user search
-                        if(u instanceof Macronutrients){ //if User, u,  is an instance of Macronutrients, run the statement
-                            JOptionPane.showMessageDialog(null,((Macronutrients)u).getDetails());//print the macronutrients GetDetails method
+                //for each user object in the list, it will search it
+                for(User u:userList){
+                    
+                    //check if the id of object matches the user search
+                    if(u.getId().equalsIgnoreCase(idTf.getText())){
+                        
+                        //if User, u,  is an instance of Macronutrients, run the statement (polymorphism)
+                        if(u instanceof Macronutrients m){ 
+                            //print the macronutrients GetDetails method
+                            JOptionPane.showMessageDialog(null,(m.getDetails()));
                             break;
                         }
                     }
@@ -680,8 +698,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 }
                 for(User u:userList){
                     if(u.getId().equalsIgnoreCase(idTf.getText())){
-                        if (u instanceof Cardio){
-                            JOptionPane.showMessageDialog(null, ((Cardio)u).getDetails());
+                        if (u instanceof Cardio c){
+                            JOptionPane.showMessageDialog(null, (c.getDetails()));
                             break;
                         }
                     }
@@ -694,8 +712,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 }
                 for(User u:userList){
                     if(u.getId().equalsIgnoreCase(idTf.getText())){
-                        if (u instanceof Diet){
-                            JOptionPane.showMessageDialog(null, ((Diet)u).getDetails());
+                        if (u instanceof Diet d){
+                            JOptionPane.showMessageDialog(null, (d.getDetails()));
                             break;
                         }
                     }
@@ -707,8 +725,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 }
                 for(User u:userList){
                     if(u.getId().equalsIgnoreCase(idTf.getText())){
-                        if (u instanceof WorkoutPlan){
-                            JOptionPane.showMessageDialog(null, ((WorkoutPlan)u).getDetails());
+                        if (u instanceof WorkoutPlan w){
+                            JOptionPane.showMessageDialog(null, (w.getDetails()));
                             break;
                         }
                     }
@@ -742,6 +760,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 
         }
         //if macro radio button is clicked, grab the user details and make an instance of Macronutrients
+        //source https://www.youtube.com/watch?v=1f7PVrz7ehU
         if(macroRb.isSelected()){
             readUsers();
             Macronutrients m = new Macronutrients();
@@ -749,6 +768,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
             
             
                 for(User u:userList){ //for every object in User, run it through this if statement
+                    
                     if(u.getId().equals(idTf.getText())){ //if the user id in the array is equal to the id in the textfield, run this
                         readMacros();
                         flag = true;
@@ -803,7 +823,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                     }
                     
                 }
-                    //if flag is false / incorrect ID, display error
+                    //if flag is not true / incorrect ID, display error
                     if (!flag){
                         JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");
                         
@@ -818,12 +838,15 @@ public class PhysicalGUI extends javax.swing.JFrame {
             boolean flag = false;
             
                 for(User u:userList){
+                    
                     if(u.getId().equals(idTf.getText())){
                         readCardio();
                         flag = true;
                         double weight = u.getWeight();
                         double met = 0;
                         String activityName =  " ";
+                        
+                        //Depending on the type of cardio the user picks, they will have a set MET value
                         if(cardioTypeTf.getText().equals("1")){ //slow walk
                             met = 5.0;
                             activityName = "Slow Walk";
@@ -870,6 +893,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
             boolean flag = false;
             
                 for(User u:userList){
+                    
                     if(u.getId().equals(idTf.getText())){
                         readDiet();
                         flag = true;
@@ -879,6 +903,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         //https://www.omnicalculator.com/health/keto
                         //https://www.carbmanager.com/article/y3o50xaaabh0cmjd/paleo-macros-do-you-need-to-track-them#:~:text=An%20initial%20Paleo%20macros%20ratio,better%20at%20higher%20carb%20intakes.
                         //https://my.clevelandclinic.org/health/articles/16037-mediterranean-diet
+                        //depending on the user's diet choice, they will get a message explaining it
                         if(dietTypeTf.getText().equals("1")){ 
                             mealType = "Keto";
                             JOptionPane.showMessageDialog(null, "Keto is a low carb, high fat diet, so you should adjust your calories accordingly: \n 5% of your calories as carbs \n 70% as fats \n 25% protein");
@@ -930,6 +955,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
             boolean flag = false;
             
                 for(User u:userList){
+                    
                     if(u.getId().equals(idTf.getText())){
                         readWorkout();
                         String type = " ";
@@ -941,15 +967,17 @@ public class PhysicalGUI extends javax.swing.JFrame {
                         //https://www.hevyapp.com/2-day-split-workout/
                         //https://fitnessprogramer.com/calisthenics-workout-plan/#Sample_Calisthenics_Workout_Plan
                         //https://www.pinterest.com/pin/the-intermediate-powerlifting-sample-program--644859240409704732/
+                        //depending on the user's workout plan, they will be provided a plan given their type of workout and how long
                         if(workoutTf.getText().equalsIgnoreCase("1")){
-                            if(Double.parseDouble(durationTf.getText()) < 90){
-                                JOptionPane.showMessageDialog(null, "We recommend doing a different workout since this category of workout requires long rest times, therefore long gym sessions. We recommend calisthenics or crossfit");
-                            }
                             type = "Crossfit";
                             JOptionPane.showMessageDialog(null, "Here is a sample AMRAP workout for "+type+": \n 15 Minute AMRAP: \n 15 burpees \n 15 sit ups \n 15 Ten Inch box jumps \n Complete as many reps as possible in 15 minutes ");
                         }
                         
                         else if(workoutTf.getText().equalsIgnoreCase("2")){
+                            //if workout duration is less than 90 minutes, suggest a shorter workout plan
+                            if(Double.parseDouble(durationTf.getText()) < 90){
+                                JOptionPane.showMessageDialog(null, "We recommend doing a different workout since this category of workout requires long rest times, therefore long gym sessions. We recommend calisthenics or crossfit");
+                            }
                             type = "Bodybuilding";
                             JOptionPane.showMessageDialog(null, "Here is a sample 2 day Full Body workout for "+type+" \n Recommended Split: D1-Rest-Rest-D2-Rest-Rest-Rest \n Day 1 Upper: \n Bench Press 2x8-10 @ RPE8-9 \n Cable Row 2x6-8 @ RPE 8-9 \n Machine Shoulder Press 2x10-12 @ RPE 8-9 \n Wide Grip Lat Pulldown 3x10-12 @ RPE 7-8 \n Cable Flys 3x12-15 @ RPE 7-8 \n DB Lateral Raise 3x12-15 @ RPE 8-9 \n Cable Curl 2x8-10 @ RPE9-10 \n Double Rope Tricep Pushdown 2x15-20 @ RPE 9-10");
                             JOptionPane.showMessageDialog(null, "Day 2: \n Barbell Squat 3x5-8 @ RPE7-8 \n Barbell RDL 3x8-10 @ RPE 7-8 \n Leg Extension 3x8-10 @ RPE 7-8 \n Hamstring Curl 3x12-15 @ RPE 7-8 \n Seated Calf Raise 3x15-20 @ RPE 8-9 \n Barbell Hip-Thrust 3x10-12 @RPE7-8");
@@ -1110,6 +1138,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         dietBackgroundLbl.setVisible(false);
         cardioBackgroundLbl.setVisible(true);
         macroBackgroundLbl.setVisible(false);
+        refreshMessLbl.setVisible(true);
         
         idTf.setVisible(true);
         cardioTypeTf.setVisible(true);
@@ -1161,6 +1190,8 @@ public class PhysicalGUI extends javax.swing.JFrame {
         dietBackgroundLbl.setVisible(false);
         cardioBackgroundLbl.setVisible(false);
         macroBackgroundLbl.setVisible(true);
+        refreshMessLbl.setVisible(true);
+
         
         idTf.setVisible(true);
         cardioTypeTf.setVisible(false);
@@ -1199,6 +1230,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         dietBackgroundLbl.setVisible(true);
         cardioBackgroundLbl.setVisible(false);
         macroBackgroundLbl.setVisible(false);
+        refreshMessLbl.setVisible(true);
         
         idTf.setVisible(true);
         cardioTypeTf.setVisible(false);
@@ -1234,6 +1266,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
         dietBackgroundLbl.setVisible(false);
         cardioBackgroundLbl.setVisible(false);
         macroBackgroundLbl.setVisible(false);
+        refreshMessLbl.setVisible(true);
         
         idTf.setVisible(true);
         cardioTypeTf.setVisible(false);
@@ -1384,6 +1417,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
     private javax.swing.JLabel physicalLbl;
     private javax.swing.JButton recommendBtn;
     private javax.swing.JButton refreshBtn;
+    private javax.swing.JLabel refreshMessLbl;
     private javax.swing.JButton removeBtn;
     private javax.swing.JButton searchBtn;
     private javax.swing.JLabel userRemoveLbl;

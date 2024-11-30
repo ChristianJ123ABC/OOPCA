@@ -8,6 +8,8 @@ package healthapp;
  *
  * @author flips
  */
+
+//extends is used to grab variables from Physical class (inheritance)
 public class Cardio extends Physical{
     private String type;
     private int duration;
@@ -39,22 +41,22 @@ public class Cardio extends Physical{
     public void calculateMet(){ 
         //source https://www.calculator.net/calories-burned-calculator.html?activity=1&activity2=Running%3A+fast&chour=1&cmin=30&cweight=160&cweightunit=k&ctype=1&x=Calculate
         //source 2 https://www.healthline.com/health/what-are-mets
-        if(type == "1"){ //slow walk
+        if(type.equals("1")){ //slow walk
             met = 5.0;
             activityName = "Slow Walk";
         }
         
-        else if (type == "2"){ //moderate run
+        else if (type.equals("2")){ //moderate run
             met = 11.5; 
             activityName = "Moderate Run";
         }
         
-        else if (type == "3"){ //light cycling
+        else if (type.equals("3")){ //light cycling
             met = 8.0;
             activityName = "Light Cycling";
         }
         
-        else if (type == "4"){ //light swimming
+        else if (type.equals("4")){ //light swimming
             met = 6.0;
             activityName = "Light Swimming";
         }
@@ -107,7 +109,7 @@ public class Cardio extends Physical{
         this.met = met;
     }
     
-    //overriding method of getDetails (grabbed from User SuperClass)
+    //overriding method of getDetails (grabbed from User SuperClass) (Polymorphism)
     @Override
     public String getDetails(){
         return " Cardio Details: \n ID: "+id+"\n Cardio Type: "+activityName+"\n Duration of Session: "+duration+" minutes";

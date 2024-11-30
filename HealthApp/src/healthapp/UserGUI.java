@@ -4,6 +4,7 @@
  */
 package healthapp;
 
+//packages for certain compute methods
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -373,20 +374,39 @@ public class UserGUI extends javax.swing.JFrame {
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
-        User u = new User(); //creates instance of User class
-        //whatever the user types into the textfield, it will be put into that corresponding variable in User
-        u.setId(idTf.getText());
-        u.setPassword(passwordPField.getText());
-        u.setName(nameTf.getText());
-        u.setAge(Integer.parseInt(ageTf.getText()));
-        u.setWeight(Double.parseDouble(weightTf.getText()));
-        u.setHeight(Double.parseDouble(heightTf.getText()));
+        //source https://www.youtube.com/watch?v=1f7PVrz7ehU
+        boolean flag = false;
+        //for each User object, run this statement
+        for(User u: userList){
+            //if the ID in the textfield equals another ID in the arraylist, set flag to true and break
+            if(idTf.getText().equalsIgnoreCase(u.getId())){
+                flag = true;
+                break;
+            }
+        }
         
-        //places those values into an array
-        userList.add(u);
-        JOptionPane.showMessageDialog(null, "User created! Please go back to the menu and log in");
+        //if flag is true / ID already exists, print this error message
+        if(flag){
+            JOptionPane.showMessageDialog(null, "This ID already exists, please make a different one");
+        }
         
-        saveUsers(); //saves the user information into the file
+        //adds the users details into the arraylist
+        else{
+           User u = new User();
+           //whatever the user types into the textfield, it will be put into that corresponding variable in User
+           u.setId(idTf.getText());
+           u.setPassword(passwordPField.getText());
+           u.setName(nameTf.getText());
+           u.setAge(Integer.parseInt(ageTf.getText()));
+           u.setWeight(Double.parseDouble(weightTf.getText()));
+           u.setHeight(Double.parseDouble(heightTf.getText()));
+
+           //places those values into an array
+           userList.add(u);
+           JOptionPane.showMessageDialog(null, "User created! Please go back to the menu and log in");
+
+           saveUsers(); //saves the user information into the file
+        }
     }//GEN-LAST:event_registerBtnActionPerformed
 
     private void ageTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTfActionPerformed

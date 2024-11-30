@@ -6,8 +6,9 @@ package healthapp;
 
 /**
  *
- * @author flips
+ * @author Christian Joseph
  */
+//used to grab variables from Phyiscal (inheritance)
 public class WorkoutPlan extends Physical {
     private String type;
     private double duration;
@@ -45,7 +46,7 @@ public class WorkoutPlan extends Physical {
         this.duration = duration;
     }
     
-    //overriding method of getDetails (grabbed from User SuperClass)
+    //overriding method of getDetails (grabbed from User SuperClass) (Polymorphism)
     @Override
     public String getDetails(){
         return " Workout Details: \n ID: "+id+"\n Workout Type: "+type+" \n Workout Duration: "+duration;

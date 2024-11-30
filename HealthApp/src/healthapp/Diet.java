@@ -8,6 +8,7 @@ package healthapp;
  *
  * @author flips
  */
+//extends is used to grab variables from Physical class (inheritance)
 public class Diet extends Physical {
     private String mealType;
     
@@ -33,7 +34,7 @@ public class Diet extends Physical {
         this.mealType = mealType;
     }
     
-    //overriding method of getDetails (grabbed from User SuperClass)
+    //overriding method of getDetails (grabbed from User SuperClass) (Polymorphism)
     @Override
     public String getDetails(){
         return " Diet Details: \n ID: "+id+"\n Type of Diet: "+mealType;

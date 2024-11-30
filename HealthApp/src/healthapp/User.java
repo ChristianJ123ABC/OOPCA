@@ -10,7 +10,8 @@ import java.io.Serializable;
  *
  * @author Christian Joseph 
  */
-public class User implements Serializable { //creates an abstract class and prevents any GUI errors 
+//prevents any GUI errors by implementing serializable
+public class User implements Serializable { 
     protected String id;
     protected String name;
     protected double weight;
@@ -82,7 +83,7 @@ public class User implements Serializable { //creates an abstract class and prev
     
     
     
-    //method used to retrieve details easier
+    //method used to retrieve details easier (Polymorphism)
     public String getDetails(){
         return "User Details: \n ID: "+id+"\n Password: "+password+"\n Age: "+age+"\n Name: "+name+"\n Weight: "+weight+"\n Height: "+height;
     }

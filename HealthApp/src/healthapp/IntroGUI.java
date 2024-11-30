@@ -4,6 +4,7 @@
  */
 package healthapp;
 
+//packages for certain compute methods
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,7 +17,8 @@ import javax.swing.JOptionPane;
  * @author Christian Joseph
  */
 public class IntroGUI extends javax.swing.JFrame {
-    public ArrayList<User> userList;//arrayList to store Login Details
+    //arrayList to store Login Details
+    public ArrayList<User> userList;
 
     /**
      * Creates new form Intro
@@ -24,9 +26,11 @@ public class IntroGUI extends javax.swing.JFrame {
     public IntroGUI() {
         initComponents(); 
         userList = new ArrayList<>();
-        readUsers();//puts the users information into the arrayList on load
-        //getContentPane().setBackground(new java.awt.Color(57, 214, 18));
+        //puts the users information into the arrayList on load
+        readUsers();
+        
         setSize(1000, 596);
+        
         //removes blue background on click from buttons
         //source https://stackoverflow.com/questions/19663009/overriding-button-background
         loginBtn.setContentAreaFilled(false);
@@ -40,7 +44,7 @@ public class IntroGUI extends javax.swing.JFrame {
     
     
     
-    //create a file to store the loginDetails and then place them into the userList when called
+    //create a file to store the users details and then place them into the userList when called
     private void readUsers(){
         //declare objects
         File f;
@@ -223,8 +227,12 @@ public class IntroGUI extends javax.swing.JFrame {
         
         //source https://stackoverflow.com/questions/53983811/java-passing-arraylist-to-another-jframe
         //source 2 https://stackoverflow.com/questions/60320923/how-do-i-set-a-boolean-inside-a-for-loop-to-true-if-a-value-is-reached
-            boolean flag = false; //boolean to check if login is true or not
-            for(User u: userList){ //for each object in U,search each of them
+            //boolean to check if login is true or not
+            boolean flag = false; 
+            
+            //for each object in User,perform the code below
+            for(User u: userList){ 
+                
                 //if the ID or password from the User equals their login details, send them to Mental
                 if(u.getId().equals(idTf.getText()) && u.getPassword().equals(passwordPField.getText()) && mLoginRb.isSelected()){ 
                     MentalGUI m = new MentalGUI();
@@ -234,6 +242,7 @@ public class IntroGUI extends javax.swing.JFrame {
                     break;
                     
                 }
+                
                 //if the ID or password from the User equals their login details, send them to Physical
                 else if(u.getId().equals(idTf.getText()) && u.getPassword().equals(passwordPField.getText()) && pLoginRb.isSelected()){
                     PhysicalGUI p = new PhysicalGUI();
@@ -246,6 +255,7 @@ public class IntroGUI extends javax.swing.JFrame {
             }
                 //if the ID or password from the User does NOT equals their login details / boolean flag is false, run this statement
                 if(flag == false){
+                    
                 //if no parameter is selected or the details are wrong, send an error message
                     if(!pLoginRb.isSelected() && !mLoginRb.isSelected()){
                         JOptionPane.showMessageDialog(null, "Please accept a parameter before you log in");

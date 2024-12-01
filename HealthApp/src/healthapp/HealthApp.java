@@ -15,6 +15,7 @@ public class HealthApp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //allows the introGUI to appear on the screen
         IntroGUI myGUI = new IntroGUI();
         myGUI.setVisible(true);
     }

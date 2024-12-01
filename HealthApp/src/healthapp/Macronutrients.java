@@ -8,7 +8,8 @@ package healthapp;
  *
  * @author Christian Joseph
  */
-public class Macronutrients extends Physical { //used to grab variables from superclass
+//used to grab variables from Phyiscal (inheritance)
+public class Macronutrients extends Physical { 
     //declare variables
     private double calories;
     private double waterIntake;
@@ -145,7 +146,7 @@ public class Macronutrients extends Physical { //used to grab variables from sup
         this.bmiCheck = bmiCheck;
     }
     
-    //overriding method of getDetails (grabbed from User SuperClass)
+    //overriding method of getDetails (grabbed from User SuperClass) (Polymorphism)
     @Override
     public String getDetails(){
         return " Macronutrient Details: \n ID: "+id+"\n Calories: "+calories+"\n Activity Level: "+activityLevel;

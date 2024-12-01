@@ -8,7 +8,8 @@ package healthapp;
  *
  * @author chris
  */
-public class Physical extends User { //used to grab variables from superclass
+//used to grab variables from superclass
+public class Physical extends User { 
     //declare variables
     protected double bmi;
     protected double activityLevel;

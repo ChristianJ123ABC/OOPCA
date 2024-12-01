@@ -52,6 +52,10 @@ public class MentalGUI extends javax.swing.JFrame {
         caloriesBBtn.setVisible(false);
         mentalDILbl.setVisible(false);
         mentalAILbl.setVisible(false);
+        sleepHLbl.setVisible(false);
+        stressLbl.setVisible(false);
+        sleepHTf.setVisible(false);
+        stressTf.setVisible(false);
     }
     
     
@@ -166,6 +170,95 @@ public class MentalGUI extends javax.swing.JFrame {
         }
     }
       
+        //display the mental sleep  into the program when you start the app
+    private void readSleepHours(){
+        //declare objects
+        File f;
+        FileInputStream fStream;
+        ObjectInputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("Mentalsleep.dat");
+            fStream = new FileInputStream(f);
+            oStream = new ObjectInputStream(fStream);
+            
+            //use objects
+            userList = (ArrayList<User>)oStream.readObject();
+            
+            oStream.close();
+        }
+        catch(IOException|ClassNotFoundException e){
+            System.out.println("Error: "+e);
+        }
+    }
+    
+    //save the mental sleep details to a file
+    private void saveSleepHours(){
+        //declare objects
+        File f;
+        FileOutputStream fStream;
+        ObjectOutputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("Mentalsleep.dat");
+            fStream = new FileOutputStream(f);
+            oStream = new ObjectOutputStream(fStream);
+            
+            //use objects
+            oStream.writeObject(userList);
+        }
+        catch(IOException e){
+            System.out.println("Error:"+e);
+        }
+    }
+    
+        //display the mental stress  into the program when you start the app
+    private void readStressManagement(){
+        //declare objects
+        File f;
+        FileInputStream fStream;
+        ObjectInputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("Mentalstress.dat");
+            fStream = new FileInputStream(f);
+            oStream = new ObjectInputStream(fStream);
+            
+            //use objects
+            userList = (ArrayList<User>)oStream.readObject();
+            
+            oStream.close();
+        }
+        catch(IOException|ClassNotFoundException e){
+            System.out.println("Error: "+e);
+        }
+    }
+    
+    //save the mental stress details to a file
+    private void saveStressManagement(){
+        //declare objects
+        File f;
+        FileOutputStream fStream;
+        ObjectOutputStream oStream;
+        
+        try{
+            //create objects
+            f = new File("Mentalstress.dat");
+            fStream = new FileOutputStream(f);
+            oStream = new ObjectOutputStream(fStream);
+            
+            //use objects
+            oStream.writeObject(userList);
+        }
+        catch(IOException e){
+            System.out.println("Error:"+e);
+        }
+    }
+      
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -209,6 +302,8 @@ public class MentalGUI extends javax.swing.JFrame {
         mentalAILbl = new javax.swing.JLabel();
         mentalDILbl = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        sleepRb = new javax.swing.JRadioButton();
+        stressRb = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -218,7 +313,7 @@ public class MentalGUI extends javax.swing.JFrame {
         mentalLbl.setFont(new java.awt.Font("Onyx", 1, 36)); // NOI18N
         mentalLbl.setForeground(new java.awt.Color(102, 0, 102));
         mentalLbl.setText("Mental Wellbeing");
-        getContentPane().add(mentalLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 180, -1));
+        getContentPane().add(mentalLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 180, -1));
 
         dietTypeLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         dietTypeLbl.setForeground(new java.awt.Color(0, 102, 102));
@@ -427,7 +522,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 activitiesRBActionPerformed(evt);
             }
         });
-        getContentPane().add(activitiesRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 98, -1));
+        getContentPane().add(activitiesRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 98, -1));
 
         dietRb.setBackground(new java.awt.Color(248, 245, 238));
         mBtnGrp.add(dietRb);
@@ -440,7 +535,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 dietRbActionPerformed(evt);
             }
         });
-        getContentPane().add(dietRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 98, -1));
+        getContentPane().add(dietRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 98, -1));
 
         activityTLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         activityTLbl.setForeground(new java.awt.Color(102, 0, 153));
@@ -488,6 +583,30 @@ public class MentalGUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Choose Radio Button To Activate The Program.");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 280, 30));
+
+        sleepRb.setBackground(new java.awt.Color(248, 245, 238));
+        mBtnGrp.add(sleepRb);
+        sleepRb.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        sleepRb.setForeground(new java.awt.Color(0, 102, 153));
+        sleepRb.setText("SleepManage");
+        sleepRb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sleepRbActionPerformed(evt);
+            }
+        });
+        getContentPane().add(sleepRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
+
+        stressRb.setBackground(new java.awt.Color(248, 245, 238));
+        mBtnGrp.add(stressRb);
+        stressRb.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        stressRb.setForeground(new java.awt.Color(153, 0, 102));
+        stressRb.setText("StressLevel");
+        stressRb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stressRbActionPerformed(evt);
+            }
+        });
+        getContentPane().add(stressRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -560,8 +679,6 @@ public class MentalGUI extends javax.swing.JFrame {
                       flag = true; //if the id is true
                   //Get the inputs entered in Mental Activities
                    a.setId(IdTf.getText());
-                   a.setStressLevel(stressTf.getText());
-                   a.setSleepHours(sleepHTf.getText());
                    a.setAType(activityTTf.getText());
                    a.setFrequency (Double.parseDouble(frequencyTf.getText()));
                    a.setMet(Double.parseDouble(metTf.getText()));
@@ -572,8 +689,6 @@ public class MentalGUI extends javax.swing.JFrame {
            
                   //show message box with the details user input in mental diet field
                   JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
-                      + "StressLevel "+stressTf.getText()+" \n "
-                      + "SleepHours: "+sleepHTf.getText()+" \n"
                       + "Activity Type:"+activityTTf.getText()+" \n"
                       + "Frequency:"+frequencyTf.getText()+" \n"
                       + "MET Value:"+metTf.getText()+" \n"
@@ -603,8 +718,6 @@ public class MentalGUI extends javax.swing.JFrame {
                          flag = true;//if the id is true
                          //Get the inputs entered in Diet section
                          d.setId(IdTf.getText());
-                         d.setStressLevel(stressTf.getText());
-                         d.setSleepHours(sleepHTf.getText());
                          d.setDietType (dietTTf.getText());
                          d.setCalories (Double.parseDouble(caloriesTf.getText()));
                          
@@ -613,8 +726,6 @@ public class MentalGUI extends javax.swing.JFrame {
                          
                          //show message box with the details user input in mental diet field
                       JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
-                      + "StressLevel: "+stressTf.getText()+" \n "
-                      + "SleepHours: "+sleepHTf.getText()+" \n"
                       + "Diet Type:"+dietTTf.getText()+" \n"
                       + "Calories Intake:"+caloriesTf.getText());
             
@@ -627,6 +738,73 @@ public class MentalGUI extends javax.swing.JFrame {
             }          
        
       } 
+        
+        
+        
+                else if(sleepRb.isSelected()){
+               readUsers(); //load Users
+               readSleepHours();//loads mental sleep details
+             SleepHours s = new SleepHours();
+             boolean flag = false;
+             
+                   for(User u:userList){ //runs through th earraylist 
+                   if( u.getId().equals(IdTf.getText())) {// checks if  the id entered matche s with the id in arraylist
+                       
+                         flag = true;//if the id is true
+                         //Get the inputs entered in sleep section
+                         s.setId(IdTf.getText());
+                         s.setSleepHours(Double.parseDouble(sleepHTf.getText()));
+                                               
+                         //Add sleep hours to 
+                         userList.add(s);
+                         
+                         //show message box with the details user input in sleep hours field
+                      JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
+                      + "SleepHours: "+sleepHTf.getText());
+            
+                      saveSleepHours();// saves the new details entered to  mental sleepHours
+                      break;
+             }   
+          }
+             if(!flag) {
+                        JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");          
+            }          
+       
+      }
+        
+        
+        
+        
+                else if(stressRb.isSelected()){
+               readUsers(); //load Users
+               readStressManagement();//loads mental stress management
+             StressManagement sm = new StressManagement();
+             boolean flag = false;
+             
+                   for(User u:userList){ //runs through th earraylist 
+                   if( u.getId().equals(IdTf.getText())) {// checks if  the id entered matche s with the id in arraylist
+                       
+                         flag = true;//if the id is true
+                         //Get the inputs entered in stress  section
+                         sm.setId(IdTf.getText());
+                         sm.setStressLevel(Double.parseDouble(stressTf.getText()));                     
+                         
+                         //Add diet types and calories to user list
+                         userList.add(sm);
+                         
+                         //show message box with the details user input in mental diet field
+                      JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
+                      + "StressLevel: "+stressTf.getText());
+            
+                      saveStressManagement();// saves the new details entered to mental stress management
+                      break;
+             }   
+          }
+             if(!flag) {
+                        JOptionPane.showMessageDialog(null, "Invalid ID, please enter a correct one.");          
+            }          
+       
+      }
         clearFields();
     }//GEN-LAST:event_addBtnActionPerformed
                   
@@ -676,6 +854,26 @@ public class MentalGUI extends javax.swing.JFrame {
                     saveMentalDiet();
                          break; // Exit the loop after removing the user to avoid `ConcurrentModificationException`.
                     }
+                
+                // Checks if the user's ID matches the input and if the stress option is selected.
+                else if(m.getId().equalsIgnoreCase(IdTf.getText()) && stressRb.isSelected()){
+                    userList.remove(m);// Remove the user from the list.
+                    
+                    JOptionPane.showMessageDialog(null, "stressManagement record for ID: " + m.getId() + " has been removed.");
+                    saveStressManagement();
+                         break; // Exit the loop after removing the user to avoid `ConcurrentModificationException`.
+                    }
+                
+                // Checks if the user's ID matches the input and if the sleep option is selected.
+                else if(m.getId().equalsIgnoreCase(IdTf.getText()) && sleepRb.isSelected()){
+                    userList.remove(m);// Remove the user from the list.
+                    
+                    JOptionPane.showMessageDialog(null, "SleepHours record for ID: " + m.getId() + " has been removed.");
+                    saveSleepHours();
+                         break; // Exit the loop after removing the user to avoid `ConcurrentModificationException`.
+                    }
+                
+                
              }
       }
        clearFields();
@@ -720,6 +918,10 @@ public class MentalGUI extends javax.swing.JFrame {
         dietMBtn.setVisible(false);
         mentalDILbl.setVisible(false);
         mWLbl.setVisible(false);
+        sleepHLbl.setVisible(false);
+        stressLbl.setVisible(false);
+        sleepHTf.setVisible(false);
+        stressTf.setVisible(false);
         
         //makes the named jlabel and textfield visible
         frequencyLbl.setVisible(true);
@@ -757,6 +959,10 @@ public class MentalGUI extends javax.swing.JFrame {
         activityTTf.setVisible(false);
         mentalAILbl.setVisible(false);
         mWLbl.setVisible(false);
+        sleepHLbl.setVisible(false);
+        stressLbl.setVisible(false);
+        sleepHTf.setVisible(false);
+        stressTf.setVisible(false);
         
         //makes the named jlabel and textfield visible
         dietTypeLbl.setVisible(true);
@@ -842,6 +1048,69 @@ public class MentalGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_activityTTfActionPerformed
 
+    private void sleepRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sleepRbActionPerformed
+        // TODO add your handling code here:
+        
+          
+        //makes the named jlabel and textfield  not visible
+        frequencyLbl.setVisible(false);
+        frequencyTf.setVisible(false);
+        metLbl.setVisible(false);
+        metTf.setVisible(false);
+        activityDLbl.setVisible(false);
+        activityDTf.setVisible(false);
+        activitiesMBtn.setVisible(false);
+        caloriesBBtn.setVisible(false);
+        activityTLbl.setVisible(false);
+        activityTTf.setVisible(false);
+        mentalAILbl.setVisible(false);
+        mWLbl.setVisible(false);
+        dietTypeLbl.setVisible(false);
+        dietTTf.setVisible(false);
+        caloriesLbl.setVisible(false);
+        caloriesTf.setVisible(false);
+        dietMBtn.setVisible(false);
+        mentalDILbl.setVisible(false);
+        stressLbl.setVisible(false);
+        stressTf.setVisible(false);
+        
+        //makes the named jlabel and textfield visible
+       sleepHLbl.setVisible(true);
+       sleepHTf.setVisible(true);
+       
+    }//GEN-LAST:event_sleepRbActionPerformed
+
+    private void stressRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stressRbActionPerformed
+        // TODO add your handling code here:
+        
+              //makes the named jlabel and textfield  not visible
+        frequencyLbl.setVisible(false);
+        frequencyTf.setVisible(false);
+        metLbl.setVisible(false);
+        metTf.setVisible(false);
+        activityDLbl.setVisible(false);
+        activityDTf.setVisible(false);
+        activitiesMBtn.setVisible(false);
+        caloriesBBtn.setVisible(false);
+        activityTLbl.setVisible(false);
+        activityTTf.setVisible(false);
+        mentalAILbl.setVisible(false);
+        mWLbl.setVisible(false);
+        dietTypeLbl.setVisible(false);
+        dietTTf.setVisible(false);
+        caloriesLbl.setVisible(false);
+        caloriesTf.setVisible(false);
+        dietMBtn.setVisible(false);
+        mentalDILbl.setVisible(false);
+       sleepHLbl.setVisible(false);
+       sleepHTf.setVisible(false);
+        
+        //makes the named jlabel and textfield visible
+       stressLbl.setVisible(true);
+       stressTf.setVisible(true);
+        
+    }//GEN-LAST:event_stressRbActionPerformed
+
   
     
     
@@ -914,7 +1183,9 @@ public class MentalGUI extends javax.swing.JFrame {
     private javax.swing.JButton removeMBtn;
     private javax.swing.JLabel sleepHLbl;
     private javax.swing.JTextField sleepHTf;
+    private javax.swing.JRadioButton sleepRb;
     private javax.swing.JLabel stressLbl;
+    private javax.swing.JRadioButton stressRb;
     private javax.swing.JTextField stressTf;
     // End of variables declaration//GEN-END:variables
 }

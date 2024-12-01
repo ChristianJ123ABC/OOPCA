@@ -11,23 +11,19 @@ package healthapp;
 public class Mental extends User {
     
     protected String Id;
-    protected String stressLevel;
-    protected String sleepHours;
+  
     
 
         //overloaded constructor
-    public Mental(String id, String stressLevel, String sleepHours) {
+    public Mental(String id) {
         this.Id = id;
-        this.stressLevel = stressLevel;
-        this.sleepHours = sleepHours;
+        
     }
     
      //default constructor
     public Mental(){
         Id = " ";
-        stressLevel = " ";
-        sleepHours = " ";
- 
+    
     }
     
     
@@ -37,14 +33,7 @@ public class Mental extends User {
         this.Id = id;
     }
 
-    public void setStressLevel(String stressLevel) {
-        this.stressLevel = stressLevel;
-    }
-
-    public void setSleepHours(String sleepHours) {
-        this.sleepHours = sleepHours;
-    }
-
+   
     /**
      *
      * @return
@@ -56,17 +45,10 @@ public class Mental extends User {
         return Id;
     }
 
-    public String getStressLevel() {
-        return stressLevel;
-    }
-
-    public String getSleepHours() {
-        return sleepHours;
-    }
     
     @Override
      public String getDetails(){
-        return "Mental Details: \n Your Id:"+Id+",Stress Level: "+stressLevel+",Sleep Hours: "+sleepHours;
+        return "Mental Details: \n Your Id:"+Id;
     }
     
     

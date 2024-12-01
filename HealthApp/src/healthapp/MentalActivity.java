@@ -17,8 +17,8 @@ public class MentalActivity extends Mental {
     
     
         //overloaded constructor
-     public MentalActivity(String aType, double frequency, double met, double duration, double caloriesBurned, String id, String stressLevel, String sleepHours) {
-        super(id, stressLevel, sleepHours);
+     public MentalActivity(String aType, double frequency, double met, double duration, double caloriesBurned, String id) {
+        super(id);
         this.aType = aType;
         this.frequency = frequency;
         this.met = met;

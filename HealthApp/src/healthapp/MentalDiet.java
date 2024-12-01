@@ -14,8 +14,8 @@ public class MentalDiet extends Mental {
 
     
      //overloaded constructor
-    public MentalDiet(String dietType, double calories, String id, String stressLevel, String sleepHours) {
-        super(id, stressLevel, sleepHours);
+    public MentalDiet(String dietType, double calories, String id) {
+        super(id);
         this.dietType = dietType;
         this.calories = calories;
     }

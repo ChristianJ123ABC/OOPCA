@@ -204,7 +204,7 @@ public class MentalGUI extends javax.swing.JFrame {
         dietRb = new javax.swing.JRadioButton();
         activityTLbl = new javax.swing.JLabel();
         activityTTf = new javax.swing.JTextField();
-        clearMBtn = new javax.swing.JButton();
+        refreshMBtn = new javax.swing.JButton();
         mWLbl = new javax.swing.JLabel();
         mentalAILbl = new javax.swing.JLabel();
         mentalDILbl = new javax.swing.JLabel();
@@ -255,7 +255,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 menuMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(menuMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, -1, -1));
+        getContentPane().add(menuMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, -1, -1));
 
         displayMBtn.setBackground(new java.awt.Color(0, 204, 204));
         displayMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -346,6 +346,7 @@ public class MentalGUI extends javax.swing.JFrame {
         getContentPane().add(stressTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 200, 30));
 
         activityDTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        activityDTf.setToolTipText("Duration Format In Hours");
         activityDTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activityDTfActionPerformed(evt);
@@ -363,6 +364,7 @@ public class MentalGUI extends javax.swing.JFrame {
         getContentPane().add(metTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 204, 30));
 
         dietTTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        dietTTf.setToolTipText("click Types of Diet button to choose diet.");
         dietTTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dietTTfActionPerformed(evt);
@@ -371,6 +373,7 @@ public class MentalGUI extends javax.swing.JFrame {
         getContentPane().add(dietTTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 204, -1));
 
         caloriesTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        caloriesTf.setToolTipText("Check diet type button to know calories of your diet.");
         caloriesTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caloriesTfActionPerformed(evt);
@@ -413,6 +416,7 @@ public class MentalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(dietMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
 
+        activitiesRB.setBackground(new java.awt.Color(248, 245, 238));
         mBtnGrp.add(activitiesRB);
         activitiesRB.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
         activitiesRB.setForeground(new java.awt.Color(255, 102, 0));
@@ -425,6 +429,7 @@ public class MentalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(activitiesRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 98, -1));
 
+        dietRb.setBackground(new java.awt.Color(248, 245, 238));
         mBtnGrp.add(dietRb);
         dietRb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dietRb.setForeground(new java.awt.Color(102, 51, 0));
@@ -452,17 +457,18 @@ public class MentalGUI extends javax.swing.JFrame {
         });
         getContentPane().add(activityTTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 205, 30));
 
-        clearMBtn.setBackground(new java.awt.Color(0, 204, 204));
-        clearMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        clearMBtn.setForeground(new java.awt.Color(51, 0, 153));
-        clearMBtn.setText("Clear");
-        clearMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        clearMBtn.addActionListener(new java.awt.event.ActionListener() {
+        refreshMBtn.setBackground(new java.awt.Color(0, 204, 204));
+        refreshMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        refreshMBtn.setForeground(new java.awt.Color(51, 0, 153));
+        refreshMBtn.setText("Refresh");
+        refreshMBtn.setToolTipText("");
+        refreshMBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        refreshMBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearMBtnActionPerformed(evt);
+                refreshMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(clearMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 70, -1));
+        getContentPane().add(refreshMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 100, -1));
 
         mWLbl.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         mWLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MentalGUI Images/mentalwellbeing1.jpg"))); // NOI18N
@@ -556,7 +562,7 @@ public class MentalGUI extends javax.swing.JFrame {
                    a.setId(IdTf.getText());
                    a.setStressLevel(stressTf.getText());
                    a.setSleepHours(sleepHTf.getText());
-                   a.setWeight (Double.parseDouble(activityTTf.getText()));
+                   a.setAType(activityTTf.getText());
                    a.setFrequency (Double.parseDouble(frequencyTf.getText()));
                    a.setMet(Double.parseDouble(metTf.getText()));
                    a.setDuration(Double.parseDouble(activityDTf.getText()));
@@ -568,7 +574,7 @@ public class MentalGUI extends javax.swing.JFrame {
                   JOptionPane.showMessageDialog(null, "You Id: "+IdTf.getText()+" \n "
                       + "StressLevel "+stressTf.getText()+" \n "
                       + "SleepHours: "+sleepHTf.getText()+" \n"
-                      + "Weight:"+activityTTf.getText()+" \n"
+                      + "Activity Type:"+activityTTf.getText()+" \n"
                       + "Frequency:"+frequencyTf.getText()+" \n"
                       + "MET Value:"+metTf.getText()+" \n"
                       + "Activity Duration:"+activityDTf.getText());
@@ -621,6 +627,7 @@ public class MentalGUI extends javax.swing.JFrame {
             }          
        
       } 
+        clearFields();
     }//GEN-LAST:event_addBtnActionPerformed
                   
    
@@ -650,24 +657,28 @@ public class MentalGUI extends javax.swing.JFrame {
             // Traverse the user list to find and remove the matching user.
             for(int i = 0; i < userList.size();i++){
                 User m = userList.get(i);// Get the current user object.
-                // Check if the user's ID matches the input and if the "Diet" option is selected.
+                // Check if the user's ID matches the input and if the "Activities" option is selected.
                 if(m.getId().equalsIgnoreCase(IdTf.getText()) && activitiesRB.isSelected()){
                  userList.remove(m);// Remove the user from the list.
+                 saveMentalActivities();
                  
                  JOptionPane.showMessageDialog(null, "Activity record for ID: " + m.getId() + " has been removed.");
+                 saveMentalActivities();
                     break; // Exit the loop after removing the user to avoid `ConcurrentModificationException`.
-               }
+               
+                }
                 
                 // Checks if the user's ID matches the input and if the Diet option is selected.
                 else if(m.getId().equalsIgnoreCase(IdTf.getText()) && dietRb.isSelected()){
                     userList.remove(m);// Remove the user from the list.
                     
                     JOptionPane.showMessageDialog(null, "Diet record for ID: " + m.getId() + " has been removed.");
+                    saveMentalDiet();
                          break; // Exit the loop after removing the user to avoid `ConcurrentModificationException`.
                     }
              }
       }
-       
+       clearFields();
     }//GEN-LAST:event_removeMBtnActionPerformed
 
     private void frequencyTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frequencyTfActionPerformed
@@ -786,22 +797,24 @@ public class MentalGUI extends javax.swing.JFrame {
 
     
      private void clearFields(){
-        IdTf.setText(" ");
-        stressTf.setText(" ");
-        sleepHTf.setText(" ");
-        frequencyTf.setText(" ");
-        metTf.setText(" ");
-        dietTTf.setText(" ");
-        caloriesTf.setText(" ");
-        activityDTf.setText(" ");
-        activityTTf.setText(" ");
+        IdTf.setText("");
+        stressTf.setText("");
+        sleepHTf.setText("");
+        frequencyTf.setText("");
+        metTf.setText("");
+        dietTTf.setText("");
+        caloriesTf.setText("");
+        activityDTf.setText("");
+        activityTTf.setText("");
     }
     
     
-    private void clearMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearMBtnActionPerformed
+    private void refreshMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshMBtnActionPerformed
         // TODO add your handling code here:
-        clearFields();
-    }//GEN-LAST:event_clearMBtnActionPerformed
+        MentalGUI m = new MentalGUI();//To returns you to the Mental menu screen when clicked to refresh button.
+        m.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_refreshMBtnActionPerformed
 
     private void dietMBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietMBtnActionPerformed
         // TODO add your handling code here:
@@ -881,7 +894,6 @@ public class MentalGUI extends javax.swing.JFrame {
     private javax.swing.JButton caloriesBBtn;
     private javax.swing.JLabel caloriesLbl;
     private javax.swing.JTextField caloriesTf;
-    private javax.swing.JButton clearMBtn;
     private javax.swing.JButton dietMBtn;
     private javax.swing.JRadioButton dietRb;
     private javax.swing.JTextField dietTTf;
@@ -898,6 +910,7 @@ public class MentalGUI extends javax.swing.JFrame {
     private javax.swing.JButton menuMBtn;
     private javax.swing.JLabel metLbl;
     private javax.swing.JTextField metTf;
+    private javax.swing.JButton refreshMBtn;
     private javax.swing.JButton removeMBtn;
     private javax.swing.JLabel sleepHLbl;
     private javax.swing.JTextField sleepHTf;

@@ -9,7 +9,7 @@ package healthapp;
  * @author pyaku
  */
 public class MentalActivity extends Mental {
-    private double weight;
+    private String aType;
     private double frequency;
     private double met;
     private double duration;
@@ -17,9 +17,9 @@ public class MentalActivity extends Mental {
     
     
         //overloaded constructor
-     public MentalActivity(double weight, double frequency, double met, double duration, double caloriesBurned, String id, String stressLevel, String sleepHours) {
+     public MentalActivity(String aType, double frequency, double met, double duration, double caloriesBurned, String id, String stressLevel, String sleepHours) {
         super(id, stressLevel, sleepHours);
-        this.weight = weight;
+        this.aType = aType;
         this.frequency = frequency;
         this.met = met;
         this.duration = duration;
@@ -28,7 +28,7 @@ public class MentalActivity extends Mental {
     
          // defult constructor
       public MentalActivity() {
-        this.weight = 0;
+        this.aType = " ";
         this.frequency = 0;
         this.met = 0;
          this.duration = 0;
@@ -36,8 +36,8 @@ public class MentalActivity extends Mental {
     }
 
       //setters
-     public void setWeight(double weight) {
-        this.weight = weight;
+     public void setAType(String aType) {
+        this.aType = aType;
     }
       public void setFrequency(double frequency) {
         this.frequency = frequency;
@@ -57,8 +57,8 @@ public class MentalActivity extends Mental {
     
     
     //getters
-    public double getWeight() {
-        return weight;
+    public String getAType() {
+        return aType;
     }
    public double getFrequency() {
         return frequency;
@@ -76,17 +76,9 @@ public class MentalActivity extends Mental {
     }
 
     
-         
-    
-    //compute method
-    
-    public  void computeCaloriesBurned(){
-     caloriesBurned =  (met * weight * duration * frequency);
-}
-    
       @Override
     public String getDetails(){
-        return super.getDetails()+",Weight :"+weight+",Frequency: "+frequency+",Met: "+met+", Duration :"+duration;
+        return super.getDetails()+",Activity Type :"+aType+",Frequency: "+frequency+",Met: "+met+", Duration :"+duration;
     }
 }
 

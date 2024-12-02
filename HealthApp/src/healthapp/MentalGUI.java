@@ -34,28 +34,38 @@ public class MentalGUI extends javax.swing.JFrame {
           getContentPane().setBackground(new java.awt.Color(248, 245, 238));
         
         
-        //To make the jlabel, textfield and buttons invisible when the program runs
+        //To make the jlabel invisible when the program runs
         frequencyLbl.setVisible(false);
-        frequencyTf.setVisible(false);
         activityTLbl.setVisible(false);
-        activityTTf.setVisible(false);
         metLbl.setVisible(false);
-        metTf.setVisible(false);
         activityDLbl.setVisible(false);
-        activityDTf.setVisible(false);
         dietTypeLbl.setVisible(false);
-        dietTTf.setVisible(false);
         caloriesLbl.setVisible(false);
+        sleepHLbl.setVisible(false);
+        stressLbl.setVisible(false);
+        
+        // To make textfield invisible
+        frequencyTf.setVisible(false);
+        activityTTf.setVisible(false);
+        metTf.setVisible(false);
+        activityDTf.setVisible(false);
+        dietTTf.setVisible(false);
         caloriesTf.setVisible(false);
+        sleepHTf.setVisible(false);
+        stressTf.setVisible(false);
+        
+        //To make message button invisible
         activitiesMBtn.setVisible(false);
         dietMBtn.setVisible(false);
         caloriesBBtn.setVisible(false);
+        sleepBtn.setVisible(false);
+        
+        //To make image label invisible
         mentalDILbl.setVisible(false);
         mentalAILbl.setVisible(false);
-        sleepHLbl.setVisible(false);
-        stressLbl.setVisible(false);
-        sleepHTf.setVisible(false);
-        stressTf.setVisible(false);
+        mentalSTILbl.setVisible(false);
+        mentalSTILbl.setVisible(false);
+               
     }
     
     
@@ -304,6 +314,9 @@ public class MentalGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         sleepRb = new javax.swing.JRadioButton();
         stressRb = new javax.swing.JRadioButton();
+        sleepBtn = new javax.swing.JButton();
+        mentalSILbl = new javax.swing.JLabel();
+        mentalSTILbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -313,7 +326,7 @@ public class MentalGUI extends javax.swing.JFrame {
         mentalLbl.setFont(new java.awt.Font("Onyx", 1, 36)); // NOI18N
         mentalLbl.setForeground(new java.awt.Color(102, 0, 102));
         mentalLbl.setText("Mental Wellbeing");
-        getContentPane().add(mentalLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 180, -1));
+        getContentPane().add(mentalLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 180, -1));
 
         dietTypeLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         dietTypeLbl.setForeground(new java.awt.Color(0, 102, 102));
@@ -338,7 +351,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 caloriesBBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(caloriesBBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 460, -1, -1));
+        getContentPane().add(caloriesBBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, -1, -1));
 
         menuMBtn.setBackground(new java.awt.Color(0, 204, 204));
         menuMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -350,7 +363,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 menuMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(menuMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, -1, -1));
+        getContentPane().add(menuMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, -1, -1));
 
         displayMBtn.setBackground(new java.awt.Color(0, 204, 204));
         displayMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -362,7 +375,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 displayMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(displayMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 100, -1));
+        getContentPane().add(displayMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 100, -1));
 
         removeMBtn.setBackground(new java.awt.Color(0, 204, 204));
         removeMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -374,7 +387,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 removeMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(removeMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 110, -1));
+        getContentPane().add(removeMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 110, -1));
 
         addBtn.setBackground(new java.awt.Color(0, 204, 204));
         addBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -495,7 +508,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 activitiesMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(activitiesMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, -1, -1));
+        getContentPane().add(activitiesMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, -1));
 
         dietMBtn.setBackground(new java.awt.Color(0, 204, 204));
         dietMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -509,7 +522,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 dietMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(dietMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
+        getContentPane().add(dietMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 460, -1, -1));
 
         activitiesRB.setBackground(new java.awt.Color(248, 245, 238));
         mBtnGrp.add(activitiesRB);
@@ -522,7 +535,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 activitiesRBActionPerformed(evt);
             }
         });
-        getContentPane().add(activitiesRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 98, -1));
+        getContentPane().add(activitiesRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 90, -1));
 
         dietRb.setBackground(new java.awt.Color(248, 245, 238));
         mBtnGrp.add(dietRb);
@@ -535,7 +548,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 dietRbActionPerformed(evt);
             }
         });
-        getContentPane().add(dietRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 98, -1));
+        getContentPane().add(dietRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 100, -1));
 
         activityTLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         activityTLbl.setForeground(new java.awt.Color(102, 0, 153));
@@ -563,26 +576,26 @@ public class MentalGUI extends javax.swing.JFrame {
                 refreshMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(refreshMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 100, -1));
+        getContentPane().add(refreshMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 100, -1));
 
         mWLbl.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         mWLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MentalGUI Images/mentalwellbeing1.jpg"))); // NOI18N
         mWLbl.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         mWLbl.setDoubleBuffered(true);
         mWLbl.setRequestFocusEnabled(false);
-        getContentPane().add(mWLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 270, 290));
+        getContentPane().add(mWLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 270, 290));
         mWLbl.getAccessibleContext().setAccessibleName("");
 
         mentalAILbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MentalGUI Images/mentalActivity.jpg"))); // NOI18N
         mentalAILbl.setToolTipText("");
-        getContentPane().add(mentalAILbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 270, 290));
+        getContentPane().add(mentalAILbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 270, 290));
 
         mentalDILbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MentalGUI Images/mentalDiet.png"))); // NOI18N
-        getContentPane().add(mentalDILbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 270, 290));
+        getContentPane().add(mentalDILbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 270, 290));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Choose Radio Button To Activate The Program.");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 280, 30));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 280, 30));
 
         sleepRb.setBackground(new java.awt.Color(248, 245, 238));
         mBtnGrp.add(sleepRb);
@@ -594,7 +607,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 sleepRbActionPerformed(evt);
             }
         });
-        getContentPane().add(sleepRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
+        getContentPane().add(sleepRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
         stressRb.setBackground(new java.awt.Color(248, 245, 238));
         mBtnGrp.add(stressRb);
@@ -606,7 +619,26 @@ public class MentalGUI extends javax.swing.JFrame {
                 stressRbActionPerformed(evt);
             }
         });
-        getContentPane().add(stressRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, -1, -1));
+        getContentPane().add(stressRb, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
+
+        sleepBtn.setBackground(new java.awt.Color(0, 204, 204));
+        sleepBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        sleepBtn.setForeground(new java.awt.Color(204, 255, 255));
+        sleepBtn.setText("Sleep Hygiene");
+        sleepBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        sleepBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sleepBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(sleepBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 190, -1));
+
+        mentalSILbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MentalGUI Images/sleepM.png"))); // NOI18N
+        mentalSILbl.setText("jLabel3");
+        getContentPane().add(mentalSILbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 270, 290));
+
+        mentalSTILbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MentalGUI Images/stress.jpg"))); // NOI18N
+        getContentPane().add(mentalSTILbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 270, 290));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -910,30 +942,40 @@ public class MentalGUI extends javax.swing.JFrame {
         
         readMentalActivities();
         
-        //makes the named jlabel and textfield  not visible
+        //makes the named jlabel, textfield and button not visible
         dietTypeLbl.setVisible(false);
-        dietTTf.setVisible(false);
         caloriesLbl.setVisible(false);
-        caloriesTf.setVisible(false);
-        dietMBtn.setVisible(false);
-        mentalDILbl.setVisible(false);
-        mWLbl.setVisible(false);
         sleepHLbl.setVisible(false);
         stressLbl.setVisible(false);
+        
+        dietTTf.setVisible(false);
+        caloriesTf.setVisible(false);
         sleepHTf.setVisible(false);
         stressTf.setVisible(false);
+              
+        sleepBtn.setVisible(false);
+        dietMBtn.setVisible(false);
+        sleepBtn.setVisible(false);
         
-        //makes the named jlabel and textfield visible
+         mentalDILbl.setVisible(false);
+         mWLbl.setVisible(false);
+         mentalSTILbl.setVisible(false);
+         mentalSTILbl.setVisible(false);
+        
+        //makes the named jlabel, textfield and button visible
         frequencyLbl.setVisible(true);
-        frequencyTf.setVisible(true);
-        metLbl.setVisible(true);
-        metTf.setVisible(true);
         activityDLbl.setVisible(true);
+        activityTLbl.setVisible(true);
+        metLbl.setVisible(true);
+         
+        metTf.setVisible(true);
+        frequencyTf.setVisible(true);
+        activityTTf.setVisible(true);
         activityDTf.setVisible(true);
+        
         activitiesMBtn.setVisible(true);
         caloriesBBtn.setVisible(true);
-        activityTLbl.setVisible(true);
-        activityTTf.setVisible(true);
+       
         mentalAILbl.setVisible(true);
         
         //To change Activity page background colour
@@ -948,28 +990,37 @@ public class MentalGUI extends javax.swing.JFrame {
         
         //makes the named jlabel and textfield  not visible
         frequencyLbl.setVisible(false);
-        frequencyTf.setVisible(false);
         metLbl.setVisible(false);
-        metTf.setVisible(false);
         activityDLbl.setVisible(false);
-        activityDTf.setVisible(false);
-        activitiesMBtn.setVisible(false);
-        caloriesBBtn.setVisible(false);
         activityTLbl.setVisible(false);
-        activityTTf.setVisible(false);
-        mentalAILbl.setVisible(false);
-        mWLbl.setVisible(false);
         sleepHLbl.setVisible(false);
         stressLbl.setVisible(false);
+       
+        frequencyTf.setVisible(false);
+        metTf.setVisible(false);
+        activityDTf.setVisible(false);
+        activityTTf.setVisible(false);
         sleepHTf.setVisible(false);
         stressTf.setVisible(false);
         
+        activitiesMBtn.setVisible(false);
+        caloriesBBtn.setVisible(false);
+        sleepBtn.setVisible(false);
+      
+        mentalAILbl.setVisible(false);
+        mWLbl.setVisible(false);
+        mentalSTILbl.setVisible(false);
+        mentalSTILbl.setVisible(false);
+        
         //makes the named jlabel and textfield visible
         dietTypeLbl.setVisible(true);
-        dietTTf.setVisible(true);
         caloriesLbl.setVisible(true);
+        
+        dietTTf.setVisible(true);
         caloriesTf.setVisible(true);
+        
         dietMBtn.setVisible(true);
+        
         mentalDILbl.setVisible(true);
        
         //To change Diet page background colour
@@ -1052,31 +1103,42 @@ public class MentalGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         
           
-        //makes the named jlabel and textfield  not visible
+        //makes the named jlabel, textfield and button  not visible
         frequencyLbl.setVisible(false);
-        frequencyTf.setVisible(false);
+        activityDLbl.setVisible(false);
+        activityTLbl.setVisible(false);
+        dietTypeLbl.setVisible(false);
+        caloriesLbl.setVisible(false);
+        stressLbl.setVisible(false);
+        
         metLbl.setVisible(false);
         metTf.setVisible(false);
-        activityDLbl.setVisible(false);
+        frequencyTf.setVisible(false);
         activityDTf.setVisible(false);
-        activitiesMBtn.setVisible(false);
-        caloriesBBtn.setVisible(false);
-        activityTLbl.setVisible(false);
         activityTTf.setVisible(false);
-        mentalAILbl.setVisible(false);
-        mWLbl.setVisible(false);
-        dietTypeLbl.setVisible(false);
         dietTTf.setVisible(false);
-        caloriesLbl.setVisible(false);
         caloriesTf.setVisible(false);
-        dietMBtn.setVisible(false);
-        mentalDILbl.setVisible(false);
-        stressLbl.setVisible(false);
         stressTf.setVisible(false);
         
+        
+        activitiesMBtn.setVisible(false);
+        caloriesBBtn.setVisible(false);
+        dietMBtn.setVisible(false);
+        
+       
+        mentalAILbl.setVisible(false);
+        mentalDILbl.setVisible(false);
+        mWLbl.setVisible(false);
+        mentalSTILbl.setVisible(false);
+                
         //makes the named jlabel and textfield visible
        sleepHLbl.setVisible(true);
        sleepHTf.setVisible(true);
+       sleepBtn.setVisible(true);
+       mentalSILbl.setVisible(true);
+       
+            //To change Mental sleep page background colour
+        getContentPane().setBackground(new java.awt.Color(255, 227, 212));
        
     }//GEN-LAST:event_sleepRbActionPerformed
 
@@ -1085,31 +1147,63 @@ public class MentalGUI extends javax.swing.JFrame {
         
               //makes the named jlabel and textfield  not visible
         frequencyLbl.setVisible(false);
-        frequencyTf.setVisible(false);
-        metLbl.setVisible(false);
-        metTf.setVisible(false);
         activityDLbl.setVisible(false);
+        metLbl.setVisible(false);
+        activityTLbl.setVisible(false);
+        dietTypeLbl.setVisible(false);
+        caloriesLbl.setVisible(false);
+        sleepHLbl.setVisible(false);
+        
+        metTf.setVisible(false);
+        frequencyTf.setVisible(false);
         activityDTf.setVisible(false);
+        activityTTf.setVisible(false);
+        dietTTf.setVisible(false);
+        caloriesTf.setVisible(false);
+        sleepHTf.setVisible(false);
+        
         activitiesMBtn.setVisible(false);
         caloriesBBtn.setVisible(false);
-        activityTLbl.setVisible(false);
-        activityTTf.setVisible(false);
+        dietMBtn.setVisible(false);
+        sleepBtn.setVisible(false);
+       
         mentalAILbl.setVisible(false);
         mWLbl.setVisible(false);
-        dietTypeLbl.setVisible(false);
-        dietTTf.setVisible(false);
-        caloriesLbl.setVisible(false);
-        caloriesTf.setVisible(false);
-        dietMBtn.setVisible(false);
         mentalDILbl.setVisible(false);
-       sleepHLbl.setVisible(false);
-       sleepHTf.setVisible(false);
+        mentalSILbl.setVisible(false);
         
         //makes the named jlabel and textfield visible
        stressLbl.setVisible(true);
        stressTf.setVisible(true);
-        
+       mentalSTILbl.setVisible(true);
+       
+          //To change Mental stress management page background colour
+        getContentPane().setBackground(new java.awt.Color(255, 255, 255));
+               
     }//GEN-LAST:event_stressRbActionPerformed
+
+    private void sleepBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sleepBtnActionPerformed
+        // TODO add your handling code here:
+        
+        //source:
+        //https://www.thesleepreset.com/blog/improve-sleep-hygiene-with-these-simple-tips
+        //https://www.schizophrenic.nyc/sleep-hygiene-for-mental-health/
+        
+        //Prints mesage box to show some sleep management tips for user
+        JOptionPane.showMessageDialog(null,"Sleep Hygiene: "
+                + " Sleep Hygiene is developing necessary habit to allow for good night time sleep quality which leads to felling rested and alert all day.\n"
+                + "4 Tips Of Good Sleep Hygiene \n"
+                + "(1)Go to bed and wake up at same time everyday: \n"
+                + "If you stay up late or have insomnia still get up at the same time the next day. \n"
+                + "(2)Only use your bed for sleep and sex: \n"
+                + "Do not have TV in your bedroom.Do not use your phone or tablet in your bed.\n"
+                + "(3)Make aA Space That Puts Your Body To Sleep: \n"
+                + "Keep your room cooler and darker thatn other room in your house.\n"
+                + "(4)Try To Avoid Naps: \n "
+                + "Don't stay in bed awake. Get up and do something relaxing, something low energy for 15 min, then try again.");
+
+        
+    }//GEN-LAST:event_sleepBtnActionPerformed
 
   
     
@@ -1176,11 +1270,14 @@ public class MentalGUI extends javax.swing.JFrame {
     private javax.swing.JLabel mentalAILbl;
     private javax.swing.JLabel mentalDILbl;
     private javax.swing.JLabel mentalLbl;
+    private javax.swing.JLabel mentalSILbl;
+    private javax.swing.JLabel mentalSTILbl;
     private javax.swing.JButton menuMBtn;
     private javax.swing.JLabel metLbl;
     private javax.swing.JTextField metTf;
     private javax.swing.JButton refreshMBtn;
     private javax.swing.JButton removeMBtn;
+    private javax.swing.JButton sleepBtn;
     private javax.swing.JLabel sleepHLbl;
     private javax.swing.JTextField sleepHTf;
     private javax.swing.JRadioButton sleepRb;

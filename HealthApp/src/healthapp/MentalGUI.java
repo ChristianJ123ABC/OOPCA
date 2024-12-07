@@ -331,7 +331,7 @@ public class MentalGUI extends javax.swing.JFrame {
         dietTypeLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         dietTypeLbl.setForeground(new java.awt.Color(0, 102, 102));
         dietTypeLbl.setText("Diet Type:");
-        getContentPane().add(dietTypeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 150, -1));
+        getContentPane().add(dietTypeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 150, 30));
 
         IdTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         IdTf.addActionListener(new java.awt.event.ActionListener() {
@@ -351,7 +351,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 caloriesBBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(caloriesBBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, -1, -1));
+        getContentPane().add(caloriesBBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, -1, -1));
 
         menuMBtn.setBackground(new java.awt.Color(0, 204, 204));
         menuMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -405,7 +405,7 @@ public class MentalGUI extends javax.swing.JFrame {
         caloriesLbl.setForeground(new java.awt.Color(0, 102, 51));
         caloriesLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         caloriesLbl.setText("Calories:");
-        getContentPane().add(caloriesLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 150, 30));
+        getContentPane().add(caloriesLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 150, 30));
 
         IdLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         IdLbl.setForeground(new java.awt.Color(0, 51, 51));
@@ -415,17 +415,17 @@ public class MentalGUI extends javax.swing.JFrame {
         frequencyLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         frequencyLbl.setForeground(new java.awt.Color(102, 51, 0));
         frequencyLbl.setText("Frequency:");
-        getContentPane().add(frequencyLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 160, -1));
+        getContentPane().add(frequencyLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 160, 30));
 
         metLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         metLbl.setForeground(new java.awt.Color(102, 0, 153));
         metLbl.setText("MET Value:");
-        getContentPane().add(metLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 150, -1));
+        getContentPane().add(metLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 150, -1));
 
         activityDLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         activityDLbl.setForeground(new java.awt.Color(51, 102, 0));
         activityDLbl.setText("Activity Duration:");
-        getContentPane().add(activityDLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, -1, -1));
+        getContentPane().add(activityDLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, -1));
 
         stressLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         stressLbl.setForeground(new java.awt.Color(153, 153, 0));
@@ -435,7 +435,7 @@ public class MentalGUI extends javax.swing.JFrame {
         sleepHLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         sleepHLbl.setForeground(new java.awt.Color(51, 0, 204));
         sleepHLbl.setText("Sleep Hours:");
-        getContentPane().add(sleepHLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 150, -1));
+        getContentPane().add(sleepHLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 150, 30));
 
         frequencyTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         frequencyTf.addActionListener(new java.awt.event.ActionListener() {
@@ -443,7 +443,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 frequencyTfActionPerformed(evt);
             }
         });
-        getContentPane().add(frequencyTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 204, 30));
+        getContentPane().add(frequencyTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 204, 30));
 
         stressTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         stressTf.addActionListener(new java.awt.event.ActionListener() {
@@ -460,7 +460,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 activityDTfActionPerformed(evt);
             }
         });
-        getContentPane().add(activityDTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 204, 30));
+        getContentPane().add(activityDTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 204, 30));
 
         metTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         metTf.setToolTipText("Check Activity Types For MET Value");
@@ -469,7 +469,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 metTfActionPerformed(evt);
             }
         });
-        getContentPane().add(metTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 204, 30));
+        getContentPane().add(metTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 204, 30));
 
         dietTTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         dietTTf.setToolTipText("click Types of Diet button to choose diet.");
@@ -478,7 +478,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 dietTTfActionPerformed(evt);
             }
         });
-        getContentPane().add(dietTTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 204, -1));
+        getContentPane().add(dietTTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 204, -1));
 
         caloriesTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         caloriesTf.setToolTipText("Check diet type button to know calories of your diet.");
@@ -487,7 +487,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 caloriesTfActionPerformed(evt);
             }
         });
-        getContentPane().add(caloriesTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 204, 30));
+        getContentPane().add(caloriesTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 204, 30));
 
         sleepHTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         sleepHTf.addActionListener(new java.awt.event.ActionListener() {
@@ -495,7 +495,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 sleepHTfActionPerformed(evt);
             }
         });
-        getContentPane().add(sleepHTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 204, 30));
+        getContentPane().add(sleepHTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 204, 30));
 
         activitiesMBtn.setBackground(new java.awt.Color(0, 204, 204));
         activitiesMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -508,7 +508,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 activitiesMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(activitiesMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, -1));
+        getContentPane().add(activitiesMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, -1, -1));
 
         dietMBtn.setBackground(new java.awt.Color(0, 204, 204));
         dietMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -522,7 +522,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 dietMBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(dietMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 460, -1, -1));
+        getContentPane().add(dietMBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 200, -1));
 
         activitiesRB.setBackground(new java.awt.Color(248, 245, 238));
         mBtnGrp.add(activitiesRB);
@@ -554,7 +554,7 @@ public class MentalGUI extends javax.swing.JFrame {
         activityTLbl.setForeground(new java.awt.Color(102, 0, 153));
         activityTLbl.setText("Activity Type:");
         activityTLbl.setToolTipText("");
-        getContentPane().add(activityTLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 140, 26));
+        getContentPane().add(activityTLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, 26));
 
         activityTTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         activityTTf.setToolTipText("check Activity Types Below");
@@ -563,7 +563,7 @@ public class MentalGUI extends javax.swing.JFrame {
                 activityTTfActionPerformed(evt);
             }
         });
-        getContentPane().add(activityTTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 205, 30));
+        getContentPane().add(activityTTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 205, 30));
 
         refreshMBtn.setBackground(new java.awt.Color(0, 204, 204));
         refreshMBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N

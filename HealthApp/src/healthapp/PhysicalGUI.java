@@ -345,7 +345,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 cardioTypeTfActionPerformed(evt);
             }
         });
-        getContentPane().add(cardioTypeTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 128, 204, 23));
+        getContentPane().add(cardioTypeTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 204, 30));
 
         addBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         addBtn.setForeground(new java.awt.Color(102, 255, 102));
@@ -409,32 +409,32 @@ public class PhysicalGUI extends javax.swing.JFrame {
 
         idLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         idLbl.setText("ID:");
-        getContentPane().add(idLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 53, 131, -1));
+        getContentPane().add(idLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 131, -1));
 
         cardioTypeLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cardioTypeLbl.setForeground(new java.awt.Color(255, 0, 0));
         cardioTypeLbl.setText("Cardio Type:");
-        getContentPane().add(cardioTypeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 127, 131, -1));
+        getContentPane().add(cardioTypeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 131, -1));
 
         cardioDurLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cardioDurLbl.setForeground(new java.awt.Color(255, 0, 0));
         cardioDurLbl.setText("Cardio Duration (in min):");
-        getContentPane().add(cardioDurLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 170, 240, -1));
+        getContentPane().add(cardioDurLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 240, -1));
 
         workoutLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         workoutLbl.setForeground(new java.awt.Color(0, 0, 255));
         workoutLbl.setText("Workout:");
-        getContentPane().add(workoutLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 213, 131, -1));
+        getContentPane().add(workoutLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 131, -1));
 
         durationLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         durationLbl.setForeground(new java.awt.Color(0, 0, 255));
         durationLbl.setText("Session Duration (in min):");
-        getContentPane().add(durationLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 256, -1, -1));
+        getContentPane().add(durationLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         dietTypeLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         dietTypeLbl.setForeground(new java.awt.Color(0, 255, 0));
         dietTypeLbl.setText("Diet Type:");
-        getContentPane().add(dietTypeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 298, 131, -1));
+        getContentPane().add(dietTypeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 131, -1));
 
         idTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         idTf.setBorder(null);
@@ -443,7 +443,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 idTfActionPerformed(evt);
             }
         });
-        getContentPane().add(idTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 54, 204, 23));
+        getContentPane().add(idTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 43, 204, 30));
 
         cardioDurTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         cardioDurTf.setBorder(null);
@@ -452,7 +452,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 cardioDurTfActionPerformed(evt);
             }
         });
-        getContentPane().add(cardioDurTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 204, 23));
+        getContentPane().add(cardioDurTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 204, 30));
 
         workoutTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         workoutTf.setBorder(null);
@@ -461,7 +461,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 workoutTfActionPerformed(evt);
             }
         });
-        getContentPane().add(workoutTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 204, 23));
+        getContentPane().add(workoutTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 83, 204, 30));
 
         durationTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         durationTf.setBorder(null);
@@ -470,7 +470,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 durationTfActionPerformed(evt);
             }
         });
-        getContentPane().add(durationTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 204, 23));
+        getContentPane().add(durationTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 204, 30));
 
         dietTypeTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         dietTypeTf.setBorder(null);
@@ -479,7 +479,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 dietTypeTfActionPerformed(evt);
             }
         });
-        getContentPane().add(dietTypeTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 299, 204, 23));
+        getContentPane().add(dietTypeTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 204, 30));
 
         pBtnGrp.add(macroRb);
         macroRb.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -581,7 +581,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 activityTfActionPerformed(evt);
             }
         });
-        getContentPane().add(activityTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 85, 204, 23));
+        getContentPane().add(activityTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 85, 204, 30));
 
         activityQuestionBtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         activityQuestionBtn.setForeground(new java.awt.Color(255, 153, 0));

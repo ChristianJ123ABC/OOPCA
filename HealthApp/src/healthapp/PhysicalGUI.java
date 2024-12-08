@@ -470,7 +470,7 @@ public class PhysicalGUI extends javax.swing.JFrame {
                 durationTfActionPerformed(evt);
             }
         });
-        getContentPane().add(durationTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 204, 30));
+        getContentPane().add(durationTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 204, 23));
 
         dietTypeTf.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         dietTypeTf.setBorder(null);
